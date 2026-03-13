@@ -1,0 +1,84 @@
+name: Amazon Macie
+description: >-
+  Amazon Macie is a data security service that discovers sensitive data by
+  using machine learning and pattern matching, provides visibility into data
+  security risks, and enables automated protection against those risks.
+  Macie automates the discovery of sensitive data, such as personally
+  identifiable information (PII) and financial data, to provide you with a
+  better understanding of the data that your organization stores in Amazon
+  S3. Macie also provides you with an inventory of your S3 buckets and
+  automatically evaluates and monitors those buckets for security and
+  access control.
+image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+url: https://apis.io/amazon-macie
+created: '2024-01-15'
+modified: '2026-03-13'
+
+apis:
+  - name: Amazon Macie API
+    description: >-
+      The Amazon Macie API provides programmatic access to create and manage
+      the resources, data, and activities for discovering, classifying, and
+      protecting sensitive data stored in Amazon S3 buckets.
+    image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+    baseURL: https://macie2.amazonaws.com
+    properties:
+      - type: documentation
+        url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+      - type: openapi
+        url: openapi/openapi.yml
+      - type: openapi
+        url: >-
+          https://api.apis.guru/v2/specs/amazonaws.com/macie2/latest/openapi.yaml
+      - type: json-schema
+        url: json-schema/json-schema.yml
+      - type: json-ld
+        url: json-ld/json-ld.yml
+      - type: pricing
+        url: https://aws.amazon.com/macie/pricing/
+      - type: getting-started
+        url: https://aws.amazon.com/macie/getting-started/
+      - type: faq
+        url: https://aws.amazon.com/macie/faq/
+
+common:
+  - type: portal
+    url: https://aws.amazon.com/
+  - type: website
+    url: https://aws.amazon.com/macie/
+  - type: documentation
+    url: https://docs.aws.amazon.com/macie/
+  - type: terms-of-service
+    url: https://aws.amazon.com/service-terms/
+  - type: privacy-policy
+    url: https://aws.amazon.com/privacy/
+  - type: support
+    url: https://aws.amazon.com/premiumsupport/
+  - type: blog
+    url: https://aws.amazon.com/blogs/security/
+  - type: github
+    url: https://github.com/aws
+  - type: console
+    url: https://console.aws.amazon.com/macie/
+  - type: sign-up
+    url: https://portal.aws.amazon.com/billing/signup
+  - type: login
+    url: https://signin.aws.amazon.com/
+  - type: status
+    url: https://health.aws.amazon.com/health/status
+  - type: knowledge-center
+    url: https://repost.aws/knowledge-center
+  - type: youtube
+    url: https://www.youtube.com/user/AmazonWebServices
+  - type: stack-overflow
+    url: https://stackoverflow.com/questions/tagged/amazon-macie
+  - type: contact
+    url: https://aws.amazon.com/contact-us/
+  - type: security
+    url: https://aws.amazon.com/security/
+  - type: compliance
+    url: https://aws.amazon.com/compliance/
+
+maintainer:
+  name: Kin Lane
+  email: kin@apievangelist.com

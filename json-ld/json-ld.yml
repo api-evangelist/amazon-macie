@@ -1,0 +1,16 @@
+"@context":
+  "@vocab": https://schema.org/
+  name: name
+  description: description
+  url: url
+"@type": WebAPI
+name: Amazon Macie API
+description: >-
+  Amazon Macie is a data security service that discovers sensitive data
+  by using machine learning and pattern matching, provides visibility
+  into data security risks, and enables automated protection.
+url: https://aws.amazon.com/macie/
+provider:
+  "@type": Organization
+  name: Amazon Web Services
+  url: https://aws.amazon.com/

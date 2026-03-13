@@ -1,0 +1,14 @@
+openapi: 3.0.0
+info:
+  title: Amazon Macie API
+  description: >-
+    Amazon Macie is a data security service that discovers sensitive data
+    by using machine learning and pattern matching, provides visibility
+    into data security risks, and enables automated protection.
+  version: '2020-01-01'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+servers:
+  - url: https://macie2.amazonaws.com
+paths: {}

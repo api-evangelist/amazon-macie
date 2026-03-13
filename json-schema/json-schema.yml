@@ -1,0 +1,7 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Amazon Macie API Schema
+description: >-
+  JSON Schema for the Amazon Macie API, providing data security
+  and privacy discovery capabilities.
+type: object
+properties: {}
