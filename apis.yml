@@ -1,15 +1,13 @@
 name: Amazon Macie
 description: >-
-  Amazon Macie is a data security service that discovers sensitive data by
-  using machine learning and pattern matching, provides visibility into data
-  security risks, and enables automated protection against those risks.
-  Macie automates the discovery of sensitive data, such as personally
-  identifiable information (PII) and financial data, to provide you with a
-  better understanding of the data that your organization stores in Amazon
-  S3. Macie also provides you with an inventory of your S3 buckets and
-  automatically evaluates and monitors those buckets for security and
-  access control.
-image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+  Amazon Macie is a data security service that discovers sensitive data by using machine
+  learning and pattern matching, provides visibility into data security risks, and
+  enables automated protection against those risks. Macie automates the discovery
+  of sensitive data, such as personally identifiable information (PII) and financial
+  data, to provide you with a better understanding of the data that your organization
+  stores in Amazon S3.
+image: 
+  https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://apis.io/amazon-macie
 created: '2024-01-15'
 modified: '2026-03-16'
@@ -20,11 +18,13 @@ apis:
       The Amazon Macie API provides programmatic access to create and manage
       the resources, data, and activities for discovering, classifying, and
       protecting sensitive data stored in Amazon S3 buckets.
-    image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+    image: 
+      https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
     baseURL: https://macie2.amazonaws.com
     properties:
       - type: documentation
-        url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+        url: 
+          https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
       - type: openapi
         url: openapi/openapi.yml
       - type: openapi
