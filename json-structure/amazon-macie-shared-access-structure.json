@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-shared-access-structure.json",
+  "name": "SharedAccess",
+  "description": "SharedAccess schema from Amazon Macie API",
+  "type": "string",
+  "enum": [
+    "EXTERNAL",
+    "INTERNAL",
+    "NOT_SHARED",
+    "UNKNOWN"
+  ]
+}

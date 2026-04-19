@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-findings-filter-list-item-structure.json",
+  "name": "FindingsFilterListItem",
+  "description": "Provides information about a findings filter.",
+  "type": "object",
+  "properties": {
+    "action": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingsFilterAction"
+        },
+        {
+          "description": "The action that's performed on findings that match the filter criteria. Possible values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the filter."
+        }
+      ]
+    },
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The unique identifier for the filter."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The custom name of the filter."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "A map of key-value pairs that specifies which tags (keys and values) are associated with the filter."
+        }
+      ]
+    }
+  }
+}

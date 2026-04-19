@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-update-macie-session-request-schema.json",
+  "title": "UpdateMacieSessionRequest",
+  "description": "UpdateMacieSessionRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "findingPublishingFrequency": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingPublishingFrequency"
+        },
+        {
+          "description": "Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events)."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MacieStatus"
+        },
+        {
+          "description": "Specifies a new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account."
+        }
+      ]
+    }
+  }
+}

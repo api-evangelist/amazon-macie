@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-relationship-status-structure.json",
+  "name": "RelationshipStatus",
+  "description": "The current status of the relationship between an account and an associated Amazon Macie administrator account. Possible values are:",
+  "type": "string",
+  "enum": [
+    "Enabled",
+    "Paused",
+    "Invited",
+    "Created",
+    "Removed",
+    "Resigned",
+    "EmailVerificationInProgress",
+    "EmailVerificationFailed",
+    "RegionDisabled",
+    "AccountSuspended"
+  ]
+}

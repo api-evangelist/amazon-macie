@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-last-run-error-status-code-structure.json",
+  "name": "LastRunErrorStatusCode",
+  "description": "Specifies whether any account- or bucket-level access errors occurred during the run of a one-time classification job or the most recent run of a recurring classification job. Possible values are:",
+  "type": "string",
+  "enum": [
+    "NONE",
+    "ERROR"
+  ]
+}

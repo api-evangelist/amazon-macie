@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-create-allow-list-request-structure.json",
+  "name": "CreateAllowListRequest",
+  "description": "CreateAllowListRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "A unique, case-sensitive token that you provide to ensure the idempotency of the request."
+        }
+      ]
+    },
+    "criteria": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AllowListCriteria"
+        },
+        {
+          "description": "The criteria that specify the text or text pattern to ignore. The criteria can be the location and name of an S3 object that lists specific text to ignore (s3WordsList), or a regular expression (regex) that defines a text pattern to ignore."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin1Max512PatternSS"
+        },
+        {
+          "description": "A custom description of the allow list. The description can contain as many as 512 characters."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin1Max128Pattern"
+        },
+        {
+          "description": "A custom name for the allow list. The name can contain as many as 128 characters."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "<p>A map of key-value pairs that specifies the tags to associate with the allow list.</p> <p>An allow list can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "criteria",
+    "clientToken",
+    "name"
+  ]
+}

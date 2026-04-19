@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-list-jobs-filter-criteria-structure.json",
+  "name": "ListJobsFilterCriteria",
+  "description": "Specifies criteria for filtering the results of a request for information about classification jobs.",
+  "type": "object",
+  "properties": {
+    "excludes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfListJobsFilterTerm"
+        },
+        {
+          "description": "An array of objects, one for each condition that determines which jobs to exclude from the results."
+        }
+      ]
+    },
+    "includes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfListJobsFilterTerm"
+        },
+        {
+          "description": "An array of objects, one for each condition that determines which jobs to include in the results."
+        }
+      ]
+    }
+  }
+}

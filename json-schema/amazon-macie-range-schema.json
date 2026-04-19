@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-range-schema.json",
+  "title": "Range",
+  "description": "Specifies the location of an occurrence of sensitive data in an email message or a non-binary text file such as an HTML, TXT, or XML file.",
+  "type": "object",
+  "properties": {
+    "end": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "<p>The number of lines from the beginning of the file to the end of the sensitive data.</p> "
+        }
+      ]
+    },
+    "start": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "<p>The number of lines from the beginning of the file to the beginning of the sensitive data.</p> "
+        }
+      ]
+    },
+    "startColumn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The number of characters, with spaces and starting from 1, from the beginning of the first line that contains the sensitive data (start) to the beginning of the sensitive data."
+        }
+      ]
+    }
+  }
+}

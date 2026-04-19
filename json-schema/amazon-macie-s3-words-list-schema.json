@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-s3-words-list-schema.json",
+  "title": "S3WordsList",
+  "description": "Provides information about an S3 object that lists specific text to ignore.",
+  "type": "object",
+  "properties": {
+    "bucketName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin3Max255PatternAZaZ093255"
+        },
+        {
+          "description": "The full name of the S3 bucket that contains the object."
+        }
+      ]
+    },
+    "objectKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin1Max1024PatternSS"
+        },
+        {
+          "description": "The full name (key) of the object."
+        }
+      ]
+    }
+  },
+  "required": [
+    "bucketName",
+    "objectKey"
+  ]
+}

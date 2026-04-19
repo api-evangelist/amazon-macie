@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-finding-statistics-sort-attribute-name-structure.json",
+  "name": "FindingStatisticsSortAttributeName",
+  "description": "The grouping to sort the results by. Valid values are:",
+  "type": "string",
+  "enum": [
+    "groupKey",
+    "count"
+  ]
+}

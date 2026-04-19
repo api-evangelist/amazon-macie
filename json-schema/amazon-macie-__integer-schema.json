@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-__integer-schema.json",
+  "title": "__integer",
+  "description": "__integer schema from Amazon Macie API",
+  "type": "integer"
+}

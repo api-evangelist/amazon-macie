@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-page-structure.json",
+  "name": "Page",
+  "description": "Specifies the location of an occurrence of sensitive data in an Adobe Portable Document Format file.",
+  "type": "object",
+  "properties": {
+    "lineRange": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Range"
+        },
+        {
+          "description": " <p>Reserved for future use.</p>"
+        }
+      ]
+    },
+    "offsetRange": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Range"
+        },
+        {
+          "description": " <p>Reserved for future use.</p>"
+        }
+      ]
+    },
+    "pageNumber": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The page number of the page that contains the sensitive data."
+        }
+      ]
+    }
+  }
+}

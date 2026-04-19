@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-get-custom-data-identifier-response-structure.json",
+  "name": "GetCustomDataIdentifierResponse",
+  "description": "GetCustomDataIdentifierResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the custom data identifier."
+        }
+      ]
+    },
+    "createdAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "description": "The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created."
+        }
+      ]
+    },
+    "deleted": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "description": "Specifies whether the custom data identifier was deleted. If you delete a custom data identifier, Amazon Macie doesn't delete it permanently. Instead, it soft deletes the identifier."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The custom description of the custom data identifier."
+        }
+      ]
+    },
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The unique identifier for the custom data identifier."
+        }
+      ]
+    },
+    "ignoreWords": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "description": "An array that lists specific character sequences (<i>ignore words</i>) to exclude from the results. If the text matched by the regular expression contains any string in this array, Amazon Macie ignores it. Ignore words are case sensitive."
+        }
+      ]
+    },
+    "keywords": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "description": "An array that lists specific character sequences (<i>keywords</i>), one of which must precede and be within proximity (maximumMatchDistance) of the regular expression to match. Keywords aren't case sensitive."
+        }
+      ]
+    },
+    "maximumMatchDistance": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__integer"
+        },
+        {
+          "description": "The maximum number of characters that can exist between the end of at least one complete character sequence specified by the keywords array and the end of the text that matches the regex pattern. If a complete keyword precedes all the text that matches the pattern and the keyword is within the specified distance, Amazon Macie includes the result. Otherwise, Macie excludes the result."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The custom name of the custom data identifier."
+        }
+      ]
+    },
+    "regex": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The regular expression (<i>regex</i>) that defines the pattern to match."
+        }
+      ]
+    },
+    "severityLevels": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SeverityLevelList"
+        },
+        {
+          "description": "Specifies the severity that's assigned to findings that the custom data identifier produces, based on the number of occurrences of text that matches the custom data identifier's detection criteria. By default, Amazon Macie creates findings for S3 objects that contain at least one occurrence of text that matches the detection criteria, and Macie assigns the MEDIUM severity to those findings."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "A map of key-value pairs that identifies the tags (keys and values) that are associated with the custom data identifier."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-criteria-for-job-schema.json",
+  "title": "CriteriaForJob",
+  "description": "Specifies a property- or tag-based condition that defines criteria for including or excluding S3 buckets from a classification job.",
+  "type": "object",
+  "properties": {
+    "simpleCriterion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SimpleCriterionForJob"
+        },
+        {
+          "description": "A property-based condition that defines a property, operator, and one or more values for including or excluding buckets from the job."
+        }
+      ]
+    },
+    "tagCriterion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagCriterionForJob"
+        },
+        {
+          "description": "A tag-based condition that defines an operator and tag keys, tag values, or tag key and value pairs for including or excluding buckets from the job."
+        }
+      ]
+    }
+  }
+}

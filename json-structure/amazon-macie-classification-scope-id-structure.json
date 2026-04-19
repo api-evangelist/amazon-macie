@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-classification-scope-id-structure.json",
+  "name": "ClassificationScopeId",
+  "description": "The unique identifier the classification scope.",
+  "type": "string",
+  "pattern": "^[0-9a-z]*$"
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-list-findings-request-structure.json",
+  "name": "ListFindingsRequest",
+  "description": "ListFindingsRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "findingCriteria": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingCriteria"
+        },
+        {
+          "description": "The criteria to use to filter the results."
+        }
+      ]
+    },
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__integer"
+        },
+        {
+          "description": "The maximum number of items to include in each page of the response."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The nextToken string that specifies which page of results to return in a paginated response."
+        }
+      ]
+    },
+    "sortCriteria": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SortCriteria"
+        },
+        {
+          "description": "The criteria to use to sort the results."
+        }
+      ]
+    }
+  }
+}

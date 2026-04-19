@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-usage-statistics-filter-structure.json",
+  "name": "UsageStatisticsFilter",
+  "description": "Specifies a condition for filtering the results of a query for quota and usage data for one or more Amazon Macie accounts.",
+  "type": "object",
+  "properties": {
+    "comparator": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UsageStatisticsFilterComparator"
+        },
+        {
+          "description": "The operator to use in the condition. If the value for the key property is accountId, this value must be CONTAINS. If the value for the key property is any other supported field, this value can be EQ, GT, GTE, LT, LTE, or NE."
+        }
+      ]
+    },
+    "key": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UsageStatisticsFilterKey"
+        },
+        {
+          "description": "The field to use in the condition."
+        }
+      ]
+    },
+    "values": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "description": "<p>An array that lists values to use in the condition, based on the value for the field specified by the key property. If the value for the key property is accountId, this array can specify multiple values. Otherwise, this array can specify only one value.</p> <p>Valid values for each supported field are:</p> <ul><li><p>accountId - The unique identifier for an Amazon Web Services account.</p></li> <li><p>freeTrialStartDate - The date and time, in UTC and extended ISO 8601 format, when the Amazon Macie free trial started for an account.</p></li> <li><p>serviceLimit - A Boolean (true or false) value that indicates whether an account has reached its monthly quota.</p></li> <li><p>total - A string that represents the current estimated cost for an account.</p></li></ul>"
+        }
+      ]
+    }
+  }
+}

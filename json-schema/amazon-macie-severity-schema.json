@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-severity-schema.json",
+  "title": "Severity",
+  "description": "Provides the numerical and qualitative representations of a finding's severity.",
+  "type": "object",
+  "properties": {
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SeverityDescription"
+        },
+        {
+          "description": "The qualitative representation of the finding's severity, ranging from Low (least severe) to High (most severe)."
+        }
+      ]
+    },
+    "score": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The numerical representation of the finding's severity, ranging from 1 (least severe) to 3 (most severe)."
+        }
+      ]
+    }
+  }
+}

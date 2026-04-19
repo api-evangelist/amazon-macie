@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-delete-member-request-schema.json",
+  "title": "DeleteMemberRequest",
+  "description": "DeleteMemberRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {}
+}

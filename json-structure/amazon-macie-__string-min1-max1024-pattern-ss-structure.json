@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-__string-min1-max1024-pattern-ss-structure.json",
+  "name": "__stringMin1Max1024PatternSS",
+  "description": "__stringMin1Max1024PatternSS schema from Amazon Macie API",
+  "type": "string",
+  "pattern": "^[\\s\\S]+$"
+}

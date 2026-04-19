@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-reveal-request-status-schema.json",
+  "title": "RevealRequestStatus",
+  "description": "The status of a request to retrieve occurrences of sensitive data reported by a finding. Possible values are:",
+  "type": "string",
+  "enum": [
+    "SUCCESS",
+    "PROCESSING",
+    "ERROR"
+  ]
+}

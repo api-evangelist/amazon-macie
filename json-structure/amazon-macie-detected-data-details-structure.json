@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-detected-data-details-structure.json",
+  "name": "DetectedDataDetails",
+  "description": "Specifies 1-10 occurrences of a specific type of sensitive data reported by a finding.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin1Max128"
+        },
+        {
+          "description": "An occurrence of the specified type of sensitive data. Each occurrence can contain 1-128 characters."
+        }
+      ]
+    }
+  },
+  "required": [
+    "value"
+  ]
+}

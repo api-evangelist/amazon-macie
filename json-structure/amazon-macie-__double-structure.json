@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-__double-structure.json",
+  "name": "__double",
+  "description": "__double schema from Amazon Macie API",
+  "type": "double"
+}

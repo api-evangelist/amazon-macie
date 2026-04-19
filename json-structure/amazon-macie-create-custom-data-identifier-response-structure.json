@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-create-custom-data-identifier-response-structure.json",
+  "name": "CreateCustomDataIdentifierResponse",
+  "description": "CreateCustomDataIdentifierResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "customDataIdentifierId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The unique identifier for the custom data identifier that was created."
+        }
+      ]
+    }
+  }
+}

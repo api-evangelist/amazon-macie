@@ -1,0 +1,14 @@
+{
+  "bucketArn": "arn:aws:macie2:us-east-1:123456789012:session",
+  "eTag": "example-value",
+  "extension": "example-value",
+  "key": "example-value",
+  "lastModified": "example-value",
+  "path": "example-value",
+  "publicAccess": "example-value",
+  "serverSideEncryption": "abc12345-6789-0123",
+  "size": "example-value",
+  "storageClass": "example-value",
+  "tags": "example-value",
+  "versionId": "abc12345-6789-0123"
+}

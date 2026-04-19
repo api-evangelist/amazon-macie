@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-enable-organization-admin-account-request-structure.json",
+  "name": "EnableOrganizationAdminAccountRequest",
+  "description": "EnableOrganizationAdminAccountRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "adminAccountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Amazon Web Services account ID for the account to designate as the delegated Amazon Macie administrator account for the organization."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "A unique, case-sensitive token that you provide to ensure the idempotency of the request."
+        }
+      ]
+    }
+  },
+  "required": [
+    "adminAccountId"
+  ]
+}

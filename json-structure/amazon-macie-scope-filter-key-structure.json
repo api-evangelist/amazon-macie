@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-scope-filter-key-structure.json",
+  "name": "ScopeFilterKey",
+  "description": "The property to use in a condition that determines whether an S3 object is included or excluded from a classification job. Valid values are:",
+  "type": "string",
+  "enum": [
+    "OBJECT_EXTENSION",
+    "OBJECT_LAST_MODIFIED_DATE",
+    "OBJECT_SIZE",
+    "OBJECT_KEY"
+  ]
+}

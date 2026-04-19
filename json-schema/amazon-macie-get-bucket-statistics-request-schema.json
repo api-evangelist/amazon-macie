@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-get-bucket-statistics-request-schema.json",
+  "title": "GetBucketStatisticsRequest",
+  "description": "GetBucketStatisticsRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The unique identifier for the Amazon Web Services account."
+        }
+      ]
+    }
+  }
+}

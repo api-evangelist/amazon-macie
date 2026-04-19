@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-__string-min3-max255-pattern-a-za-z093255-schema.json",
+  "title": "__stringMin3Max255PatternAZaZ093255",
+  "description": "__stringMin3Max255PatternAZaZ093255 schema from Amazon Macie API",
+  "type": "string",
+  "pattern": "^[A-Za-z0-9.\\-_]{3,255}$"
+}

@@ -1,0 +1,6 @@
+{
+  "blockPublicAcls": "example-value",
+  "blockPublicPolicy": "example-value",
+  "ignorePublicAcls": "example-value",
+  "restrictPublicBuckets": "my-s3-bucket"
+}

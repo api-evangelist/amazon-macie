@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-allow-list-summary-structure.json",
+  "name": "AllowListSummary",
+  "description": "Provides a subset of information about an allow list.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the allow list."
+        }
+      ]
+    },
+    "createdAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "description": "The date and time, in UTC and extended ISO 8601 format, when the allow list was created in Amazon Macie."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin1Max512PatternSS"
+        },
+        {
+          "description": "The custom description of the allow list."
+        }
+      ]
+    },
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin22Max22PatternAZ0922"
+        },
+        {
+          "description": "The unique identifier for the allow list."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin1Max128Pattern"
+        },
+        {
+          "description": "The custom name of the allow list."
+        }
+      ]
+    },
+    "updatedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "description": "The date and time, in UTC and extended ISO 8601 format, when the allow list's settings were most recently changed in Amazon Macie."
+        }
+      ]
+    }
+  }
+}

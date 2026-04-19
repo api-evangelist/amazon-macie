@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-get-invitations-count-response-schema.json",
+  "title": "GetInvitationsCountResponse",
+  "description": "GetInvitationsCountResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "invitationsCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of invitations that were received by the account, not including the currently accepted invitation."
+        }
+      ]
+    }
+  }
+}

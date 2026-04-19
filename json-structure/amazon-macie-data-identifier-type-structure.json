@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-data-identifier-type-structure.json",
+  "name": "DataIdentifierType",
+  "description": "The type of data identifier that detected a specific type of sensitive data in an S3 bucket. Possible values are:",
+  "type": "string",
+  "enum": [
+    "CUSTOM",
+    "MANAGED"
+  ]
+}

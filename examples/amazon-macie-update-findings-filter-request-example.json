@@ -1,0 +1,8 @@
+{
+  "action": "example-value",
+  "clientToken": "example-value",
+  "description": "Sensitive data discovery job for PII detection",
+  "findingCriteria": "example-value",
+  "name": "my-custom-identifier",
+  "position": "example-value"
+}

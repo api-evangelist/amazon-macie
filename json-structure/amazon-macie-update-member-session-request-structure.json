@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-update-member-session-request-structure.json",
+  "name": "UpdateMemberSessionRequest",
+  "description": "UpdateMemberSessionRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MacieStatus"
+        },
+        {
+          "description": "Specifies the new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account."
+        }
+      ]
+    }
+  },
+  "required": [
+    "status"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-reveal-request-status-structure.json",
+  "name": "RevealRequestStatus",
+  "description": "The status of a request to retrieve occurrences of sensitive data reported by a finding. Possible values are:",
+  "type": "string",
+  "enum": [
+    "SUCCESS",
+    "PROCESSING",
+    "ERROR"
+  ]
+}

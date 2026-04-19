@@ -1,0 +1,7 @@
+{
+  "customerManaged": "example-value",
+  "kmsManaged": "example-value",
+  "s3Managed": "example-value",
+  "unencrypted": "example-value",
+  "unknown": "example-value"
+}

@@ -1,0 +1,5 @@
+{
+  "bucketCriteria": "my-s3-bucket",
+  "bucketDefinitions": "my-s3-bucket",
+  "scoping": "example-value"
+}

@@ -1,0 +1,11 @@
+{
+  "bucketCriteria": "my-s3-bucket",
+  "bucketDefinitions": "my-s3-bucket",
+  "createdAt": "example-value",
+  "jobId": "abc12345-6789-0123",
+  "jobStatus": "RUNNING",
+  "jobType": "example-value",
+  "lastRunErrorStatus": "RUNNING",
+  "name": "my-custom-identifier",
+  "userPausedDetails": "example-value"
+}

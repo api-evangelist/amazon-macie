@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-search-resources-criteria-schema.json",
+  "title": "SearchResourcesCriteria",
+  "description": "Specifies a property- or tag-based filter condition for including or excluding Amazon Web Services resources from the query results.",
+  "type": "object",
+  "properties": {
+    "simpleCriterion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SearchResourcesSimpleCriterion"
+        },
+        {
+          "description": "A property-based condition that defines a property, operator, and one or more values for including or excluding resources from the results."
+        }
+      ]
+    },
+    "tagCriterion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SearchResourcesTagCriterion"
+        },
+        {
+          "description": "A tag-based condition that defines an operator and tag keys, tag values, or tag key and value pairs for including or excluding resources from the results."
+        }
+      ]
+    }
+  }
+}

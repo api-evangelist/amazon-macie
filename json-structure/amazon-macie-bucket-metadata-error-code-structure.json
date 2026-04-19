@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-bucket-metadata-error-code-structure.json",
+  "name": "BucketMetadataErrorCode",
+  "description": "The error code for an error that prevented Amazon Macie from retrieving and processing metadata from Amazon S3 for an S3 bucket and the bucket's objects.",
+  "type": "string",
+  "enum": [
+    "ACCESS_DENIED"
+  ]
+}

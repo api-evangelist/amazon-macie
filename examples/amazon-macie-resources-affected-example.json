@@ -1,0 +1,4 @@
+{
+  "s3Bucket": "my-s3-bucket",
+  "s3Object": "example-value"
+}

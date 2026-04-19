@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-job-status-structure.json",
+  "name": "JobStatus",
+  "description": "The status of a classification job. Possible values are:",
+  "type": "string",
+  "enum": [
+    "RUNNING",
+    "PAUSED",
+    "CANCELLED",
+    "COMPLETE",
+    "IDLE",
+    "USER_PAUSED"
+  ]
+}

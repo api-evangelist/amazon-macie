@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-bucket-public-access-schema.json",
+  "title": "BucketPublicAccess",
+  "description": "Provides information about the permissions settings that determine whether an S3 bucket is publicly accessible.",
+  "type": "object",
+  "properties": {
+    "effectivePermission": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EffectivePermission"
+        },
+        {
+          "description": " <p>Specifies whether the bucket is publicly accessible due to the combination of permissions settings that apply to the bucket. Possible values are:</p> <ul><li><p>NOT_PUBLIC - The bucket isn't publicly accessible.</p></li> <li><p>PUBLIC - The bucket is publicly accessible.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket is publicly accessible.</p></li></ul>"
+        }
+      ]
+    },
+    "permissionConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketPermissionConfiguration"
+        },
+        {
+          "description": "The account-level and bucket-level permissions settings for the bucket."
+        }
+      ]
+    }
+  }
+}

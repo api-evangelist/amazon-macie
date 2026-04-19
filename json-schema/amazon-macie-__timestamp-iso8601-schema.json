@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-__timestamp-iso8601-schema.json",
+  "title": "__timestampIso8601",
+  "description": "__timestampIso8601 schema from Amazon Macie API",
+  "type": "string",
+  "format": "date-time"
+}

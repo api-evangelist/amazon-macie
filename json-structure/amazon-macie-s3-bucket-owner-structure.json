@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-s3-bucket-owner-structure.json",
+  "name": "S3BucketOwner",
+  "description": "Provides information about the Amazon Web Services account that owns an S3 bucket.",
+  "type": "object",
+  "properties": {
+    "displayName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The display name of the account that owns the bucket."
+        }
+      ]
+    },
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The canonical user ID for the account that owns the bucket."
+        }
+      ]
+    }
+  }
+}

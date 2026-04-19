@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-get-bucket-statistics-response-structure.json",
+  "name": "GetBucketStatisticsResponse",
+  "description": "GetBucketStatisticsResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "bucketCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of buckets."
+        }
+      ]
+    },
+    "bucketCountByEffectivePermission": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketCountByEffectivePermission"
+        },
+        {
+          "description": "The total number of buckets that are publicly accessible due to a combination of permissions settings for each bucket."
+        }
+      ]
+    },
+    "bucketCountByEncryptionType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketCountByEncryptionType"
+        },
+        {
+          "description": "The total number of buckets whose settings do or don't specify default server-side encryption behavior for objects that are added to the buckets."
+        }
+      ]
+    },
+    "bucketCountByObjectEncryptionRequirement": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketCountPolicyAllowsUnencryptedObjectUploads"
+        },
+        {
+          "description": "The total number of buckets whose bucket policies do or don't require server-side encryption of objects when objects are added to the buckets."
+        }
+      ]
+    },
+    "bucketCountBySharedAccessType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketCountBySharedAccessType"
+        },
+        {
+          "description": "The total number of buckets that are or aren't shared with other Amazon Web Services accounts, Amazon CloudFront origin access identities (OAIs), or CloudFront origin access controls (OACs)."
+        }
+      ]
+    },
+    "bucketStatisticsBySensitivity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketStatisticsBySensitivity"
+        },
+        {
+          "description": "The aggregated sensitive data discovery statistics for the buckets. If automated sensitive data discovery is currently disabled for your account, the value for each statistic is 0."
+        }
+      ]
+    },
+    "classifiableObjectCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of objects that Amazon Macie can analyze in the buckets. These objects use a supported storage class and have a file name extension for a supported file or storage format."
+        }
+      ]
+    },
+    "classifiableSizeInBytes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "<p>The total storage size, in bytes, of all the objects that Amazon Macie can analyze in the buckets. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p> <p>If versioning is enabled for any of the buckets, this value is based on the size of the latest version of each applicable object in the buckets. This value doesn't reflect the storage size of all versions of all applicable objects in the buckets.</p>"
+        }
+      ]
+    },
+    "lastUpdated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "description": "The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently retrieved bucket or object metadata from Amazon S3 for the buckets."
+        }
+      ]
+    },
+    "objectCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of objects in the buckets."
+        }
+      ]
+    },
+    "sizeInBytes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "<p>The total storage size, in bytes, of the buckets.</p> <p>If versioning is enabled for any of the buckets, this value is based on the size of the latest version of each object in the buckets. This value doesn't reflect the storage size of all versions of the objects in the buckets.</p>"
+        }
+      ]
+    },
+    "sizeInBytesCompressed": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "<p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the buckets.</p> <p>If versioning is enabled for any of the buckets, this value is based on the size of the latest version of each applicable object in the buckets. This value doesn't reflect the storage size of all versions of the applicable objects in the buckets.</p>"
+        }
+      ]
+    },
+    "unclassifiableObjectCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ObjectLevelStatistics"
+        },
+        {
+          "description": "The total number of objects that Amazon Macie can't analyze in the buckets. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format."
+        }
+      ]
+    },
+    "unclassifiableObjectSizeInBytes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ObjectLevelStatistics"
+        },
+        {
+          "description": "The total storage size, in bytes, of the objects that Amazon Macie can't analyze in the buckets. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format."
+        }
+      ]
+    }
+  }
+}

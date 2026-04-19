@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-batch-get-custom-data-identifiers-response-schema.json",
+  "title": "BatchGetCustomDataIdentifiersResponse",
+  "description": "BatchGetCustomDataIdentifiersResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "customDataIdentifiers": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfBatchGetCustomDataIdentifierSummary"
+        },
+        {
+          "description": "An array of objects, one for each custom data identifier that matches the criteria specified in the request."
+        }
+      ]
+    },
+    "notFoundIdentifierIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "description": "An array of custom data identifier IDs, one for each custom data identifier that was specified in the request but doesn't correlate to an existing custom data identifier."
+        }
+      ]
+    }
+  }
+}

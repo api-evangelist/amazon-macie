@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-create-invitations-response-schema.json",
+  "title": "CreateInvitationsResponse",
+  "description": "CreateInvitationsResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "unprocessedAccounts": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfUnprocessedAccount"
+        },
+        {
+          "description": "An array of objects, one for each account whose invitation hasn't been processed. Each object identifies the account and explains why the invitation hasn't been processed for the account."
+        }
+      ]
+    }
+  }
+}

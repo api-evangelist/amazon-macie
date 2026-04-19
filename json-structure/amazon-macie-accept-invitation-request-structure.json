@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-accept-invitation-request-structure.json",
+  "name": "AcceptInvitationRequest",
+  "description": "AcceptInvitationRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "administratorAccountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Amazon Web Services account ID for the account that sent the invitation."
+        }
+      ]
+    },
+    "invitationId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The unique identifier for the invitation to accept."
+        }
+      ]
+    },
+    "masterAccount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "(Deprecated) The Amazon Web Services account ID for the account that sent the invitation. This property has been replaced by the administratorAccountId property and is retained only for backward compatibility."
+        }
+      ]
+    }
+  },
+  "required": [
+    "invitationId"
+  ]
+}

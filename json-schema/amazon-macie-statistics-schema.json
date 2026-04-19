@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-statistics-schema.json",
+  "title": "Statistics",
+  "description": "Provides processing statistics for a classification job.",
+  "type": "object",
+  "properties": {
+    "approximateNumberOfObjectsToProcess": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__double"
+        },
+        {
+          "description": "The approximate number of objects that the job has yet to process during its current run."
+        }
+      ]
+    },
+    "numberOfRuns": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__double"
+        },
+        {
+          "description": "The number of times that the job has run."
+        }
+      ]
+    }
+  }
+}

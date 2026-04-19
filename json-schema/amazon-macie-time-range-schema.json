@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-time-range-schema.json",
+  "title": "TimeRange",
+  "description": "An inclusive time period that Amazon Macie usage data applies to. Possible values are:",
+  "type": "string",
+  "enum": [
+    "MONTH_TO_DATE",
+    "PAST_30_DAYS"
+  ]
+}

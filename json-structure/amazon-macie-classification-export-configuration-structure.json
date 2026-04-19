@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-classification-export-configuration-structure.json",
+  "name": "ClassificationExportConfiguration",
+  "description": "Specifies where to store data classification results, and the encryption settings to use when storing results in that location. The location must be an S3 bucket.",
+  "type": "object",
+  "properties": {
+    "s3Destination": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Destination"
+        },
+        {
+          "description": "The S3 bucket to store data classification results in, and the encryption settings to use when storing results in that bucket."
+        }
+      ]
+    }
+  }
+}

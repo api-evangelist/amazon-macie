@@ -1,0 +1,8 @@
+{
+  "arn": "arn:aws:macie2:us-east-1:123456789012:session",
+  "count": "example-value",
+  "id": "abc12345-6789-0123",
+  "name": "my-custom-identifier",
+  "suppressed": "example-value",
+  "type": "example-value"
+}

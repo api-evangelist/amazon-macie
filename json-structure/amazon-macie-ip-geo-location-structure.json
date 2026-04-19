@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-ip-geo-location-structure.json",
+  "name": "IpGeoLocation",
+  "description": "Provides geographic coordinates that indicate where a specified IP address originated from.",
+  "type": "object",
+  "properties": {
+    "lat": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__double"
+        },
+        {
+          "description": "The latitude coordinate of the location, rounded to four decimal places."
+        }
+      ]
+    },
+    "lon": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__double"
+        },
+        {
+          "description": "The longitude coordinate of the location, rounded to four decimal places."
+        }
+      ]
+    }
+  }
+}

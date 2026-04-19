@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-custom-detection-structure.json",
+  "name": "CustomDetection",
+  "description": "Provides information about a custom data identifier that produced a sensitive data finding, and the sensitive data that it detected for the finding.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The unique identifier for the custom data identifier."
+        }
+      ]
+    },
+    "count": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of occurrences of the sensitive data that the custom data identifier detected."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The name of the custom data identifier."
+        }
+      ]
+    },
+    "occurrences": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Occurrences"
+        },
+        {
+          "description": "The location of 1-15 occurrences of the sensitive data that the custom data identifier detected. A finding includes location data for a maximum of 15 occurrences of sensitive data."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "allowListIds": "abc12345-6789-0123",
+  "clientToken": "example-value",
+  "createdAt": "example-value",
+  "customDataIdentifierIds": "abc12345-6789-0123",
+  "description": "Sensitive data discovery job for PII detection",
+  "initialRun": "example-value",
+  "jobArn": "arn:aws:macie2:us-east-1:123456789012:session",
+  "jobId": "abc12345-6789-0123",
+  "jobStatus": "RUNNING",
+  "jobType": "example-value",
+  "lastRunErrorStatus": "RUNNING",
+  "lastRunTime": "example-value",
+  "managedDataIdentifierIds": "abc12345-6789-0123",
+  "managedDataIdentifierSelector": "abc12345-6789-0123",
+  "name": "my-custom-identifier",
+  "s3JobDefinition": "example-value",
+  "samplingPercentage": "example-value",
+  "scheduleFrequency": "example-value",
+  "statistics": "example-value",
+  "tags": "example-value",
+  "userPausedDetails": "example-value"
+}

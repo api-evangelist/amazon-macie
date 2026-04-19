@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-resources-affected-structure.json",
+  "name": "ResourcesAffected",
+  "description": "Provides information about the resources that a finding applies to.",
+  "type": "object",
+  "properties": {
+    "s3Bucket": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Bucket"
+        },
+        {
+          "description": "The details of the S3 bucket that the finding applies to."
+        }
+      ]
+    },
+    "s3Object": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Object"
+        },
+        {
+          "description": "The details of the S3 object that the finding applies to."
+        }
+      ]
+    }
+  }
+}

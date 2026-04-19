@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-s3-bucket-definition-for-job-structure.json",
+  "name": "S3BucketDefinitionForJob",
+  "description": "Specifies an Amazon Web Services account that owns S3 buckets for a classification job to analyze, and one or more specific buckets to analyze for that account.",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The unique identifier for the Amazon Web Services account that owns the buckets."
+        }
+      ]
+    },
+    "buckets": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "description": "An array that lists the names of the buckets."
+        }
+      ]
+    }
+  },
+  "required": [
+    "accountId",
+    "buckets"
+  ]
+}

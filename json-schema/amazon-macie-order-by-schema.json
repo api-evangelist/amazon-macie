@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-order-by-schema.json",
+  "title": "OrderBy",
+  "description": "OrderBy schema from Amazon Macie API",
+  "type": "string",
+  "enum": [
+    "ASC",
+    "DESC"
+  ]
+}

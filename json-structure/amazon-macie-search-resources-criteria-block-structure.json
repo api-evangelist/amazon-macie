@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-search-resources-criteria-block-structure.json",
+  "name": "SearchResourcesCriteriaBlock",
+  "description": "Specifies property- and tag-based conditions that define filter criteria for including or excluding Amazon Web Services resources from the query results.",
+  "type": "object",
+  "properties": {
+    "and": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfSearchResourcesCriteria"
+        },
+        {
+          "description": "An array of objects, one for each property- or tag-based condition that includes or excludes resources from the query results. If you specify more than one condition, Amazon Macie uses AND logic to join the conditions."
+        }
+      ]
+    }
+  }
+}

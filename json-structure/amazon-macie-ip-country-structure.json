@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-ip-country-structure.json",
+  "name": "IpCountry",
+  "description": "Provides information about the country that an IP address originated from.",
+  "type": "object",
+  "properties": {
+    "code": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The two-character code, in ISO 3166-1 alpha-2 format, for the country that the IP address originated from. For example, US for the United States."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The name of the country that the IP address originated from."
+        }
+      ]
+    }
+  }
+}

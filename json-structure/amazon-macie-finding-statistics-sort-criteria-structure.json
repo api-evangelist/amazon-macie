@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-finding-statistics-sort-criteria-structure.json",
+  "name": "FindingStatisticsSortCriteria",
+  "description": "Specifies criteria for sorting the results of a query that retrieves aggregated statistical data about findings.",
+  "type": "object",
+  "properties": {
+    "attributeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingStatisticsSortAttributeName"
+        },
+        {
+          "description": "The grouping to sort the results by. Valid values are: count, sort the results by the number of findings in each group of results; and, groupKey, sort the results by the name of each group of results."
+        }
+      ]
+    },
+    "orderBy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OrderBy"
+        },
+        {
+          "description": "The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order."
+        }
+      ]
+    }
+  }
+}

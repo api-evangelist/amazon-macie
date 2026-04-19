@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-describe-organization-configuration-request-structure.json",
+  "name": "DescribeOrganizationConfigurationRequest",
+  "description": "DescribeOrganizationConfigurationRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {}
+}

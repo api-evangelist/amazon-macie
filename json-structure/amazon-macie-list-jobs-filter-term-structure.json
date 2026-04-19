@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-list-jobs-filter-term-structure.json",
+  "name": "ListJobsFilterTerm",
+  "description": "Specifies a condition that filters the results of a request for information about classification jobs. Each condition consists of a property, an operator, and one or more values.",
+  "type": "object",
+  "properties": {
+    "comparator": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobComparator"
+        },
+        {
+          "description": "The operator to use to filter the results."
+        }
+      ]
+    },
+    "key": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ListJobsFilterKey"
+        },
+        {
+          "description": "The property to use to filter the results."
+        }
+      ]
+    },
+    "values": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "description": "An array that lists one or more values to use to filter the results."
+        }
+      ]
+    }
+  }
+}

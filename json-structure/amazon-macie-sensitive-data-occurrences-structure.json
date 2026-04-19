@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-sensitive-data-occurrences-structure.json",
+  "name": "SensitiveDataOccurrences",
+  "description": "Specifies a type of sensitive data reported by a finding and provides occurrences of the specified type of sensitive data.",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/components/schemas/__listOfDetectedDataDetails"
+  }
+}

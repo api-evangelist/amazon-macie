@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-matching-bucket-schema.json",
+  "title": "MatchingBucket",
+  "description": "<p>Provides statistical data and other information about an S3 bucket that Amazon Macie monitors and analyzes for your account. By default, object count and storage size values include data for object parts that are the result of incomplete multipart uploads. For more information, see <a href=\"https://docs.aws.amazon.com/macie/latest/user/monitoring-s3-how-it-works.html\">How Macie monitors Amazon S3 data security</a> in the <i>Amazon Macie User Guide</i>.</p> <p>If an error occurs when Macie attempts to retrieve and process information about the bucket or the bucket's objects, the value for most of these properties is null. Key exceptions are accountId and bucketName. To identify the cause of the error, refer to the errorCode and errorMessage values.</p>",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The unique identifier for the Amazon Web Services account that owns the bucket."
+        }
+      ]
+    },
+    "bucketName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The name of the bucket."
+        }
+      ]
+    },
+    "classifiableObjectCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format."
+        }
+      ]
+    },
+    "classifiableSizeInBytes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "<p>The total storage size, in bytes, of the objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p> <p>If versioning is enabled for the bucket, Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>"
+        }
+      ]
+    },
+    "errorCode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketMetadataErrorCode"
+        },
+        {
+          "description": "The error code for an error that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. If this value is ACCESS_DENIED, Macie doesn't have permission to retrieve the information. For example, the bucket has a restrictive bucket policy and Amazon S3 denied the request. If this value is null, Macie was able to retrieve and process the information."
+        }
+      ]
+    },
+    "errorMessage": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "A brief description of the error (errorCode) that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. This value is null if Macie was able to retrieve and process the information."
+        }
+      ]
+    },
+    "jobDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobDetails"
+        },
+        {
+          "description": "Specifies whether any one-time or recurring classification jobs are configured to analyze objects in the bucket, and, if so, the details of the job that ran most recently."
+        }
+      ]
+    },
+    "lastAutomatedDiscoveryTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "description": "The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently analyzed data in the bucket while performing automated sensitive data discovery for your account. This value is null if automated sensitive data discovery is currently disabled for your account."
+        }
+      ]
+    },
+    "objectCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of objects in the bucket."
+        }
+      ]
+    },
+    "objectCountByEncryptionType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ObjectCountByEncryptionType"
+        },
+        {
+          "description": "The total number of objects in the bucket, grouped by server-side encryption type. This includes a grouping that reports the total number of objects that aren't encrypted or use client-side encryption."
+        }
+      ]
+    },
+    "sensitivityScore": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__integer"
+        },
+        {
+          "description": "The current sensitivity score for the bucket, ranging from -1 (classification error) to 100 (sensitive). This value is null if automated sensitive data discovery is currently disabled for your account."
+        }
+      ]
+    },
+    "sizeInBytes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "<p>The total storage size, in bytes, of the bucket.</p> <p>If versioning is enabled for the bucket, Amazon Macie calculates this value based on the size of the latest version of each object in the bucket. This value doesn't reflect the storage size of all versions of each object in the bucket.</p>"
+        }
+      ]
+    },
+    "sizeInBytesCompressed": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "<p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the bucket.</p> <p>If versioning is enabled for the bucket, Amazon Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>"
+        }
+      ]
+    },
+    "unclassifiableObjectCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ObjectLevelStatistics"
+        },
+        {
+          "description": "The total number of objects that Amazon Macie can't analyze in the bucket. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format."
+        }
+      ]
+    },
+    "unclassifiableObjectSizeInBytes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ObjectLevelStatistics"
+        },
+        {
+          "description": "The total storage size, in bytes, of the objects that Amazon Macie can't analyze in the bucket. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format."
+        }
+      ]
+    }
+  }
+}

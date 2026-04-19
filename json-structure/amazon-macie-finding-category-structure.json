@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-finding-category-structure.json",
+  "name": "FindingCategory",
+  "description": "The category of the finding. Possible values are:",
+  "type": "string",
+  "enum": [
+    "CLASSIFICATION",
+    "POLICY"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-reveal-status-structure.json",
+  "name": "RevealStatus",
+  "description": "The status of the configuration for retrieving occurrences of sensitive data reported by findings. Valid values are:",
+  "type": "string",
+  "enum": [
+    "ENABLED",
+    "DISABLED"
+  ]
+}

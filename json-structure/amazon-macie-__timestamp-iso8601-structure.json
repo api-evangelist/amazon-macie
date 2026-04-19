@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-__timestamp-iso8601-structure.json",
+  "name": "__timestampIso8601",
+  "description": "__timestampIso8601 schema from Amazon Macie API",
+  "type": "datetime"
+}

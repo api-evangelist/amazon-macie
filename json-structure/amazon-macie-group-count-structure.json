@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-group-count-structure.json",
+  "name": "GroupCount",
+  "description": "Provides a group of results for a query that retrieved aggregated statistical data about findings.",
+  "type": "object",
+  "properties": {
+    "count": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of findings in the group of query results."
+        }
+      ]
+    },
+    "groupKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The name of the property that defines the group in the query results, as specified by the groupBy property in the query request."
+        }
+      ]
+    }
+  }
+}

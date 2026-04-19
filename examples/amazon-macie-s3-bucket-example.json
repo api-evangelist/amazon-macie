@@ -1,0 +1,10 @@
+{
+  "allowsUnencryptedObjectUploads": "example-value",
+  "arn": "arn:aws:macie2:us-east-1:123456789012:session",
+  "createdAt": "example-value",
+  "defaultServerSideEncryption": "abc12345-6789-0123",
+  "name": "my-custom-identifier",
+  "owner": "example-value",
+  "publicAccess": "example-value",
+  "tags": "example-value"
+}

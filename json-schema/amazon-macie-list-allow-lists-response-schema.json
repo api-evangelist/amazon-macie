@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-list-allow-lists-response-schema.json",
+  "title": "ListAllowListsResponse",
+  "description": "ListAllowListsResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "allowLists": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfAllowListSummary"
+        },
+        {
+          "description": "An array of objects, one for each allow list."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages."
+        }
+      ]
+    }
+  }
+}

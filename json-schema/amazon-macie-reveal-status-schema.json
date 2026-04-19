@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-reveal-status-schema.json",
+  "title": "RevealStatus",
+  "description": "The status of the configuration for retrieving occurrences of sensitive data reported by findings. Valid values are:",
+  "type": "string",
+  "enum": [
+    "ENABLED",
+    "DISABLED"
+  ]
+}

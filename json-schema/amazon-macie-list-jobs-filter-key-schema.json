@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-list-jobs-filter-key-schema.json",
+  "title": "ListJobsFilterKey",
+  "description": "The property to use to filter the results. Valid values are:",
+  "type": "string",
+  "enum": [
+    "jobType",
+    "jobStatus",
+    "createdAt",
+    "name"
+  ]
+}

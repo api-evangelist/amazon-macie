@@ -1,0 +1,6 @@
+{
+  "external": "example-value",
+  "internal": "example-value",
+  "notShared": "example-value",
+  "unknown": "example-value"
+}

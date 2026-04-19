@@ -1,0 +1,197 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Amazon Macie"
+  description: "Unified vocabulary taxonomy for Amazon Macie covering sensitive data discovery, findings management, S3 security posture, and compliance workflows."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: macie
+      version: "2020-01-01"
+      baseUrl: https://macie2.amazonaws.com
+      status: active
+      description: "Amazon Macie 2 REST API"
+
+  resources:
+    - name: findings
+      apis: [macie]
+      actions: [list, get, archive, create-filter, list-filters, delete-filter]
+    - name: classification-jobs
+      apis: [macie]
+      actions: [create, list, describe, update]
+    - name: buckets
+      apis: [macie]
+      actions: [describe, list-statistics]
+    - name: custom-data-identifiers
+      apis: [macie]
+      actions: [create, list, get, delete]
+    - name: accounts
+      apis: [macie]
+      actions: [enable, disable, list-members, invite-members]
+    - name: allow-lists
+      apis: [macie]
+      actions: [create, list, get, update, delete]
+    - name: findings-filters
+      apis: [macie]
+      actions: [create, list, get, update, delete]
+    - name: tags
+      apis: [macie]
+      actions: [list, add, remove]
+
+  actions:
+    - name: create
+      httpMethods: [POST]
+      pattern: write
+    - name: list
+      httpMethods: [GET]
+      pattern: read
+    - name: get
+      httpMethods: [POST, GET]
+      pattern: read
+    - name: describe
+      httpMethods: [POST]
+      pattern: read
+    - name: update
+      httpMethods: [PATCH, PUT]
+      pattern: write
+    - name: delete
+      httpMethods: [DELETE]
+      pattern: destructive
+    - name: archive
+      httpMethods: [PATCH]
+      pattern: write
+    - name: enable
+      httpMethods: [POST]
+      pattern: write
+    - name: disable
+      httpMethods: [DELETE]
+      pattern: destructive
+
+  schemas:
+    core:
+      - Finding
+      - FindingSummary
+      - ClassificationJob
+      - BucketMetadata
+    identifiers:
+      - CustomDataIdentifierSummary
+      - CustomDataIdentifier
+    filters:
+      - FindingsFilter
+      - FindingCriteria
+    sensitive-data:
+      - SensitiveData
+      - SensitiveDataItem
+      - CustomDetection
+
+  parameters:
+    pagination:
+      - nextToken
+      - maxResults
+    identifiers:
+      - jobId
+      - findingId
+      - customDataIdentifierId
+      - filterId
+    filters:
+      - findingCriteria
+      - sortCriteria
+
+  enums:
+    finding-types:
+      - SensitiveData:S3Object/Multiple
+      - SensitiveData:S3Object/Personal
+      - SensitiveData:S3Object/Financial
+      - SensitiveData:S3Object/Credentials
+      - SensitiveData:S3Object/CustomIdentifier
+    job-status:
+      - RUNNING
+      - PAUSED
+      - CANCELLED
+      - COMPLETE
+      - IDLE
+    job-types:
+      - ONE_TIME
+      - SCHEDULED
+    finding-severity:
+      - Low
+      - Medium
+      - High
+
+  authentication:
+    schemes:
+      - type: aws-sigv4
+        name: AWS Signature Version 4
+        description: "AWS Signature Version 4 authentication"
+        apis: [macie]
+
+capability:
+  workflows:
+    - name: Data Security Operations
+      file: capabilities/data-security-operations.yaml
+      description: "Workflow for discovering sensitive data, investigating findings, and managing data security posture"
+      apisComposed: [macie]
+      toolCount: 7
+      personas:
+        - Security Engineer
+        - Compliance Officer
+
+  personas:
+    - id: security-engineer
+      name: "Security Engineer"
+      description: "Manages Macie configuration, discovery jobs, and investigates sensitive data findings"
+      workflows: [Data Security Operations]
+    - id: compliance-officer
+      name: "Compliance Officer"
+      description: "Reviews sensitive data findings to ensure data governance and regulatory compliance"
+      workflows: [Data Security Operations]
+
+  domains:
+    - name: Sensitive Data Discovery
+      description: "Automated discovery and classification of sensitive data in S3"
+      resources: [classification-jobs, buckets]
+    - name: Findings Management
+      description: "Managing and investigating sensitive data findings"
+      resources: [findings, findings-filters]
+    - name: Data Identification
+      description: "Custom patterns for identifying organization-specific sensitive data"
+      resources: [custom-data-identifiers, allow-lists]
+
+  namespaces:
+    - name: macie
+      type: consumed
+      baseUri: https://macie2.amazonaws.com
+    - name: data-security-api
+      type: rest-exposed
+      port: 8080
+    - name: data-security-mcp
+      type: mcp-exposed
+      port: 9090
+
+  binds:
+    - name: AWS_ACCESS_KEY_ID
+      workflows: [Data Security Operations]
+    - name: AWS_SECRET_ACCESS_KEY
+      workflows: [Data Security Operations]
+    - name: AWS_REGION
+      workflows: [Data Security Operations]
+
+crossReference:
+  - resource: findings
+    operations: [ListFindings, GetFindings, ArchiveFindings, CreateFindingsFilter]
+    workflows: [Data Security Operations]
+    personas: [Security Engineer, Compliance Officer]
+  - resource: classification-jobs
+    operations: [CreateClassificationJob, ListClassificationJobs, DescribeClassificationJob]
+    workflows: [Data Security Operations]
+    personas: [Security Engineer]
+  - resource: buckets
+    operations: [DescribeBuckets]
+    workflows: [Data Security Operations]
+    personas: [Security Engineer, Compliance Officer]
+  - resource: custom-data-identifiers
+    operations: [CreateCustomDataIdentifier, ListCustomDataIdentifiers, GetCustomDataIdentifier]
+    workflows: [Data Security Operations]
+    personas: [Security Engineer]

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-search-resources-simple-criterion-key-structure.json",
+  "name": "SearchResourcesSimpleCriterionKey",
+  "description": "The property to use in a condition that filters the query results. Valid values are:",
+  "type": "string",
+  "enum": [
+    "ACCOUNT_ID",
+    "S3_BUCKET_NAME",
+    "S3_BUCKET_EFFECTIVE_PERMISSION",
+    "S3_BUCKET_SHARED_ACCESS"
+  ]
+}

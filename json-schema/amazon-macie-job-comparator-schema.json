@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-job-comparator-schema.json",
+  "title": "JobComparator",
+  "description": "The operator to use in a condition. Depending on the type of condition, possible values are:",
+  "type": "string",
+  "enum": [
+    "EQ",
+    "GT",
+    "GTE",
+    "LT",
+    "LTE",
+    "NE",
+    "CONTAINS",
+    "STARTS_WITH"
+  ]
+}

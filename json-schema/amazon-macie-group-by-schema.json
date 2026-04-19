@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-group-by-schema.json",
+  "title": "GroupBy",
+  "description": "GroupBy schema from Amazon Macie API",
+  "type": "string",
+  "enum": [
+    "resourcesAffected.s3Bucket.name",
+    "type",
+    "classificationDetails.jobId",
+    "severity.description"
+  ]
+}

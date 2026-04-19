@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-ip-address-details-structure.json",
+  "name": "IpAddressDetails",
+  "description": "Provides information about the IP address of the device that an entity used to perform an action on an affected resource.",
+  "type": "object",
+  "properties": {
+    "ipAddressV4": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Internet Protocol version 4 (IPv4) address of the device."
+        }
+      ]
+    },
+    "ipCity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IpCity"
+        },
+        {
+          "description": "The city that the IP address originated from."
+        }
+      ]
+    },
+    "ipCountry": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IpCountry"
+        },
+        {
+          "description": "The country that the IP address originated from."
+        }
+      ]
+    },
+    "ipGeoLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IpGeoLocation"
+        },
+        {
+          "description": "The geographic coordinates of the location that the IP address originated from."
+        }
+      ]
+    },
+    "ipOwner": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IpOwner"
+        },
+        {
+          "description": "The registered owner of the IP address."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-__long-structure.json",
+  "name": "__long",
+  "description": "__long schema from Amazon Macie API",
+  "type": "int32"
+}

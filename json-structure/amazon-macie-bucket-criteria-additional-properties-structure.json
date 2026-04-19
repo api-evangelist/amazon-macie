@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-bucket-criteria-additional-properties-structure.json",
+  "name": "BucketCriteriaAdditionalProperties",
+  "description": "Specifies the operator to use in a property-based condition that filters the results of a query for information about S3 buckets.",
+  "type": "object",
+  "properties": {
+    "eq": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "description": "The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values."
+        }
+      ]
+    },
+    "gt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The value for the property is greater than the specified value."
+        }
+      ]
+    },
+    "gte": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The value for the property is greater than or equal to the specified value."
+        }
+      ]
+    },
+    "lt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The value for the property is less than the specified value."
+        }
+      ]
+    },
+    "lte": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The value for the property is less than or equal to the specified value."
+        }
+      ]
+    },
+    "neq": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "description": "The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values."
+        }
+      ]
+    },
+    "prefix": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The name of the bucket begins with the specified value."
+        }
+      ]
+    }
+  }
+}

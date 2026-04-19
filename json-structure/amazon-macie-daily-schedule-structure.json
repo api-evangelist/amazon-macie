@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-daily-schedule-structure.json",
+  "name": "DailySchedule",
+  "description": "Specifies that a classification job runs once a day, every day. This is an empty object.",
+  "type": "object",
+  "properties": {}
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-service-limit-schema.json",
+  "title": "ServiceLimit",
+  "description": "Specifies a current quota for an Amazon Macie account.",
+  "type": "object",
+  "properties": {
+    "isServiceLimited": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "description": "Specifies whether the account has met the quota that corresponds to the metric specified by the UsageByAccount.type field in the response."
+        }
+      ]
+    },
+    "unit": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Unit"
+        },
+        {
+          "description": "The unit of measurement for the value specified by the value field."
+        }
+      ]
+    },
+    "value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The value for the metric specified by the UsageByAccount.type field in the response."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-get-macie-session-response-structure.json",
+  "name": "GetMacieSessionResponse",
+  "description": "GetMacieSessionResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "createdAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "description": "The date and time, in UTC and extended ISO 8601 format, when the Amazon Macie account was created."
+        }
+      ]
+    },
+    "findingPublishingFrequency": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingPublishingFrequency"
+        },
+        {
+          "description": "The frequency with which Amazon Macie publishes updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events)."
+        }
+      ]
+    },
+    "serviceRole": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the service-linked role that allows Amazon Macie to monitor and analyze data in Amazon Web Services resources for the account."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MacieStatus"
+        },
+        {
+          "description": "The current status of the Amazon Macie account. Possible values are: PAUSED, the account is enabled but all Macie activities are suspended (paused) for the account; and, ENABLED, the account is enabled and all Macie activities are enabled for the account."
+        }
+      ]
+    },
+    "updatedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "description": "The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the Amazon Macie account."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-unavailability-reason-code-structure.json",
+  "name": "UnavailabilityReasonCode",
+  "description": "Specifies why occurrences of sensitive data can't be retrieved for a finding. Possible values are:",
+  "type": "string",
+  "enum": [
+    "OBJECT_EXCEEDS_SIZE_QUOTA",
+    "UNSUPPORTED_OBJECT_TYPE",
+    "UNSUPPORTED_FINDING_TYPE",
+    "INVALID_CLASSIFICATION_RESULT",
+    "OBJECT_UNAVAILABLE"
+  ]
+}

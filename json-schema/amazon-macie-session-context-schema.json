@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-session-context-schema.json",
+  "title": "SessionContext",
+  "description": "Provides information about a session that was created for an entity that performed an action by using temporary security credentials.",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SessionContextAttributes"
+        },
+        {
+          "description": "The date and time when the credentials were issued, and whether the credentials were authenticated with a multi-factor authentication (MFA) device."
+        }
+      ]
+    },
+    "sessionIssuer": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SessionIssuer"
+        },
+        {
+          "description": "The source and type of credentials that were issued to the entity."
+        }
+      ]
+    }
+  }
+}

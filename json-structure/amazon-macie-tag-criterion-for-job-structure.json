@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-tag-criterion-for-job-structure.json",
+  "name": "TagCriterionForJob",
+  "description": "Specifies a tag-based condition that determines whether an S3 bucket is included or excluded from a classification job.",
+  "type": "object",
+  "properties": {
+    "comparator": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobComparator"
+        },
+        {
+          "description": "The operator to use in the condition. Valid values are EQ (equals) and NE (not equals)."
+        }
+      ]
+    },
+    "tagValues": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfTagCriterionPairForJob"
+        },
+        {
+          "description": "The tag keys, tag values, or tag key and value pairs to use in the condition."
+        }
+      ]
+    }
+  }
+}

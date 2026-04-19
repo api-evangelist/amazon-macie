@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-put-classification-export-configuration-request-schema.json",
+  "title": "PutClassificationExportConfigurationRequest",
+  "description": "PutClassificationExportConfigurationRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "configuration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClassificationExportConfiguration"
+        },
+        {
+          "description": "The location to store data classification results in, and the encryption settings to use when storing results in that location."
+        }
+      ]
+    }
+  },
+  "required": [
+    "configuration"
+  ]
+}

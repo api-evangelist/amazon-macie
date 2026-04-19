@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-search-resources-sort-attribute-name-schema.json",
+  "title": "SearchResourcesSortAttributeName",
+  "description": "The property to sort the query results by. Valid values are:",
+  "type": "string",
+  "enum": [
+    "ACCOUNT_ID",
+    "RESOURCE_NAME",
+    "S3_CLASSIFIABLE_OBJECT_COUNT",
+    "S3_CLASSIFIABLE_SIZE_IN_BYTES"
+  ]
+}

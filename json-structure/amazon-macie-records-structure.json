@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-records-structure.json",
+  "name": "Records",
+  "description": "Specifies the locations of occurrences of sensitive data in an Apache Avro object container or a structured data file.",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/Record"
+  }
+}

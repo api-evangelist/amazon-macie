@@ -1,0 +1,1303 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "amcie": "https://amcie.amazonaws.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AcceptInvitationRequest": "amcie:AcceptInvitationRequest",
+    "AcceptInvitationResponse": "amcie:AcceptInvitationResponse",
+    "AccessControlList": "amcie:AccessControlList",
+    "AccountDetail": "amcie:AccountDetail",
+    "AccountLevelPermissions": "amcie:AccountLevelPermissions",
+    "AdminAccount": "amcie:AdminAccount",
+    "AllowListCriteria": "amcie:AllowListCriteria",
+    "AllowListStatus": "amcie:AllowListStatus",
+    "AllowListSummary": "amcie:AllowListSummary",
+    "ApiCallDetails": "amcie:ApiCallDetails",
+    "AssumedRole": "amcie:AssumedRole",
+    "AwsAccount": "amcie:AwsAccount",
+    "AwsService": "amcie:AwsService",
+    "BatchGetCustomDataIdentifierSummary": "amcie:BatchGetCustomDataIdentifierSummary",
+    "BatchGetCustomDataIdentifiersRequest": "amcie:BatchGetCustomDataIdentifiersRequest",
+    "BatchGetCustomDataIdentifiersResponse": "amcie:BatchGetCustomDataIdentifiersResponse",
+    "BlockPublicAccess": "amcie:BlockPublicAccess",
+    "BucketCountByEffectivePermission": "amcie:BucketCountByEffectivePermission",
+    "BucketCountByEncryptionType": "amcie:BucketCountByEncryptionType",
+    "BucketCountBySharedAccessType": "amcie:BucketCountBySharedAccessType",
+    "BucketCountPolicyAllowsUnencryptedObjectUploads": "amcie:BucketCountPolicyAllowsUnencryptedObjectUploads",
+    "BucketCriteria": "amcie:BucketCriteria",
+    "BucketCriteriaAdditionalProperties": "amcie:BucketCriteriaAdditionalProperties",
+    "BucketLevelPermissions": "amcie:BucketLevelPermissions",
+    "BucketMetadata": "amcie:BucketMetadata",
+    "BucketPermissionConfiguration": "amcie:BucketPermissionConfiguration",
+    "BucketPolicy": "amcie:BucketPolicy",
+    "BucketPublicAccess": "amcie:BucketPublicAccess",
+    "BucketServerSideEncryption": "amcie:BucketServerSideEncryption",
+    "BucketSortCriteria": "amcie:BucketSortCriteria",
+    "BucketStatisticsBySensitivity": "amcie:BucketStatisticsBySensitivity",
+    "Cell": "amcie:Cell",
+    "ClassificationDetails": "amcie:ClassificationDetails",
+    "ClassificationExportConfiguration": "amcie:ClassificationExportConfiguration",
+    "ClassificationResult": "amcie:ClassificationResult",
+    "ClassificationResultStatus": "amcie:ClassificationResultStatus",
+    "ClassificationScopeSummary": "amcie:ClassificationScopeSummary",
+    "CreateAllowListRequest": "amcie:CreateAllowListRequest",
+    "CreateAllowListResponse": "amcie:CreateAllowListResponse",
+    "CreateClassificationJobRequest": "amcie:CreateClassificationJobRequest",
+    "CreateClassificationJobResponse": "amcie:CreateClassificationJobResponse",
+    "CreateCustomDataIdentifierRequest": "amcie:CreateCustomDataIdentifierRequest",
+    "CreateCustomDataIdentifierResponse": "amcie:CreateCustomDataIdentifierResponse",
+    "CreateFindingsFilterRequest": "amcie:CreateFindingsFilterRequest",
+    "CreateFindingsFilterResponse": "amcie:CreateFindingsFilterResponse",
+    "CreateInvitationsRequest": "amcie:CreateInvitationsRequest",
+    "CreateInvitationsResponse": "amcie:CreateInvitationsResponse",
+    "CreateMemberRequest": "amcie:CreateMemberRequest",
+    "CreateMemberResponse": "amcie:CreateMemberResponse",
+    "CreateSampleFindingsRequest": "amcie:CreateSampleFindingsRequest",
+    "CreateSampleFindingsResponse": "amcie:CreateSampleFindingsResponse",
+    "CriteriaBlockForJob": "amcie:CriteriaBlockForJob",
+    "CriteriaForJob": "amcie:CriteriaForJob",
+    "Criterion": "amcie:Criterion",
+    "CriterionAdditionalProperties": "amcie:CriterionAdditionalProperties",
+    "CustomDataIdentifierSummary": "amcie:CustomDataIdentifierSummary",
+    "CustomDataIdentifiers": "amcie:CustomDataIdentifiers",
+    "CustomDetection": "amcie:CustomDetection",
+    "DailySchedule": "amcie:DailySchedule",
+    "DeclineInvitationsRequest": "amcie:DeclineInvitationsRequest",
+    "DeclineInvitationsResponse": "amcie:DeclineInvitationsResponse",
+    "DefaultDetection": "amcie:DefaultDetection",
+    "DeleteAllowListRequest": "amcie:DeleteAllowListRequest",
+    "DeleteAllowListResponse": "amcie:DeleteAllowListResponse",
+    "DeleteCustomDataIdentifierRequest": "amcie:DeleteCustomDataIdentifierRequest",
+    "DeleteCustomDataIdentifierResponse": "amcie:DeleteCustomDataIdentifierResponse",
+    "DeleteFindingsFilterRequest": "amcie:DeleteFindingsFilterRequest",
+    "DeleteFindingsFilterResponse": "amcie:DeleteFindingsFilterResponse",
+    "DeleteInvitationsRequest": "amcie:DeleteInvitationsRequest",
+    "DeleteInvitationsResponse": "amcie:DeleteInvitationsResponse",
+    "DeleteMemberRequest": "amcie:DeleteMemberRequest",
+    "DeleteMemberResponse": "amcie:DeleteMemberResponse",
+    "DescribeBucketsRequest": "amcie:DescribeBucketsRequest",
+    "DescribeBucketsResponse": "amcie:DescribeBucketsResponse",
+    "DescribeClassificationJobRequest": "amcie:DescribeClassificationJobRequest",
+    "DescribeClassificationJobResponse": "amcie:DescribeClassificationJobResponse",
+    "DescribeOrganizationConfigurationRequest": "amcie:DescribeOrganizationConfigurationRequest",
+    "DescribeOrganizationConfigurationResponse": "amcie:DescribeOrganizationConfigurationResponse",
+    "DetectedDataDetails": "amcie:DetectedDataDetails",
+    "Detection": "amcie:Detection",
+    "DisableMacieRequest": "amcie:DisableMacieRequest",
+    "DisableMacieResponse": "amcie:DisableMacieResponse",
+    "DisableOrganizationAdminAccountRequest": "amcie:DisableOrganizationAdminAccountRequest",
+    "DisableOrganizationAdminAccountResponse": "amcie:DisableOrganizationAdminAccountResponse",
+    "DisassociateFromAdministratorAccountRequest": "amcie:DisassociateFromAdministratorAccountRequest",
+    "DisassociateFromAdministratorAccountResponse": "amcie:DisassociateFromAdministratorAccountResponse",
+    "DisassociateFromMasterAccountRequest": "amcie:DisassociateFromMasterAccountRequest",
+    "DisassociateFromMasterAccountResponse": "amcie:DisassociateFromMasterAccountResponse",
+    "DisassociateMemberRequest": "amcie:DisassociateMemberRequest",
+    "DisassociateMemberResponse": "amcie:DisassociateMemberResponse",
+    "DomainDetails": "amcie:DomainDetails",
+    "EnableMacieRequest": "amcie:EnableMacieRequest",
+    "EnableMacieResponse": "amcie:EnableMacieResponse",
+    "EnableOrganizationAdminAccountRequest": "amcie:EnableOrganizationAdminAccountRequest",
+    "EnableOrganizationAdminAccountResponse": "amcie:EnableOrganizationAdminAccountResponse",
+    "FederatedUser": "amcie:FederatedUser",
+    "Finding": "amcie:Finding",
+    "FindingAction": "amcie:FindingAction",
+    "FindingActor": "amcie:FindingActor",
+    "FindingCriteria": "amcie:FindingCriteria",
+    "FindingStatisticsSortCriteria": "amcie:FindingStatisticsSortCriteria",
+    "FindingsFilterListItem": "amcie:FindingsFilterListItem",
+    "GetAdministratorAccountRequest": "amcie:GetAdministratorAccountRequest",
+    "GetAdministratorAccountResponse": "amcie:GetAdministratorAccountResponse",
+    "GetAllowListRequest": "amcie:GetAllowListRequest",
+    "GetAllowListResponse": "amcie:GetAllowListResponse",
+    "GetAutomatedDiscoveryConfigurationRequest": "amcie:GetAutomatedDiscoveryConfigurationRequest",
+    "GetAutomatedDiscoveryConfigurationResponse": "amcie:GetAutomatedDiscoveryConfigurationResponse",
+    "GetBucketStatisticsRequest": "amcie:GetBucketStatisticsRequest",
+    "GetBucketStatisticsResponse": "amcie:GetBucketStatisticsResponse",
+    "GetClassificationExportConfigurationRequest": "amcie:GetClassificationExportConfigurationRequest",
+    "GetClassificationExportConfigurationResponse": "amcie:GetClassificationExportConfigurationResponse",
+    "GetClassificationScopeRequest": "amcie:GetClassificationScopeRequest",
+    "GetClassificationScopeResponse": "amcie:GetClassificationScopeResponse",
+    "GetCustomDataIdentifierRequest": "amcie:GetCustomDataIdentifierRequest",
+    "GetCustomDataIdentifierResponse": "amcie:GetCustomDataIdentifierResponse",
+    "GetFindingStatisticsRequest": "amcie:GetFindingStatisticsRequest",
+    "GetFindingStatisticsResponse": "amcie:GetFindingStatisticsResponse",
+    "GetFindingsFilterRequest": "amcie:GetFindingsFilterRequest",
+    "GetFindingsFilterResponse": "amcie:GetFindingsFilterResponse",
+    "GetFindingsPublicationConfigurationRequest": "amcie:GetFindingsPublicationConfigurationRequest",
+    "GetFindingsPublicationConfigurationResponse": "amcie:GetFindingsPublicationConfigurationResponse",
+    "GetFindingsRequest": "amcie:GetFindingsRequest",
+    "GetFindingsResponse": "amcie:GetFindingsResponse",
+    "GetInvitationsCountRequest": "amcie:GetInvitationsCountRequest",
+    "GetInvitationsCountResponse": "amcie:GetInvitationsCountResponse",
+    "GetMacieSessionRequest": "amcie:GetMacieSessionRequest",
+    "GetMacieSessionResponse": "amcie:GetMacieSessionResponse",
+    "GetMasterAccountRequest": "amcie:GetMasterAccountRequest",
+    "GetMasterAccountResponse": "amcie:GetMasterAccountResponse",
+    "GetMemberRequest": "amcie:GetMemberRequest",
+    "GetMemberResponse": "amcie:GetMemberResponse",
+    "GetResourceProfileRequest": "amcie:GetResourceProfileRequest",
+    "GetResourceProfileResponse": "amcie:GetResourceProfileResponse",
+    "GetRevealConfigurationRequest": "amcie:GetRevealConfigurationRequest",
+    "GetRevealConfigurationResponse": "amcie:GetRevealConfigurationResponse",
+    "GetSensitiveDataOccurrencesAvailabilityRequest": "amcie:GetSensitiveDataOccurrencesAvailabilityRequest",
+    "GetSensitiveDataOccurrencesAvailabilityResponse": "amcie:GetSensitiveDataOccurrencesAvailabilityResponse",
+    "GetSensitiveDataOccurrencesRequest": "amcie:GetSensitiveDataOccurrencesRequest",
+    "GetSensitiveDataOccurrencesResponse": "amcie:GetSensitiveDataOccurrencesResponse",
+    "GetSensitivityInspectionTemplateRequest": "amcie:GetSensitivityInspectionTemplateRequest",
+    "GetSensitivityInspectionTemplateResponse": "amcie:GetSensitivityInspectionTemplateResponse",
+    "GetUsageStatisticsRequest": "amcie:GetUsageStatisticsRequest",
+    "GetUsageStatisticsResponse": "amcie:GetUsageStatisticsResponse",
+    "GetUsageTotalsRequest": "amcie:GetUsageTotalsRequest",
+    "GetUsageTotalsResponse": "amcie:GetUsageTotalsResponse",
+    "GroupCount": "amcie:GroupCount",
+    "IamUser": "amcie:IamUser",
+    "Invitation": "amcie:Invitation",
+    "IpAddressDetails": "amcie:IpAddressDetails",
+    "IpCity": "amcie:IpCity",
+    "IpCountry": "amcie:IpCountry",
+    "IpGeoLocation": "amcie:IpGeoLocation",
+    "IpOwner": "amcie:IpOwner",
+    "JobDetails": "amcie:JobDetails",
+    "JobScheduleFrequency": "amcie:JobScheduleFrequency",
+    "JobScopeTerm": "amcie:JobScopeTerm",
+    "JobScopingBlock": "amcie:JobScopingBlock",
+    "JobSummary": "amcie:JobSummary",
+    "KeyValuePair": "amcie:KeyValuePair",
+    "LastRunErrorStatus": "amcie:LastRunErrorStatus",
+    "ListAllowListsRequest": "amcie:ListAllowListsRequest",
+    "ListAllowListsResponse": "amcie:ListAllowListsResponse",
+    "ListClassificationJobsRequest": "amcie:ListClassificationJobsRequest",
+    "ListClassificationJobsResponse": "amcie:ListClassificationJobsResponse",
+    "ListClassificationScopesRequest": "amcie:ListClassificationScopesRequest",
+    "ListClassificationScopesResponse": "amcie:ListClassificationScopesResponse",
+    "ListCustomDataIdentifiersRequest": "amcie:ListCustomDataIdentifiersRequest",
+    "ListCustomDataIdentifiersResponse": "amcie:ListCustomDataIdentifiersResponse",
+    "ListFindingsFiltersRequest": "amcie:ListFindingsFiltersRequest",
+    "ListFindingsFiltersResponse": "amcie:ListFindingsFiltersResponse",
+    "ListFindingsRequest": "amcie:ListFindingsRequest",
+    "ListFindingsResponse": "amcie:ListFindingsResponse",
+    "ListInvitationsRequest": "amcie:ListInvitationsRequest",
+    "ListInvitationsResponse": "amcie:ListInvitationsResponse",
+    "ListJobsFilterCriteria": "amcie:ListJobsFilterCriteria",
+    "ListJobsFilterTerm": "amcie:ListJobsFilterTerm",
+    "ListJobsSortCriteria": "amcie:ListJobsSortCriteria",
+    "ListManagedDataIdentifiersRequest": "amcie:ListManagedDataIdentifiersRequest",
+    "ListManagedDataIdentifiersResponse": "amcie:ListManagedDataIdentifiersResponse",
+    "ListMembersRequest": "amcie:ListMembersRequest",
+    "ListMembersResponse": "amcie:ListMembersResponse",
+    "ListOrganizationAdminAccountsRequest": "amcie:ListOrganizationAdminAccountsRequest",
+    "ListOrganizationAdminAccountsResponse": "amcie:ListOrganizationAdminAccountsResponse",
+    "ListResourceProfileArtifactsRequest": "amcie:ListResourceProfileArtifactsRequest",
+    "ListResourceProfileArtifactsResponse": "amcie:ListResourceProfileArtifactsResponse",
+    "ListResourceProfileDetectionsRequest": "amcie:ListResourceProfileDetectionsRequest",
+    "ListResourceProfileDetectionsResponse": "amcie:ListResourceProfileDetectionsResponse",
+    "ListSensitivityInspectionTemplatesRequest": "amcie:ListSensitivityInspectionTemplatesRequest",
+    "ListSensitivityInspectionTemplatesResponse": "amcie:ListSensitivityInspectionTemplatesResponse",
+    "ListTagsForResourceRequest": "amcie:ListTagsForResourceRequest",
+    "ListTagsForResourceResponse": "amcie:ListTagsForResourceResponse",
+    "ManagedDataIdentifierSummary": "amcie:ManagedDataIdentifierSummary",
+    "MatchingBucket": "amcie:MatchingBucket",
+    "MatchingResource": "amcie:MatchingResource",
+    "Member": "amcie:Member",
+    "MonthlySchedule": "amcie:MonthlySchedule",
+    "ObjectCountByEncryptionType": "amcie:ObjectCountByEncryptionType",
+    "ObjectLevelStatistics": "amcie:ObjectLevelStatistics",
+    "Occurrences": "amcie:Occurrences",
+    "Page": "amcie:Page",
+    "PolicyDetails": "amcie:PolicyDetails",
+    "PutClassificationExportConfigurationRequest": "amcie:PutClassificationExportConfigurationRequest",
+    "PutClassificationExportConfigurationResponse": "amcie:PutClassificationExportConfigurationResponse",
+    "PutFindingsPublicationConfigurationRequest": "amcie:PutFindingsPublicationConfigurationRequest",
+    "PutFindingsPublicationConfigurationResponse": "amcie:PutFindingsPublicationConfigurationResponse",
+    "Range": "amcie:Range",
+    "Record": "amcie:Record",
+    "ReplicationDetails": "amcie:ReplicationDetails",
+    "ResourceProfileArtifact": "amcie:ResourceProfileArtifact",
+    "ResourceStatistics": "amcie:ResourceStatistics",
+    "ResourcesAffected": "amcie:ResourcesAffected",
+    "RevealConfiguration": "amcie:RevealConfiguration",
+    "S3Bucket": "amcie:S3Bucket",
+    "S3BucketCriteriaForJob": "amcie:S3BucketCriteriaForJob",
+    "S3BucketDefinitionForJob": "amcie:S3BucketDefinitionForJob",
+    "S3BucketOwner": "amcie:S3BucketOwner",
+    "S3ClassificationScope": "amcie:S3ClassificationScope",
+    "S3ClassificationScopeExclusion": "amcie:S3ClassificationScopeExclusion",
+    "S3ClassificationScopeExclusionUpdate": "amcie:S3ClassificationScopeExclusionUpdate",
+    "S3ClassificationScopeUpdate": "amcie:S3ClassificationScopeUpdate",
+    "S3Destination": "amcie:S3Destination",
+    "S3JobDefinition": "amcie:S3JobDefinition",
+    "S3Object": "amcie:S3Object",
+    "S3WordsList": "amcie:S3WordsList",
+    "Scoping": "amcie:Scoping",
+    "SearchResourcesBucketCriteria": "amcie:SearchResourcesBucketCriteria",
+    "SearchResourcesCriteria": "amcie:SearchResourcesCriteria",
+    "SearchResourcesCriteriaBlock": "amcie:SearchResourcesCriteriaBlock",
+    "SearchResourcesRequest": "amcie:SearchResourcesRequest",
+    "SearchResourcesResponse": "amcie:SearchResourcesResponse",
+    "SearchResourcesSimpleCriterion": "amcie:SearchResourcesSimpleCriterion",
+    "SearchResourcesSortCriteria": "amcie:SearchResourcesSortCriteria",
+    "SearchResourcesTagCriterion": "amcie:SearchResourcesTagCriterion",
+    "SearchResourcesTagCriterionPair": "amcie:SearchResourcesTagCriterionPair",
+    "SecurityHubConfiguration": "amcie:SecurityHubConfiguration",
+    "SensitiveDataItem": "amcie:SensitiveDataItem",
+    "SensitiveDataOccurrences": "amcie:SensitiveDataOccurrences",
+    "SensitivityAggregations": "amcie:SensitivityAggregations",
+    "SensitivityInspectionTemplateExcludes": "amcie:SensitivityInspectionTemplateExcludes",
+    "SensitivityInspectionTemplateIncludes": "amcie:SensitivityInspectionTemplateIncludes",
+    "SensitivityInspectionTemplatesEntry": "amcie:SensitivityInspectionTemplatesEntry",
+    "ServerSideEncryption": "amcie:ServerSideEncryption",
+    "ServiceLimit": "amcie:ServiceLimit",
+    "SessionContext": "amcie:SessionContext",
+    "SessionContextAttributes": "amcie:SessionContextAttributes",
+    "SessionIssuer": "amcie:SessionIssuer",
+    "Severity": "amcie:Severity",
+    "SeverityLevel": "amcie:SeverityLevel",
+    "SimpleCriterionForJob": "amcie:SimpleCriterionForJob",
+    "SimpleScopeTerm": "amcie:SimpleScopeTerm",
+    "SortCriteria": "amcie:SortCriteria",
+    "Statistics": "amcie:Statistics",
+    "SuppressDataIdentifier": "amcie:SuppressDataIdentifier",
+    "TagCriterionForJob": "amcie:TagCriterionForJob",
+    "TagCriterionPairForJob": "amcie:TagCriterionPairForJob",
+    "TagMap": "amcie:TagMap",
+    "TagResourceRequest": "amcie:TagResourceRequest",
+    "TagResourceResponse": "amcie:TagResourceResponse",
+    "TagScopeTerm": "amcie:TagScopeTerm",
+    "TagValuePair": "amcie:TagValuePair",
+    "TestCustomDataIdentifierRequest": "amcie:TestCustomDataIdentifierRequest",
+    "TestCustomDataIdentifierResponse": "amcie:TestCustomDataIdentifierResponse",
+    "UnprocessedAccount": "amcie:UnprocessedAccount",
+    "UntagResourceRequest": "amcie:UntagResourceRequest",
+    "UntagResourceResponse": "amcie:UntagResourceResponse",
+    "UpdateAllowListRequest": "amcie:UpdateAllowListRequest",
+    "UpdateAllowListResponse": "amcie:UpdateAllowListResponse",
+    "UpdateAutomatedDiscoveryConfigurationRequest": "amcie:UpdateAutomatedDiscoveryConfigurationRequest",
+    "UpdateAutomatedDiscoveryConfigurationResponse": "amcie:UpdateAutomatedDiscoveryConfigurationResponse",
+    "UpdateClassificationJobRequest": "amcie:UpdateClassificationJobRequest",
+    "UpdateClassificationJobResponse": "amcie:UpdateClassificationJobResponse",
+    "UpdateClassificationScopeRequest": "amcie:UpdateClassificationScopeRequest",
+    "UpdateClassificationScopeResponse": "amcie:UpdateClassificationScopeResponse",
+    "UpdateFindingsFilterRequest": "amcie:UpdateFindingsFilterRequest",
+    "UpdateFindingsFilterResponse": "amcie:UpdateFindingsFilterResponse",
+    "UpdateMacieSessionRequest": "amcie:UpdateMacieSessionRequest",
+    "UpdateMacieSessionResponse": "amcie:UpdateMacieSessionResponse",
+    "UpdateMemberSessionRequest": "amcie:UpdateMemberSessionRequest",
+    "UpdateMemberSessionResponse": "amcie:UpdateMemberSessionResponse",
+    "UpdateOrganizationConfigurationRequest": "amcie:UpdateOrganizationConfigurationRequest",
+    "UpdateOrganizationConfigurationResponse": "amcie:UpdateOrganizationConfigurationResponse",
+    "UpdateResourceProfileDetectionsRequest": "amcie:UpdateResourceProfileDetectionsRequest",
+    "UpdateResourceProfileDetectionsResponse": "amcie:UpdateResourceProfileDetectionsResponse",
+    "UpdateResourceProfileRequest": "amcie:UpdateResourceProfileRequest",
+    "UpdateResourceProfileResponse": "amcie:UpdateResourceProfileResponse",
+    "UpdateRevealConfigurationRequest": "amcie:UpdateRevealConfigurationRequest",
+    "UpdateRevealConfigurationResponse": "amcie:UpdateRevealConfigurationResponse",
+    "UpdateSensitivityInspectionTemplateRequest": "amcie:UpdateSensitivityInspectionTemplateRequest",
+    "UpdateSensitivityInspectionTemplateResponse": "amcie:UpdateSensitivityInspectionTemplateResponse",
+    "UsageByAccount": "amcie:UsageByAccount",
+    "UsageRecord": "amcie:UsageRecord",
+    "UsageStatisticsFilter": "amcie:UsageStatisticsFilter",
+    "UsageStatisticsSortBy": "amcie:UsageStatisticsSortBy",
+    "UsageTotal": "amcie:UsageTotal",
+    "UserIdentity": "amcie:UserIdentity",
+    "UserIdentityRoot": "amcie:UserIdentityRoot",
+    "UserPausedDetails": "amcie:UserPausedDetails",
+    "WeeklySchedule": "amcie:WeeklySchedule",
+    "accessControlList": {
+      "@id": "amcie:accessControlList"
+    },
+    "accessKeyId": {
+      "@id": "amcie:accessKeyId"
+    },
+    "account": {
+      "@id": "amcie:account"
+    },
+    "accountId": {
+      "@id": "amcie:accountId"
+    },
+    "accountIds": {
+      "@id": "amcie:accountIds"
+    },
+    "accountLevelPermissions": {
+      "@id": "amcie:accountLevelPermissions"
+    },
+    "action": {
+      "@id": "amcie:action"
+    },
+    "actionType": {
+      "@id": "amcie:actionType"
+    },
+    "actor": {
+      "@id": "amcie:actor"
+    },
+    "additionalOccurrences": {
+      "@id": "amcie:additionalOccurrences"
+    },
+    "adminAccountId": {
+      "@id": "amcie:adminAccountId"
+    },
+    "adminAccounts": {
+      "@id": "amcie:adminAccounts"
+    },
+    "administrator": {
+      "@id": "amcie:administrator"
+    },
+    "administratorAccountId": {
+      "@id": "amcie:administratorAccountId"
+    },
+    "allowListIds": {
+      "@id": "amcie:allowListIds"
+    },
+    "allowLists": {
+      "@id": "amcie:allowLists"
+    },
+    "allowsPublicReadAccess": {
+      "@id": "amcie:allowsPublicReadAccess"
+    },
+    "allowsPublicWriteAccess": {
+      "@id": "amcie:allowsPublicWriteAccess"
+    },
+    "allowsUnencryptedObjectUploads": {
+      "@id": "amcie:allowsUnencryptedObjectUploads"
+    },
+    "and": {
+      "@id": "amcie:and"
+    },
+    "api": {
+      "@id": "amcie:api"
+    },
+    "apiCallDetails": {
+      "@id": "amcie:apiCallDetails"
+    },
+    "apiServiceName": {
+      "@id": "amcie:apiServiceName"
+    },
+    "approximateNumberOfObjectsToProcess": {
+      "@id": "amcie:approximateNumberOfObjectsToProcess"
+    },
+    "archived": {
+      "@id": "amcie:archived"
+    },
+    "arn": {
+      "@id": "amcie:arn"
+    },
+    "artifacts": {
+      "@id": "amcie:artifacts"
+    },
+    "asn": {
+      "@id": "amcie:asn"
+    },
+    "asnOrg": {
+      "@id": "amcie:asnOrg"
+    },
+    "assumedRole": {
+      "@id": "amcie:assumedRole"
+    },
+    "attributeName": {
+      "@id": "amcie:attributeName"
+    },
+    "attributes": {
+      "@id": "amcie:attributes"
+    },
+    "autoEnable": {
+      "@id": "amcie:autoEnable"
+    },
+    "automatedDiscoveryFreeTrialStartDate": {
+      "@id": "amcie:automatedDiscoveryFreeTrialStartDate"
+    },
+    "awsAccount": {
+      "@id": "amcie:awsAccount"
+    },
+    "awsService": {
+      "@id": "amcie:awsService"
+    },
+    "blockPublicAccess": {
+      "@id": "amcie:blockPublicAccess"
+    },
+    "blockPublicAcls": {
+      "@id": "amcie:blockPublicAcls"
+    },
+    "blockPublicPolicy": {
+      "@id": "amcie:blockPublicPolicy"
+    },
+    "bucketArn": {
+      "@id": "amcie:bucketArn"
+    },
+    "bucketCount": {
+      "@id": "amcie:bucketCount"
+    },
+    "bucketCountByEffectivePermission": {
+      "@id": "amcie:bucketCountByEffectivePermission"
+    },
+    "bucketCountByEncryptionType": {
+      "@id": "amcie:bucketCountByEncryptionType"
+    },
+    "bucketCountByObjectEncryptionRequirement": {
+      "@id": "amcie:bucketCountByObjectEncryptionRequirement"
+    },
+    "bucketCountBySharedAccessType": {
+      "@id": "amcie:bucketCountBySharedAccessType"
+    },
+    "bucketCreatedAt": {
+      "@id": "amcie:bucketCreatedAt"
+    },
+    "bucketCriteria": {
+      "@id": "amcie:bucketCriteria"
+    },
+    "bucketDefinitions": {
+      "@id": "amcie:bucketDefinitions"
+    },
+    "bucketLevelPermissions": {
+      "@id": "amcie:bucketLevelPermissions"
+    },
+    "bucketName": {
+      "@id": "amcie:bucketName"
+    },
+    "bucketNames": {
+      "@id": "amcie:bucketNames"
+    },
+    "bucketPolicy": {
+      "@id": "amcie:bucketPolicy"
+    },
+    "bucketStatisticsBySensitivity": {
+      "@id": "amcie:bucketStatisticsBySensitivity"
+    },
+    "buckets": {
+      "@id": "amcie:buckets"
+    },
+    "category": {
+      "@id": "amcie:category"
+    },
+    "cellReference": {
+      "@id": "amcie:cellReference"
+    },
+    "cells": {
+      "@id": "amcie:cells"
+    },
+    "classifiableObjectCount": {
+      "@id": "amcie:classifiableObjectCount"
+    },
+    "classifiableSizeInBytes": {
+      "@id": "amcie:classifiableSizeInBytes"
+    },
+    "classificationDetails": {
+      "@id": "amcie:classificationDetails"
+    },
+    "classificationError": {
+      "@id": "amcie:classificationError"
+    },
+    "classificationResultStatus": {
+      "@id": "amcie:classificationResultStatus"
+    },
+    "classificationScopeId": {
+      "@id": "amcie:classificationScopeId"
+    },
+    "classificationScopes": {
+      "@id": "amcie:classificationScopes"
+    },
+    "clientToken": {
+      "@id": "amcie:clientToken"
+    },
+    "code": {
+      "@id": "amcie:code"
+    },
+    "column": {
+      "@id": "amcie:column"
+    },
+    "columnName": {
+      "@id": "amcie:columnName"
+    },
+    "comparator": {
+      "@id": "amcie:comparator"
+    },
+    "configuration": {
+      "@id": "amcie:configuration"
+    },
+    "count": {
+      "@id": "amcie:count"
+    },
+    "countsByGroup": {
+      "@id": "amcie:countsByGroup"
+    },
+    "createdAt": {
+      "@id": "amcie:createdAt"
+    },
+    "creationDate": {
+      "@id": "amcie:creationDate"
+    },
+    "criteria": {
+      "@id": "amcie:criteria"
+    },
+    "criterion": {
+      "@id": "amcie:criterion"
+    },
+    "currency": {
+      "@id": "amcie:currency"
+    },
+    "customDataIdentifierId": {
+      "@id": "amcie:customDataIdentifierId"
+    },
+    "customDataIdentifierIds": {
+      "@id": "amcie:customDataIdentifierIds"
+    },
+    "customDataIdentifiers": {
+      "@id": "amcie:customDataIdentifiers"
+    },
+    "customerManaged": {
+      "@id": "amcie:customerManaged"
+    },
+    "dailySchedule": {
+      "@id": "amcie:dailySchedule"
+    },
+    "dayOfMonth": {
+      "@id": "amcie:dayOfMonth"
+    },
+    "dayOfWeek": {
+      "@id": "amcie:dayOfWeek"
+    },
+    "defaultServerSideEncryption": {
+      "@id": "amcie:defaultServerSideEncryption"
+    },
+    "deleted": {
+      "@id": "amcie:deleted"
+    },
+    "deniesUnencryptedObjectUploads": {
+      "@id": "amcie:deniesUnencryptedObjectUploads"
+    },
+    "description": "schema:description",
+    "detailedResultsLocation": {
+      "@id": "amcie:detailedResultsLocation"
+    },
+    "detections": {
+      "@id": "amcie:detections"
+    },
+    "disableEmailNotification": {
+      "@id": "amcie:disableEmailNotification"
+    },
+    "disabledAt": {
+      "@id": "amcie:disabledAt"
+    },
+    "displayName": {
+      "@id": "amcie:displayName"
+    },
+    "domainDetails": {
+      "@id": "amcie:domainDetails"
+    },
+    "domainName": {
+      "@id": "amcie:domainName"
+    },
+    "eTag": {
+      "@id": "amcie:eTag"
+    },
+    "effectivePermission": {
+      "@id": "amcie:effectivePermission"
+    },
+    "email": {
+      "@id": "amcie:email"
+    },
+    "encryptionType": {
+      "@id": "amcie:encryptionType"
+    },
+    "end": {
+      "@id": "amcie:end"
+    },
+    "eq": {
+      "@id": "amcie:eq"
+    },
+    "eqExactMatch": {
+      "@id": "amcie:eqExactMatch"
+    },
+    "error": {
+      "@id": "amcie:error"
+    },
+    "errorCode": {
+      "@id": "amcie:errorCode"
+    },
+    "errorMessage": {
+      "@id": "amcie:errorMessage"
+    },
+    "estimatedCost": {
+      "@id": "amcie:estimatedCost"
+    },
+    "excludes": {
+      "@id": "amcie:excludes"
+    },
+    "extension": {
+      "@id": "amcie:extension"
+    },
+    "external": {
+      "@id": "amcie:external"
+    },
+    "federatedUser": {
+      "@id": "amcie:federatedUser"
+    },
+    "fileType": {
+      "@id": "amcie:fileType"
+    },
+    "filterBy": {
+      "@id": "amcie:filterBy"
+    },
+    "filterCriteria": {
+      "@id": "amcie:filterCriteria"
+    },
+    "findingCriteria": {
+      "@id": "amcie:findingCriteria"
+    },
+    "findingIds": {
+      "@id": "amcie:findingIds"
+    },
+    "findingPublishingFrequency": {
+      "@id": "amcie:findingPublishingFrequency"
+    },
+    "findingTypes": {
+      "@id": "amcie:findingTypes"
+    },
+    "findings": {
+      "@id": "amcie:findings"
+    },
+    "findingsFilterListItems": {
+      "@id": "amcie:findingsFilterListItems"
+    },
+    "firstEnabledAt": {
+      "@id": "amcie:firstEnabledAt"
+    },
+    "firstSeen": {
+      "@id": "amcie:firstSeen"
+    },
+    "freeTrialStartDate": {
+      "@id": "amcie:freeTrialStartDate"
+    },
+    "groupBy": {
+      "@id": "amcie:groupBy"
+    },
+    "groupKey": {
+      "@id": "amcie:groupKey"
+    },
+    "gt": {
+      "@id": "amcie:gt"
+    },
+    "gte": {
+      "@id": "amcie:gte"
+    },
+    "iamUser": {
+      "@id": "amcie:iamUser"
+    },
+    "id": {
+      "@id": "amcie:id"
+    },
+    "ids": {
+      "@id": "amcie:ids"
+    },
+    "ignorePublicAcls": {
+      "@id": "amcie:ignorePublicAcls"
+    },
+    "ignoreWords": {
+      "@id": "amcie:ignoreWords"
+    },
+    "includes": {
+      "@id": "amcie:includes"
+    },
+    "initialRun": {
+      "@id": "amcie:initialRun"
+    },
+    "internal": {
+      "@id": "amcie:internal"
+    },
+    "invitationId": {
+      "@id": "amcie:invitationId"
+    },
+    "invitations": {
+      "@id": "amcie:invitations"
+    },
+    "invitationsCount": {
+      "@id": "amcie:invitationsCount"
+    },
+    "invitedAt": {
+      "@id": "amcie:invitedAt"
+    },
+    "invokedBy": {
+      "@id": "amcie:invokedBy"
+    },
+    "ipAddressDetails": {
+      "@id": "amcie:ipAddressDetails"
+    },
+    "ipAddressV4": {
+      "@id": "amcie:ipAddressV4"
+    },
+    "ipCity": {
+      "@id": "amcie:ipCity"
+    },
+    "ipCountry": {
+      "@id": "amcie:ipCountry"
+    },
+    "ipGeoLocation": {
+      "@id": "amcie:ipGeoLocation"
+    },
+    "ipOwner": {
+      "@id": "amcie:ipOwner"
+    },
+    "isDefinedInJob": {
+      "@id": "amcie:isDefinedInJob"
+    },
+    "isMonitoredByJob": {
+      "@id": "amcie:isMonitoredByJob"
+    },
+    "isServiceLimited": {
+      "@id": "amcie:isServiceLimited"
+    },
+    "isp": {
+      "@id": "amcie:isp"
+    },
+    "items": {
+      "@id": "amcie:items"
+    },
+    "jobArn": {
+      "@id": "amcie:jobArn"
+    },
+    "jobDetails": {
+      "@id": "amcie:jobDetails"
+    },
+    "jobExpiresAt": {
+      "@id": "amcie:jobExpiresAt"
+    },
+    "jobId": {
+      "@id": "amcie:jobId"
+    },
+    "jobImminentExpirationHealthEventArn": {
+      "@id": "amcie:jobImminentExpirationHealthEventArn"
+    },
+    "jobPausedAt": {
+      "@id": "amcie:jobPausedAt"
+    },
+    "jobStatus": {
+      "@id": "amcie:jobStatus"
+    },
+    "jobType": {
+      "@id": "amcie:jobType"
+    },
+    "jsonPath": {
+      "@id": "amcie:jsonPath"
+    },
+    "key": {
+      "@id": "amcie:key"
+    },
+    "keyPrefix": {
+      "@id": "amcie:keyPrefix"
+    },
+    "keywords": {
+      "@id": "amcie:keywords"
+    },
+    "kmsKeyArn": {
+      "@id": "amcie:kmsKeyArn"
+    },
+    "kmsKeyId": {
+      "@id": "amcie:kmsKeyId"
+    },
+    "kmsManaged": {
+      "@id": "amcie:kmsManaged"
+    },
+    "kmsMasterKeyId": {
+      "@id": "amcie:kmsMasterKeyId"
+    },
+    "lastAutomatedDiscoveryTime": {
+      "@id": "amcie:lastAutomatedDiscoveryTime"
+    },
+    "lastJobId": {
+      "@id": "amcie:lastJobId"
+    },
+    "lastJobRunTime": {
+      "@id": "amcie:lastJobRunTime"
+    },
+    "lastModified": {
+      "@id": "amcie:lastModified"
+    },
+    "lastRunErrorStatus": {
+      "@id": "amcie:lastRunErrorStatus"
+    },
+    "lastRunTime": {
+      "@id": "amcie:lastRunTime"
+    },
+    "lastSeen": {
+      "@id": "amcie:lastSeen"
+    },
+    "lastUpdated": {
+      "@id": "amcie:lastUpdated"
+    },
+    "lastUpdatedAt": {
+      "@id": "amcie:lastUpdatedAt"
+    },
+    "lat": {
+      "@id": "amcie:lat"
+    },
+    "lineRange": {
+      "@id": "amcie:lineRange"
+    },
+    "lineRanges": {
+      "@id": "amcie:lineRanges"
+    },
+    "lon": {
+      "@id": "amcie:lon"
+    },
+    "lt": {
+      "@id": "amcie:lt"
+    },
+    "lte": {
+      "@id": "amcie:lte"
+    },
+    "managedDataIdentifierIds": {
+      "@id": "amcie:managedDataIdentifierIds"
+    },
+    "managedDataIdentifierSelector": {
+      "@id": "amcie:managedDataIdentifierSelector"
+    },
+    "master": {
+      "@id": "amcie:master"
+    },
+    "masterAccount": {
+      "@id": "amcie:masterAccount"
+    },
+    "masterAccountId": {
+      "@id": "amcie:masterAccountId"
+    },
+    "matchCount": {
+      "@id": "amcie:matchCount"
+    },
+    "matchingBucket": {
+      "@id": "amcie:matchingBucket"
+    },
+    "matchingResources": {
+      "@id": "amcie:matchingResources"
+    },
+    "maxAccountLimitReached": {
+      "@id": "amcie:maxAccountLimitReached"
+    },
+    "maxResults": {
+      "@id": "amcie:maxResults"
+    },
+    "maximumMatchDistance": {
+      "@id": "amcie:maximumMatchDistance"
+    },
+    "members": {
+      "@id": "amcie:members"
+    },
+    "message": {
+      "@id": "amcie:message"
+    },
+    "mfaAuthenticated": {
+      "@id": "amcie:mfaAuthenticated"
+    },
+    "mimeType": {
+      "@id": "amcie:mimeType"
+    },
+    "monthlySchedule": {
+      "@id": "amcie:monthlySchedule"
+    },
+    "name": "schema:name",
+    "neq": {
+      "@id": "amcie:neq"
+    },
+    "nextToken": {
+      "@id": "amcie:nextToken"
+    },
+    "notClassified": {
+      "@id": "amcie:notClassified"
+    },
+    "notFoundIdentifierIds": {
+      "@id": "amcie:notFoundIdentifierIds"
+    },
+    "notSensitive": {
+      "@id": "amcie:notSensitive"
+    },
+    "notShared": {
+      "@id": "amcie:notShared"
+    },
+    "numberOfRuns": {
+      "@id": "amcie:numberOfRuns"
+    },
+    "objectCount": {
+      "@id": "amcie:objectCount"
+    },
+    "objectCountByEncryptionType": {
+      "@id": "amcie:objectCountByEncryptionType"
+    },
+    "objectKey": {
+      "@id": "amcie:objectKey"
+    },
+    "occurrences": {
+      "@id": "amcie:occurrences"
+    },
+    "occurrencesThreshold": {
+      "@id": "amcie:occurrencesThreshold"
+    },
+    "offsetRange": {
+      "@id": "amcie:offsetRange"
+    },
+    "offsetRanges": {
+      "@id": "amcie:offsetRanges"
+    },
+    "operation": {
+      "@id": "amcie:operation"
+    },
+    "orderBy": {
+      "@id": "amcie:orderBy"
+    },
+    "org": {
+      "@id": "amcie:org"
+    },
+    "originType": {
+      "@id": "amcie:originType"
+    },
+    "owner": {
+      "@id": "amcie:owner"
+    },
+    "pageNumber": {
+      "@id": "amcie:pageNumber"
+    },
+    "pages": {
+      "@id": "amcie:pages"
+    },
+    "partition": {
+      "@id": "amcie:partition"
+    },
+    "path": {
+      "@id": "amcie:path"
+    },
+    "permissionConfiguration": {
+      "@id": "amcie:permissionConfiguration"
+    },
+    "policyDetails": {
+      "@id": "amcie:policyDetails"
+    },
+    "position": {
+      "@id": "amcie:position"
+    },
+    "prefix": {
+      "@id": "amcie:prefix"
+    },
+    "principalId": {
+      "@id": "amcie:principalId"
+    },
+    "profileUpdatedAt": {
+      "@id": "amcie:profileUpdatedAt"
+    },
+    "publicAccess": {
+      "@id": "amcie:publicAccess"
+    },
+    "publiclyAccessible": {
+      "@id": "amcie:publiclyAccessible"
+    },
+    "publiclyAccessibleCount": {
+      "@id": "amcie:publiclyAccessibleCount"
+    },
+    "publiclyReadable": {
+      "@id": "amcie:publiclyReadable"
+    },
+    "publiclyWritable": {
+      "@id": "amcie:publiclyWritable"
+    },
+    "publishClassificationFindings": {
+      "@id": "amcie:publishClassificationFindings"
+    },
+    "publishPolicyFindings": {
+      "@id": "amcie:publishPolicyFindings"
+    },
+    "reason": {
+      "@id": "amcie:reason"
+    },
+    "reasons": {
+      "@id": "amcie:reasons"
+    },
+    "recordIndex": {
+      "@id": "amcie:recordIndex"
+    },
+    "records": {
+      "@id": "amcie:records"
+    },
+    "regex": {
+      "@id": "amcie:regex"
+    },
+    "region": {
+      "@id": "amcie:region"
+    },
+    "relationshipStatus": {
+      "@id": "amcie:relationshipStatus"
+    },
+    "replicated": {
+      "@id": "amcie:replicated"
+    },
+    "replicatedExternally": {
+      "@id": "amcie:replicatedExternally"
+    },
+    "replicationAccounts": {
+      "@id": "amcie:replicationAccounts"
+    },
+    "replicationDetails": {
+      "@id": "amcie:replicationDetails"
+    },
+    "resourcesAffected": {
+      "@id": "amcie:resourcesAffected"
+    },
+    "restrictPublicBuckets": {
+      "@id": "amcie:restrictPublicBuckets"
+    },
+    "result": {
+      "@id": "amcie:result"
+    },
+    "root": {
+      "@id": "amcie:root"
+    },
+    "row": {
+      "@id": "amcie:row"
+    },
+    "s3": {
+      "@id": "amcie:s3"
+    },
+    "s3Bucket": {
+      "@id": "amcie:s3Bucket"
+    },
+    "s3Destination": {
+      "@id": "amcie:s3Destination"
+    },
+    "s3JobDefinition": {
+      "@id": "amcie:s3JobDefinition"
+    },
+    "s3Managed": {
+      "@id": "amcie:s3Managed"
+    },
+    "s3Object": {
+      "@id": "amcie:s3Object"
+    },
+    "s3WordsList": {
+      "@id": "amcie:s3WordsList"
+    },
+    "sample": {
+      "@id": "amcie:sample"
+    },
+    "sampleText": {
+      "@id": "amcie:sampleText"
+    },
+    "samplingPercentage": {
+      "@id": "amcie:samplingPercentage"
+    },
+    "scheduleFrequency": {
+      "@id": "amcie:scheduleFrequency"
+    },
+    "schemaVersion": {
+      "@id": "amcie:schemaVersion"
+    },
+    "scoping": {
+      "@id": "amcie:scoping"
+    },
+    "score": {
+      "@id": "amcie:score"
+    },
+    "securityHubConfiguration": {
+      "@id": "amcie:securityHubConfiguration"
+    },
+    "sensitive": {
+      "@id": "amcie:sensitive"
+    },
+    "sensitiveData": {
+      "@id": "amcie:sensitiveData"
+    },
+    "sensitiveDataOccurrences": {
+      "@id": "amcie:sensitiveDataOccurrences"
+    },
+    "sensitivityInspectionTemplateId": {
+      "@id": "amcie:sensitivityInspectionTemplateId"
+    },
+    "sensitivityInspectionTemplates": {
+      "@id": "amcie:sensitivityInspectionTemplates"
+    },
+    "sensitivityScore": {
+      "@id": "amcie:sensitivityScore"
+    },
+    "sensitivityScoreOverridden": {
+      "@id": "amcie:sensitivityScoreOverridden"
+    },
+    "sensitivityScoreOverride": {
+      "@id": "amcie:sensitivityScoreOverride"
+    },
+    "serverSideEncryption": {
+      "@id": "amcie:serverSideEncryption"
+    },
+    "serviceLimit": {
+      "@id": "amcie:serviceLimit"
+    },
+    "serviceRole": {
+      "@id": "amcie:serviceRole"
+    },
+    "sessionContext": {
+      "@id": "amcie:sessionContext"
+    },
+    "sessionIssuer": {
+      "@id": "amcie:sessionIssuer"
+    },
+    "severity": {
+      "@id": "amcie:severity"
+    },
+    "severityLevels": {
+      "@id": "amcie:severityLevels"
+    },
+    "sharedAccess": {
+      "@id": "amcie:sharedAccess"
+    },
+    "simpleCriterion": {
+      "@id": "amcie:simpleCriterion"
+    },
+    "simpleScopeTerm": {
+      "@id": "amcie:simpleScopeTerm"
+    },
+    "size": {
+      "@id": "amcie:size"
+    },
+    "sizeClassified": {
+      "@id": "amcie:sizeClassified"
+    },
+    "sizeInBytes": {
+      "@id": "amcie:sizeInBytes"
+    },
+    "sizeInBytesCompressed": {
+      "@id": "amcie:sizeInBytesCompressed"
+    },
+    "sortBy": {
+      "@id": "amcie:sortBy"
+    },
+    "sortCriteria": {
+      "@id": "amcie:sortCriteria"
+    },
+    "start": {
+      "@id": "amcie:start"
+    },
+    "startColumn": {
+      "@id": "amcie:startColumn"
+    },
+    "statistics": {
+      "@id": "amcie:statistics"
+    },
+    "status": {
+      "@id": "amcie:status"
+    },
+    "storageClass": {
+      "@id": "amcie:storageClass"
+    },
+    "suppressDataIdentifiers": {
+      "@id": "amcie:suppressDataIdentifiers"
+    },
+    "suppressed": {
+      "@id": "amcie:suppressed"
+    },
+    "tagCriterion": {
+      "@id": "amcie:tagCriterion"
+    },
+    "tagScopeTerm": {
+      "@id": "amcie:tagScopeTerm"
+    },
+    "tagValues": {
+      "@id": "amcie:tagValues"
+    },
+    "tags": {
+      "@id": "amcie:tags"
+    },
+    "target": {
+      "@id": "amcie:target"
+    },
+    "timeRange": {
+      "@id": "amcie:timeRange"
+    },
+    "title": {
+      "@id": "amcie:title"
+    },
+    "total": {
+      "@id": "amcie:total"
+    },
+    "totalBytesClassified": {
+      "@id": "amcie:totalBytesClassified"
+    },
+    "totalCount": {
+      "@id": "amcie:totalCount"
+    },
+    "totalDetections": {
+      "@id": "amcie:totalDetections"
+    },
+    "totalDetectionsSuppressed": {
+      "@id": "amcie:totalDetectionsSuppressed"
+    },
+    "totalItemsClassified": {
+      "@id": "amcie:totalItemsClassified"
+    },
+    "totalItemsSensitive": {
+      "@id": "amcie:totalItemsSensitive"
+    },
+    "totalItemsSkipped": {
+      "@id": "amcie:totalItemsSkipped"
+    },
+    "totalItemsSkippedInvalidEncryption": {
+      "@id": "amcie:totalItemsSkippedInvalidEncryption"
+    },
+    "totalItemsSkippedInvalidKms": {
+      "@id": "amcie:totalItemsSkippedInvalidKms"
+    },
+    "totalItemsSkippedPermissionDenied": {
+      "@id": "amcie:totalItemsSkippedPermissionDenied"
+    },
+    "totalSizeInBytes": {
+      "@id": "amcie:totalSizeInBytes"
+    },
+    "type": {
+      "@id": "amcie:type"
+    },
+    "unclassifiableObjectCount": {
+      "@id": "amcie:unclassifiableObjectCount"
+    },
+    "unclassifiableObjectSizeInBytes": {
+      "@id": "amcie:unclassifiableObjectSizeInBytes"
+    },
+    "unencrypted": {
+      "@id": "amcie:unencrypted"
+    },
+    "unit": {
+      "@id": "amcie:unit"
+    },
+    "unknown": {
+      "@id": "amcie:unknown"
+    },
+    "unprocessedAccounts": {
+      "@id": "amcie:unprocessedAccounts"
+    },
+    "updatedAt": {
+      "@id": "amcie:updatedAt"
+    },
+    "usage": {
+      "@id": "amcie:usage"
+    },
+    "usageTotals": {
+      "@id": "amcie:usageTotals"
+    },
+    "userIdentity": {
+      "@id": "amcie:userIdentity"
+    },
+    "userName": {
+      "@id": "amcie:userName"
+    },
+    "userPausedDetails": {
+      "@id": "amcie:userPausedDetails"
+    },
+    "value": {
+      "@id": "amcie:value"
+    },
+    "values": {
+      "@id": "amcie:values"
+    },
+    "versionId": {
+      "@id": "amcie:versionId"
+    },
+    "versioning": {
+      "@id": "amcie:versioning"
+    },
+    "weeklySchedule": {
+      "@id": "amcie:weeklySchedule"
+    }
+  }
+}

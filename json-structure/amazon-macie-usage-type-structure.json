@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-usage-type-structure.json",
+  "name": "UsageType",
+  "description": "The name of an Amazon Macie usage metric for an account. Possible values are:",
+  "type": "string",
+  "enum": [
+    "DATA_INVENTORY_EVALUATION",
+    "SENSITIVE_DATA_DISCOVERY",
+    "AUTOMATED_SENSITIVE_DATA_DISCOVERY",
+    "AUTOMATED_OBJECT_MONITORING"
+  ]
+}

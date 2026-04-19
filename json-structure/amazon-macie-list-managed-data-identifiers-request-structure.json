@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-list-managed-data-identifiers-request-structure.json",
+  "name": "ListManagedDataIdentifiersRequest",
+  "description": "ListManagedDataIdentifiersRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The nextToken string that specifies which page of results to return in a paginated response."
+        }
+      ]
+    }
+  }
+}

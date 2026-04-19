@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-finding-actor-schema.json",
+  "title": "FindingActor",
+  "description": "Provides information about an entity that performed an action that produced a policy finding for a resource.",
+  "type": "object",
+  "properties": {
+    "domainDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DomainDetails"
+        },
+        {
+          "description": "The domain name of the device that the entity used to perform the action on the affected resource."
+        }
+      ]
+    },
+    "ipAddressDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IpAddressDetails"
+        },
+        {
+          "description": "The IP address of the device that the entity used to perform the action on the affected resource. This object also provides information such as the owner and geographic location for the IP address."
+        }
+      ]
+    },
+    "userIdentity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UserIdentity"
+        },
+        {
+          "description": "The type and other characteristics of the entity that performed the action on the affected resource."
+        }
+      ]
+    }
+  }
+}

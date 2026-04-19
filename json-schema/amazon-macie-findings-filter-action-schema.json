@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-findings-filter-action-schema.json",
+  "title": "FindingsFilterAction",
+  "description": "The action to perform on findings that match the filter criteria. To suppress (automatically archive) findings that match the criteria, set this value to ARCHIVE. Valid values are:",
+  "type": "string",
+  "enum": [
+    "ARCHIVE",
+    "NOOP"
+  ]
+}

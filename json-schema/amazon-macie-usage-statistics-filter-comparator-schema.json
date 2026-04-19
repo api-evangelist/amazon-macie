@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-usage-statistics-filter-comparator-schema.json",
+  "title": "UsageStatisticsFilterComparator",
+  "description": "The operator to use in a condition that filters the results of a query for Amazon Macie account quotas and usage data. Valid values are:",
+  "type": "string",
+  "enum": [
+    "GT",
+    "GTE",
+    "LT",
+    "LTE",
+    "EQ",
+    "NE",
+    "CONTAINS"
+  ]
+}

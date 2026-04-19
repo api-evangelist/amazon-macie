@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-update-allow-list-request-structure.json",
+  "name": "UpdateAllowListRequest",
+  "description": "UpdateAllowListRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "criteria": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AllowListCriteria"
+        },
+        {
+          "description": "<p>The criteria that specify the text or text pattern to ignore. The criteria can be the location and name of an S3 object that lists specific text to ignore (s3WordsList), or a regular expression that defines a text pattern to ignore (regex).</p> <p>You can change a list's underlying criteria, such as the name of the S3 object or the regular expression to use. However, you can't change the type from s3WordsList to regex or the other way around.</p>"
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin1Max512PatternSS"
+        },
+        {
+          "description": "A custom description of the allow list. The description can contain as many as 512 characters."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin1Max128Pattern"
+        },
+        {
+          "description": "A custom name for the allow list. The name can contain as many as 128 characters."
+        }
+      ]
+    }
+  },
+  "required": [
+    "criteria",
+    "name"
+  ]
+}

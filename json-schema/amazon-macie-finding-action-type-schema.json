@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-finding-action-type-schema.json",
+  "title": "FindingActionType",
+  "description": "The type of action that occurred for the resource and produced the policy finding:",
+  "type": "string",
+  "enum": [
+    "AWS_API_CALL"
+  ]
+}

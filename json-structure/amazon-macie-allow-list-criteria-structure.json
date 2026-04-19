@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-allow-list-criteria-structure.json",
+  "name": "AllowListCriteria",
+  "description": "Specifies the criteria for an allow list. The criteria must specify a regular expression (regex) or an S3 object (s3WordsList). It can't specify both.",
+  "type": "object",
+  "properties": {
+    "regex": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin1Max512PatternSS"
+        },
+        {
+          "description": "The regular expression (<i>regex</i>) that defines the text pattern to ignore. The expression can contain as many as 512 characters."
+        }
+      ]
+    },
+    "s3WordsList": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3WordsList"
+        },
+        {
+          "description": "The location and name of the S3 object that lists specific text to ignore."
+        }
+      ]
+    }
+  }
+}

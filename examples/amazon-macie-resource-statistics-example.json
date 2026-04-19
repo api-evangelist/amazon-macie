@@ -1,0 +1,11 @@
+{
+  "totalBytesClassified": "example-value",
+  "totalDetections": "example-value",
+  "totalDetectionsSuppressed": "example-value",
+  "totalItemsClassified": "example-value",
+  "totalItemsSensitive": "example-value",
+  "totalItemsSkipped": "example-value",
+  "totalItemsSkippedInvalidEncryption": "abc12345-6789-0123",
+  "totalItemsSkippedInvalidKms": "abc12345-6789-0123",
+  "totalItemsSkippedPermissionDenied": "example-value"
+}

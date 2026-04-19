@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-finding-structure.json",
+  "name": "Finding",
+  "description": "Provides the details of a finding.",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The unique identifier for the Amazon Web Services account that the finding applies to. This is typically the account that owns the affected resource."
+        }
+      ]
+    },
+    "archived": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "description": "Specifies whether the finding is archived (suppressed)."
+        }
+      ]
+    },
+    "category": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingCategory"
+        },
+        {
+          "description": "The category of the finding. Possible values are: CLASSIFICATION, for a sensitive data finding; and, POLICY, for a policy finding."
+        }
+      ]
+    },
+    "classificationDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClassificationDetails"
+        },
+        {
+          "description": "The details of a sensitive data finding. This value is null for a policy finding."
+        }
+      ]
+    },
+    "count": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of occurrences of the finding. For sensitive data findings, this value is always 1. All sensitive data findings are considered unique."
+        }
+      ]
+    },
+    "createdAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "description": "The date and time, in UTC and extended ISO 8601 format, when Amazon Macie created the finding."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The description of the finding."
+        }
+      ]
+    },
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The unique identifier for the finding. This is a random string that Amazon Macie generates and assigns to a finding when it creates the finding."
+        }
+      ]
+    },
+    "partition": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Amazon Web Services partition that Amazon Macie created the finding in."
+        }
+      ]
+    },
+    "policyDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PolicyDetails"
+        },
+        {
+          "description": "The details of a policy finding. This value is null for a sensitive data finding."
+        }
+      ]
+    },
+    "region": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Amazon Web Services Region that Amazon Macie created the finding in."
+        }
+      ]
+    },
+    "resourcesAffected": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourcesAffected"
+        },
+        {
+          "description": "The resources that the finding applies to."
+        }
+      ]
+    },
+    "sample": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "description": "Specifies whether the finding is a sample finding. A <i>sample finding</i> is a finding that uses example data to demonstrate what a finding might contain."
+        }
+      ]
+    },
+    "schemaVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The version of the schema that was used to define the data structures in the finding."
+        }
+      ]
+    },
+    "severity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Severity"
+        },
+        {
+          "description": "The severity level and score for the finding."
+        }
+      ]
+    },
+    "title": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The brief description of the finding."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingType"
+        },
+        {
+          "description": "The type of the finding."
+        }
+      ]
+    },
+    "updatedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "description": "The date and time, in UTC and extended ISO 8601 format, when Amazon Macie last updated the finding. For sensitive data findings, this value is the same as the value for the createdAt property. All sensitive data findings are considered new."
+        }
+      ]
+    }
+  }
+}

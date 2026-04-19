@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-bucket-count-by-effective-permission-schema.json",
+  "title": "BucketCountByEffectivePermission",
+  "description": "Provides information about the number of S3 buckets that are publicly accessible due to a combination of permissions settings for each bucket.",
+  "type": "object",
+  "properties": {
+    "publiclyAccessible": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of buckets that allow the general public to have read or write access to the bucket."
+        }
+      ]
+    },
+    "publiclyReadable": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of buckets that allow the general public to have read access to the bucket."
+        }
+      ]
+    },
+    "publiclyWritable": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of buckets that allow the general public to have write access to the bucket."
+        }
+      ]
+    },
+    "unknown": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of buckets that Amazon Macie wasn't able to evaluate permissions settings for. Macie can't determine whether these buckets are publicly accessible."
+        }
+      ]
+    }
+  }
+}

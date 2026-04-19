@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-data-identifier-severity-schema.json",
+  "title": "DataIdentifierSeverity",
+  "description": "The severity of a finding, ranging from LOW, for least severe, to HIGH, for most severe. Valid values are:",
+  "type": "string",
+  "enum": [
+    "LOW",
+    "MEDIUM",
+    "HIGH"
+  ]
+}

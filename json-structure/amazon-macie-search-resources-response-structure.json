@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-search-resources-response-structure.json",
+  "name": "SearchResourcesResponse",
+  "description": "SearchResourcesResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "matchingResources": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfMatchingResource"
+        },
+        {
+          "description": "An array of objects, one for each resource that matches the filter criteria specified in the request."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages."
+        }
+      ]
+    }
+  }
+}

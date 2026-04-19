@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-severity-description-structure.json",
+  "name": "SeverityDescription",
+  "description": "The qualitative representation of the finding's severity. Possible values are:",
+  "type": "string",
+  "enum": [
+    "Low",
+    "Medium",
+    "High"
+  ]
+}

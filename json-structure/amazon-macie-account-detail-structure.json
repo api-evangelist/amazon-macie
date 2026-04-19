@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-account-detail-structure.json",
+  "name": "AccountDetail",
+  "description": "Specifies the details of an account to associate with an Amazon Macie administrator account.",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Amazon Web Services account ID for the account."
+        }
+      ]
+    },
+    "email": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The email address for the account."
+        }
+      ]
+    }
+  },
+  "required": [
+    "email",
+    "accountId"
+  ]
+}

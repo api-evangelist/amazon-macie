@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-__list-of-job-scope-term-structure.json",
+  "name": "__listOfJobScopeTerm",
+  "description": "__listOfJobScopeTerm schema from Amazon Macie API",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/JobScopeTerm"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-error-code-structure.json",
+  "name": "ErrorCode",
+  "description": "The source of an issue or delay. Possible values are:",
+  "type": "string",
+  "enum": [
+    "ClientError",
+    "InternalError"
+  ]
+}

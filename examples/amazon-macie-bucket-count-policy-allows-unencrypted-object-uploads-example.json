@@ -1,0 +1,5 @@
+{
+  "allowsUnencryptedObjectUploads": "example-value",
+  "deniesUnencryptedObjectUploads": "example-value",
+  "unknown": "example-value"
+}

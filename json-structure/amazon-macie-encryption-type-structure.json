@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-encryption-type-structure.json",
+  "name": "EncryptionType",
+  "description": "The server-side encryption algorithm that was used to encrypt an S3 object or is used by default to encrypt objects that are added to an S3 bucket. Possible values are:",
+  "type": "string",
+  "enum": [
+    "NONE",
+    "AES256",
+    "aws:kms",
+    "UNKNOWN"
+  ]
+}

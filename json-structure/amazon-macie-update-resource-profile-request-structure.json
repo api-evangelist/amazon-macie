@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-update-resource-profile-request-structure.json",
+  "name": "UpdateResourceProfileRequest",
+  "description": "UpdateResourceProfileRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "sensitivityScoreOverride": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__integer"
+        },
+        {
+          "description": "The new sensitivity score for the bucket. Valid values are: 100, assign the maximum score and apply the <i>Sensitive</i> label to the bucket; and, null (empty), assign a score that Amazon Macie calculates automatically after you submit the request."
+        }
+      ]
+    }
+  }
+}

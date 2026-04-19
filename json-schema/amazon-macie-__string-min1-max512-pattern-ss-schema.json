@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-__string-min1-max512-pattern-ss-schema.json",
+  "title": "__stringMin1Max512PatternSS",
+  "description": "__stringMin1Max512PatternSS schema from Amazon Macie API",
+  "type": "string",
+  "pattern": "^[\\s\\S]+$"
+}

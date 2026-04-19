@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-create-member-response-structure.json",
+  "name": "CreateMemberResponse",
+  "description": "CreateMemberResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the account that was associated with the administrator account."
+        }
+      ]
+    }
+  }
+}

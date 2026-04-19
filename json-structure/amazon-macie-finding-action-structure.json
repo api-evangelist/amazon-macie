@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-finding-action-structure.json",
+  "name": "FindingAction",
+  "description": "Provides information about an action that occurred for a resource and produced a policy finding.",
+  "type": "object",
+  "properties": {
+    "actionType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingActionType"
+        },
+        {
+          "description": "The type of action that occurred for the affected resource. This value is typically AWS_API_CALL, which indicates that an entity invoked an API operation for the resource."
+        }
+      ]
+    },
+    "apiCallDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApiCallDetails"
+        },
+        {
+          "description": "The invocation details of the API operation that an entity invoked for the affected resource, if the value for the actionType property is AWS_API_CALL."
+        }
+      ]
+    }
+  }
+}

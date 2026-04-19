@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-get-usage-statistics-response-schema.json",
+  "title": "GetUsageStatisticsResponse",
+  "description": "GetUsageStatisticsResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages."
+        }
+      ]
+    },
+    "records": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfUsageRecord"
+        },
+        {
+          "description": "An array of objects that contains the results of the query. Each object contains the data for an account that matches the filter criteria specified in the request."
+        }
+      ]
+    },
+    "timeRange": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimeRange"
+        },
+        {
+          "description": "The inclusive time period that the usage data applies to. Possible values are: MONTH_TO_DATE, for the current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days."
+        }
+      ]
+    }
+  }
+}

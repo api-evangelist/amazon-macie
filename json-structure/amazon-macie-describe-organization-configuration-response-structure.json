@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-describe-organization-configuration-response-structure.json",
+  "name": "DescribeOrganizationConfigurationResponse",
+  "description": "DescribeOrganizationConfigurationResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "autoEnable": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "description": "Specifies whether Amazon Macie is enabled automatically for accounts that are added to the organization."
+        }
+      ]
+    },
+    "maxAccountLimitReached": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "description": "Specifies whether the maximum number of Amazon Macie member accounts are part of the organization."
+        }
+      ]
+    }
+  }
+}

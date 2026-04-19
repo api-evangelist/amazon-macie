@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-invitation-schema.json",
+  "title": "Invitation",
+  "description": "Provides information about an Amazon Macie membership invitation.",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Amazon Web Services account ID for the account that sent the invitation."
+        }
+      ]
+    },
+    "invitationId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The unique identifier for the invitation."
+        }
+      ]
+    },
+    "invitedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "description": "The date and time, in UTC and extended ISO 8601 format, when the invitation was sent."
+        }
+      ]
+    },
+    "relationshipStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RelationshipStatus"
+        },
+        {
+          "description": "The status of the relationship between the account that sent the invitation and the account that received the invitation."
+        }
+      ]
+    }
+  }
+}

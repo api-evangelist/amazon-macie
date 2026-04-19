@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-availability-code-structure.json",
+  "name": "AvailabilityCode",
+  "description": "Specifies whether occurrences of sensitive data can be retrieved for a finding. Possible values are:",
+  "type": "string",
+  "enum": [
+    "AVAILABLE",
+    "UNAVAILABLE"
+  ]
+}

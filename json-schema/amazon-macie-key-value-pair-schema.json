@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-key-value-pair-schema.json",
+  "title": "KeyValuePair",
+  "description": "Provides information about the tags that are associated with an S3 bucket or object. Each tag consists of a required tag key and an associated tag value.",
+  "type": "object",
+  "properties": {
+    "key": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "One part of a key-value pair that comprises a tag. A tag key is a general label that acts as a category for more specific tag values."
+        }
+      ]
+    },
+    "value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "One part of a key-value pair that comprises a tag. A tag value acts as a descriptor for a tag key. A tag value can be an empty string."
+        }
+      ]
+    }
+  }
+}

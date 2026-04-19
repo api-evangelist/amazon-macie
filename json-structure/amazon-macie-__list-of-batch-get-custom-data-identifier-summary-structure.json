@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-__list-of-batch-get-custom-data-identifier-summary-structure.json",
+  "name": "__listOfBatchGetCustomDataIdentifierSummary",
+  "description": "__listOfBatchGetCustomDataIdentifierSummary schema from Amazon Macie API",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/BatchGetCustomDataIdentifierSummary"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-tag-target-schema.json",
+  "title": "TagTarget",
+  "description": "The type of object to apply a tag-based condition to. Valid values are:",
+  "type": "string",
+  "enum": [
+    "S3_OBJECT"
+  ]
+}

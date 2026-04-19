@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-__string-min22-max22-pattern-az0922-structure.json",
+  "name": "__stringMin22Max22PatternAZ0922",
+  "description": "__stringMin22Max22PatternAZ0922 schema from Amazon Macie API",
+  "type": "string",
+  "pattern": "^[a-z0-9]{22}$"
+}

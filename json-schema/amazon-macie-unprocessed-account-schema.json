@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-unprocessed-account-schema.json",
+  "title": "UnprocessedAccount",
+  "description": " <p>Provides information about an account-related request that hasn't been processed.</p>",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Amazon Web Services account ID for the account that the request applies to."
+        }
+      ]
+    },
+    "errorCode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ErrorCode"
+        },
+        {
+          "description": "The source of the issue or delay in processing the request."
+        }
+      ]
+    },
+    "errorMessage": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The reason why the request hasn't been processed."
+        }
+      ]
+    }
+  }
+}

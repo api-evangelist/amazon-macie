@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-batch-get-custom-data-identifiers-request-schema.json",
+  "title": "BatchGetCustomDataIdentifiersRequest",
+  "description": "BatchGetCustomDataIdentifiersRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "ids": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "description": "An array of custom data identifier IDs, one for each custom data identifier to retrieve information about."
+        }
+      ]
+    }
+  }
+}

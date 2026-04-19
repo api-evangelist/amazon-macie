@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-custom-data-identifiers-schema.json",
+  "title": "CustomDataIdentifiers",
+  "description": "Provides information about custom data identifiers that produced a sensitive data finding, and the number of occurrences of the data that they detected for the finding.",
+  "type": "object",
+  "properties": {
+    "detections": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CustomDetections"
+        },
+        {
+          "description": "The custom data identifiers that detected the data, and the number of occurrences of the data that each identifier detected."
+        }
+      ]
+    },
+    "totalCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of occurrences of the data that was detected by the custom data identifiers and produced the finding."
+        }
+      ]
+    }
+  }
+}

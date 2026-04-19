@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-is-monitored-by-job-schema.json",
+  "title": "IsMonitoredByJob",
+  "description": "IsMonitoredByJob schema from Amazon Macie API",
+  "type": "string",
+  "enum": [
+    "TRUE",
+    "FALSE",
+    "UNKNOWN"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "assumedRole": "example-value",
+  "awsAccount": "123456789012",
+  "awsService": "example-value",
+  "federatedUser": "example-value",
+  "iamUser": "example-value",
+  "root": "example-value",
+  "type": "example-value"
+}

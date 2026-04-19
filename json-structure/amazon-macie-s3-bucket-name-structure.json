@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-s3-bucket-name-structure.json",
+  "name": "S3BucketName",
+  "description": "The name of an S3 bucket.",
+  "type": "string",
+  "pattern": "^[A-Za-z0-9.\\-_]{3,255}$"
+}

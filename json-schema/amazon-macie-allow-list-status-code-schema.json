@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-allow-list-status-code-schema.json",
+  "title": "AllowListStatusCode",
+  "description": "Indicates the current status of an allow list. Depending on the type of criteria that the list specifies, possible values are:",
+  "type": "string",
+  "enum": [
+    "OK",
+    "S3_OBJECT_NOT_FOUND",
+    "S3_USER_ACCESS_DENIED",
+    "S3_OBJECT_ACCESS_DENIED",
+    "S3_THROTTLED",
+    "S3_OBJECT_OVERSIZE",
+    "S3_OBJECT_EMPTY",
+    "UNKNOWN_ERROR"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-key-value-pair-list-schema.json",
+  "title": "KeyValuePairList",
+  "description": "Provides information about the tags that are associated with an S3 bucket or object. Each tag consists of a required tag key and an associated tag value.",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/KeyValuePair"
+  }
+}

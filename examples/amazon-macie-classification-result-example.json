@@ -1,0 +1,8 @@
+{
+  "additionalOccurrences": "example-value",
+  "customDataIdentifiers": "abc12345-6789-0123",
+  "mimeType": "example-value",
+  "sensitiveData": "example-value",
+  "sizeClassified": "example-value",
+  "status": "RUNNING"
+}

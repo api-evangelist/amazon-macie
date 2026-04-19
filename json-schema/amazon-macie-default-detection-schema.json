@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-default-detection-schema.json",
+  "title": "DefaultDetection",
+  "description": "Provides information about a type of sensitive data that was detected by a managed data identifier and produced a sensitive data finding.",
+  "type": "object",
+  "properties": {
+    "count": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total number of occurrences of the type of sensitive data that was detected."
+        }
+      ]
+    },
+    "occurrences": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Occurrences"
+        },
+        {
+          "description": "The location of 1-15 occurrences of the sensitive data that was detected. A finding includes location data for a maximum of 15 occurrences of sensitive data."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The type of sensitive data that was detected. For example, AWS_CREDENTIALS, PHONE_NUMBER, or ADDRESS."
+        }
+      ]
+    }
+  }
+}

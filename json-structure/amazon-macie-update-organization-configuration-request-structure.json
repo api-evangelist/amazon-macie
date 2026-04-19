@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-update-organization-configuration-request-structure.json",
+  "name": "UpdateOrganizationConfigurationRequest",
+  "description": "UpdateOrganizationConfigurationRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "autoEnable": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "description": "Specifies whether to enable Amazon Macie automatically for an account when the account is added to the organization in Organizations."
+        }
+      ]
+    }
+  },
+  "required": [
+    "autoEnable"
+  ]
+}

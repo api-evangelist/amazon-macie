@@ -1,0 +1,8 @@
+{
+  "classificationScopeId": "abc12345-6789-0123",
+  "disabledAt": "example-value",
+  "firstEnabledAt": "example-value",
+  "lastUpdatedAt": "example-value",
+  "sensitivityInspectionTemplateId": "abc12345-6789-0123",
+  "status": "RUNNING"
+}

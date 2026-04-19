@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-update-allow-list-response-schema.json",
+  "title": "UpdateAllowListResponse",
+  "description": "UpdateAllowListResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the allow list."
+        }
+      ]
+    },
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin22Max22PatternAZ0922"
+        },
+        {
+          "description": "The unique identifier for the allow list."
+        }
+      ]
+    }
+  }
+}

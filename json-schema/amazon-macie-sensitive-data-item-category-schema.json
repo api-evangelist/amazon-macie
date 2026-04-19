@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-sensitive-data-item-category-schema.json",
+  "title": "SensitiveDataItemCategory",
+  "description": "For a finding, the category of sensitive data that was detected and produced the finding. For a managed data identifier, the category of sensitive data that the managed data identifier detects. Possible values are:",
+  "type": "string",
+  "enum": [
+    "FINANCIAL_INFORMATION",
+    "PERSONAL_INFORMATION",
+    "CREDENTIALS",
+    "CUSTOM_IDENTIFIER"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-__list-of-tag-value-pair-schema.json",
+  "title": "__listOfTagValuePair",
+  "description": "__listOfTagValuePair schema from Amazon Macie API",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/TagValuePair"
+  }
+}

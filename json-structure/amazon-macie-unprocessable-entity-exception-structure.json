@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-unprocessable-entity-exception-structure.json",
+  "name": "UnprocessableEntityException",
+  "description": "UnprocessableEntityException schema from Amazon Macie API"
+}

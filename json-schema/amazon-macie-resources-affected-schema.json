@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-resources-affected-schema.json",
+  "title": "ResourcesAffected",
+  "description": "Provides information about the resources that a finding applies to.",
+  "type": "object",
+  "properties": {
+    "s3Bucket": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Bucket"
+        },
+        {
+          "description": "The details of the S3 bucket that the finding applies to."
+        }
+      ]
+    },
+    "s3Object": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Object"
+        },
+        {
+          "description": "The details of the S3 object that the finding applies to."
+        }
+      ]
+    }
+  }
+}

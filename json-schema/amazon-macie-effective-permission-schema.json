@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-effective-permission-schema.json",
+  "title": "EffectivePermission",
+  "description": "EffectivePermission schema from Amazon Macie API",
+  "type": "string",
+  "enum": [
+    "PUBLIC",
+    "NOT_PUBLIC",
+    "UNKNOWN"
+  ]
+}

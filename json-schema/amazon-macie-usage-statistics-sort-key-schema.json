@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-usage-statistics-sort-key-schema.json",
+  "title": "UsageStatisticsSortKey",
+  "description": "The field to use to sort the results of a query for Amazon Macie account quotas and usage data. Valid values are:",
+  "type": "string",
+  "enum": [
+    "accountId",
+    "total",
+    "serviceLimitValue",
+    "freeTrialStartDate"
+  ]
+}

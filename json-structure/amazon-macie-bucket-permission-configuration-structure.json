@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-bucket-permission-configuration-structure.json",
+  "name": "BucketPermissionConfiguration",
+  "description": "Provides information about the account-level and bucket-level permissions settings for an S3 bucket.",
+  "type": "object",
+  "properties": {
+    "accountLevelPermissions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccountLevelPermissions"
+        },
+        {
+          "description": "The account-level permissions settings that apply to the bucket."
+        }
+      ]
+    },
+    "bucketLevelPermissions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketLevelPermissions"
+        },
+        {
+          "description": "The bucket-level permissions settings for the bucket."
+        }
+      ]
+    }
+  }
+}

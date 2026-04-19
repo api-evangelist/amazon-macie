@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-disassociate-from-administrator-account-response-structure.json",
+  "name": "DisassociateFromAdministratorAccountResponse",
+  "description": "DisassociateFromAdministratorAccountResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {}
+}

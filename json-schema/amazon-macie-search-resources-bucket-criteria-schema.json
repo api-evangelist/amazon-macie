@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-search-resources-bucket-criteria-schema.json",
+  "title": "SearchResourcesBucketCriteria",
+  "description": "Specifies property- and tag-based conditions that define filter criteria for including or excluding S3 buckets from the query results. Exclude conditions take precedence over include conditions.",
+  "type": "object",
+  "properties": {
+    "excludes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SearchResourcesCriteriaBlock"
+        },
+        {
+          "description": "The property- and tag-based conditions that determine which buckets to exclude from the results."
+        }
+      ]
+    },
+    "includes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SearchResourcesCriteriaBlock"
+        },
+        {
+          "description": "The property- and tag-based conditions that determine which buckets to include in the results."
+        }
+      ]
+    }
+  }
+}

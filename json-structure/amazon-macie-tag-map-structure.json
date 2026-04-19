@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-tag-map-structure.json",
+  "name": "TagMap",
+  "description": "A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/components/schemas/__string"
+  }
+}

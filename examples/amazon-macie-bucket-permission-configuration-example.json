@@ -1,0 +1,4 @@
+{
+  "accountLevelPermissions": "123456789012",
+  "bucketLevelPermissions": "my-s3-bucket"
+}

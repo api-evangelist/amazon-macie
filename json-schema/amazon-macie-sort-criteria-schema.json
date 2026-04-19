@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-sort-criteria-schema.json",
+  "title": "SortCriteria",
+  "description": "Specifies criteria for sorting the results of a request for findings.",
+  "type": "object",
+  "properties": {
+    "attributeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The name of the property to sort the results by. This value can be the name of any property that Amazon Macie defines for a finding."
+        }
+      ]
+    },
+    "orderBy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OrderBy"
+        },
+        {
+          "description": "The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order."
+        }
+      ]
+    }
+  }
+}

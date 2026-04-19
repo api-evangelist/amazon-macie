@@ -1,0 +1,7 @@
+{
+  "detailedResultsLocation": "example-value",
+  "jobArn": "arn:aws:macie2:us-east-1:123456789012:session",
+  "jobId": "abc12345-6789-0123",
+  "originType": "example-value",
+  "result": "example-value"
+}

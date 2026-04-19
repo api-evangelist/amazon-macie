@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-get-classification-export-configuration-response-structure.json",
+  "name": "GetClassificationExportConfigurationResponse",
+  "description": "GetClassificationExportConfigurationResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "configuration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClassificationExportConfiguration"
+        },
+        {
+          "description": "The location where data classification results are stored, and the encryption settings that are used when storing results in that location."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-data-identifier-severity-structure.json",
+  "name": "DataIdentifierSeverity",
+  "description": "The severity of a finding, ranging from LOW, for least severe, to HIGH, for most severe. Valid values are:",
+  "type": "string",
+  "enum": [
+    "LOW",
+    "MEDIUM",
+    "HIGH"
+  ]
+}

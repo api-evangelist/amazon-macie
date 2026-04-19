@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-custom-detections-structure.json",
+  "name": "CustomDetections",
+  "description": "Provides information about custom data identifiers that produced a sensitive data finding, and the number of occurrences of the data that each identifier detected.",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/CustomDetection"
+  }
+}

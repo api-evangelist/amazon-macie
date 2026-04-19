@@ -1,0 +1,7 @@
+{
+  "action": "example-value",
+  "arn": "arn:aws:macie2:us-east-1:123456789012:session",
+  "id": "abc12345-6789-0123",
+  "name": "my-custom-identifier",
+  "tags": "example-value"
+}

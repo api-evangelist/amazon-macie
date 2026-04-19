@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-storage-class-schema.json",
+  "title": "StorageClass",
+  "description": "The storage class of the S3 object. Possible values are:",
+  "type": "string",
+  "enum": [
+    "STANDARD",
+    "REDUCED_REDUNDANCY",
+    "STANDARD_IA",
+    "INTELLIGENT_TIERING",
+    "DEEP_ARCHIVE",
+    "ONEZONE_IA",
+    "GLACIER",
+    "GLACIER_IR",
+    "OUTPOSTS"
+  ]
+}

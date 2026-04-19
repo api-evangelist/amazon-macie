@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-update-classification-scope-request-schema.json",
+  "title": "UpdateClassificationScopeRequest",
+  "description": "UpdateClassificationScopeRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "s3": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3ClassificationScopeUpdate"
+        },
+        {
+          "description": "The S3 buckets to add or remove from the exclusion list defined by the classification scope."
+        }
+      ]
+    }
+  }
+}

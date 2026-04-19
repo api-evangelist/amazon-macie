@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-finding-criteria-structure.json",
+  "name": "FindingCriteria",
+  "description": "Specifies, as a map, one or more property-based conditions that filter the results of a query for findings.",
+  "type": "object",
+  "properties": {
+    "criterion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Criterion"
+        },
+        {
+          "description": "A condition that specifies the property, operator, and one or more values to use to filter the results."
+        }
+      ]
+    }
+  }
+}

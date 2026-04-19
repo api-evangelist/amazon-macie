@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-policy-details-schema.json",
+  "title": "PolicyDetails",
+  "description": "Provides the details of a policy finding.",
+  "type": "object",
+  "properties": {
+    "action": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingAction"
+        },
+        {
+          "description": "The action that produced the finding."
+        }
+      ]
+    },
+    "actor": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingActor"
+        },
+        {
+          "description": "The entity that performed the action that produced the finding."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "accountId": "123456789012",
+  "bucketName": "my-s3-bucket",
+  "classifiableObjectCount": "example-value",
+  "classifiableSizeInBytes": "example-value",
+  "errorCode": "example-value",
+  "errorMessage": "example-value",
+  "jobDetails": "example-value",
+  "lastAutomatedDiscoveryTime": "example-value",
+  "objectCount": "example-value",
+  "objectCountByEncryptionType": "example-value",
+  "sensitivityScore": "example-value",
+  "sizeInBytes": "example-value",
+  "sizeInBytesCompressed": "example-value",
+  "unclassifiableObjectCount": "example-value",
+  "unclassifiableObjectSizeInBytes": "example-value"
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-enable-macie-request-structure.json",
+  "name": "EnableMacieRequest",
+  "description": "EnableMacieRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "A unique, case-sensitive token that you provide to ensure the idempotency of the request."
+        }
+      ]
+    },
+    "findingPublishingFrequency": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingPublishingFrequency"
+        },
+        {
+          "description": "Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events)."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MacieStatus"
+        },
+        {
+          "description": "Specifies the new status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to ENABLED."
+        }
+      ]
+    }
+  }
+}

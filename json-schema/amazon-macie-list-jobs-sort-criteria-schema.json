@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-list-jobs-sort-criteria-schema.json",
+  "title": "ListJobsSortCriteria",
+  "description": "Specifies criteria for sorting the results of a request for information about classification jobs.",
+  "type": "object",
+  "properties": {
+    "attributeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ListJobsSortAttributeName"
+        },
+        {
+          "description": "The property to sort the results by."
+        }
+      ]
+    },
+    "orderBy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OrderBy"
+        },
+        {
+          "description": "The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order."
+        }
+      ]
+    }
+  }
+}

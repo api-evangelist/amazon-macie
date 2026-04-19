@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-s3-classification-scope-structure.json",
+  "name": "S3ClassificationScope",
+  "description": "Specifies the S3 buckets that are excluded from automated sensitive data discovery for an Amazon Macie account.",
+  "type": "object",
+  "properties": {
+    "excludes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3ClassificationScopeExclusion"
+        },
+        {
+          "description": "The S3 buckets that are excluded."
+        }
+      ]
+    }
+  },
+  "required": [
+    "excludes"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-create-member-request-structure.json",
+  "name": "CreateMemberRequest",
+  "description": "CreateMemberRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "account": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccountDetail"
+        },
+        {
+          "description": "The details of the account to associate with the administrator account."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "<p>A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.</p> <p>An account can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "account"
+  ]
+}

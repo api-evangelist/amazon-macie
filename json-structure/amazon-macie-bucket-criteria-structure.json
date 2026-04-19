@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-bucket-criteria-structure.json",
+  "name": "BucketCriteria",
+  "description": "Specifies, as a map, one or more property-based conditions that filter the results of a query for information about S3 buckets.",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/components/schemas/BucketCriteriaAdditionalProperties"
+  }
+}

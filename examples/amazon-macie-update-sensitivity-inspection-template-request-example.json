@@ -1,0 +1,5 @@
+{
+  "description": "Sensitive data discovery job for PII detection",
+  "excludes": "example-value",
+  "includes": "example-value"
+}

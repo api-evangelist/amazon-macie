@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-create-sample-findings-request-structure.json",
+  "name": "CreateSampleFindingsRequest",
+  "description": "CreateSampleFindingsRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "findingTypes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfFindingType"
+        },
+        {
+          "description": "An array of finding types, one for each type of sample finding to create. To create a sample of every type of finding that Amazon Macie supports, don't include this array in your request."
+        }
+      ]
+    }
+  }
+}

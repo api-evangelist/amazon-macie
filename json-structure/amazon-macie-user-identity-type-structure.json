@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-user-identity-type-structure.json",
+  "name": "UserIdentityType",
+  "description": "The type of entity that performed the action on the affected resource. Possible values are:",
+  "type": "string",
+  "enum": [
+    "AssumedRole",
+    "IAMUser",
+    "FederatedUser",
+    "Root",
+    "AWSAccount",
+    "AWSService"
+  ]
+}

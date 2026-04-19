@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-classification-scope-update-operation-structure.json",
+  "name": "ClassificationScopeUpdateOperation",
+  "description": "Specifies how to apply changes to the S3 bucket exclusion list defined by the classification scope for an Amazon Macie account. Valid values are:",
+  "type": "string",
+  "enum": [
+    "ADD",
+    "REPLACE",
+    "REMOVE"
+  ]
+}

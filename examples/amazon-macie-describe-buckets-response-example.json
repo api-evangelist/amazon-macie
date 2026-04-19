@@ -1,0 +1,4 @@
+{
+  "buckets": "my-s3-bucket",
+  "nextToken": "example-value"
+}

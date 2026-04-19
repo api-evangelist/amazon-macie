@@ -1,0 +1,9 @@
+{
+  "eq": "example-value",
+  "eqExactMatch": "example-value",
+  "gt": "example-value",
+  "gte": "example-value",
+  "lt": "example-value",
+  "lte": "example-value",
+  "neq": "example-value"
+}

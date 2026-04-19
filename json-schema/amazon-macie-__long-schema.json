@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-__long-schema.json",
+  "title": "__long",
+  "description": "__long schema from Amazon Macie API",
+  "type": "integer"
+}

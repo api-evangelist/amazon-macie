@@ -1,0 +1,15 @@
+{
+  "allowListIds": "abc12345-6789-0123",
+  "clientToken": "example-value",
+  "customDataIdentifierIds": "abc12345-6789-0123",
+  "description": "Sensitive data discovery job for PII detection",
+  "initialRun": "example-value",
+  "jobType": "example-value",
+  "managedDataIdentifierIds": "abc12345-6789-0123",
+  "managedDataIdentifierSelector": "abc12345-6789-0123",
+  "name": "my-custom-identifier",
+  "s3JobDefinition": "example-value",
+  "samplingPercentage": "example-value",
+  "scheduleFrequency": "example-value",
+  "tags": "example-value"
+}

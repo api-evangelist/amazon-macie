@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-bucket-criteria-schema.json",
+  "title": "BucketCriteria",
+  "description": "Specifies, as a map, one or more property-based conditions that filter the results of a query for information about S3 buckets.",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/components/schemas/BucketCriteriaAdditionalProperties"
+  }
+}

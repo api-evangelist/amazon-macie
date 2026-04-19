@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-federated-user-structure.json",
+  "name": "FederatedUser",
+  "description": "Provides information about an identity that performed an action on an affected resource by using temporary security credentials. The credentials were obtained using the GetFederationToken operation of the Security Token Service (STS) API.",
+  "type": "object",
+  "properties": {
+    "accessKeyId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Amazon Web Services access key ID that identifies the credentials."
+        }
+      ]
+    },
+    "accountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The unique identifier for the Amazon Web Services account that owns the entity that was used to get the credentials."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the entity that was used to get the credentials."
+        }
+      ]
+    },
+    "principalId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The unique identifier for the entity that was used to get the credentials."
+        }
+      ]
+    },
+    "sessionContext": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SessionContext"
+        },
+        {
+          "description": "The details of the session that was created for the credentials, including the entity that issued the session."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-domain-details-structure.json",
+  "name": "DomainDetails",
+  "description": "Provides information about the domain name of the device that an entity used to perform an action on an affected resource.",
+  "type": "object",
+  "properties": {
+    "domainName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The name of the domain."
+        }
+      ]
+    }
+  }
+}

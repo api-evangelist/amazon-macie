@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-job-type-structure.json",
+  "name": "JobType",
+  "description": "The schedule for running a classification job. Valid values are:",
+  "type": "string",
+  "enum": [
+    "ONE_TIME",
+    "SCHEDULED"
+  ]
+}

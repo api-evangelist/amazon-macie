@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-cells-structure.json",
+  "name": "Cells",
+  "description": "Specifies the location of occurrences of sensitive data in a Microsoft Excel workbook, CSV file, or TSV file.",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/Cell"
+  }
+}

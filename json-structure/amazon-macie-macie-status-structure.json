@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-macie-status-structure.json",
+  "name": "MacieStatus",
+  "description": "The status of an Amazon Macie account. Valid values are:",
+  "type": "string",
+  "enum": [
+    "PAUSED",
+    "ENABLED"
+  ]
+}

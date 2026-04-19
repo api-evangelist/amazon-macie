@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-bucket-policy-schema.json",
+  "title": "BucketPolicy",
+  "description": "Provides information about the permissions settings of the bucket policy for an S3 bucket.",
+  "type": "object",
+  "properties": {
+    "allowsPublicReadAccess": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "description": "Specifies whether the bucket policy allows the general public to have read access to the bucket."
+        }
+      ]
+    },
+    "allowsPublicWriteAccess": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "description": "Specifies whether the bucket policy allows the general public to have write access to the bucket."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-sensitive-data-structure.json",
+  "name": "SensitiveData",
+  "description": "Provides information about the category and number of occurrences of sensitive data that produced a finding.",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/SensitiveDataItem"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-automated-discovery-status-schema.json",
+  "title": "AutomatedDiscoveryStatus",
+  "description": "The status of the automated sensitive data discovery configuration for an Amazon Macie account. Valid values are:",
+  "type": "string",
+  "enum": [
+    "ENABLED",
+    "DISABLED"
+  ]
+}

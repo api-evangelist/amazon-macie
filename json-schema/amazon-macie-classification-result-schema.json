@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-classification-result-schema.json",
+  "title": "ClassificationResult",
+  "description": "Provides the details of a sensitive data finding, including the types, number of occurrences, and locations of the sensitive data that was detected.",
+  "type": "object",
+  "properties": {
+    "additionalOccurrences": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "description": "<p>Specifies whether Amazon Macie detected additional occurrences of sensitive data in the S3 object. A finding includes location data for a maximum of 15 occurrences of sensitive data.</p> <p>This value can help you determine whether to investigate additional occurrences of sensitive data in an object. You can do this by referring to the corresponding sensitive data discovery result for the finding (ClassificationDetails.detailedResultsLocation).</p>"
+        }
+      ]
+    },
+    "customDataIdentifiers": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CustomDataIdentifiers"
+        },
+        {
+          "description": "The custom data identifiers that detected the sensitive data and the number of occurrences of the data that they detected."
+        }
+      ]
+    },
+    "mimeType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The type of content, as a MIME type, that the finding applies to. For example, application/gzip, for a GNU Gzip compressed archive file, or application/pdf, for an Adobe Portable Document Format file."
+        }
+      ]
+    },
+    "sensitiveData": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SensitiveData"
+        },
+        {
+          "description": "The category, types, and number of occurrences of the sensitive data that produced the finding."
+        }
+      ]
+    },
+    "sizeClassified": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "description": "The total size, in bytes, of the data that the finding applies to."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClassificationResultStatus"
+        },
+        {
+          "description": "The status of the finding."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,249 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon Macie"
+  description: "Amazon Macie API for automated sensitive data discovery, classification, and data security risk visibility in Amazon S3."
+  tags:
+    - Amazon
+    - Data Security
+    - Sensitive Data
+    - Privacy
+    - Compliance
+    - S3
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+      AWS_REGION: AWS_REGION
+
+capability:
+  consumes:
+    - type: http
+      namespace: macie
+      baseUri: https://macie2.amazonaws.com
+      description: "Amazon Macie 2 REST API"
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "AWS4-HMAC-SHA256 {{AWS_ACCESS_KEY_ID}}"
+        placement: header
+      resources:
+        - name: findings
+          path: /findings
+          description: "Manage sensitive data findings"
+          operations:
+            - name: list-findings
+              method: GET
+              description: "List findings for the account"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-findings
+              method: POST
+              description: "Get details for specific findings"
+              inputParameters:
+                - name: findingIds
+                  in: body
+                  type: array
+                  required: true
+                  description: "List of finding IDs"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: classification-jobs
+          path: /jobs
+          description: "Manage sensitive data discovery jobs"
+          operations:
+            - name: create-classification-job
+              method: POST
+              description: "Create a sensitive data discovery job"
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: "Job configuration"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-classification-jobs
+              method: GET
+              description: "List classification jobs"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: describe-classification-job
+              method: GET
+              description: "Get details of a classification job"
+              inputParameters:
+                - name: jobId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Job ID"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: buckets
+          path: /datasources/s3
+          description: "Manage monitored S3 buckets"
+          operations:
+            - name: describe-buckets
+              method: POST
+              description: "Get details of monitored S3 buckets"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: custom-data-identifiers
+          path: /custom-data-identifiers
+          description: "Manage custom sensitive data identifiers"
+          operations:
+            - name: create-custom-data-identifier
+              method: POST
+              description: "Create a custom data identifier"
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: "Custom identifier configuration"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-custom-data-identifiers
+              method: GET
+              description: "List custom data identifiers"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: macie-api
+      resources:
+        - path: /v1/findings
+          name: findings
+          description: "Sensitive data findings"
+          operations:
+            - method: GET
+              name: list-findings
+              description: "List all findings"
+              call: "macie.list-findings"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/jobs
+          name: jobs
+          description: "Classification jobs"
+          operations:
+            - method: POST
+              name: create-job
+              description: "Create a discovery job"
+              call: "macie.create-classification-job"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: GET
+              name: list-jobs
+              description: "List discovery jobs"
+              call: "macie.list-classification-jobs"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: macie-mcp
+      transport: http
+      tools:
+        - name: list-findings
+          description: "List Amazon Macie findings for sensitive data"
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: "macie.list-findings"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-findings
+          description: "Get details of specific sensitive data findings"
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: "macie.get-findings"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-classification-job
+          description: "Create a sensitive data discovery job on S3 buckets"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "macie.create-classification-job"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-classification-jobs
+          description: "List all sensitive data classification jobs"
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: "macie.list-classification-jobs"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: describe-buckets
+          description: "Get security details and statistics for monitored S3 buckets"
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: "macie.describe-buckets"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-custom-data-identifier
+          description: "Create a custom pattern to identify organization-specific sensitive data"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "macie.create-custom-data-identifier"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-custom-data-identifiers
+          description: "List all custom data identifiers"
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: "macie.list-custom-data-identifiers"
+          outputParameters:
+            - type: object
+              mapping: "$."

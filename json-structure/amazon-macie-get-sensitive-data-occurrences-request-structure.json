@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-get-sensitive-data-occurrences-request-structure.json",
+  "name": "GetSensitiveDataOccurrencesRequest",
+  "description": "GetSensitiveDataOccurrencesRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {}
+}

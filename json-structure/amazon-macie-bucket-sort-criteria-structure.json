@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-bucket-sort-criteria-structure.json",
+  "name": "BucketSortCriteria",
+  "description": "Specifies criteria for sorting the results of a query for information about S3 buckets.",
+  "type": "object",
+  "properties": {
+    "attributeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The name of the bucket property to sort the results by. This value can be one of the following properties that Amazon Macie defines as bucket metadata: accountId, bucketName, classifiableObjectCount, classifiableSizeInBytes, objectCount, sensitivityScore, or sizeInBytes."
+        }
+      ]
+    },
+    "orderBy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OrderBy"
+        },
+        {
+          "description": "The sort order to apply to the results, based on the value specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order."
+        }
+      ]
+    }
+  }
+}

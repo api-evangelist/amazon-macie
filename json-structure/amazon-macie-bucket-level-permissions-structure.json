@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-bucket-level-permissions-structure.json",
+  "name": "BucketLevelPermissions",
+  "description": "Provides information about the bucket-level permissions settings for an S3 bucket.",
+  "type": "object",
+  "properties": {
+    "accessControlList": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccessControlList"
+        },
+        {
+          "description": "The permissions settings of the access control list (ACL) for the bucket. This value is null if an ACL hasn't been defined for the bucket."
+        }
+      ]
+    },
+    "blockPublicAccess": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BlockPublicAccess"
+        },
+        {
+          "description": "The block public access settings for the bucket."
+        }
+      ]
+    },
+    "bucketPolicy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketPolicy"
+        },
+        {
+          "description": "The permissions settings of the bucket policy for the bucket. This value is null if a bucket policy hasn't been defined for the bucket."
+        }
+      ]
+    }
+  }
+}

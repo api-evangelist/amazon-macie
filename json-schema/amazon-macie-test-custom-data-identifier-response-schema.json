@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-test-custom-data-identifier-response-schema.json",
+  "title": "TestCustomDataIdentifierResponse",
+  "description": "TestCustomDataIdentifierResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "matchCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__integer"
+        },
+        {
+          "description": "The number of occurrences of sample text that matched the criteria specified by the custom data identifier."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-admin-account-schema.json",
+  "title": "AdminAccount",
+  "description": "Provides information about the delegated Amazon Macie administrator account for an organization in Organizations.",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The Amazon Web Services account ID for the account."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AdminStatus"
+        },
+        {
+          "description": "The current status of the account as the delegated Amazon Macie administrator account for the organization."
+        }
+      ]
+    }
+  }
+}

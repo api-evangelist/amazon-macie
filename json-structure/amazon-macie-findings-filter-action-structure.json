@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-findings-filter-action-structure.json",
+  "name": "FindingsFilterAction",
+  "description": "The action to perform on findings that match the filter criteria. To suppress (automatically archive) findings that match the criteria, set this value to ARCHIVE. Valid values are:",
+  "type": "string",
+  "enum": [
+    "ARCHIVE",
+    "NOOP"
+  ]
+}

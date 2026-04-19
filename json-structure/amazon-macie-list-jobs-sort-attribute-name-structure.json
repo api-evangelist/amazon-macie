@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-list-jobs-sort-attribute-name-structure.json",
+  "name": "ListJobsSortAttributeName",
+  "description": "The property to sort the results by. Valid values are:",
+  "type": "string",
+  "enum": [
+    "createdAt",
+    "jobStatus",
+    "name",
+    "jobType"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "bucketCount": "my-s3-bucket",
+  "bucketCountByEffectivePermission": "my-s3-bucket",
+  "bucketCountByEncryptionType": "my-s3-bucket",
+  "bucketCountByObjectEncryptionRequirement": "my-s3-bucket",
+  "bucketCountBySharedAccessType": "my-s3-bucket",
+  "bucketStatisticsBySensitivity": "my-s3-bucket",
+  "classifiableObjectCount": "example-value",
+  "classifiableSizeInBytes": "example-value",
+  "lastUpdated": "example-value",
+  "objectCount": "example-value",
+  "sizeInBytes": "example-value",
+  "sizeInBytesCompressed": "example-value",
+  "unclassifiableObjectCount": "example-value",
+  "unclassifiableObjectSizeInBytes": "example-value"
+}

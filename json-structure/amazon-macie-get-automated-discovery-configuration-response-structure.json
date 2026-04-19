@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-get-automated-discovery-configuration-response-structure.json",
+  "name": "GetAutomatedDiscoveryConfigurationResponse",
+  "description": "GetAutomatedDiscoveryConfigurationResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "classificationScopeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClassificationScopeId"
+        },
+        {
+          "description": "The unique identifier for the classification scope that's used when performing automated sensitive data discovery for the account. The classification scope specifies S3 buckets to exclude from automated sensitive data discovery."
+        }
+      ]
+    },
+    "disabledAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time, in UTC and extended ISO 8601 format, when automated sensitive data discovery was most recently disabled for the account. This value is null if automated sensitive data discovery wasn't enabled and subsequently disabled for the account."
+        }
+      ]
+    },
+    "firstEnabledAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time, in UTC and extended ISO 8601 format, when automated sensitive data discovery was initially enabled for the account. This value is null if automated sensitive data discovery has never been enabled for the account."
+        }
+      ]
+    },
+    "lastUpdatedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time, in UTC and extended ISO 8601 format, when automated sensitive data discovery was most recently enabled or disabled for the account."
+        }
+      ]
+    },
+    "sensitivityInspectionTemplateId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SensitivityInspectionTemplateId"
+        },
+        {
+          "description": "The unique identifier for the sensitivity inspection template that's used when performing automated sensitive data discovery for the account. The template specifies which allow lists, custom data identifiers, and managed data identifiers to use when analyzing data."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutomatedDiscoveryStatus"
+        },
+        {
+          "description": "The current status of the automated sensitive data discovery configuration for the account. Possible values are: ENABLED, use the specified settings to perform automated sensitive data discovery activities for the account; and, DISABLED, don't perform automated sensitive data discovery activities for the account."
+        }
+      ]
+    }
+  }
+}

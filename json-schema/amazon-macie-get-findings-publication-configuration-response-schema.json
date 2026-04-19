@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-get-findings-publication-configuration-response-schema.json",
+  "title": "GetFindingsPublicationConfigurationResponse",
+  "description": "GetFindingsPublicationConfigurationResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "securityHubConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecurityHubConfiguration"
+        },
+        {
+          "description": "The configuration settings that determine which findings are published to Security Hub."
+        }
+      ]
+    }
+  }
+}

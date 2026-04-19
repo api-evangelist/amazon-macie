@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-aws-service-structure.json",
+  "name": "AwsService",
+  "description": "Provides information about an Amazon Web Service that performed an action on an affected resource.",
+  "type": "object",
+  "properties": {
+    "invokedBy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "The name of the Amazon Web Service that performed the action."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-usage-statistics-filter-key-structure.json",
+  "name": "UsageStatisticsFilterKey",
+  "description": "The field to use in a condition that filters the results of a query for Amazon Macie account quotas and usage data. Valid values are:",
+  "type": "string",
+  "enum": [
+    "accountId",
+    "serviceLimit",
+    "freeTrialStartDate",
+    "total"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "accessControlList": "example-value",
+  "blockPublicAccess": "example-value",
+  "bucketPolicy": "my-s3-bucket"
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-default-detections-structure.json",
+  "name": "DefaultDetections",
+  "description": "Provides information about sensitive data that was detected by managed data identifiers and produced a sensitive data finding, and the number of occurrences of each type of sensitive data that was detected.",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/DefaultDetection"
+  }
+}

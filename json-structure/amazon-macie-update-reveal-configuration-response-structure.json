@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-update-reveal-configuration-response-structure.json",
+  "name": "UpdateRevealConfigurationResponse",
+  "description": "UpdateRevealConfigurationResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "configuration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RevealConfiguration"
+        },
+        {
+          "description": "The new configuration settings and the status of the configuration for the account."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-delete-invitations-request-schema.json",
+  "title": "DeleteInvitationsRequest",
+  "description": "DeleteInvitationsRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "accountIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "description": "An array that lists Amazon Web Services account IDs, one for each account that sent an invitation to delete."
+        }
+      ]
+    }
+  },
+  "required": [
+    "accountIds"
+  ]
+}

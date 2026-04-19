@@ -1,0 +1,6 @@
+{
+  "isDefinedInJob": "example-value",
+  "isMonitoredByJob": "example-value",
+  "lastJobId": "abc12345-6789-0123",
+  "lastJobRunTime": "example-value"
+}

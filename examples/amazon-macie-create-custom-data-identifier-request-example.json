@@ -1,0 +1,11 @@
+{
+  "clientToken": "example-value",
+  "description": "Sensitive data discovery job for PII detection",
+  "ignoreWords": "example-value",
+  "keywords": "example-value",
+  "maximumMatchDistance": "example-value",
+  "name": "my-custom-identifier",
+  "regex": "example-value",
+  "severityLevels": "example-value",
+  "tags": "example-value"
+}

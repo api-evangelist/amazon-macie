@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-matching-resource-schema.json",
+  "title": "MatchingResource",
+  "description": "Provides statistical data and other information about an Amazon Web Services resource that Amazon Macie monitors and analyzes for your account.",
+  "type": "object",
+  "properties": {
+    "matchingBucket": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MatchingBucket"
+        },
+        {
+          "description": "The details of an S3 bucket that Amazon Macie monitors and analyzes."
+        }
+      ]
+    }
+  }
+}

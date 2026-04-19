@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-managed-data-identifier-selector-schema.json",
+  "title": "ManagedDataIdentifierSelector",
+  "description": "The selection type that determines which managed data identifiers a classification job uses to analyze data. Valid values are:",
+  "type": "string",
+  "enum": [
+    "ALL",
+    "EXCLUDE",
+    "INCLUDE",
+    "NONE"
+  ]
+}

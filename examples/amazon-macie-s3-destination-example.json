@@ -1,0 +1,5 @@
+{
+  "bucketName": "my-s3-bucket",
+  "keyPrefix": "example-value",
+  "kmsKeyArn": "arn:aws:macie2:us-east-1:123456789012:session"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-weekly-schedule-structure.json",
+  "name": "WeeklySchedule",
+  "description": "Specifies a weekly recurrence pattern for running a classification job.",
+  "type": "object",
+  "properties": {
+    "dayOfWeek": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DayOfWeek"
+        },
+        {
+          "description": "The day of the week when Amazon Macie runs the job."
+        }
+      ]
+    }
+  }
+}

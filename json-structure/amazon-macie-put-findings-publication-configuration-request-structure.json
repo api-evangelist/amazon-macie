@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-put-findings-publication-configuration-request-structure.json",
+  "name": "PutFindingsPublicationConfigurationRequest",
+  "description": "PutFindingsPublicationConfigurationRequest schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "description": "A unique, case-sensitive token that you provide to ensure the idempotency of the request."
+        }
+      ]
+    },
+    "securityHubConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecurityHubConfiguration"
+        },
+        {
+          "description": "The configuration settings that determine which findings to publish to Security Hub."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "action": "example-value",
+  "arn": "arn:aws:macie2:us-east-1:123456789012:session",
+  "description": "Sensitive data discovery job for PII detection",
+  "findingCriteria": "example-value",
+  "id": "abc12345-6789-0123",
+  "name": "my-custom-identifier",
+  "position": "example-value",
+  "tags": "example-value"
+}

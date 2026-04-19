@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-access-control-list-schema.json",
+  "title": "AccessControlList",
+  "description": "Provides information about the permissions settings of the bucket-level access control list (ACL) for an S3 bucket.",
+  "type": "object",
+  "properties": {
+    "allowsPublicReadAccess": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "description": "Specifies whether the ACL grants the general public with read access permissions for the bucket."
+        }
+      ]
+    },
+    "allowsPublicWriteAccess": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "description": "Specifies whether the ACL grants the general public with write access permissions for the bucket."
+        }
+      ]
+    }
+  }
+}

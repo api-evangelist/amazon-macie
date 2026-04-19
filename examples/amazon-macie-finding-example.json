@@ -1,0 +1,20 @@
+{
+  "accountId": "123456789012",
+  "archived": "example-value",
+  "category": "example-value",
+  "classificationDetails": "example-value",
+  "count": "example-value",
+  "createdAt": "example-value",
+  "description": "Sensitive data discovery job for PII detection",
+  "id": "abc12345-6789-0123",
+  "partition": "example-value",
+  "policyDetails": "example-value",
+  "region": "example-value",
+  "resourcesAffected": "example-value",
+  "sample": "example-value",
+  "schemaVersion": "example-value",
+  "severity": "example-value",
+  "title": "example-value",
+  "type": "example-value",
+  "updatedAt": "example-value"
+}

@@ -1,0 +1,6 @@
+{
+  "bucketCriteria": "my-s3-bucket",
+  "maxResults": "example-value",
+  "nextToken": "example-value",
+  "sortCriteria": "example-value"
+}

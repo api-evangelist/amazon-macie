@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-get-finding-statistics-response-schema.json",
+  "title": "GetFindingStatisticsResponse",
+  "description": "GetFindingStatisticsResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {
+    "countsByGroup": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfGroupCount"
+        },
+        {
+          "description": "An array of objects, one for each group of findings that matches the filter criteria specified in the request."
+        }
+      ]
+    }
+  }
+}

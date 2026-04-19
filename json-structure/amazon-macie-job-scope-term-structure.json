@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-structure/amazon-macie-job-scope-term-structure.json",
+  "name": "JobScopeTerm",
+  "description": "Specifies a property- or tag-based condition that defines criteria for including or excluding S3 objects from a classification job. A JobScopeTerm object can contain only one simpleScopeTerm object or one tagScopeTerm object.",
+  "type": "object",
+  "properties": {
+    "simpleScopeTerm": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SimpleScopeTerm"
+        },
+        {
+          "description": "A property-based condition that defines a property, operator, and one or more values for including or excluding objects from the job."
+        }
+      ]
+    },
+    "tagScopeTerm": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagScopeTerm"
+        },
+        {
+          "description": "A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding objects from the job."
+        }
+      ]
+    }
+  }
+}

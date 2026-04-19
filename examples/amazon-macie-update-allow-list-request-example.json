@@ -1,0 +1,5 @@
+{
+  "criteria": "example-value",
+  "description": "Sensitive data discovery job for PII detection",
+  "name": "my-custom-identifier"
+}

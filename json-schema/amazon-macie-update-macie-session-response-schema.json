@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/json-schema/amazon-macie-update-macie-session-response-schema.json",
+  "title": "UpdateMacieSessionResponse",
+  "description": "UpdateMacieSessionResponse schema from Amazon Macie API",
+  "type": "object",
+  "properties": {}
+}
