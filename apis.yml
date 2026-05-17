@@ -54,7 +54,7 @@ apis:
         url: json-schema/amazon-macie-finding-schema.json
       - type: JSONStructure
         url: json-structure/amazon-macie-finding-structure.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/amazon-macie-context.jsonld
 common:
   - type: Portal
