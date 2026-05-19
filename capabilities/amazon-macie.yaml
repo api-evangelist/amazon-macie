@@ -1,0 +1,3278 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Macie 2
+  description: 'Amazon Macie 2. 79 operations. Lead operation: Amazon Macie Enable Organization Admin Account. Self-contained
+    Naftiko capability covering one Amazon Macie business surface.'
+  tags:
+  - Amazon Macie
+  - Amazon Macie 2
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_MACIE_API_KEY: AMAZON_MACIE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-macie
+    baseUri: http://macie2.{region}.amazonaws.com
+    description: Amazon Macie 2 business capability. Self-contained, no shared references.
+    resources:
+    - name: admin
+      path: /admin
+      operations:
+      - name: enableorganizationadminaccount
+        method: POST
+        description: Amazon Macie Enable Organization Admin Account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listorganizationadminaccounts
+        method: GET
+        description: Amazon Macie List Organization Admin Accounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: integer
+          description: The maximum number of items to include in each page of a paginated response.
+        - name: nextToken
+          in: query
+          type: string
+          description: The nextToken string that specifies which page of results to return in a paginated response.
+    - name: admin#adminAccountId
+      path: /admin#adminAccountId
+      operations:
+      - name: disableorganizationadminaccount
+        method: DELETE
+        description: Amazon Macie Disable Organization Admin Account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: adminAccountId
+          in: query
+          type: string
+          description: The Amazon Web Services account ID of the delegated Amazon Macie administrator account.
+          required: true
+    - name: admin-configuration
+      path: /admin/configuration
+      operations:
+      - name: describeorganizationconfiguration
+        method: GET
+        description: Amazon Macie Describe Organization Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateorganizationconfiguration
+        method: PATCH
+        description: Amazon Macie Update Organization Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: administrator
+      path: /administrator
+      operations:
+      - name: getadministratoraccount
+        method: GET
+        description: Amazon Macie Get Administrator Account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: administrator-disassociate
+      path: /administrator/disassociate
+      operations:
+      - name: disassociatefromadministratoraccount
+        method: POST
+        description: Amazon Macie Disassociate from Administrator Account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: allow-lists
+      path: /allow-lists
+      operations:
+      - name: createallowlist
+        method: POST
+        description: Amazon Macie Create Allow List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listallowlists
+        method: GET
+        description: Amazon Macie List Allow Lists
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: integer
+          description: The maximum number of items to include in each page of a paginated response.
+        - name: nextToken
+          in: query
+          type: string
+          description: The nextToken string that specifies which page of results to return in a paginated response.
+    - name: allow-lists-id
+      path: /allow-lists/{id}
+      operations:
+      - name: deleteallowlist
+        method: DELETE
+        description: Amazon Macie Delete Allow List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+        - name: ignoreJobChecks
+          in: query
+          type: string
+          description: <p>Specifies whether to force deletion of the allow list, even if active classification jobs are configured
+            to use the list.</p> <p>When you try to delete an al
+      - name: getallowlist
+        method: GET
+        description: Amazon Macie Get Allow List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+      - name: updateallowlist
+        method: PUT
+        description: Amazon Macie Update Allow List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: automated-discovery-configuration
+      path: /automated-discovery/configuration
+      operations:
+      - name: getautomateddiscoveryconfiguration
+        method: GET
+        description: Amazon Macie Get Automated Discovery Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateautomateddiscoveryconfiguration
+        method: PUT
+        description: Amazon Macie Update Automated Discovery Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: classification-export-configuration
+      path: /classification-export-configuration
+      operations:
+      - name: getclassificationexportconfiguration
+        method: GET
+        description: Amazon Macie Get Classification Export Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putclassificationexportconfiguration
+        method: PUT
+        description: Amazon Macie Put Classification Export Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: classification-scopes
+      path: /classification-scopes
+      operations:
+      - name: listclassificationscopes
+        method: GET
+        description: Amazon Macie List Classification Scopes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          description: The name of the classification scope to retrieve the unique identifier for.
+        - name: nextToken
+          in: query
+          type: string
+          description: The nextToken string that specifies which page of results to return in a paginated response.
+    - name: classification-scopes-id
+      path: /classification-scopes/{id}
+      operations:
+      - name: getclassificationscope
+        method: GET
+        description: Amazon Macie Get Classification Scope
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+      - name: updateclassificationscope
+        method: PATCH
+        description: Amazon Macie Update Classification Scope
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: custom-data-identifiers
+      path: /custom-data-identifiers
+      operations:
+      - name: createcustomdataidentifier
+        method: POST
+        description: Amazon Macie Create Custom Data Identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: custom-data-identifiers-get
+      path: /custom-data-identifiers/get
+      operations:
+      - name: batchgetcustomdataidentifiers
+        method: POST
+        description: Amazon Macie Batch Get Custom Data Identifiers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: custom-data-identifiers-list
+      path: /custom-data-identifiers/list
+      operations:
+      - name: listcustomdataidentifiers
+        method: POST
+        description: Amazon Macie List Custom Data Identifiers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: custom-data-identifiers-test
+      path: /custom-data-identifiers/test
+      operations:
+      - name: testcustomdataidentifier
+        method: POST
+        description: Amazon Macie Test Custom Data Identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: custom-data-identifiers-id
+      path: /custom-data-identifiers/{id}
+      operations:
+      - name: deletecustomdataidentifier
+        method: DELETE
+        description: Amazon Macie Delete Custom Data Identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+      - name: getcustomdataidentifier
+        method: GET
+        description: Amazon Macie Get Custom Data Identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+    - name: datasources-s3
+      path: /datasources/s3
+      operations:
+      - name: describebuckets
+        method: POST
+        description: Amazon Macie Describe Buckets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: datasources-s3-statistics
+      path: /datasources/s3/statistics
+      operations:
+      - name: getbucketstatistics
+        method: POST
+        description: Amazon Macie Get Bucket Statistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: datasources-search-resources
+      path: /datasources/search-resources
+      operations:
+      - name: searchresources
+        method: POST
+        description: Amazon Macie Search Resources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: findings
+      path: /findings
+      operations:
+      - name: listfindings
+        method: POST
+        description: Amazon Macie List Findings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: findings-publication-configuration
+      path: /findings-publication-configuration
+      operations:
+      - name: getfindingspublicationconfiguration
+        method: GET
+        description: Amazon Macie Get Findings Publication Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putfindingspublicationconfiguration
+        method: PUT
+        description: Amazon Macie Put Findings Publication Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: findings-describe
+      path: /findings/describe
+      operations:
+      - name: getfindings
+        method: POST
+        description: Amazon Macie Get Findings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: findings-sample
+      path: /findings/sample
+      operations:
+      - name: createsamplefindings
+        method: POST
+        description: Amazon Macie Create Sample Findings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: findings-statistics
+      path: /findings/statistics
+      operations:
+      - name: getfindingstatistics
+        method: POST
+        description: Amazon Macie Get Finding Statistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: findings-findingId-reveal
+      path: /findings/{findingId}/reveal
+      operations:
+      - name: getsensitivedataoccurrences
+        method: GET
+        description: Amazon Macie Get Sensitive Data Occurrences
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: findingId
+          in: path
+          type: string
+          description: The unique identifier for the finding.
+          required: true
+    - name: findings-findingId-reveal-availability
+      path: /findings/{findingId}/reveal/availability
+      operations:
+      - name: getsensitivedataoccurrencesavailability
+        method: GET
+        description: Amazon Macie Get Sensitive Data Occurrences Availability
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: findingId
+          in: path
+          type: string
+          description: The unique identifier for the finding.
+          required: true
+    - name: findingsfilters
+      path: /findingsfilters
+      operations:
+      - name: createfindingsfilter
+        method: POST
+        description: Amazon Macie Create Findings Filter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listfindingsfilters
+        method: GET
+        description: Amazon Macie List Findings Filters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: integer
+          description: The maximum number of items to include in each page of a paginated response.
+        - name: nextToken
+          in: query
+          type: string
+          description: The nextToken string that specifies which page of results to return in a paginated response.
+    - name: findingsfilters-id
+      path: /findingsfilters/{id}
+      operations:
+      - name: deletefindingsfilter
+        method: DELETE
+        description: Amazon Macie Delete Findings Filter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+      - name: getfindingsfilter
+        method: GET
+        description: Amazon Macie Get Findings Filter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+      - name: updatefindingsfilter
+        method: PATCH
+        description: Amazon Macie Update Findings Filter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: invitations
+      path: /invitations
+      operations:
+      - name: createinvitations
+        method: POST
+        description: Amazon Macie Create Invitations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listinvitations
+        method: GET
+        description: Amazon Macie List Invitations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: integer
+          description: The maximum number of items to include in each page of a paginated response.
+        - name: nextToken
+          in: query
+          type: string
+          description: The nextToken string that specifies which page of results to return in a paginated response.
+    - name: invitations-accept
+      path: /invitations/accept
+      operations:
+      - name: acceptinvitation
+        method: POST
+        description: Amazon Macie Accept Invitation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: invitations-count
+      path: /invitations/count
+      operations:
+      - name: getinvitationscount
+        method: GET
+        description: Amazon Macie Get Invitations Count
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: invitations-decline
+      path: /invitations/decline
+      operations:
+      - name: declineinvitations
+        method: POST
+        description: Amazon Macie Decline Invitations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: invitations-delete
+      path: /invitations/delete
+      operations:
+      - name: deleteinvitations
+        method: POST
+        description: Amazon Macie Delete Invitations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: jobs
+      path: /jobs
+      operations:
+      - name: createclassificationjob
+        method: POST
+        description: Amazon Macie Create Classification Job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: jobs-list
+      path: /jobs/list
+      operations:
+      - name: listclassificationjobs
+        method: POST
+        description: Amazon Macie List Classification Jobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: jobs-jobId
+      path: /jobs/{jobId}
+      operations:
+      - name: describeclassificationjob
+        method: GET
+        description: Amazon Macie Describe Classification Job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: jobId
+          in: path
+          type: string
+          description: The unique identifier for the classification job.
+          required: true
+      - name: updateclassificationjob
+        method: PATCH
+        description: Amazon Macie Update Classification Job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: jobId
+          in: path
+          type: string
+          description: The unique identifier for the classification job.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: macie
+      path: /macie
+      operations:
+      - name: disablemacie
+        method: DELETE
+        description: Amazon Macie Disable Macie
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: enablemacie
+        method: POST
+        description: Amazon Macie Enable Macie
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: getmaciesession
+        method: GET
+        description: Amazon Macie Get Macie Session
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatemaciesession
+        method: PATCH
+        description: Amazon Macie Update Macie Session
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: macie-members-id
+      path: /macie/members/{id}
+      operations:
+      - name: updatemembersession
+        method: PATCH
+        description: Amazon Macie Update Member Session
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: managed-data-identifiers-list
+      path: /managed-data-identifiers/list
+      operations:
+      - name: listmanageddataidentifiers
+        method: POST
+        description: Amazon Macie List Managed Data Identifiers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: master
+      path: /master
+      operations:
+      - name: getmasteraccount
+        method: GET
+        description: Amazon Macie Get Master Account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: master-disassociate
+      path: /master/disassociate
+      operations:
+      - name: disassociatefrommasteraccount
+        method: POST
+        description: Amazon Macie Disassociate from Master Account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: members
+      path: /members
+      operations:
+      - name: createmember
+        method: POST
+        description: Amazon Macie Create Member
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listmembers
+        method: GET
+        description: Amazon Macie List Members
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: integer
+          description: The maximum number of items to include in each page of a paginated response.
+        - name: nextToken
+          in: query
+          type: string
+          description: The nextToken string that specifies which page of results to return in a paginated response.
+        - name: onlyAssociated
+          in: query
+          type: string
+          description: Specifies which accounts to include in the response, based on the status of an account's relationship
+            with the administrator account. By default, the response i
+    - name: members-disassociate-id
+      path: /members/disassociate/{id}
+      operations:
+      - name: disassociatemember
+        method: POST
+        description: Amazon Macie Disassociate Member
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+    - name: members-id
+      path: /members/{id}
+      operations:
+      - name: deletemember
+        method: DELETE
+        description: Amazon Macie Delete Member
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+      - name: getmember
+        method: GET
+        description: Amazon Macie Get Member
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+    - name: resource-profiles#resourceArn
+      path: /resource-profiles#resourceArn
+      operations:
+      - name: getresourceprofile
+        method: GET
+        description: Amazon Macie Get Resource Profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: query
+          type: string
+          description: The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
+          required: true
+      - name: updateresourceprofile
+        method: PATCH
+        description: Amazon Macie Update Resource Profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: query
+          type: string
+          description: The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: resource-profiles-artifacts#resourceArn
+      path: /resource-profiles/artifacts#resourceArn
+      operations:
+      - name: listresourceprofileartifacts
+        method: GET
+        description: Amazon Macie List Resource Profile Artifacts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: nextToken
+          in: query
+          type: string
+          description: The nextToken string that specifies which page of results to return in a paginated response.
+        - name: resourceArn
+          in: query
+          type: string
+          description: The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
+          required: true
+    - name: resource-profiles-detections#resourceArn
+      path: /resource-profiles/detections#resourceArn
+      operations:
+      - name: listresourceprofiledetections
+        method: GET
+        description: Amazon Macie List Resource Profile Detections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: integer
+          description: The maximum number of items to include in each page of a paginated response.
+        - name: nextToken
+          in: query
+          type: string
+          description: The nextToken string that specifies which page of results to return in a paginated response.
+        - name: resourceArn
+          in: query
+          type: string
+          description: The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
+          required: true
+      - name: updateresourceprofiledetections
+        method: PATCH
+        description: Amazon Macie Update Resource Profile Detections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: query
+          type: string
+          description: The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: reveal-configuration
+      path: /reveal-configuration
+      operations:
+      - name: getrevealconfiguration
+        method: GET
+        description: Amazon Macie Get Reveal Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updaterevealconfiguration
+        method: PUT
+        description: Amazon Macie Update Reveal Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: tags-resourceArn
+      path: /tags/{resourceArn}
+      operations:
+      - name: listtagsforresource
+        method: GET
+        description: Amazon Macie List Tags for Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          description: The Amazon Resource Name (ARN) of the resource.
+          required: true
+      - name: tagresource
+        method: POST
+        description: Amazon Macie Tag Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          description: The Amazon Resource Name (ARN) of the resource.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: tags-resourceArn}#tagKeys
+      path: /tags/{resourceArn}#tagKeys
+      operations:
+      - name: untagresource
+        method: DELETE
+        description: Amazon Macie Untag Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          description: The Amazon Resource Name (ARN) of the resource.
+          required: true
+        - name: tagKeys
+          in: query
+          type: array
+          description: One or more tags (keys) to remove from the resource. In an HTTP request to remove multiple tags, append
+            the tagKeys parameter and argument for each tag to remov
+          required: true
+    - name: templates-sensitivity-inspections
+      path: /templates/sensitivity-inspections
+      operations:
+      - name: listsensitivityinspectiontemplates
+        method: GET
+        description: Amazon Macie List Sensitivity Inspection Templates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: integer
+          description: The maximum number of items to include in each page of a paginated response.
+        - name: nextToken
+          in: query
+          type: string
+          description: The nextToken string that specifies which page of results to return in a paginated response.
+    - name: templates-sensitivity-inspections-id
+      path: /templates/sensitivity-inspections/{id}
+      operations:
+      - name: getsensitivityinspectiontemplate
+        method: GET
+        description: Amazon Macie Get Sensitivity Inspection Template
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+      - name: updatesensitivityinspectiontemplate
+        method: PUT
+        description: Amazon Macie Update Sensitivity Inspection Template
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier for the Amazon Macie resource that the request applies to.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: usage
+      path: /usage
+      operations:
+      - name: getusagetotals
+        method: GET
+        description: Amazon Macie Get Usage Totals
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: timeRange
+          in: query
+          type: string
+          description: 'The inclusive time period to retrieve the data for. Valid values are: MONTH_TO_DATE, for the current
+            calendar month to date; and, PAST_30_DAYS, for the precedin'
+    - name: usage-statistics
+      path: /usage/statistics
+      operations:
+      - name: getusagestatistics
+        method: POST
+        description: Amazon Macie Get Usage Statistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_MACIE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-macie-rest
+    port: 8080
+    description: REST adapter for Amazon Macie 2. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/admin
+      name: admin
+      description: REST surface for admin.
+      operations:
+      - method: POST
+        name: enableorganizationadminaccount
+        description: Amazon Macie Enable Organization Admin Account
+        call: amazon-macie.enableorganizationadminaccount
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listorganizationadminaccounts
+        description: Amazon Macie List Organization Admin Accounts
+        call: amazon-macie.listorganizationadminaccounts
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/admin-adminaccountid
+      name: admin-adminaccountid
+      description: REST surface for admin#adminAccountId.
+      operations:
+      - method: DELETE
+        name: disableorganizationadminaccount
+        description: Amazon Macie Disable Organization Admin Account
+        call: amazon-macie.disableorganizationadminaccount
+        with:
+          adminAccountId: rest.adminAccountId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/admin/configuration
+      name: admin-configuration
+      description: REST surface for admin-configuration.
+      operations:
+      - method: GET
+        name: describeorganizationconfiguration
+        description: Amazon Macie Describe Organization Configuration
+        call: amazon-macie.describeorganizationconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateorganizationconfiguration
+        description: Amazon Macie Update Organization Configuration
+        call: amazon-macie.updateorganizationconfiguration
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/administrator
+      name: administrator
+      description: REST surface for administrator.
+      operations:
+      - method: GET
+        name: getadministratoraccount
+        description: Amazon Macie Get Administrator Account
+        call: amazon-macie.getadministratoraccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/administrator/disassociate
+      name: administrator-disassociate
+      description: REST surface for administrator-disassociate.
+      operations:
+      - method: POST
+        name: disassociatefromadministratoraccount
+        description: Amazon Macie Disassociate from Administrator Account
+        call: amazon-macie.disassociatefromadministratoraccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/allow-lists
+      name: allow-lists
+      description: REST surface for allow-lists.
+      operations:
+      - method: POST
+        name: createallowlist
+        description: Amazon Macie Create Allow List
+        call: amazon-macie.createallowlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listallowlists
+        description: Amazon Macie List Allow Lists
+        call: amazon-macie.listallowlists
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/allow-lists/{id}
+      name: allow-lists-id
+      description: REST surface for allow-lists-id.
+      operations:
+      - method: DELETE
+        name: deleteallowlist
+        description: Amazon Macie Delete Allow List
+        call: amazon-macie.deleteallowlist
+        with:
+          id: rest.id
+          ignoreJobChecks: rest.ignoreJobChecks
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getallowlist
+        description: Amazon Macie Get Allow List
+        call: amazon-macie.getallowlist
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateallowlist
+        description: Amazon Macie Update Allow List
+        call: amazon-macie.updateallowlist
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/automated-discovery/configuration
+      name: automated-discovery-configuration
+      description: REST surface for automated-discovery-configuration.
+      operations:
+      - method: GET
+        name: getautomateddiscoveryconfiguration
+        description: Amazon Macie Get Automated Discovery Configuration
+        call: amazon-macie.getautomateddiscoveryconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateautomateddiscoveryconfiguration
+        description: Amazon Macie Update Automated Discovery Configuration
+        call: amazon-macie.updateautomateddiscoveryconfiguration
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/classification-export-configuration
+      name: classification-export-configuration
+      description: REST surface for classification-export-configuration.
+      operations:
+      - method: GET
+        name: getclassificationexportconfiguration
+        description: Amazon Macie Get Classification Export Configuration
+        call: amazon-macie.getclassificationexportconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putclassificationexportconfiguration
+        description: Amazon Macie Put Classification Export Configuration
+        call: amazon-macie.putclassificationexportconfiguration
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/classification-scopes
+      name: classification-scopes
+      description: REST surface for classification-scopes.
+      operations:
+      - method: GET
+        name: listclassificationscopes
+        description: Amazon Macie List Classification Scopes
+        call: amazon-macie.listclassificationscopes
+        with:
+          name: rest.name
+          nextToken: rest.nextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/classification-scopes/{id}
+      name: classification-scopes-id
+      description: REST surface for classification-scopes-id.
+      operations:
+      - method: GET
+        name: getclassificationscope
+        description: Amazon Macie Get Classification Scope
+        call: amazon-macie.getclassificationscope
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateclassificationscope
+        description: Amazon Macie Update Classification Scope
+        call: amazon-macie.updateclassificationscope
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/custom-data-identifiers
+      name: custom-data-identifiers
+      description: REST surface for custom-data-identifiers.
+      operations:
+      - method: POST
+        name: createcustomdataidentifier
+        description: Amazon Macie Create Custom Data Identifier
+        call: amazon-macie.createcustomdataidentifier
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/custom-data-identifiers/get
+      name: custom-data-identifiers-get
+      description: REST surface for custom-data-identifiers-get.
+      operations:
+      - method: POST
+        name: batchgetcustomdataidentifiers
+        description: Amazon Macie Batch Get Custom Data Identifiers
+        call: amazon-macie.batchgetcustomdataidentifiers
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/custom-data-identifiers/list
+      name: custom-data-identifiers-list
+      description: REST surface for custom-data-identifiers-list.
+      operations:
+      - method: POST
+        name: listcustomdataidentifiers
+        description: Amazon Macie List Custom Data Identifiers
+        call: amazon-macie.listcustomdataidentifiers
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/custom-data-identifiers/test
+      name: custom-data-identifiers-test
+      description: REST surface for custom-data-identifiers-test.
+      operations:
+      - method: POST
+        name: testcustomdataidentifier
+        description: Amazon Macie Test Custom Data Identifier
+        call: amazon-macie.testcustomdataidentifier
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/custom-data-identifiers/{id}
+      name: custom-data-identifiers-id
+      description: REST surface for custom-data-identifiers-id.
+      operations:
+      - method: DELETE
+        name: deletecustomdataidentifier
+        description: Amazon Macie Delete Custom Data Identifier
+        call: amazon-macie.deletecustomdataidentifier
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getcustomdataidentifier
+        description: Amazon Macie Get Custom Data Identifier
+        call: amazon-macie.getcustomdataidentifier
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datasources/s3
+      name: datasources-s3
+      description: REST surface for datasources-s3.
+      operations:
+      - method: POST
+        name: describebuckets
+        description: Amazon Macie Describe Buckets
+        call: amazon-macie.describebuckets
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datasources/s3/statistics
+      name: datasources-s3-statistics
+      description: REST surface for datasources-s3-statistics.
+      operations:
+      - method: POST
+        name: getbucketstatistics
+        description: Amazon Macie Get Bucket Statistics
+        call: amazon-macie.getbucketstatistics
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datasources/search-resources
+      name: datasources-search-resources
+      description: REST surface for datasources-search-resources.
+      operations:
+      - method: POST
+        name: searchresources
+        description: Amazon Macie Search Resources
+        call: amazon-macie.searchresources
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings
+      name: findings
+      description: REST surface for findings.
+      operations:
+      - method: POST
+        name: listfindings
+        description: Amazon Macie List Findings
+        call: amazon-macie.listfindings
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings-publication-configuration
+      name: findings-publication-configuration
+      description: REST surface for findings-publication-configuration.
+      operations:
+      - method: GET
+        name: getfindingspublicationconfiguration
+        description: Amazon Macie Get Findings Publication Configuration
+        call: amazon-macie.getfindingspublicationconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putfindingspublicationconfiguration
+        description: Amazon Macie Put Findings Publication Configuration
+        call: amazon-macie.putfindingspublicationconfiguration
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings/describe
+      name: findings-describe
+      description: REST surface for findings-describe.
+      operations:
+      - method: POST
+        name: getfindings
+        description: Amazon Macie Get Findings
+        call: amazon-macie.getfindings
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings/sample
+      name: findings-sample
+      description: REST surface for findings-sample.
+      operations:
+      - method: POST
+        name: createsamplefindings
+        description: Amazon Macie Create Sample Findings
+        call: amazon-macie.createsamplefindings
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings/statistics
+      name: findings-statistics
+      description: REST surface for findings-statistics.
+      operations:
+      - method: POST
+        name: getfindingstatistics
+        description: Amazon Macie Get Finding Statistics
+        call: amazon-macie.getfindingstatistics
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings/{findingid}/reveal
+      name: findings-findingid-reveal
+      description: REST surface for findings-findingId-reveal.
+      operations:
+      - method: GET
+        name: getsensitivedataoccurrences
+        description: Amazon Macie Get Sensitive Data Occurrences
+        call: amazon-macie.getsensitivedataoccurrences
+        with:
+          findingId: rest.findingId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings/{findingid}/reveal/availability
+      name: findings-findingid-reveal-availability
+      description: REST surface for findings-findingId-reveal-availability.
+      operations:
+      - method: GET
+        name: getsensitivedataoccurrencesavailability
+        description: Amazon Macie Get Sensitive Data Occurrences Availability
+        call: amazon-macie.getsensitivedataoccurrencesavailability
+        with:
+          findingId: rest.findingId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findingsfilters
+      name: findingsfilters
+      description: REST surface for findingsfilters.
+      operations:
+      - method: POST
+        name: createfindingsfilter
+        description: Amazon Macie Create Findings Filter
+        call: amazon-macie.createfindingsfilter
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listfindingsfilters
+        description: Amazon Macie List Findings Filters
+        call: amazon-macie.listfindingsfilters
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findingsfilters/{id}
+      name: findingsfilters-id
+      description: REST surface for findingsfilters-id.
+      operations:
+      - method: DELETE
+        name: deletefindingsfilter
+        description: Amazon Macie Delete Findings Filter
+        call: amazon-macie.deletefindingsfilter
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getfindingsfilter
+        description: Amazon Macie Get Findings Filter
+        call: amazon-macie.getfindingsfilter
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatefindingsfilter
+        description: Amazon Macie Update Findings Filter
+        call: amazon-macie.updatefindingsfilter
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/invitations
+      name: invitations
+      description: REST surface for invitations.
+      operations:
+      - method: POST
+        name: createinvitations
+        description: Amazon Macie Create Invitations
+        call: amazon-macie.createinvitations
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listinvitations
+        description: Amazon Macie List Invitations
+        call: amazon-macie.listinvitations
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/invitations/accept
+      name: invitations-accept
+      description: REST surface for invitations-accept.
+      operations:
+      - method: POST
+        name: acceptinvitation
+        description: Amazon Macie Accept Invitation
+        call: amazon-macie.acceptinvitation
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/invitations/count
+      name: invitations-count
+      description: REST surface for invitations-count.
+      operations:
+      - method: GET
+        name: getinvitationscount
+        description: Amazon Macie Get Invitations Count
+        call: amazon-macie.getinvitationscount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/invitations/decline
+      name: invitations-decline
+      description: REST surface for invitations-decline.
+      operations:
+      - method: POST
+        name: declineinvitations
+        description: Amazon Macie Decline Invitations
+        call: amazon-macie.declineinvitations
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/invitations/delete
+      name: invitations-delete
+      description: REST surface for invitations-delete.
+      operations:
+      - method: POST
+        name: deleteinvitations
+        description: Amazon Macie Delete Invitations
+        call: amazon-macie.deleteinvitations
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/jobs
+      name: jobs
+      description: REST surface for jobs.
+      operations:
+      - method: POST
+        name: createclassificationjob
+        description: Amazon Macie Create Classification Job
+        call: amazon-macie.createclassificationjob
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/jobs/list
+      name: jobs-list
+      description: REST surface for jobs-list.
+      operations:
+      - method: POST
+        name: listclassificationjobs
+        description: Amazon Macie List Classification Jobs
+        call: amazon-macie.listclassificationjobs
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/jobs/{jobid}
+      name: jobs-jobid
+      description: REST surface for jobs-jobId.
+      operations:
+      - method: GET
+        name: describeclassificationjob
+        description: Amazon Macie Describe Classification Job
+        call: amazon-macie.describeclassificationjob
+        with:
+          jobId: rest.jobId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateclassificationjob
+        description: Amazon Macie Update Classification Job
+        call: amazon-macie.updateclassificationjob
+        with:
+          jobId: rest.jobId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/macie
+      name: macie
+      description: REST surface for macie.
+      operations:
+      - method: DELETE
+        name: disablemacie
+        description: Amazon Macie Disable Macie
+        call: amazon-macie.disablemacie
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: enablemacie
+        description: Amazon Macie Enable Macie
+        call: amazon-macie.enablemacie
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getmaciesession
+        description: Amazon Macie Get Macie Session
+        call: amazon-macie.getmaciesession
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatemaciesession
+        description: Amazon Macie Update Macie Session
+        call: amazon-macie.updatemaciesession
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/macie/members/{id}
+      name: macie-members-id
+      description: REST surface for macie-members-id.
+      operations:
+      - method: PATCH
+        name: updatemembersession
+        description: Amazon Macie Update Member Session
+        call: amazon-macie.updatemembersession
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/managed-data-identifiers/list
+      name: managed-data-identifiers-list
+      description: REST surface for managed-data-identifiers-list.
+      operations:
+      - method: POST
+        name: listmanageddataidentifiers
+        description: Amazon Macie List Managed Data Identifiers
+        call: amazon-macie.listmanageddataidentifiers
+        with:
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/master
+      name: master
+      description: REST surface for master.
+      operations:
+      - method: GET
+        name: getmasteraccount
+        description: Amazon Macie Get Master Account
+        call: amazon-macie.getmasteraccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/master/disassociate
+      name: master-disassociate
+      description: REST surface for master-disassociate.
+      operations:
+      - method: POST
+        name: disassociatefrommasteraccount
+        description: Amazon Macie Disassociate from Master Account
+        call: amazon-macie.disassociatefrommasteraccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/members
+      name: members
+      description: REST surface for members.
+      operations:
+      - method: POST
+        name: createmember
+        description: Amazon Macie Create Member
+        call: amazon-macie.createmember
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listmembers
+        description: Amazon Macie List Members
+        call: amazon-macie.listmembers
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          onlyAssociated: rest.onlyAssociated
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/members/disassociate/{id}
+      name: members-disassociate-id
+      description: REST surface for members-disassociate-id.
+      operations:
+      - method: POST
+        name: disassociatemember
+        description: Amazon Macie Disassociate Member
+        call: amazon-macie.disassociatemember
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/members/{id}
+      name: members-id
+      description: REST surface for members-id.
+      operations:
+      - method: DELETE
+        name: deletemember
+        description: Amazon Macie Delete Member
+        call: amazon-macie.deletemember
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getmember
+        description: Amazon Macie Get Member
+        call: amazon-macie.getmember
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/resource-profiles-resourcearn
+      name: resource-profiles-resourcearn
+      description: REST surface for resource-profiles#resourceArn.
+      operations:
+      - method: GET
+        name: getresourceprofile
+        description: Amazon Macie Get Resource Profile
+        call: amazon-macie.getresourceprofile
+        with:
+          resourceArn: rest.resourceArn
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateresourceprofile
+        description: Amazon Macie Update Resource Profile
+        call: amazon-macie.updateresourceprofile
+        with:
+          resourceArn: rest.resourceArn
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/resource-profiles/artifacts-resourcearn
+      name: resource-profiles-artifacts-resourcearn
+      description: REST surface for resource-profiles-artifacts#resourceArn.
+      operations:
+      - method: GET
+        name: listresourceprofileartifacts
+        description: Amazon Macie List Resource Profile Artifacts
+        call: amazon-macie.listresourceprofileartifacts
+        with:
+          nextToken: rest.nextToken
+          resourceArn: rest.resourceArn
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/resource-profiles/detections-resourcearn
+      name: resource-profiles-detections-resourcearn
+      description: REST surface for resource-profiles-detections#resourceArn.
+      operations:
+      - method: GET
+        name: listresourceprofiledetections
+        description: Amazon Macie List Resource Profile Detections
+        call: amazon-macie.listresourceprofiledetections
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          resourceArn: rest.resourceArn
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateresourceprofiledetections
+        description: Amazon Macie Update Resource Profile Detections
+        call: amazon-macie.updateresourceprofiledetections
+        with:
+          resourceArn: rest.resourceArn
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/reveal-configuration
+      name: reveal-configuration
+      description: REST surface for reveal-configuration.
+      operations:
+      - method: GET
+        name: getrevealconfiguration
+        description: Amazon Macie Get Reveal Configuration
+        call: amazon-macie.getrevealconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updaterevealconfiguration
+        description: Amazon Macie Update Reveal Configuration
+        call: amazon-macie.updaterevealconfiguration
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tags/{resourcearn}
+      name: tags-resourcearn
+      description: REST surface for tags-resourceArn.
+      operations:
+      - method: GET
+        name: listtagsforresource
+        description: Amazon Macie List Tags for Resource
+        call: amazon-macie.listtagsforresource
+        with:
+          resourceArn: rest.resourceArn
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: tagresource
+        description: Amazon Macie Tag Resource
+        call: amazon-macie.tagresource
+        with:
+          resourceArn: rest.resourceArn
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tags/resourcearn-tagkeys
+      name: tags-resourcearn-tagkeys
+      description: REST surface for tags-resourceArn}#tagKeys.
+      operations:
+      - method: DELETE
+        name: untagresource
+        description: Amazon Macie Untag Resource
+        call: amazon-macie.untagresource
+        with:
+          resourceArn: rest.resourceArn
+          tagKeys: rest.tagKeys
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/templates/sensitivity-inspections
+      name: templates-sensitivity-inspections
+      description: REST surface for templates-sensitivity-inspections.
+      operations:
+      - method: GET
+        name: listsensitivityinspectiontemplates
+        description: Amazon Macie List Sensitivity Inspection Templates
+        call: amazon-macie.listsensitivityinspectiontemplates
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/templates/sensitivity-inspections/{id}
+      name: templates-sensitivity-inspections-id
+      description: REST surface for templates-sensitivity-inspections-id.
+      operations:
+      - method: GET
+        name: getsensitivityinspectiontemplate
+        description: Amazon Macie Get Sensitivity Inspection Template
+        call: amazon-macie.getsensitivityinspectiontemplate
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatesensitivityinspectiontemplate
+        description: Amazon Macie Update Sensitivity Inspection Template
+        call: amazon-macie.updatesensitivityinspectiontemplate
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/usage
+      name: usage
+      description: REST surface for usage.
+      operations:
+      - method: GET
+        name: getusagetotals
+        description: Amazon Macie Get Usage Totals
+        call: amazon-macie.getusagetotals
+        with:
+          timeRange: rest.timeRange
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/usage/statistics
+      name: usage-statistics
+      description: REST surface for usage-statistics.
+      operations:
+      - method: POST
+        name: getusagestatistics
+        description: Amazon Macie Get Usage Statistics
+        call: amazon-macie.getusagestatistics
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-macie-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Macie 2. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: amazon-macie-enable-organization-admin
+      description: Amazon Macie Enable Organization Admin Account
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.enableorganizationadminaccount
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-list-organization-admin
+      description: Amazon Macie List Organization Admin Accounts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.listorganizationadminaccounts
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-disable-organization-admin
+      description: Amazon Macie Disable Organization Admin Account
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-macie.disableorganizationadminaccount
+      with:
+        adminAccountId: tools.adminAccountId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-describe-organization-configuration
+      description: Amazon Macie Describe Organization Configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.describeorganizationconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-update-organization-configuration
+      description: Amazon Macie Update Organization Configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-macie.updateorganizationconfiguration
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-administrator-account
+      description: Amazon Macie Get Administrator Account
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getadministratoraccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-disassociate-administrator-account
+      description: Amazon Macie Disassociate from Administrator Account
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.disassociatefromadministratoraccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-create-allow-list
+      description: Amazon Macie Create Allow List
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.createallowlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-list-allow-lists
+      description: Amazon Macie List Allow Lists
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.listallowlists
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-delete-allow-list
+      description: Amazon Macie Delete Allow List
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-macie.deleteallowlist
+      with:
+        id: tools.id
+        ignoreJobChecks: tools.ignoreJobChecks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-allow-list
+      description: Amazon Macie Get Allow List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getallowlist
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-update-allow-list
+      description: Amazon Macie Update Allow List
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-macie.updateallowlist
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-automated-discovery
+      description: Amazon Macie Get Automated Discovery Configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getautomateddiscoveryconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-update-automated-discovery
+      description: Amazon Macie Update Automated Discovery Configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-macie.updateautomateddiscoveryconfiguration
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-classification-export
+      description: Amazon Macie Get Classification Export Configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getclassificationexportconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-put-classification-export
+      description: Amazon Macie Put Classification Export Configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-macie.putclassificationexportconfiguration
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-list-classification-scopes
+      description: Amazon Macie List Classification Scopes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.listclassificationscopes
+      with:
+        name: tools.name
+        nextToken: tools.nextToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-classification-scope
+      description: Amazon Macie Get Classification Scope
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getclassificationscope
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-update-classification-scope
+      description: Amazon Macie Update Classification Scope
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-macie.updateclassificationscope
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-create-custom-data
+      description: Amazon Macie Create Custom Data Identifier
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.createcustomdataidentifier
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-batch-get-custom
+      description: Amazon Macie Batch Get Custom Data Identifiers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-macie.batchgetcustomdataidentifiers
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-list-custom-data
+      description: Amazon Macie List Custom Data Identifiers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-macie.listcustomdataidentifiers
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-test-custom-data
+      description: Amazon Macie Test Custom Data Identifier
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-macie.testcustomdataidentifier
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-delete-custom-data
+      description: Amazon Macie Delete Custom Data Identifier
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-macie.deletecustomdataidentifier
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-custom-data
+      description: Amazon Macie Get Custom Data Identifier
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getcustomdataidentifier
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-describe-buckets
+      description: Amazon Macie Describe Buckets
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.describebuckets
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-bucket-statistics
+      description: Amazon Macie Get Bucket Statistics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-macie.getbucketstatistics
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-search-resources
+      description: Amazon Macie Search Resources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-macie.searchresources
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-list-findings
+      description: Amazon Macie List Findings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-macie.listfindings
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-findings-publication
+      description: Amazon Macie Get Findings Publication Configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getfindingspublicationconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-put-findings-publication
+      description: Amazon Macie Put Findings Publication Configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-macie.putfindingspublicationconfiguration
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-findings
+      description: Amazon Macie Get Findings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-macie.getfindings
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-create-sample-findings
+      description: Amazon Macie Create Sample Findings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.createsamplefindings
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-finding-statistics
+      description: Amazon Macie Get Finding Statistics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-macie.getfindingstatistics
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-sensitive-data
+      description: Amazon Macie Get Sensitive Data Occurrences
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getsensitivedataoccurrences
+      with:
+        findingId: tools.findingId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-sensitive-data-2
+      description: Amazon Macie Get Sensitive Data Occurrences Availability
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getsensitivedataoccurrencesavailability
+      with:
+        findingId: tools.findingId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-create-findings-filter
+      description: Amazon Macie Create Findings Filter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.createfindingsfilter
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-list-findings-filters
+      description: Amazon Macie List Findings Filters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.listfindingsfilters
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-delete-findings-filter
+      description: Amazon Macie Delete Findings Filter
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-macie.deletefindingsfilter
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-findings-filter
+      description: Amazon Macie Get Findings Filter
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getfindingsfilter
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-update-findings-filter
+      description: Amazon Macie Update Findings Filter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-macie.updatefindingsfilter
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-create-invitations
+      description: Amazon Macie Create Invitations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.createinvitations
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-list-invitations
+      description: Amazon Macie List Invitations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.listinvitations
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-accept-invitation
+      description: Amazon Macie Accept Invitation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.acceptinvitation
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-invitations-count
+      description: Amazon Macie Get Invitations Count
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getinvitationscount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-decline-invitations
+      description: Amazon Macie Decline Invitations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.declineinvitations
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-delete-invitations
+      description: Amazon Macie Delete Invitations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.deleteinvitations
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-create-classification-job
+      description: Amazon Macie Create Classification Job
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.createclassificationjob
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-list-classification-jobs
+      description: Amazon Macie List Classification Jobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-macie.listclassificationjobs
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-describe-classification-job
+      description: Amazon Macie Describe Classification Job
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.describeclassificationjob
+      with:
+        jobId: tools.jobId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-update-classification-job
+      description: Amazon Macie Update Classification Job
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-macie.updateclassificationjob
+      with:
+        jobId: tools.jobId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-disable-macie
+      description: Amazon Macie Disable Macie
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-macie.disablemacie
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-enable-macie
+      description: Amazon Macie Enable Macie
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.enablemacie
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-macie-session
+      description: Amazon Macie Get Macie Session
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getmaciesession
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-update-macie-session
+      description: Amazon Macie Update Macie Session
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-macie.updatemaciesession
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-update-member-session
+      description: Amazon Macie Update Member Session
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-macie.updatemembersession
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-list-managed-data
+      description: Amazon Macie List Managed Data Identifiers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-macie.listmanageddataidentifiers
+      with:
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-master-account
+      description: Amazon Macie Get Master Account
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getmasteraccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-disassociate-master-account
+      description: Amazon Macie Disassociate from Master Account
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.disassociatefrommasteraccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-create-member
+      description: Amazon Macie Create Member
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.createmember
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-list-members
+      description: Amazon Macie List Members
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.listmembers
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        onlyAssociated: tools.onlyAssociated
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-disassociate-member
+      description: Amazon Macie Disassociate Member
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.disassociatemember
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-delete-member
+      description: Amazon Macie Delete Member
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-macie.deletemember
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-member
+      description: Amazon Macie Get Member
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getmember
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-resource-profile
+      description: Amazon Macie Get Resource Profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getresourceprofile
+      with:
+        resourceArn: tools.resourceArn
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-update-resource-profile
+      description: Amazon Macie Update Resource Profile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-macie.updateresourceprofile
+      with:
+        resourceArn: tools.resourceArn
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-list-resource-profile
+      description: Amazon Macie List Resource Profile Artifacts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.listresourceprofileartifacts
+      with:
+        nextToken: tools.nextToken
+        resourceArn: tools.resourceArn
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-list-resource-profile-2
+      description: Amazon Macie List Resource Profile Detections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.listresourceprofiledetections
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        resourceArn: tools.resourceArn
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-update-resource-profile-2
+      description: Amazon Macie Update Resource Profile Detections
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-macie.updateresourceprofiledetections
+      with:
+        resourceArn: tools.resourceArn
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-reveal-configuration
+      description: Amazon Macie Get Reveal Configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getrevealconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-update-reveal-configuration
+      description: Amazon Macie Update Reveal Configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-macie.updaterevealconfiguration
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-list-tags-resource
+      description: Amazon Macie List Tags for Resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.listtagsforresource
+      with:
+        resourceArn: tools.resourceArn
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-tag-resource
+      description: Amazon Macie Tag Resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-macie.tagresource
+      with:
+        resourceArn: tools.resourceArn
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-untag-resource
+      description: Amazon Macie Untag Resource
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-macie.untagresource
+      with:
+        resourceArn: tools.resourceArn
+        tagKeys: tools.tagKeys
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-list-sensitivity-inspection
+      description: Amazon Macie List Sensitivity Inspection Templates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.listsensitivityinspectiontemplates
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-sensitivity-inspection
+      description: Amazon Macie Get Sensitivity Inspection Template
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getsensitivityinspectiontemplate
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-update-sensitivity-inspection
+      description: Amazon Macie Update Sensitivity Inspection Template
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-macie.updatesensitivityinspectiontemplate
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-usage-totals
+      description: Amazon Macie Get Usage Totals
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-macie.getusagetotals
+      with:
+        timeRange: tools.timeRange
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-macie-get-usage-statistics
+      description: Amazon Macie Get Usage Statistics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-macie.getusagestatistics
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
