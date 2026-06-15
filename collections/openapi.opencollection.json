@@ -1,0 +1,9 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Macie API",
+    "version": "2020-01-01"
+  },
+  "items": [],
+  "bundled": true
+}
