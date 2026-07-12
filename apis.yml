@@ -53,6 +53,14 @@ apis:
       - type: JSONLD
         url: json-ld/amazon-macie-context.jsonld
 common:
+  - type: TrustCenter
+    url: security/amazon-macie-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-macie-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-macie-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-macie-authentication.yml
   - type: Portal
     url: https://aws.amazon.com/macie/
   - type: Documentation
