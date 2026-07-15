@@ -53,6 +53,8 @@ apis:
       - type: JSONLD
         url: json-ld/amazon-macie-context.jsonld
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-macie-agentic-access.yml
   - type: TrustCenter
     url: security/amazon-macie-trust-center.yml
   - type: VulnerabilityDisclosure
