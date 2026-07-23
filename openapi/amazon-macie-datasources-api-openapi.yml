@@ -1,0 +1,1241 @@
+openapi: 3.0.0
+info:
+  version: 2020-01-01
+  x-release: v4
+  title: Amazon Macie 2 Admin#adminAccountId Datasources API
+  description: Amazon Macie
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: macie2
+  x-aws-signingName: macie2
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/macie2-2020-01-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://macie2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Macie 2 multi-region endpoint
+- url: https://macie2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Macie 2 multi-region endpoint
+- url: http://macie2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Macie 2 endpoint for China (Beijing) and China (Ningxia)
+- url: https://macie2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Macie 2 endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Datasources
+paths:
+  /datasources/s3:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: DescribeBuckets
+      description: Retrieves (queries) statistical data and other information about one or more S3 buckets that Amazon Macie monitors and analyzes for an account.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeBucketsResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters:
+      - name: maxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                criteria:
+                  description: Specifies, as a map, one or more property-based conditions that filter the results of a query for information about S3 buckets.
+                  type: object
+                  additionalProperties:
+                    $ref: '#/components/schemas/BucketCriteriaAdditionalProperties'
+                maxResults:
+                  description: The maximum number of items to include in each page of the response. The default value is 50.
+                  type: integer
+                nextToken:
+                  description: The nextToken string that specifies which page of results to return in a paginated response.
+                  type: string
+                sortCriteria:
+                  description: Specifies criteria for sorting the results of a query for information about S3 buckets.
+                  type: object
+                  properties:
+                    attributeName:
+                      allOf:
+                      - $ref: '#/components/schemas/__string'
+                      - description: 'The name of the bucket property to sort the results by. This value can be one of the following properties that Amazon Macie defines as bucket metadata: accountId, bucketName, classifiableObjectCount, classifiableSizeInBytes, objectCount, sensitivityScore, or sizeInBytes.'
+                    orderBy:
+                      allOf:
+                      - $ref: '#/components/schemas/OrderBy'
+                      - description: 'The sort order to apply to the results, based on the value specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.'
+      summary: Amazon Macie Describe Buckets
+      tags:
+      - Datasources
+  /datasources/s3/statistics:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: GetBucketStatistics
+      description: Retrieves (queries) aggregated statistical data about all the S3 buckets that Amazon Macie monitors and analyzes for an account.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBucketStatisticsResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accountId:
+                  description: The unique identifier for the Amazon Web Services account.
+                  type: string
+      summary: Amazon Macie Get Bucket Statistics
+      tags:
+      - Datasources
+  /datasources/search-resources:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: SearchResources
+      description: Retrieves (queries) statistical data and other information about Amazon Web Services resources that Amazon Macie monitors and analyzes.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResourcesResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters:
+      - name: maxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bucketCriteria:
+                  description: Specifies property- and tag-based conditions that define filter criteria for including or excluding S3 buckets from the query results. Exclude conditions take precedence over include conditions.
+                  type: object
+                  properties:
+                    excludes:
+                      allOf:
+                      - $ref: '#/components/schemas/SearchResourcesCriteriaBlock'
+                      - description: The property- and tag-based conditions that determine which buckets to exclude from the results.
+                    includes:
+                      allOf:
+                      - $ref: '#/components/schemas/SearchResourcesCriteriaBlock'
+                      - description: The property- and tag-based conditions that determine which buckets to include in the results.
+                maxResults:
+                  description: The maximum number of items to include in each page of the response. The default value is 50.
+                  type: integer
+                nextToken:
+                  description: The nextToken string that specifies which page of results to return in a paginated response.
+                  type: string
+                sortCriteria:
+                  description: Specifies criteria for sorting the results of a query for information about Amazon Web Services resources that Amazon Macie monitors and analyzes.
+                  type: object
+                  properties:
+                    attributeName:
+                      allOf:
+                      - $ref: '#/components/schemas/SearchResourcesSortAttributeName'
+                      - description: The property to sort the results by.
+                    orderBy:
+                      allOf:
+                      - $ref: '#/components/schemas/OrderBy'
+                      - description: 'The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.'
+      summary: Amazon Macie Search Resources
+      tags:
+      - Datasources
+components:
+  schemas:
+    SearchResourcesResponse:
+      type: object
+      properties:
+        matchingResources:
+          allOf:
+          - $ref: '#/components/schemas/__listOfMatchingResource'
+          - description: An array of objects, one for each resource that matches the filter criteria specified in the request.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    SearchResourcesSimpleCriterion:
+      type: object
+      properties:
+        comparator:
+          allOf:
+          - $ref: '#/components/schemas/SearchResourcesComparator'
+          - description: The operator to use in the condition. Valid values are EQ (equals) and NE (not equals).
+        key:
+          allOf:
+          - $ref: '#/components/schemas/SearchResourcesSimpleCriterionKey'
+          - description: The property to use in the condition.
+        values:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: <p>An array that lists one or more values to use in the condition. If you specify multiple values, Amazon Macie uses OR logic to join the values. Valid values for each supported property (key) are:</p> <ul><li><p>ACCOUNT_ID - A string that represents the unique identifier for the Amazon Web Services account that owns the resource.</p></li> <li><p>S3_BUCKET_EFFECTIVE_PERMISSION - A string that represents an enumerated value that Macie defines for the <a href="https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketpublicaccess-effectivepermission">BucketPublicAccess.effectivePermission</a> property of an S3 bucket.</p></li> <li><p>S3_BUCKET_NAME - A string that represents the name of an S3 bucket.</p></li> <li><p>S3_BUCKET_SHARED_ACCESS - A string that represents an enumerated value that Macie defines for the <a href="https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketmetadata-sharedaccess">BucketMetadata.sharedAccess</a> property of an S3 bucket.</p></li></ul> <p>Values are case sensitive. Also, Macie doesn't support use of partial values or wildcard characters in values.</p>
+      description: Specifies a property-based filter condition that determines which Amazon Web Services resources are included or excluded from the query results.
+    __integer:
+      type: integer
+    BucketPolicy:
+      type: object
+      properties:
+        allowsPublicReadAccess:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the bucket policy allows the general public to have read access to the bucket.
+        allowsPublicWriteAccess:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the bucket policy allows the general public to have write access to the bucket.
+      description: Provides information about the permissions settings of the bucket policy for an S3 bucket.
+    BucketServerSideEncryption:
+      type: object
+      properties:
+        kmsMasterKeyId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) or unique identifier (key ID) for the KMS key that's used by default to encrypt objects that are added to the bucket. This value is null if the bucket is configured to use an Amazon S3 managed key to encrypt new objects.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/Type'
+          - description: <p>The server-side encryption algorithm that's used by default to encrypt objects that are added to the bucket. Possible values are:</p> <ul><li><p>AES256 - New objects are encrypted with an Amazon S3 managed key. They use SSE-S3 encryption.</p></li> <li><p>aws:kms - New objects are encrypted with an KMS key (kmsMasterKeyId), either an Amazon Web Services managed key or a customer managed key. They use SSE-KMS encryption.</p></li> <li><p>NONE - The bucket's default encryption settings don't specify server-side encryption behavior for new objects.</p></li></ul>
+      description: Provides information about the default server-side encryption settings for an S3 bucket. For detailed information about these settings, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html">Setting default server-side encryption behavior for Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+    InternalServerException: {}
+    AccessControlList:
+      type: object
+      properties:
+        allowsPublicReadAccess:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the ACL grants the general public with read access permissions for the bucket.
+        allowsPublicWriteAccess:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the ACL grants the general public with write access permissions for the bucket.
+      description: Provides information about the permissions settings of the bucket-level access control list (ACL) for an S3 bucket.
+    SensitivityAggregations:
+      type: object
+      properties:
+        classifiableSizeInBytes:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: <p>The total storage size, in bytes, of all the objects that Amazon Macie can analyze in the buckets. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p> <p>If versioning is enabled for any of the buckets, this value is based on the size of the latest version of each applicable object in the buckets. This value doesn't reflect the storage size of all versions of all applicable objects in the buckets.</p>
+        publiclyAccessibleCount:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of buckets that are publicly accessible due to a combination of permissions settings for each bucket.
+        totalCount:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of buckets.
+        totalSizeInBytes:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: <p>The total storage size, in bytes, of the buckets.</p> <p>If versioning is enabled for any of the buckets, this value is based on the size of the latest version of each object in the buckets. This value doesn't reflect the storage size of all versions of the objects in the buckets.</p>
+      description: Provides aggregated statistical data for sensitive data discovery metrics that apply to S3 buckets. Each field contains aggregated data for all the buckets that have a sensitivity score (sensitivityScore) of a specified value or within a specified range (BucketStatisticsBySensitivity). If automated sensitive data discovery is currently disabled for your account, the value for each field is 0.
+    ThrottlingException: {}
+    __listOfKeyValuePair:
+      type: array
+      items:
+        $ref: '#/components/schemas/KeyValuePair'
+    IsMonitoredByJob:
+      type: string
+      enum:
+      - 'TRUE'
+      - 'FALSE'
+      - UNKNOWN
+    __listOfSearchResourcesCriteria:
+      type: array
+      items:
+        $ref: '#/components/schemas/SearchResourcesCriteria'
+    IsDefinedInJob:
+      type: string
+      enum:
+      - 'TRUE'
+      - 'FALSE'
+      - UNKNOWN
+    EffectivePermission:
+      type: string
+      enum:
+      - PUBLIC
+      - NOT_PUBLIC
+      - UNKNOWN
+    AllowsUnencryptedObjectUploads:
+      type: string
+      enum:
+      - 'TRUE'
+      - 'FALSE'
+      - UNKNOWN
+    ConflictException: {}
+    BucketPublicAccess:
+      type: object
+      properties:
+        effectivePermission:
+          allOf:
+          - $ref: '#/components/schemas/EffectivePermission'
+          - description: ' <p>Specifies whether the bucket is publicly accessible due to the combination of permissions settings that apply to the bucket. Possible values are:</p> <ul><li><p>NOT_PUBLIC - The bucket isn''t publicly accessible.</p></li> <li><p>PUBLIC - The bucket is publicly accessible.</p></li> <li><p>UNKNOWN - Amazon Macie can''t determine whether the bucket is publicly accessible.</p></li></ul>'
+        permissionConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/BucketPermissionConfiguration'
+          - description: The account-level and bucket-level permissions settings for the bucket.
+      description: Provides information about the permissions settings that determine whether an S3 bucket is publicly accessible.
+    SearchResourcesCriteriaBlock:
+      type: object
+      properties:
+        and:
+          allOf:
+          - $ref: '#/components/schemas/__listOfSearchResourcesCriteria'
+          - description: An array of objects, one for each property- or tag-based condition that includes or excludes resources from the query results. If you specify more than one condition, Amazon Macie uses AND logic to join the conditions.
+      description: Specifies property- and tag-based conditions that define filter criteria for including or excluding Amazon Web Services resources from the query results.
+    __listOfMatchingResource:
+      type: array
+      items:
+        $ref: '#/components/schemas/MatchingResource'
+    MatchingResource:
+      type: object
+      properties:
+        matchingBucket:
+          allOf:
+          - $ref: '#/components/schemas/MatchingBucket'
+          - description: The details of an S3 bucket that Amazon Macie monitors and analyzes.
+      description: Provides statistical data and other information about an Amazon Web Services resource that Amazon Macie monitors and analyzes for your account.
+    __string:
+      type: string
+    __listOf__string:
+      type: array
+      items:
+        $ref: '#/components/schemas/__string'
+    BucketCriteriaAdditionalProperties:
+      type: object
+      properties:
+        eq:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        gt:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The value for the property is greater than the specified value.
+        gte:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The value for the property is greater than or equal to the specified value.
+        lt:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The value for the property is less than the specified value.
+        lte:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The value for the property is less than or equal to the specified value.
+        neq:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        prefix:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the bucket begins with the specified value.
+      description: Specifies the operator to use in a property-based condition that filters the results of a query for information about S3 buckets.
+    BucketMetadataErrorCode:
+      type: string
+      enum:
+      - ACCESS_DENIED
+      description: The error code for an error that prevented Amazon Macie from retrieving and processing metadata from Amazon S3 for an S3 bucket and the bucket's objects.
+    __long:
+      type: integer
+    BucketCountByEncryptionType:
+      type: object
+      properties:
+        kmsManaged:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: ' <p>The total number of buckets whose default encryption settings are configured to encrypt new objects with an Amazon Web Services managed KMS key or a customer managed KMS key. By default, these buckets encrypt new objects automatically using SSE-KMS encryption.</p>'
+        s3Managed:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of buckets whose default encryption settings are configured to encrypt new objects with an Amazon S3 managed key. By default, these buckets encrypt new objects automatically using SSE-S3 encryption.
+        unencrypted:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of buckets that don't specify default server-side encryption behavior for new objects. Default encryption settings aren't configured for these buckets.
+        unknown:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of buckets that Amazon Macie doesn't have current encryption metadata for. Macie can't provide current data about the default encryption settings for these buckets.
+      description: Provides information about the number of S3 buckets whose settings do or don't specify default server-side encryption behavior for objects that are added to the buckets. For detailed information about these settings, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html">Setting default server-side encryption behavior for Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+    __listOfBucketMetadata:
+      type: array
+      items:
+        $ref: '#/components/schemas/BucketMetadata'
+    ServiceQuotaExceededException: {}
+    SearchResourcesCriteria:
+      type: object
+      properties:
+        simpleCriterion:
+          allOf:
+          - $ref: '#/components/schemas/SearchResourcesSimpleCriterion'
+          - description: A property-based condition that defines a property, operator, and one or more values for including or excluding resources from the results.
+        tagCriterion:
+          allOf:
+          - $ref: '#/components/schemas/SearchResourcesTagCriterion'
+          - description: A tag-based condition that defines an operator and tag keys, tag values, or tag key and value pairs for including or excluding resources from the results.
+      description: Specifies a property- or tag-based filter condition for including or excluding Amazon Web Services resources from the query results.
+    __boolean:
+      type: boolean
+    BucketStatisticsBySensitivity:
+      type: object
+      properties:
+        classificationError:
+          allOf:
+          - $ref: '#/components/schemas/SensitivityAggregations'
+          - description: The aggregated statistical data for all buckets that have a sensitivity score of -1.
+        notClassified:
+          allOf:
+          - $ref: '#/components/schemas/SensitivityAggregations'
+          - description: The aggregated statistical data for all buckets that have a sensitivity score of 50.
+        notSensitive:
+          allOf:
+          - $ref: '#/components/schemas/SensitivityAggregations'
+          - description: The aggregated statistical data for all buckets that have a sensitivity score of 1-49.
+        sensitive:
+          allOf:
+          - $ref: '#/components/schemas/SensitivityAggregations'
+          - description: The aggregated statistical data for all buckets that have a sensitivity score of 51-100.
+      description: Provides aggregated statistical data for sensitive data discovery metrics that apply to S3 buckets, grouped by bucket sensitivity score (sensitivityScore). If automated sensitive data discovery is currently disabled for your account, the value for each metric is 0.
+    BucketCountByEffectivePermission:
+      type: object
+      properties:
+        publiclyAccessible:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of buckets that allow the general public to have read or write access to the bucket.
+        publiclyReadable:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of buckets that allow the general public to have read access to the bucket.
+        publiclyWritable:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of buckets that allow the general public to have write access to the bucket.
+        unknown:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of buckets that Amazon Macie wasn't able to evaluate permissions settings for. Macie can't determine whether these buckets are publicly accessible.
+      description: Provides information about the number of S3 buckets that are publicly accessible due to a combination of permissions settings for each bucket.
+    OrderBy:
+      type: string
+      enum:
+      - ASC
+      - DESC
+    SearchResourcesComparator:
+      type: string
+      enum:
+      - EQ
+      - NE
+      description: 'The operator to use in a condition that filters the results of a query. Valid values are:'
+    __listOfSearchResourcesTagCriterionPair:
+      type: array
+      items:
+        $ref: '#/components/schemas/SearchResourcesTagCriterionPair'
+    BucketCountPolicyAllowsUnencryptedObjectUploads:
+      type: object
+      properties:
+        allowsUnencryptedObjectUploads:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: 'The total number of buckets that don''t have a bucket policy or have a bucket policy that doesn''t require server-side encryption of new objects. If a bucket policy exists, the policy doesn''t require PutObject requests to include a valid server-side encryption header: the x-amz-server-side-encryption header with a value of AES256 or aws:kms, or the x-amz-server-side-encryption-customer-algorithm header with a value of AES256.'
+        deniesUnencryptedObjectUploads:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: 'The total number of buckets whose bucket policies require server-side encryption of new objects. PutObject requests for these buckets must include a valid server-side encryption header: the x-amz-server-side-encryption header with a value of AES256 or aws:kms, or the x-amz-server-side-encryption-customer-algorithm header with a value of AES256.'
+        unknown:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of buckets that Amazon Macie wasn't able to evaluate server-side encryption requirements for. Macie can't determine whether the bucket policies for these buckets require server-side encryption of new objects.
+      description: Provides information about the number of S3 buckets whose bucket policies do or don't require server-side encryption of objects when objects are added to the buckets.
+    ObjectCountByEncryptionType:
+      type: object
+      properties:
+        customerManaged:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of objects that are encrypted with a customer-provided key. The objects use customer-provided server-side encryption (SSE-C).
+        kmsManaged:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of objects that are encrypted with an KMS key, either an Amazon Web Services managed key or a customer managed key. The objects use KMS encryption (SSE-KMS).
+        s3Managed:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of objects that are encrypted with an Amazon S3 managed key. The objects use Amazon S3 managed encryption (SSE-S3).
+        unencrypted:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of objects that use client-side encryption or aren't encrypted.
+        unknown:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of objects that Amazon Macie doesn't have current encryption metadata for. Macie can't provide current data about the encryption settings for these objects.
+      description: Provides information about the number of objects that are in an S3 bucket and use certain types of server-side encryption, use client-side encryption, or aren't encrypted.
+    __timestampIso8601:
+      type: string
+      format: date-time
+    GetBucketStatisticsResponse:
+      type: object
+      properties:
+        bucketCount:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of buckets.
+        bucketCountByEffectivePermission:
+          allOf:
+          - $ref: '#/components/schemas/BucketCountByEffectivePermission'
+          - description: The total number of buckets that are publicly accessible due to a combination of permissions settings for each bucket.
+        bucketCountByEncryptionType:
+          allOf:
+          - $ref: '#/components/schemas/BucketCountByEncryptionType'
+          - description: The total number of buckets whose settings do or don't specify default server-side encryption behavior for objects that are added to the buckets.
+        bucketCountByObjectEncryptionRequirement:
+          allOf:
+          - $ref: '#/components/schemas/BucketCountPolicyAllowsUnencryptedObjectUploads'
+          - description: The total number of buckets whose bucket policies do or don't require server-side encryption of objects when objects are added to the buckets.
+        bucketCountBySharedAccessType:
+          allOf:
+          - $ref: '#/components/schemas/BucketCountBySharedAccessType'
+          - description: The total number of buckets that are or aren't shared with other Amazon Web Services accounts, Amazon CloudFront origin access identities (OAIs), or CloudFront origin access controls (OACs).
+        bucketStatisticsBySensitivity:
+          allOf:
+          - $ref: '#/components/schemas/BucketStatisticsBySensitivity'
+          - description: The aggregated sensitive data discovery statistics for the buckets. If automated sensitive data discovery is currently disabled for your account, the value for each statistic is 0.
+        classifiableObjectCount:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of objects that Amazon Macie can analyze in the buckets. These objects use a supported storage class and have a file name extension for a supported file or storage format.
+        classifiableSizeInBytes:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: <p>The total storage size, in bytes, of all the objects that Amazon Macie can analyze in the buckets. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p> <p>If versioning is enabled for any of the buckets, this value is based on the size of the latest version of each applicable object in the buckets. This value doesn't reflect the storage size of all versions of all applicable objects in the buckets.</p>
+        lastUpdated:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently retrieved bucket or object metadata from Amazon S3 for the buckets.
+        objectCount:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of objects in the buckets.
+        sizeInBytes:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: <p>The total storage size, in bytes, of the buckets.</p> <p>If versioning is enabled for any of the buckets, this value is based on the size of the latest version of each object in the buckets. This value doesn't reflect the storage size of all versions of the objects in the buckets.</p>
+        sizeInBytesCompressed:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: <p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the buckets.</p> <p>If versioning is enabled for any of the buckets, this value is based on the size of the latest version of each applicable object in the buckets. This value doesn't reflect the storage size of all versions of the applicable objects in the buckets.</p>
+        unclassifiableObjectCount:
+          allOf:
+          - $ref: '#/components/schemas/ObjectLevelStatistics'
+          - description: The total number of objects that Amazon Macie can't analyze in the buckets. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format.
+        unclassifiableObjectSizeInBytes:
+          allOf:
+          - $ref: '#/components/schemas/ObjectLevelStatistics'
+          - description: The total storage size, in bytes, of the objects that Amazon Macie can't analyze in the buckets. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format.
+    ResourceNotFoundException: {}
+    SearchResourcesTagCriterion:
+      type: object
+      properties:
+        comparator:
+          allOf:
+          - $ref: '#/components/schemas/SearchResourcesComparator'
+          - description: The operator to use in the condition. Valid values are EQ (equals) and NE (not equals).
+        tagValues:
+          allOf:
+          - $ref: '#/components/schemas/__listOfSearchResourcesTagCriterionPair'
+          - description: The tag keys, tag values, or tag key and value pairs to use in the condition.
+      description: Specifies a tag-based filter condition that determines which Amazon Web Services resources are included or excluded from the query results.
+    AccessDeniedException: {}
+    SearchResourcesTagCriterionPair:
+      type: object
+      properties:
+        key:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The value for the tag key to use in the condition.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The tag value to use in the condition.
+      description: Specifies a tag key, a tag value, or a tag key and value (as a pair) to use in a tag-based filter condition for a query. Tag keys and values are case sensitive. Also, Amazon Macie doesn't support use of partial values or wildcard characters in tag-based filter conditions.
+    BucketLevelPermissions:
+      type: object
+      properties:
+        accessControlList:
+          allOf:
+          - $ref: '#/components/schemas/AccessControlList'
+          - description: The permissions settings of the access control list (ACL) for the bucket. This value is null if an ACL hasn't been defined for the bucket.
+        blockPublicAccess:
+          allOf:
+          - $ref: '#/components/schemas/BlockPublicAccess'
+          - description: The block public access settings for the bucket.
+        bucketPolicy:
+          allOf:
+          - $ref: '#/components/schemas/BucketPolicy'
+          - description: The permissions settings of the bucket policy for the bucket. This value is null if a bucket policy hasn't been defined for the bucket.
+      description: Provides information about the bucket-level permissions settings for an S3 bucket.
+    BucketMetadata:
+      type: object
+      properties:
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the Amazon Web Services account that owns the bucket.
+        allowsUnencryptedObjectUploads:
+          allOf:
+          - $ref: '#/components/schemas/AllowsUnencryptedObjectUploads'
+          - description: '<p>Specifies whether the bucket policy for the bucket requires server-side encryption of objects when objects are added to the bucket. Possible values are:</p> <ul><li><p>FALSE - The bucket policy requires server-side encryption of new objects. PutObject requests must include a valid server-side encryption header.</p></li> <li><p>TRUE - The bucket doesn''t have a bucket policy or it has a bucket policy that doesn''t require server-side encryption of new objects. If a bucket policy exists, it doesn''t require PutObject requests to include a valid server-side encryption header.</p></li> <li><p>UNKNOWN - Amazon Macie can''t determine whether the bucket policy requires server-side encryption of new objects.</p></li></ul> <p>Valid server-side encryption headers are: x-amz-server-side-encryption with a value of AES256 or aws:kms, and x-amz-server-side-encryption-customer-algorithm with a value of AES256.</p>'
+        bucketArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the bucket.
+        bucketCreatedAt:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when the bucket was created. This value can also indicate when changes such as edits to the bucket's policy were most recently made to the bucket.
+        bucketName:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the bucket.
+        classifiableObjectCount:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format.
+        classifiableSizeInBytes:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: <p>The total storage size, in bytes, of the objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p> <p>If versioning is enabled for the bucket, Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>
+        errorCode:
+          allOf:
+          - $ref: '#/components/schemas/BucketMetadataErrorCode'
+          - description: The error code for an error that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. If this value is ACCESS_DENIED, Macie doesn't have permission to retrieve the information. For example, the bucket has a restrictive bucket policy and Amazon S3 denied the request. If this value is null, Macie was able to retrieve and process the information.
+        errorMessage:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: A brief description of the error (errorCode) that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. This value is null if Macie was able to retrieve and process the information.
+        jobDetails:
+          allOf:
+          - $ref: '#/components/schemas/JobDetails'
+          - description: Specifies whether any one-time or recurring classification jobs are configured to analyze data in the bucket, and, if so, the details of the job that ran most recently.
+        lastAutomatedDiscoveryTime:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently analyzed data in the bucket while performing automated sensitive data discovery for your account. This value is null if automated sensitive data discovery is currently disabled for your account.
+        lastUpdated:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently retrieved bucket or object metadata from Amazon S3 for the bucket.
+        objectCount:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of objects in the bucket.
+        objectCountByEncryptionType:
+          allOf:
+          - $ref: '#/components/schemas/ObjectCountByEncryptionType'
+          - description: The total number of objects in the bucket, grouped by server-side encryption type. This includes a grouping that reports the total number of objects that aren't encrypted or use client-side encryption.
+        publicAccess:
+          allOf:
+          - $ref: '#/components/schemas/BucketPublicAccess'
+          - description: Specifies whether the bucket is publicly accessible due to the combination of permissions settings that apply to the bucket, and provides information about those settings.
+        region:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Web Services Region that hosts the bucket.
+        replicationDetails:
+          allOf:
+          - $ref: '#/components/schemas/ReplicationDetails'
+          - description: Specifies whether the bucket is configured to replicate one or more objects to buckets for other Amazon Web Services accounts and, if so, which accounts.
+        sensitivityScore:
+          allOf:
+          - $ref: '#/components/schemas/__integer'
+          - description: The sensitivity score for the bucket, ranging from -1 (classification error) to 100 (sensitive). This value is null if automated sensitive data discovery is currently disabled for your account.
+        serverSideEncryption:
+          allOf:
+          - $ref: '#/components/schemas/BucketServerSideEncryption'
+          - description: The default server-side encryption settings for the bucket.
+        sharedAccess:
+          allOf:
+          - $ref: '#/components/schemas/SharedAccess'
+          - description: '<p>Specifies whether the bucket is shared with another Amazon Web Services account, an Amazon CloudFront origin access identity (OAI), or a CloudFront origin access control (OAC). Possible values are:</p> <ul><li><p>EXTERNAL - The bucket is shared with one or more of the following or any combination of the following: a CloudFront OAI, a CloudFront OAC, or an Amazon Web Services account that isn''t part of your Amazon Macie organization.</p></li> <li><p>INTERNAL - The bucket is shared with one or more Amazon Web Services accounts that are part of your Amazon Macie organization. It isn''t shared with a CloudFront OAI or OAC.</p></li> <li><p>NOT_SHARED - The bucket isn''t shared with another Amazon Web Services account, a CloudFront OAI, or a CloudFront OAC.</p></li> <li><p>UNKNOWN - Amazon Macie wasn''t able to evaluate the shared access settings for the bucket.</p></li></ul> <p>An <i>Amazon Macie organization</i> is a set of Macie accounts that are centrally managed as a group of related accounts through Organizations or by Macie invitation.</p>'
+        sizeInBytes:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: <p>The total storage size, in bytes, of the bucket.</p> <p>If versioning is enabled for the bucket, Amazon Macie calculates this value based on the size of the latest version of each object in the bucket. This value doesn't reflect the storage size of all versions of each object in the bucket.</p>
+        sizeInBytesCompressed:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: <p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the bucket.</p> <p>If versioning is enabled for the bucket, Amazon Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/__listOfKeyValuePair'
+          - description: An array that specifies the tags (keys and values) that are associated with the bucket.
+        unclassifiableObjectCount:
+          allOf:
+          - $ref: '#/components/schemas/ObjectLevelStatistics'
+          - description: The total number of objects that Amazon Macie can't analyze in the bucket. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format.
+        unclassifiableObjectSizeInBytes:
+          allOf:
+          - $ref: '#/components/schemas/ObjectLevelStatistics'
+          - description: The total storage size, in bytes, of the objects that Amazon Macie can't analyze in the bucket. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format.
+        versioning:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether versioning is enabled for the bucket.
+      description: <p>Provides statistical data and other information about an S3 bucket that Amazon Macie monitors and analyzes for your account. By default, object count and storage size values include data for object parts that are the result of incomplete multipart uploads. For more information, see <a href="https://docs.aws.amazon.com/macie/latest/user/monitoring-s3-how-it-works.html">How Macie monitors Amazon S3 data security</a> in the <i>Amazon Macie User Guide</i>.</p> <p>If an error occurs when Macie attempts to retrieve and process metadata from Amazon S3 for the bucket or the bucket's objects, the value for the versioning property is false and the value for most other properties is null. Key exceptions are accountId, bucketArn, bucketCreatedAt, bucketName, lastUpdated, and region. To identify the cause of the error, refer to the errorCode and errorMessage values.</p>
+    BucketCountBySharedAccessType:
+      type: object
+      properties:
+        external:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: 'The total number of buckets that are shared with one or more of the following or any combination of the following: an Amazon CloudFront OAI, a CloudFront OAC, or an Amazon Web Services account that isn''t in the same Amazon Macie organization.'
+        internal:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of buckets that are shared with one or more Amazon Web Services accounts in the same Amazon Macie organization. These buckets aren't shared with Amazon CloudFront OAIs or OACs.
+        notShared:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of buckets that aren't shared with other Amazon Web Services accounts, Amazon CloudFront OAIs, or CloudFront OACs.
+        unknown:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of buckets that Amazon Macie wasn't able to evaluate shared access settings for. Macie can't determine whether these buckets are shared with other Amazon Web Services accounts, Amazon CloudFront OAIs, or CloudFront OACs.
+      description: Provides information about the number of S3 buckets that are or aren't shared with other Amazon Web Services accounts, Amazon CloudFront origin access identities (OAIs), or CloudFront origin access controls (OACs). In this data, an <i>Amazon Macie organization</i> is defined as a set of Macie accounts that are centrally managed as a group of related accounts through Organizations or by Macie invitation.
+    DescribeBucketsResponse:
+      type: object
+      properties:
+        buckets:
+          allOf:
+          - $ref: '#/components/schemas/__listOfBucketMetadata'
+          - description: An array of objects, one for each bucket that matches the filter criteria specified in the request.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    SharedAccess:
+      type: string
+      enum:
+      - EXTERNAL
+      - INTERNAL
+      - NOT_SHARED
+      - UNKNOWN
+    SearchResourcesSimpleCriterionKey:
+      type: string
+      enum:
+      - ACCOUNT_ID
+      - S3_BUCKET_NAME
+      - S3_BUCKET_EFFECTIVE_PERMISSION
+      - S3_BUCKET_SHARED_ACCESS
+      description: 'The property to use in a condition that filters the query results. Valid values are:'
+    Type:
+      type: string
+      enum:
+      - NONE
+      - AES256
+      - aws:kms
+    SearchResourcesSortAttributeName:
+      type: string
+      enum:
+      - ACCOUNT_ID
+      - RESOURCE_NAME
+      - S3_CLASSIFIABLE_OBJECT_COUNT
+      - S3_CLASSIFIABLE_SIZE_IN_BYTES
+      description: 'The property to sort the query results by. Valid values are:'
+    MatchingBucket:
+      type: object
+      properties:
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the Amazon Web Services account that owns the bucket.
+        bucketName:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the bucket.
+        classifiableObjectCount:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format.
+        classifiableSizeInBytes:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: <p>The total storage size, in bytes, of the objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p> <p>If versioning is enabled for the bucket, Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>
+        errorCode:
+          allOf:
+          - $ref: '#/components/schemas/BucketMetadataErrorCode'
+          - description: The error code for an error that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. If this value is ACCESS_DENIED, Macie doesn't have permission to retrieve the information. For example, the bucket has a restrictive bucket policy and Amazon S3 denied the request. If this value is null, Macie was able to retrieve and process the information.
+        errorMessage:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: A brief description of the error (errorCode) that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. This value is null if Macie was able to retrieve and process the information.
+        jobDetails:
+          allOf:
+          - $ref: '#/components/schemas/JobDetails'
+          - description: Specifies whether any one-time or recurring classification jobs are configured to analyze objects in the bucket, and, if so, the details of the job that ran most recently.
+        lastAutomatedDiscoveryTime:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently analyzed data in the bucket while performing automated sensitive data discovery for your account. This value is null if automated sensitive data discovery is currently disabled for your account.
+        objectCount:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of objects in the bucket.
+        objectCountByEncryptionType:
+          allOf:
+          - $ref: '#/components/schemas/ObjectCountByEncryptionType'
+          - description: The total number of objects in the bucket, grouped by server-side encryption type. This includes a grouping that reports the total number of objects that aren't encrypted or use client-side encryption.
+        sensitivityScore:
+          allOf:
+          - $ref: '#/components/schemas/__integer'
+          - description: The current sensitivity score for the bucket, ranging from -1 (classification error) to 100 (sensitive). This value is null if automated sensitive data discovery is currently disabled for your account.
+        sizeInBytes:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: <p>The total storage size, in bytes, of the bucket.</p> <p>If versioning is enabled for the bucket, Amazon Macie calculates this value based on the size of the latest version of each object in the bucket. This value doesn't reflect the storage size of all versions of each object in the bucket.</p>
+        sizeInBytesCompressed:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: <p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the bucket.</p> <p>If versioning is enabled for the bucket, Amazon Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>
+        unclassifiableObjectCount:
+          allOf:
+          - $ref: '#/components/schemas/ObjectLevelStatistics'
+          - description: The total number of objects that Amazon Macie can't analyze in the bucket. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format.
+        unclassifiableObjectSizeInBytes:
+          allOf:
+          - $ref: '#/components/schemas/ObjectLevelStatistics'
+          - description: The total storage size, in bytes, of the objects that Amazon Macie can't analyze in the bucket. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format.
+      description: <p>Provides statistical data and other information about an S3 bucket that Amazon Macie monitors and analyzes for your account. By default, object count and storage size values include data for object parts that are the result of incomplete multipart uploads. For more information, see <a href="https://docs.aws.amazon.com/macie/latest/user/monitoring-s3-how-it-works.html">How Macie monitors Amazon S3 data security</a> in the <i>Amazon Macie User Guide</i>.</p> <p>If an error occurs when Macie attempts to retrieve and process information about the bucket or the bucket's objects, the value for most of these properties is null. Key exceptions are accountId and bucketName. To identify the cause of the error, refer to the errorCode and errorMessage values.</p>
+    ValidationException: {}
+    ReplicationDetails:
+      type: object
+      properties:
+        replicated:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the bucket is configured to replicate one or more objects to any destination.
+        replicatedExternally:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the bucket is configured to replicate one or more objects to a bucket for an Amazon Web Services account that isn't part of your Amazon Macie organization. An <i>Amazon Macie organization</i> is a set of Macie accounts that are centrally managed as a group of related accounts through Organizations or by Macie invitation.
+        replicationAccounts:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: An array of Amazon Web Services account IDs, one for each Amazon Web Services account that owns a bucket that the bucket is configured to replicate one or more objects to.
+      description: Provides information about settings that define whether one or more objects in an S3 bucket are replicated to S3 buckets for other Amazon Web Services accounts and, if so, which accounts.
+    JobDetails:
+      type: object
+      properties:
+        isDefinedInJob:
+          allOf:
+          - $ref: '#/components/schemas/IsDefinedInJob'
+          - description: <p>Specifies whether any one-time or recurring jobs are configured to analyze data in the bucket. Possible values are:</p> <ul><li><p>TRUE - The bucket is explicitly included in the bucket definition (S3BucketDefinitionForJob) for one or more jobs and at least one of those jobs has a status other than CANCELLED. Or the bucket matched the bucket criteria (S3BucketCriteriaForJob) for at least one job that previously ran.</p></li> <li><p>FALSE - The bucket isn't explicitly included in the bucket definition (S3BucketDefinitionForJob) for any jobs, all the jobs that explicitly include the bucket in their bucket definitions have a status of CANCELLED, or the bucket didn't match the bucket criteria (S3BucketCriteriaForJob) for any jobs that previously ran.</p></li> <li><p>UNKNOWN - An exception occurred when Amazon Macie attempted to retrieve job data for the bucket.</p></li></ul>
+        isMonitoredByJob:
+          allOf:
+          - $ref: '#/components/schemas/IsMonitoredByJob'
+          - description: <p>Specifies whether any recurring jobs are configured to analyze data in the bucket. Possible values are:</p> <ul><li><p>TRUE - The bucket is explicitly included in the bucket definition (S3BucketDefinitionForJob) for one or more recurring jobs or the bucket matches the bucket criteria (S3BucketCriteriaForJob) for one or more recurring jobs. At least one of those jobs has a status other than CANCELLED.</p></li> <li><p>FALSE - The bucket isn't explicitly included in the bucket definition (S3BucketDefinitionForJob) for any recurring jobs, the bucket doesn't match the bucket criteria (S3BucketCriteriaForJob) for any recurring jobs, or all the recurring jobs that are configured to analyze data in the bucket have a status of CANCELLED.</p></li> <li><p>UNKNOWN - An exception occurred when Amazon Macie attempted to retrieve job data for the bucket.</p></li></ul>
+        lastJobId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: <p>The unique identifier for the job that ran most recently and is configured to analyze data in the bucket, either the latest run of a recurring job or the only run of a one-time job.</p> <p>This value is typically null if the value for the isDefinedInJob property is FALSE or UNKNOWN.</p>
+        lastJobRunTime:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: <p>The date and time, in UTC and extended ISO 8601 format, when the job (lastJobId) started. If the job is a recurring job, this value indicates when the most recent run started.</p> <p>This value is typically null if the value for the isDefinedInJob property is FALSE or UNKNOWN.</p>
+      description: Specifies whether any one-time or recurring classification jobs are configured to analyze data in an S3 bucket, and, if so, the details of the job that ran most recently.
+    ObjectLevelStatistics:
+      type: object
+      properties:
+        fileType:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total storage size (in bytes) or number of objects that Amazon Macie can't analyze because the objects don't have a file name extension for a supported file or storage format.
+        storageClass:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total storage size (in bytes) or number of objects that Amazon Macie can't analyze because the objects use an unsupported storage class.
+        total:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total storage size (in bytes) or number of objects that Amazon Macie can't analyze because the objects use an unsupported storage class or don't have a file name extension for a supported file or storage format.
+      description: Provides information about the total storage size (in bytes) or number of objects that Amazon Macie can't analyze in one or more S3 buckets. In a BucketMetadata or MatchingBucket object, this data is for a specific bucket. In a GetBucketStatisticsResponse object, this data is aggregated for all the buckets in the query results. If versioning is enabled for a bucket, storage size values are based on the size of the latest version of each applicable object in the bucket.
+    BucketPermissionConfiguration:
+      type: object
+      properties:
+        accountLevelPermissions:
+          allOf:
+          - $ref: '#/components/schemas/AccountLevelPermissions'
+          - description: The account-level permissions settings that apply to the bucket.
+        bucketLevelPermissions:
+          allOf:
+          - $ref: '#/components/schemas/BucketLevelPermissions'
+          - description: The bucket-level permissions settings for the bucket.
+      description: Provides information about the account-level and bucket-level permissions settings for an S3 bucket.
+    KeyValuePair:
+      type: object
+      properties:
+        key:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: One part of a key-value pair that comprises a tag. A tag key is a general label that acts as a category for more specific tag values.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: One part of a key-value pair that comprises a tag. A tag value acts as a descriptor for a tag key. A tag value can be an empty string.
+      description: Provides information about the tags that are associated with an S3 bucket or object. Each tag consists of a required tag key and an associated tag value.
+    AccountLevelPermissions:
+      type: object
+      properties:
+        blockPublicAccess:
+          allOf:
+          - $ref: '#/components/schemas/BlockPublicAccess'
+          - description: The block public access settings for the Amazon Web Services account that owns the bucket.
+      description: Provides information about the account-level permissions settings that apply to an S3 bucket.
+    BlockPublicAccess:
+      type: object
+      properties:
+        blockPublicAcls:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether Amazon S3 blocks public access control lists (ACLs) for the bucket and objects in the bucket.
+        blockPublicPolicy:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether Amazon S3 blocks public bucket policies for the bucket.
+        ignorePublicAcls:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether Amazon S3 ignores public ACLs for the bucket and objects in the bucket.
+        restrictPublicBuckets:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether Amazon S3 restricts public bucket policies for the bucket.
+      description: Provides information about the block public access settings for an S3 bucket. These settings can apply to a bucket at the account or bucket level. For detailed information about each setting, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html">Blocking public access to your Amazon S3 storage</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/macie2/
+x-hasEquivalentPaths: true

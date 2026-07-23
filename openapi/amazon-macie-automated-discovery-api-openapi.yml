@@ -1,0 +1,324 @@
+openapi: 3.0.0
+info:
+  version: 2020-01-01
+  x-release: v4
+  title: Amazon Macie 2 Admin#adminAccountId Automated Discovery API
+  description: Amazon Macie
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: macie2
+  x-aws-signingName: macie2
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/macie2-2020-01-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://macie2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Macie 2 multi-region endpoint
+- url: https://macie2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Macie 2 multi-region endpoint
+- url: http://macie2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Macie 2 endpoint for China (Beijing) and China (Ningxia)
+- url: https://macie2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Macie 2 endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Automated Discovery
+paths:
+  /automated-discovery/configuration:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: GetAutomatedDiscoveryConfiguration
+      description: Retrieves the configuration settings and status of automated sensitive data discovery for an account.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAutomatedDiscoveryConfigurationResponse'
+        '480':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters: []
+      summary: Amazon Macie Get Automated Discovery Configuration
+      tags:
+      - Automated Discovery
+    put:
+      operationId: UpdateAutomatedDiscoveryConfiguration
+      description: Enables or disables automated sensitive data discovery for an account.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateAutomatedDiscoveryConfigurationResponse'
+        '480':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - status
+              properties:
+                status:
+                  description: 'The status of the automated sensitive data discovery configuration for an Amazon Macie account. Valid values are:'
+                  type: string
+                  enum:
+                  - ENABLED
+                  - DISABLED
+      summary: Amazon Macie Update Automated Discovery Configuration
+      tags:
+      - Automated Discovery
+components:
+  schemas:
+    GetAutomatedDiscoveryConfigurationResponse:
+      type: object
+      properties:
+        classificationScopeId:
+          allOf:
+          - $ref: '#/components/schemas/ClassificationScopeId'
+          - description: The unique identifier for the classification scope that's used when performing automated sensitive data discovery for the account. The classification scope specifies S3 buckets to exclude from automated sensitive data discovery.
+        disabledAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time, in UTC and extended ISO 8601 format, when automated sensitive data discovery was most recently disabled for the account. This value is null if automated sensitive data discovery wasn't enabled and subsequently disabled for the account.
+        firstEnabledAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time, in UTC and extended ISO 8601 format, when automated sensitive data discovery was initially enabled for the account. This value is null if automated sensitive data discovery has never been enabled for the account.
+        lastUpdatedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time, in UTC and extended ISO 8601 format, when automated sensitive data discovery was most recently enabled or disabled for the account.
+        sensitivityInspectionTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/SensitivityInspectionTemplateId'
+          - description: The unique identifier for the sensitivity inspection template that's used when performing automated sensitive data discovery for the account. The template specifies which allow lists, custom data identifiers, and managed data identifiers to use when analyzing data.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/AutomatedDiscoveryStatus'
+          - description: 'The current status of the automated sensitive data discovery configuration for the account. Possible values are: ENABLED, use the specified settings to perform automated sensitive data discovery activities for the account; and, DISABLED, don''t perform automated sensitive data discovery activities for the account.'
+    SensitivityInspectionTemplateId:
+      type: string
+      description: The unique identifier for the sensitivity inspection template.
+    Timestamp:
+      type: string
+      description: Specifies a date and time in UTC and extended ISO 8601 format.
+      format: date-time
+    ClassificationScopeId:
+      type: string
+      pattern: ^[0-9a-z]*$
+      description: The unique identifier the classification scope.
+    InternalServerException: {}
+    UpdateAutomatedDiscoveryConfigurationResponse:
+      type: object
+      properties: {}
+    ValidationException: {}
+    ThrottlingException: {}
+    AutomatedDiscoveryStatus:
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+      description: 'The status of the automated sensitive data discovery configuration for an Amazon Macie account. Valid values are:'
+    AccessDeniedException: {}
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/macie2/
+x-hasEquivalentPaths: true

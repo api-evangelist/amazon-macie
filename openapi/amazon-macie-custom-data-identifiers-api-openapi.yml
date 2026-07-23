@@ -1,0 +1,881 @@
+openapi: 3.0.0
+info:
+  version: 2020-01-01
+  x-release: v4
+  title: Amazon Macie 2 Admin#adminAccountId Custom Data Identifiers API
+  description: Amazon Macie
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: macie2
+  x-aws-signingName: macie2
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/macie2-2020-01-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://macie2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Macie 2 multi-region endpoint
+- url: https://macie2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Macie 2 multi-region endpoint
+- url: http://macie2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Macie 2 endpoint for China (Beijing) and China (Ningxia)
+- url: https://macie2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Macie 2 endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Custom Data Identifiers
+paths:
+  /custom-data-identifiers/get:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: BatchGetCustomDataIdentifiers
+      description: Retrieves information about one or more custom data identifiers.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchGetCustomDataIdentifiersResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ids:
+                  description: An array of custom data identifier IDs, one for each custom data identifier to retrieve information about.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/__string'
+      summary: Amazon Macie Batch Get Custom Data Identifiers
+      tags:
+      - Custom Data Identifiers
+  /custom-data-identifiers:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateCustomDataIdentifier
+      description: Creates and defines the criteria and other settings for a custom data identifier.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateCustomDataIdentifierResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - regex
+              properties:
+                clientToken:
+                  description: A unique, case-sensitive token that you provide to ensure the idempotency of the request.
+                  type: string
+                description:
+                  description: <p>A custom description of the custom data identifier. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a custom data identifier. Other users of your account might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+                  type: string
+                ignoreWords:
+                  description: An array that lists specific character sequences (<i>ignore words</i>) to exclude from the results. If the text matched by the regular expression contains any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/__string'
+                keywords:
+                  description: An array that lists specific character sequences (<i>keywords</i>), one of which must precede and be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords aren't case sensitive.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/__string'
+                maximumMatchDistance:
+                  description: The maximum number of characters that can exist between the end of at least one complete character sequence specified by the keywords array and the end of the text that matches the regex pattern. If a complete keyword precedes all the text that matches the pattern and the keyword is within the specified distance, Amazon Macie includes the result. The distance can be 1-300 characters. The default value is 50.
+                  type: integer
+                name:
+                  description: <p>A custom name for the custom data identifier. The name can contain as many as 128 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a custom data identifier. Other users of your account might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+                  type: string
+                regex:
+                  description: The regular expression (<i>regex</i>) that defines the pattern to match. The expression can contain as many as 512 characters.
+                  type: string
+                severityLevels:
+                  description: '<p>The severity to assign to findings that the custom data identifier produces, based on the number of occurrences of text that matches the custom data identifier''s detection criteria. You can specify as many as three SeverityLevel objects in this array, one for each severity: LOW, MEDIUM, or HIGH. If you specify more than one, the occurrences thresholds must be in ascending order by severity, moving from LOW to HIGH. For example, 1 for LOW, 50 for MEDIUM, and 100 for HIGH. If an S3 object contains fewer occurrences than the lowest specified threshold, Amazon Macie doesn''t create a finding.</p> <p>If you don''t specify any values for this array, Macie creates findings for S3 objects that contain at least one occurrence of text that matches the detection criteria, and Macie automatically assigns the MEDIUM severity to those findings.</p>'
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/SeverityLevel'
+                tags:
+                  description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
+                  type: object
+                  additionalProperties:
+                    $ref: '#/components/schemas/__string'
+      summary: Amazon Macie Create Custom Data Identifier
+      tags:
+      - Custom Data Identifiers
+  /custom-data-identifiers/{id}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: DeleteCustomDataIdentifier
+      description: Soft deletes a custom data identifier.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteCustomDataIdentifierResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The unique identifier for the Amazon Macie resource that the request applies to.
+        schema:
+          type: string
+      summary: Amazon Macie Delete Custom Data Identifier
+      tags:
+      - Custom Data Identifiers
+    get:
+      operationId: GetCustomDataIdentifier
+      description: Retrieves the criteria and other settings for a custom data identifier.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCustomDataIdentifierResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The unique identifier for the Amazon Macie resource that the request applies to.
+        schema:
+          type: string
+      summary: Amazon Macie Get Custom Data Identifier
+      tags:
+      - Custom Data Identifiers
+  /custom-data-identifiers/list:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: ListCustomDataIdentifiers
+      description: Retrieves a subset of information about all the custom data identifiers for an account.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCustomDataIdentifiersResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters:
+      - name: maxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                maxResults:
+                  description: The maximum number of items to include in each page of the response.
+                  type: integer
+                nextToken:
+                  description: The nextToken string that specifies which page of results to return in a paginated response.
+                  type: string
+      summary: Amazon Macie List Custom Data Identifiers
+      tags:
+      - Custom Data Identifiers
+  /custom-data-identifiers/test:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: TestCustomDataIdentifier
+      description: Tests a custom data identifier.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestCustomDataIdentifierResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - regex
+              - sampleText
+              properties:
+                ignoreWords:
+                  description: An array that lists specific character sequences (<i>ignore words</i>) to exclude from the results. If the text matched by the regular expression contains any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/__string'
+                keywords:
+                  description: An array that lists specific character sequences (<i>keywords</i>), one of which must precede and be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords aren't case sensitive.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/__string'
+                maximumMatchDistance:
+                  description: The maximum number of characters that can exist between the end of at least one complete character sequence specified by the keywords array and the end of the text that matches the regex pattern. If a complete keyword precedes all the text that matches the pattern and the keyword is within the specified distance, Amazon Macie includes the result. The distance can be 1-300 characters. The default value is 50.
+                  type: integer
+                regex:
+                  description: The regular expression (<i>regex</i>) that defines the pattern to match. The expression can contain as many as 512 characters.
+                  type: string
+                sampleText:
+                  description: The sample text to inspect by using the custom data identifier. The text can contain as many as 1,000 characters.
+                  type: string
+      summary: Amazon Macie Test Custom Data Identifier
+      tags:
+      - Custom Data Identifiers
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    __listOfBatchGetCustomDataIdentifierSummary:
+      type: array
+      items:
+        $ref: '#/components/schemas/BatchGetCustomDataIdentifierSummary'
+    InternalServerException: {}
+    __integer:
+      type: integer
+    ThrottlingException: {}
+    DataIdentifierSeverity:
+      type: string
+      enum:
+      - LOW
+      - MEDIUM
+      - HIGH
+      description: 'The severity of a finding, ranging from LOW, for least severe, to HIGH, for most severe. Valid values are:'
+    CustomDataIdentifierSummary:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the custom data identifier.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The custom description of the custom data identifier.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the custom data identifier.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The custom name of the custom data identifier.
+      description: Provides information about a custom data identifier.
+    SeverityLevel:
+      type: object
+      required:
+      - occurrencesThreshold
+      - severity
+      properties:
+        occurrencesThreshold:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The minimum number of occurrences of text that must match the custom data identifier's detection criteria in order to produce a finding with the specified severity (severity).
+        severity:
+          allOf:
+          - $ref: '#/components/schemas/DataIdentifierSeverity'
+          - description: 'The severity to assign to a finding: if the number of occurrences is greater than or equal to the specified threshold (occurrencesThreshold); and, if applicable, the number of occurrences is less than the threshold for the next consecutive severity level for the custom data identifier, moving from LOW to HIGH.'
+      description: Specifies a severity level for findings that a custom data identifier produces. A severity level determines which severity is assigned to the findings, based on the number of occurrences of text that matches the custom data identifier's detection criteria.
+    ConflictException: {}
+    SeverityLevelList:
+      type: array
+      description: '<p>The severity to assign to findings that the custom data identifier produces, based on the number of occurrences of text that matches the custom data identifier''s detection criteria. You can specify as many as three SeverityLevel objects in this array, one for each severity: LOW, MEDIUM, or HIGH. If you specify more than one, the occurrences thresholds must be in ascending order by severity, moving from LOW to HIGH. For example, 1 for LOW, 50 for MEDIUM, and 100 for HIGH. If an S3 object contains fewer occurrences than the lowest specified threshold, Amazon Macie doesn''t create a finding.</p> <p>If you don''t specify any values for this array, Macie creates findings for S3 objects that contain at least one occurrence of text that matches the detection criteria, and Macie automatically assigns the MEDIUM severity to those findings.</p>'
+      items:
+        $ref: '#/components/schemas/SeverityLevel'
+    __string:
+      type: string
+    __listOf__string:
+      type: array
+      items:
+        $ref: '#/components/schemas/__string'
+    BatchGetCustomDataIdentifierSummary:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the custom data identifier.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.
+        deleted:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the custom data identifier was deleted. If you delete a custom data identifier, Amazon Macie doesn't delete it permanently. Instead, it soft deletes the identifier.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The custom description of the custom data identifier.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the custom data identifier.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The custom name of the custom data identifier.
+      description: Provides information about a custom data identifier.
+    __long:
+      type: integer
+    ServiceQuotaExceededException: {}
+    __boolean:
+      type: boolean
+    DeleteCustomDataIdentifierResponse:
+      type: object
+      properties: {}
+    __timestampIso8601:
+      type: string
+      format: date-time
+    __listOfCustomDataIdentifierSummary:
+      type: array
+      items:
+        $ref: '#/components/schemas/CustomDataIdentifierSummary'
+    BatchGetCustomDataIdentifiersResponse:
+      type: object
+      properties:
+        customDataIdentifiers:
+          allOf:
+          - $ref: '#/components/schemas/__listOfBatchGetCustomDataIdentifierSummary'
+          - description: An array of objects, one for each custom data identifier that matches the criteria specified in the request.
+        notFoundIdentifierIds:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: An array of custom data identifier IDs, one for each custom data identifier that was specified in the request but doesn't correlate to an existing custom data identifier.
+    ListCustomDataIdentifiersResponse:
+      type: object
+      properties:
+        items:
+          allOf:
+          - $ref: '#/components/schemas/__listOfCustomDataIdentifierSummary'
+          - description: An array of objects, one for each custom data identifier.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    ResourceNotFoundException: {}
+    AccessDeniedException: {}
+    TestCustomDataIdentifierResponse:
+      type: object
+      properties:
+        matchCount:
+          allOf:
+          - $ref: '#/components/schemas/__integer'
+          - description: The number of occurrences of sample text that matched the criteria specified by the custom data identifier.
+    ValidationException: {}
+    GetCustomDataIdentifierResponse:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the custom data identifier.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.
+        deleted:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the custom data identifier was deleted. If you delete a custom data identifier, Amazon Macie doesn't delete it permanently. Instead, it soft deletes the identifier.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The custom description of the custom data identifier.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the custom data identifier.
+        ignoreWords:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: An array that lists specific character sequences (<i>ignore words</i>) to exclude from the results. If the text matched by the regular expression contains any string in this array, Amazon Macie ignores it. Ignore words are case sensitive.
+        keywords:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: An array that lists specific character sequences (<i>keywords</i>), one of which must precede and be within proximity (maximumMatchDistance) of the regular expression to match. Keywords aren't case sensitive.
+        maximumMatchDistance:
+          allOf:
+          - $ref: '#/components/schemas/__integer'
+          - description: The maximum number of characters that can exist between the end of at least one complete character sequence specified by the keywords array and the end of the text that matches the regex pattern. If a complete keyword precedes all the text that matches the pattern and the keyword is within the specified distance, Amazon Macie includes the result. Otherwise, Macie excludes the result.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The custom name of the custom data identifier.
+        regex:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The regular expression (<i>regex</i>) that defines the pattern to match.
+        severityLevels:
+          allOf:
+          - $ref: '#/components/schemas/SeverityLevelList'
+          - description: Specifies the severity that's assigned to findings that the custom data identifier produces, based on the number of occurrences of text that matches the custom data identifier's detection criteria. By default, Amazon Macie creates findings for S3 objects that contain at least one occurrence of text that matches the detection criteria, and Macie assigns the MEDIUM severity to those findings.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: A map of key-value pairs that identifies the tags (keys and values) that are associated with the custom data identifier.
+    CreateCustomDataIdentifierResponse:
+      type: object
+      properties:
+        customDataIdentifierId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the custom data identifier that was created.
+    TagMap:
+      type: object
+      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
+      additionalProperties:
+        $ref: '#/components/schemas/__string'
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/macie2/
+x-hasEquivalentPaths: true

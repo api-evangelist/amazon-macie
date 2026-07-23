@@ -1,0 +1,1860 @@
+openapi: 3.0.0
+info:
+  version: 2020-01-01
+  x-release: v4
+  title: Amazon Macie 2 Admin#adminAccountId Findings API
+  description: Amazon Macie
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: macie2
+  x-aws-signingName: macie2
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/macie2-2020-01-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://macie2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Macie 2 multi-region endpoint
+- url: https://macie2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Macie 2 multi-region endpoint
+- url: http://macie2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Macie 2 endpoint for China (Beijing) and China (Ningxia)
+- url: https://macie2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Macie 2 endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Findings
+paths:
+  /findings/sample:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateSampleFindings
+      description: Creates sample findings.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateSampleFindingsResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                findingTypes:
+                  description: An array of finding types, one for each type of sample finding to create. To create a sample of every type of finding that Amazon Macie supports, don't include this array in your request.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/FindingType'
+      summary: Amazon Macie Create Sample Findings
+      tags:
+      - Findings
+  /findings/statistics:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: GetFindingStatistics
+      description: ' <p>Retrieves (queries) aggregated statistical data about findings.</p>'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFindingStatisticsResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - groupBy
+              properties:
+                findingCriteria:
+                  description: Specifies, as a map, one or more property-based conditions that filter the results of a query for findings.
+                  type: object
+                  properties:
+                    criterion:
+                      allOf:
+                      - $ref: '#/components/schemas/Criterion'
+                      - description: A condition that specifies the property, operator, and one or more values to use to filter the results.
+                groupBy:
+                  description: <p>The finding property to use to group the query results. Valid values are:</p> <ul><li><p>classificationDetails.jobId - The unique identifier for the classification job that produced the finding.</p></li> <li><p>resourcesAffected.s3Bucket.name - The name of the S3 bucket that the finding applies to.</p></li> <li><p>severity.description - The severity level of the finding, such as High or Medium.</p></li> <li><p>type - The type of finding, such as Policy:IAMUser/S3BucketPublic and SensitiveData:S3Object/Personal.</p></li></ul>
+                  type: string
+                  enum:
+                  - resourcesAffected.s3Bucket.name
+                  - type
+                  - classificationDetails.jobId
+                  - severity.description
+                size:
+                  description: The maximum number of items to include in each page of the response.
+                  type: integer
+                sortCriteria:
+                  description: Specifies criteria for sorting the results of a query that retrieves aggregated statistical data about findings.
+                  type: object
+                  properties:
+                    attributeName:
+                      allOf:
+                      - $ref: '#/components/schemas/FindingStatisticsSortAttributeName'
+                      - description: 'The grouping to sort the results by. Valid values are: count, sort the results by the number of findings in each group of results; and, groupKey, sort the results by the name of each group of results.'
+                    orderBy:
+                      allOf:
+                      - $ref: '#/components/schemas/OrderBy'
+                      - description: 'The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.'
+      summary: Amazon Macie Get Finding Statistics
+      tags:
+      - Findings
+  /findings/describe:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: GetFindings
+      description: Retrieves the details of one or more findings.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFindingsResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - findingIds
+              properties:
+                findingIds:
+                  description: An array of strings that lists the unique identifiers for the findings to retrieve. You can specify as many as 50 unique identifiers in this array.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/__string'
+                sortCriteria:
+                  description: Specifies criteria for sorting the results of a request for findings.
+                  type: object
+                  properties:
+                    attributeName:
+                      allOf:
+                      - $ref: '#/components/schemas/__string'
+                      - description: The name of the property to sort the results by. This value can be the name of any property that Amazon Macie defines for a finding.
+                    orderBy:
+                      allOf:
+                      - $ref: '#/components/schemas/OrderBy'
+                      - description: 'The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.'
+      summary: Amazon Macie Get Findings
+      tags:
+      - Findings
+  /findings/{findingId}/reveal:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: GetSensitiveDataOccurrences
+      description: Retrieves occurrences of sensitive data reported by a finding.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSensitiveDataOccurrencesResponse'
+        '480':
+          description: UnprocessableEntityException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+      parameters:
+      - name: findingId
+        in: path
+        required: true
+        description: The unique identifier for the finding.
+        schema:
+          type: string
+      summary: Amazon Macie Get Sensitive Data Occurrences
+      tags:
+      - Findings
+  /findings/{findingId}/reveal/availability:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: GetSensitiveDataOccurrencesAvailability
+      description: Checks whether occurrences of sensitive data can be retrieved for a finding.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSensitiveDataOccurrencesAvailabilityResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: findingId
+        in: path
+        required: true
+        description: The unique identifier for the finding.
+        schema:
+          type: string
+      summary: Amazon Macie Get Sensitive Data Occurrences Availability
+      tags:
+      - Findings
+  /findings:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: ListFindings
+      description: Retrieves a subset of information about one or more findings.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFindingsResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters:
+      - name: maxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                findingCriteria:
+                  description: Specifies, as a map, one or more property-based conditions that filter the results of a query for findings.
+                  type: object
+                  properties:
+                    criterion:
+                      allOf:
+                      - $ref: '#/components/schemas/Criterion'
+                      - description: A condition that specifies the property, operator, and one or more values to use to filter the results.
+                maxResults:
+                  description: The maximum number of items to include in each page of the response.
+                  type: integer
+                nextToken:
+                  description: The nextToken string that specifies which page of results to return in a paginated response.
+                  type: string
+                sortCriteria:
+                  description: Specifies criteria for sorting the results of a request for findings.
+                  type: object
+                  properties:
+                    attributeName:
+                      allOf:
+                      - $ref: '#/components/schemas/__string'
+                      - description: The name of the property to sort the results by. This value can be the name of any property that Amazon Macie defines for a finding.
+                    orderBy:
+                      allOf:
+                      - $ref: '#/components/schemas/OrderBy'
+                      - description: 'The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.'
+      summary: Amazon Macie List Findings
+      tags:
+      - Findings
+components:
+  schemas:
+    __listOfGroupCount:
+      type: array
+      items:
+        $ref: '#/components/schemas/GroupCount'
+    EncryptionType:
+      type: string
+      enum:
+      - NONE
+      - AES256
+      - aws:kms
+      - UNKNOWN
+      description: 'The server-side encryption algorithm that was used to encrypt an S3 object or is used by default to encrypt objects that are added to an S3 bucket. Possible values are:'
+    ClassificationResult:
+      type: object
+      properties:
+        additionalOccurrences:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: <p>Specifies whether Amazon Macie detected additional occurrences of sensitive data in the S3 object. A finding includes location data for a maximum of 15 occurrences of sensitive data.</p> <p>This value can help you determine whether to investigate additional occurrences of sensitive data in an object. You can do this by referring to the corresponding sensitive data discovery result for the finding (ClassificationDetails.detailedResultsLocation).</p>
+        customDataIdentifiers:
+          allOf:
+          - $ref: '#/components/schemas/CustomDataIdentifiers'
+          - description: The custom data identifiers that detected the sensitive data and the number of occurrences of the data that they detected.
+        mimeType:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The type of content, as a MIME type, that the finding applies to. For example, application/gzip, for a GNU Gzip compressed archive file, or application/pdf, for an Adobe Portable Document Format file.
+        sensitiveData:
+          allOf:
+          - $ref: '#/components/schemas/SensitiveData'
+          - description: The category, types, and number of occurrences of the sensitive data that produced the finding.
+        sizeClassified:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total size, in bytes, of the data that the finding applies to.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/ClassificationResultStatus'
+          - description: The status of the finding.
+      description: Provides the details of a sensitive data finding, including the types, number of occurrences, and locations of the sensitive data that was detected.
+    FindingActionType:
+      type: string
+      enum:
+      - AWS_API_CALL
+      description: 'The type of action that occurred for the resource and produced the policy finding:'
+    IpCity:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the city.
+      description: Provides information about the city that an IP address originated from.
+    GroupCount:
+      type: object
+      properties:
+        count:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of findings in the group of query results.
+        groupKey:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the property that defines the group in the query results, as specified by the groupBy property in the query request.
+      description: Provides a group of results for a query that retrieved aggregated statistical data about findings.
+    __long:
+      type: integer
+    CustomDetections:
+      type: array
+      description: Provides information about custom data identifiers that produced a sensitive data finding, and the number of occurrences of the data that each identifier detected.
+      items:
+        $ref: '#/components/schemas/CustomDetection'
+    ResourceNotFoundException: {}
+    DetectedDataDetails:
+      type: object
+      required:
+      - value
+      properties:
+        value:
+          allOf:
+          - $ref: '#/components/schemas/__stringMin1Max128'
+          - description: An occurrence of the specified type of sensitive data. Each occurrence can contain 1-128 characters.
+      description: Specifies 1-10 occurrences of a specific type of sensitive data reported by a finding.
+    __listOfFinding:
+      type: array
+      items:
+        $ref: '#/components/schemas/Finding'
+    FederatedUser:
+      type: object
+      properties:
+        accessKeyId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Web Services access key ID that identifies the credentials.
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the Amazon Web Services account that owns the entity that was used to get the credentials.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the entity that was used to get the credentials.
+        principalId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the entity that was used to get the credentials.
+        sessionContext:
+          allOf:
+          - $ref: '#/components/schemas/SessionContext'
+          - description: The details of the session that was created for the credentials, including the entity that issued the session.
+      description: Provides information about an identity that performed an action on an affected resource by using temporary security credentials. The credentials were obtained using the GetFederationToken operation of the Security Token Service (STS) API.
+    FindingStatisticsSortAttributeName:
+      type: string
+      enum:
+      - groupKey
+      - count
+      description: 'The grouping to sort the results by. Valid values are:'
+    __double:
+      type: number
+      format: double
+    SessionIssuer:
+      type: object
+      properties:
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the Amazon Web Services account that owns the entity that was used to get the credentials.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the source account, Identity and Access Management (IAM) user, or role that was used to get the credentials.
+        principalId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the entity that was used to get the credentials.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The source of the temporary security credentials, such as Root, IAMUser, or Role.
+        userName:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name or alias of the user or role that issued the session. This value is null if the credentials were obtained from a root account that doesn't have an alias.
+      description: Provides information about the source and type of temporary security credentials that were issued to an entity.
+    __listOfUnavailabilityReasonCode:
+      type: array
+      items:
+        $ref: '#/components/schemas/UnavailabilityReasonCode'
+      minItems: 0
+    KeyValuePair:
+      type: object
+      properties:
+        key:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: One part of a key-value pair that comprises a tag. A tag key is a general label that acts as a category for more specific tag values.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: One part of a key-value pair that comprises a tag. A tag value acts as a descriptor for a tag key. A tag value can be an empty string.
+      description: Provides information about the tags that are associated with an S3 bucket or object. Each tag consists of a required tag key and an associated tag value.
+    Ranges:
+      type: array
+      description: Specifies the locations of occurrences of sensitive data in a non-binary text file.
+      items:
+        $ref: '#/components/schemas/Range'
+    Severity:
+      type: object
+      properties:
+        description:
+          allOf:
+          - $ref: '#/components/schemas/SeverityDescription'
+          - description: The qualitative representation of the finding's severity, ranging from Low (least severe) to High (most severe).
+        score:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The numerical representation of the finding's severity, ranging from 1 (least severe) to 3 (most severe).
+      description: Provides the numerical and qualitative representations of a finding's severity.
+    IpCountry:
+      type: object
+      properties:
+        code:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The two-character code, in ISO 3166-1 alpha-2 format, for the country that the IP address originated from. For example, US for the United States.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the country that the IP address originated from.
+      description: Provides information about the country that an IP address originated from.
+    Records:
+      type: array
+      description: Specifies the locations of occurrences of sensitive data in an Apache Avro object container or a structured data file.
+      items:
+        $ref: '#/components/schemas/Record'
+    AwsService:
+      type: object
+      properties:
+        invokedBy:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the Amazon Web Service that performed the action.
+      description: Provides information about an Amazon Web Service that performed an action on an affected resource.
+    GetFindingsResponse:
+      type: object
+      properties:
+        findings:
+          allOf:
+          - $ref: '#/components/schemas/__listOfFinding'
+          - description: An array of objects, one for each finding that matches the criteria specified in the request.
+    ConflictException: {}
+    BucketPublicAccess:
+      type: object
+      properties:
+        effectivePermission:
+          allOf:
+          - $ref: '#/components/schemas/EffectivePermission'
+          - description: ' <p>Specifies whether the bucket is publicly accessible due to the combination of permissions settings that apply to the bucket. Possible values are:</p> <ul><li><p>NOT_PUBLIC - The bucket isn''t publicly accessible.</p></li> <li><p>PUBLIC - The bucket is publicly accessible.</p></li> <li><p>UNKNOWN - Amazon Macie can''t determine whether the bucket is publicly accessible.</p></li></ul>'
+        permissionConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/BucketPermissionConfiguration'
+          - description: The account-level and bucket-level permissions settings for the bucket.
+      description: Provides information about the permissions settings that determine whether an S3 bucket is publicly accessible.
+    Finding:
+      type: object
+      properties:
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the Amazon Web Services account that the finding applies to. This is typically the account that owns the affected resource.
+        archived:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the finding is archived (suppressed).
+        category:
+          allOf:
+          - $ref: '#/components/schemas/FindingCategory'
+          - description: 'The category of the finding. Possible values are: CLASSIFICATION, for a sensitive data finding; and, POLICY, for a policy finding.'
+        classificationDetails:
+          allOf:
+          - $ref: '#/components/schemas/ClassificationDetails'
+          - description: The details of a sensitive data finding. This value is null for a policy finding.
+        count:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of occurrences of the finding. For sensitive data findings, this value is always 1. All sensitive data findings are considered unique.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when Amazon Macie created the finding.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The description of the finding.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the finding. This is a random string that Amazon Macie generates and assigns to a finding when it creates the finding.
+        partition:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Web Services partition that Amazon Macie created the finding in.
+        policyDetails:
+          allOf:
+          - $ref: '#/components/schemas/PolicyDetails'
+          - description: The details of a policy finding. This value is null for a sensitive data finding.
+        region:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Web Services Region that Amazon Macie created the finding in.
+        resourcesAffected:
+          allOf:
+          - $ref: '#/components/schemas/ResourcesAffected'
+          - description: The resources that the finding applies to.
+        sample:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the finding is a sample finding. A <i>sample finding</i> is a finding that uses example data to demonstrate what a finding might contain.
+        schemaVersion:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The version of the schema that was used to define the data structures in the finding.
+        severity:
+          allOf:
+          - $ref: '#/components/schemas/Severity'
+          - description: The severity level and score for the finding.
+        title:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The brief description of the finding.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/FindingType'
+          - description: The type of the finding.
+        updatedAt:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when Amazon Macie last updated the finding. For sensitive data findings, this value is the same as the value for the createdAt property. All sensitive data findings are considered new.
+      description: Provides the details of a finding.
+    Range:
+      type: object
+      properties:
+        end:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: '<p>The number of lines from the beginning of the file to the end of the sensitive data.</p> '
+        start:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: '<p>The number of lines from the beginning of the file to the beginning of the sensitive data.</p> '
+        startColumn:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The number of characters, with spaces and starting from 1, from the beginning of the first line that contains the sensitive data (start) to the beginning of the sensitive data.
+      description: Specifies the location of an occurrence of sensitive data in an email message or a non-binary text file such as an HTML, TXT, or XML file.
+    Pages:
+      type: array
+      description: Specifies the location of occurrences of sensitive data in an Adobe Portable Document Format file.
+      items:
+        $ref: '#/components/schemas/Page'
+    PolicyDetails:
+      type: object
+      properties:
+        action:
+          allOf:
+          - $ref: '#/components/schemas/FindingAction'
+          - description: The action that produced the finding.
+        actor:
+          allOf:
+          - $ref: '#/components/schemas/FindingActor'
+          - description: The entity that performed the action that produced the finding.
+      description: Provides the details of a policy finding.
+    __string:
+      type: string
+    __listOf__string:
+      type: array
+      items:
+        $ref: '#/components/schemas/__string'
+    FindingActor:
+      type: object
+      properties:
+        domainDetails:
+          allOf:
+          - $ref: '#/components/schemas/DomainDetails'
+          - description: The domain name of the device that the entity used to perform the action on the affected resource.
+        ipAddressDetails:
+          allOf:
+          - $ref: '#/components/schemas/IpAddressDetails'
+          - description: The IP address of the device that the entity used to perform the action on the affected resource. This object also provides information such as the owner and geographic location for the IP address.
+        userIdentity:
+          allOf:
+          - $ref: '#/components/schemas/UserIdentity'
+          - description: The type and other characteristics of the entity that performed the action on the affected resource.
+      description: Provides information about an entity that performed an action that produced a policy finding for a resource.
+    RevealRequestStatus:
+      type: string
+      enum:
+      - SUCCESS
+      - PROCESSING
+      - ERROR
+      description: 'The status of a request to retrieve occurrences of sensitive data reported by a finding. Possible values are:'
+    SessionContextAttributes:
+      type: object
+      properties:
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and ISO 8601 format, when the credentials were issued.
+        mfaAuthenticated:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the credentials were authenticated with a multi-factor authentication (MFA) device.
+      description: Provides information about the context in which temporary security credentials were issued to an entity.
+    IpOwner:
+      type: object
+      properties:
+        asn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The autonomous system number (ASN) for the autonomous system that included the IP address.
+        asnOrg:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The organization identifier that's associated with the autonomous system number (ASN) for the autonomous system that included the IP address.
+        isp:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the internet service provider (ISP) that owned the IP address.
+        org:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the organization that owned the IP address.
+      description: Provides information about the registered owner of an IP address.
+    SensitiveDataItem:
+      type: object
+      properties:
+        category:
+          allOf:
+          - $ref: '#/components/schemas/SensitiveDataItemCategory'
+          - description: 'The category of sensitive data that was detected. For example: CREDENTIALS, for credentials data such as private keys or Amazon Web Services secret access keys; FINANCIAL_INFORMATION, for financial data such as credit card numbers; or, PERSONAL_INFORMATION, for personal health information, such as health insurance identification numbers, or personally identifiable information, such as passport numbers.'
+        detections:
+          allOf:
+          - $ref: '#/components/schemas/DefaultDetections'
+          - description: An array of objects, one for each type of sensitive data that was detected. Each object reports the number of occurrences of a specific type of sensitive data that was detected, and the location of up to 15 of those occurrences.
+        totalCount:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of occurrences of the sensitive data that was detected.
+      description: Provides information about the category, types, and occurrences of sensitive data that produced a sensitive data finding.
+    UserIdentityRoot:
+      type: object
+      properties:
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the Amazon Web Services account.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the principal that performed the action. The last section of the ARN contains the name of the user or role that performed the action.
+        principalId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the entity that performed the action.
+      description: Provides information about an Amazon Web Services account and entity that performed an action on an affected resource. The action was performed using the credentials for your Amazon Web Services account.
+    ListFindingsResponse:
+      type: object
+      properties:
+        findingIds:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: An array of strings, where each string is the unique identifier for a finding that matches the filter criteria specified in the request.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    __timestampIso8601:
+      type: string
+      format: date-time
+    UserIdentity:
+      type: object
+      properties:
+        assumedRole:
+          allOf:
+          - $ref: '#/components/schemas/AssumedRole'
+          - description: If the action was performed with temporary security credentials that were obtained using the AssumeRole operation of the Security Token Service (STS) API, the identifiers, session context, and other details about the identity.
+        awsAccount:
+          allOf:
+          - $ref: '#/components/schemas/AwsAccount'
+          - description: If the action was performed using the credentials for another Amazon Web Services account, the details of that account.
+        awsService:
+          allOf:
+          - $ref: '#/components/schemas/AwsService'
+          - description: If the action was performed by an Amazon Web Services account that belongs to an Amazon Web Service, the name of the service.
+        federatedUser:
+          allOf:
+          - $ref: '#/components/schemas/FederatedUser'
+          - description: If the action was performed with temporary security credentials that were obtained using the GetFederationToken operation of the Security Token Service (STS) API, the identifiers, session context, and other details about the identity.
+        iamUser:
+          allOf:
+          - $ref: '#/components/schemas/IamUser'
+          - description: If the action was performed using the credentials for an Identity and Access Management (IAM) user, the name and other details about the user.
+        root:
+          allOf:
+          - $ref: '#/components/schemas/UserIdentityRoot'
+          - description: If the action was performed using the credentials for your Amazon Web Services account, the details of your account.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/UserIdentityType'
+          - description: The type of entity that performed the action.
+      description: Provides information about the type and other characteristics of an entity that performed an action on an affected resource.
+    SensitiveData:
+      type: array
+      description: Provides information about the category and number of occurrences of sensitive data that produced a finding.
+      items:
+        $ref: '#/components/schemas/SensitiveDataItem'
+    SensitiveDataItemCategory:
+      type: string
+      enum:
+      - FINANCIAL_INFORMATION
+      - PERSONAL_INFORMATION
+      - CREDENTIALS
+      - CUSTOM_IDENTIFIER
+      description: 'For a finding, the category of sensitive data that was detected and produced the finding. For a managed data identifier, the category of sensitive data that the managed data identifier detects. Possible values are:'
+    AccessDeniedException: {}
+    SessionContext:
+      type: object
+      properties:
+        attributes:
+          allOf:
+          - $ref: '#/components/schemas/SessionContextAttributes'
+          - description: The date and time when the credentials were issued, and whether the credentials were authenticated with a multi-factor authentication (MFA) device.
+        sessionIssuer:
+          allOf:
+          - $ref: '#/components/schemas/SessionIssuer'
+          - description: The source and type of credentials that were issued to the entity.
+      description: Provides information about a session that was created for an entity that performed an action by using temporary security credentials.
+    S3BucketOwner:
+      type: object
+      properties:
+        displayName:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The display name of the account that owns the bucket.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The canonical user ID for the account that owns the bucket.
+      description: Provides information about the Amazon Web Services account that owns an S3 bucket.
+    InternalServerException: {}
+    BucketPolicy:
+      type: object
+      properties:
+        allowsPublicReadAccess:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the bucket policy allows the general public to have read access to the bucket.
+        allowsPublicWriteAccess:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the bucket policy allows the general public to have write access to the bucket.
+      description: Provides information about the permissions settings of the bucket policy for an S3 bucket.
+    Cells:
+      type: array
+      description: Specifies the location of occurrences of sensitive data in a Microsoft Excel workbook, CSV file, or TSV file.
+      items:
+        $ref: '#/components/schemas/Cell'
+    Criterion:
+      type: object
+      description: Specifies a condition that defines a property, operator, and one or more values to filter the results of a query for findings. The number of values depends on the property and operator specified by the condition. For information about defining filter conditions, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-filter-basics.html">Fundamentals of filtering findings</a> in the <i>Amazon Macie User Guide</i>.
+      additionalProperties:
+        $ref: '#/components/schemas/CriterionAdditionalProperties'
+    ServerSideEncryption:
+      type: object
+      properties:
+        encryptionType:
+          allOf:
+          - $ref: '#/components/schemas/EncryptionType'
+          - description: The server-side encryption algorithm that's used when storing data in the bucket or object. If default encryption settings aren't configured for the bucket or the object isn't encrypted using server-side encryption, this value is NONE.
+        kmsMasterKeyId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) or unique identifier (key ID) for the KMS key that's used to encrypt data in the bucket or the object. This value is null if an KMS key isn't used to encrypt the data.
+      description: Provides information about the default server-side encryption settings for an S3 bucket or the encryption settings for an S3 object.
+    ResourcesAffected:
+      type: object
+      properties:
+        s3Bucket:
+          allOf:
+          - $ref: '#/components/schemas/S3Bucket'
+          - description: The details of the S3 bucket that the finding applies to.
+        s3Object:
+          allOf:
+          - $ref: '#/components/schemas/S3Object'
+          - description: The details of the S3 object that the finding applies to.
+      description: Provides information about the resources that a finding applies to.
+    EffectivePermission:
+      type: string
+      enum:
+      - PUBLIC
+      - NOT_PUBLIC
+      - UNKNOWN
+    AllowsUnencryptedObjectUploads:
+      type: string
+      enum:
+      - 'TRUE'
+      - 'FALSE'
+      - UNKNOWN
+    UserIdentityType:
+      type: string
+      enum:
+      - AssumedRole
+      - IAMUser
+      - FederatedUser
+      - Root
+      - AWSAccount
+      - AWSService
+      description: 'The type of entity that performed the action on the affected resource. Possible values are:'
+    __listOfDetectedDataDetails:
+      type: array
+      items:
+        $ref: '#/components/schemas/DetectedDataDetails'
+    ServiceQuotaExceededException: {}
+    UnprocessableEntityException: {}
+    OriginType:
+      type: string
+      enum:
+      - SENSITIVE_DATA_DISCOVERY_JOB
+      - AUTOMATED_SENSITIVE_DATA_DISCOVERY
+      description: 'Specifies how Amazon Macie found the sensitive data that produced a finding. Possible values are:'
+    Record:
+      type: object
+      properties:
+        jsonPath:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: <p>The path, as a JSONPath expression, to the sensitive data. For an Avro object container or Parquet file, this is the path to the field in the record (recordIndex) that contains the data. For a JSON or JSON Lines file, this is the path to the field or array that contains the data. If the data is a value in an array, the path also indicates which value contains the data.</p> <p>If Amazon Macie detects sensitive data in the name of any element in the path, Macie omits this field. If the name of an element exceeds 20 characters, Macie truncates the name by removing characters from the beginning of the name. If the resulting full path exceeds 250 characters, Macie also truncates the path, starting with the first element in the path, until the path contains 250 or fewer characters.</p>
+        recordIndex:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: For an Avro object container or Parquet file, the record index, starting from 0, for the record that contains the sensitive data. For a JSON Lines file, the line index, starting from 0, for the line that contains the sensitive data. This value is always 0 for JSON files.
+      description: Specifies the location of an occurrence of sensitive data in an Apache Avro object container, Apache Parquet file, JSON file, or JSON Lines file.
+    CustomDetection:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the custom data identifier.
+        count:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of occurrences of the sensitive data that the custom data identifier detected.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the custom data identifier.
+        occurrences:
+          allOf:
+          - $ref: '#/components/schemas/Occurrences'
+          - description: The location of 1-15 occurrences of the sensitive data that the custom data identifier detected. A finding includes location data for a maximum of 15 occurrences of sensitive data.
+      description: Provides information about a custom data identifier that produced a sensitive data finding, and the sensitive data that it detected for the finding.
+    OrderBy:
+      type: string
+      enum:
+      - ASC
+      - DESC
+    CreateSampleFindingsResponse:
+      type: object
+      properties: {}
+    SeverityDescription:
+      type: string
+      enum:
+      - Low
+      - Medium
+      - High
+      description: 'The qualitative representation of the finding''s severity. Possible values are:'
+    S3Bucket:
+      type: object
+      properties:
+        allowsUnencryptedObjectUploads:
+          allOf:
+          - $ref: '#/components/schemas/AllowsUnencryptedObjectUploads'
+          - description: '<p>Specifies whether the bucket policy for the bucket requires server-side encryption of objects when objects are added to the bucket. Possible values are:</p> <ul><li><p>FALSE - The bucket policy requires server-side encryption of new objects. PutObject requests must include a valid server-side encryption header.</p></li> <li><p>TRUE - The bucket doesn''t have a bucket policy or it has a bucket policy that doesn''t require server-side encryption of new objects. If a bucket policy exists, it doesn''t require PutObject requests to include a valid server-side encryption header.</p></li> <li><p>UNKNOWN - Amazon Macie can''t determine whether the bucket policy requires server-side encryption of new objects.</p></li></ul> <p>Valid server-side encryption headers are: x-amz-server-side-encryption with a value of AES256 or aws:kms, and x-amz-server-side-encryption-customer-algorithm with a value of AES256.</p>'
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the bucket.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when the bucket was created. This value can also indicate when changes such as edits to the bucket's policy were most recently made to the bucket, relative to when the finding was created or last updated.
+        defaultServerSideEncryption:
+          allOf:
+          - $ref: '#/components/schemas/ServerSideEncryption'
+          - description: The default server-side encryption settings for the bucket.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the bucket.
+        owner:
+          allOf:
+          - $ref: '#/components/schemas/S3BucketOwner'
+          - description: The display name and canonical user ID for the Amazon Web Services account that owns the bucket.
+        publicAccess:
+          allOf:
+          - $ref: '#/components/schemas/BucketPublicAccess'
+          - description: The permissions settings that determine whether the bucket is publicly accessible.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/KeyValuePairList'
+          - description: The tags that are associated with the bucket.
+      description: Provides information about the S3 bucket that a finding applies to.
+    CustomDataIdentifiers:
+      type: object
+      properties:
+        detections:
+          allOf:
+          - $ref: '#/components/schemas/CustomDetections'
+          - description: The custom data identifiers that detected the data, and the number of occurrences of the data that each identifier detected.
+        totalCount:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of occurrences of the data that was detected by the custom data identifiers and produced the finding.
+      description: Provides information about custom data identifiers that produced a sensitive data finding, and the number of occurrences of the data that they detected for the finding.
+    DefaultDetections:
+      type: array
+      description: Provides information about sensitive data that was detected by managed data identifiers and produced a sensitive data finding, and the number of occurrences of each type of sensitive data that was detected.
+      items:
+        $ref: '#/components/schemas/DefaultDetection'
+    StorageClass:
+      type: string
+      enum:
+      - STANDARD
+      - REDUCED_REDUNDANCY
+      - STANDARD_IA
+      - INTELLIGENT_TIERING
+      - DEEP_ARCHIVE
+      - ONEZONE_IA
+      - GLACIER
+      - GLACIER_IR
+      - OUTPOSTS
+      description: 'The storage class of the S3 object. Possible values are:'
+    BucketLevelPermissions:
+      type: object
+      properties:
+        accessControlList:
+          allOf:
+          - $ref: '#/components/schemas/AccessControlList'
+          - description: The permissions settings of the access control list (ACL) for the bucket. This value is null if an ACL hasn't been defined for the bucket.
+        blockPublicAccess:
+          allOf:
+          - $ref: '#/components/schemas/BlockPublicAccess'
+          - description: The block public access settings for the bucket.
+        bucketPolicy:
+          allOf:
+          - $ref: '#/components/schemas/BucketPolicy'
+          - description: The permissions settings of the bucket policy for the bucket. This value is null if a bucket policy hasn't been defined for the bucket.
+      description: Provides information about the bucket-level permissions settings for an S3 bucket.
+    AssumedRole:
+      type: object
+      properties:
+        accessKeyId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Web Services access key ID that identifies the credentials.
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the Amazon Web Services account that owns the entity that was used to get the credentials.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the entity that was used to get the credentials.
+        principalId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the entity that was used to get the credentials.
+        sessionContext:
+          allOf:
+          - $ref: '#/components/schemas/SessionContext'
+          - description: The details of the session that was created for the credentials, including the entity that issued the session.
+      description: Provides information about an identity that performed an action on an affected resource by using temporary security credentials. The credentials were obtained using the AssumeRole operation of the Security Token Service (STS) API.
+    AvailabilityCode:
+      type: string
+      enum:
+      - AVAILABLE
+      - UNAVAILABLE
+      description: 'Specifies whether occurrences of sensitive data can be retrieved for a finding. Possible values are:'
+    ValidationException: {}
+    ClassificationDetails:
+      type: object
+      properties:
+        detailedResultsLocation:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The path to the folder or file in Amazon S3 that contains the corresponding sensitive data discovery result for the finding. If a finding applies to a large archive or compressed file, this value is the path to a folder. Otherwise, this value is the path to a file.
+        jobArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the classification job that produced the finding. This value is null if the origin of the finding (originType) is AUTOMATED_SENSITIVE_DATA_DISCOVERY.
+        jobId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the classification job that produced the finding. This value is null if the origin of the finding (originType) is AUTOMATED_SENSITIVE_DATA_DISCOVERY.
+        originType:
+          allOf:
+          - $ref: '#/components/schemas/OriginType'
+          - description: 'Specifies how Amazon Macie found the sensitive data that produced the finding. Possible values are: SENSITIVE_DATA_DISCOVERY_JOB, for a classification job; and, AUTOMATED_SENSITIVE_DATA_DISCOVERY, for automated sensitive data discovery.'
+        result:
+          allOf:
+          - $ref: '#/components/schemas/ClassificationResult'
+          - description: The status and other details of the finding.
+      description: Provides information about a sensitive data finding and the details of the finding.
+    BucketPermissionConfiguration:
+      type: object
+      properties:
+        accountLevelPermissions:
+          allOf:
+          - $ref: '#/components/schemas/AccountLevelPermissions'
+          - description: The account-level permissions settings that apply to the bucket.
+        bucketLevelPermissions:
+          allOf:
+          - $ref: '#/components/schemas/BucketLevelPermissions'
+          - description: The bucket-level permissions settings for the bucket.
+      description: Provides information about the account-level and bucket-level permissions settings for an S3 bucket.
+    Page:
+      type: object
+      properties:
+        lineRange:
+          allOf:
+          - $ref: '#/components/schemas/Range'
+          - description: ' <p>Reserved for future use.</p>'
+        offsetRange:
+          allOf:
+          - $ref: '#/components/schemas/Range'
+          - description: ' <p>Reserved for future use.</p>'
+        pageNumber:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The page number of the page that contains the sensitive data.
+      description: Specifies the location of an occurrence of sensitive data in an Adobe Portable Document Format file.
+    GetSensitiveDataOccurrencesResponse:
+      type: object
+      properties:
+        error:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: If an error occurred when Amazon Macie attempted to retrieve occurrences of sensitive data reported by the finding, a description of the error that occurred. This value is null if the status (status) of the request is PROCESSING or SUCCESS.
+        sensitiveDataOccurrences:
+          allOf:
+          - $ref: '#/components/schemas/SensitiveDataOccurrences'
+          - description: A map that specifies 1-100 types of sensitive data reported by the finding and, for each type, 1-10 occurrences of sensitive data.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/RevealRequestStatus'
+          - description: <p>The status of the request to retrieve occurrences of sensitive data reported by the finding. Possible values are:</p> <ul><li><p>ERROR - An error occurred when Amazon Macie attempted to locate, retrieve, or encrypt the sensitive data. The error value indicates the nature of the error that occurred.</p></li> <li><p>PROCESSING - Macie is processing the request.</p></li> <li><p>SUCCESS - Macie successfully located, retrieved, and encrypted the sensitive data.</p></li></ul>
+    AccountLevelPermissions:
+      type: object
+      properties:
+        blockPublicAccess:
+          allOf:
+          - $ref: '#/components/schemas/BlockPublicAccess'
+          - description: The block public access settings for the Amazon Web Services account that owns the bucket.
+      description: Provides information about the account-level permissions settings that apply to an S3 bucket.
+    AccessControlList:
+      type: object
+      properties:
+        allowsPublicReadAccess:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the ACL grants the general public with read access permissions for the bucket.
+        allowsPublicWriteAccess:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the ACL grants the general public with write access permissions for the bucket.
+      description: Provides information about the permissions settings of the bucket-level access control list (ACL) for an S3 bucket.
+    DomainDetails:
+      type: object
+      properties:
+        domainName:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the domain.
+      description: Provides information about the domain name of the device that an entity used to perform an action on an affected resource.
+    GetFindingStatisticsResponse:
+      type: object
+      properties:
+        countsByGroup:
+          allOf:
+          - $ref: '#/components/schemas/__listOfGroupCount'
+          - description: An array of objects, one for each group of findings that matches the filter criteria specified in the request.
+    IpAddressDetails:
+      type: object
+      properties:
+        ipAddressV4:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Internet Protocol version 4 (IPv4) address of the device.
+        ipCity:
+          allOf:
+          - $ref: '#/components/schemas/IpCity'
+          - description: The city that the IP address originated from.
+        ipCountry:
+          allOf:
+          - $ref: '#/components/schemas/IpCountry'
+          - description: The country that the IP address originated from.
+        ipGeoLocation:
+          allOf:
+          - $ref: '#/components/schemas/IpGeoLocation'
+          - description: The geographic coordinates of the location that the IP address originated from.
+        ipOwner:
+          allOf:
+          - $ref: '#/components/schemas/IpOwner'
+          - description: The registered owner of the IP address.
+      description: Provides information about the IP address of the device that an entity used to perform an action on an affected resource.
+    AwsAccount:
+      type: object
+      properties:
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the Amazon Web Services account.
+        principalId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the entity that performed the action.
+      description: Provides information about an Amazon Web Services account and entity that performed an action on an affected resource. The action was performed using the credentials for an Amazon Web Services account other than your own account.
+    ThrottlingException: {}
+    IamUser:
+      type: object
+      properties:
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the Amazon Web Services account that's associated with the IAM user who performed the action.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the principal that performed the action. The last section of the ARN contains the name of the user who performed the action.
+        principalId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the IAM user who performed the action.
+        userName:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The username of the IAM user who performed the action.
+      description: Provides information about an Identity and Access Management (IAM) user who performed an action on an affected resource.
+    DefaultDetection:
+      type: object
+      properties:
+        count:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of occurrences of the type of sensitive data that was detected.
+        occurrences:
+          allOf:
+          - $ref: '#/components/schemas/Occurrences'
+          - description: The location of 1-15 occurrences of the sensitive data that was detected. A finding includes location data for a maximum of 15 occurrences of sensitive data.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The type of sensitive data that was detected. For example, AWS_CREDENTIALS, PHONE_NUMBER, or ADDRESS.
+      description: Provides information about a type of sensitive data that was detected by a managed data identifier and produced a sensitive data finding.
+    Occurrences:
+      type: object
+      properties:
+        cells:
+          allOf:
+          - $ref: '#/components/schemas/Cells'
+          - description: <p>An array of objects, one for each occurrence of sensitive data in a Microsoft Excel workbook, CSV file, or TSV file. This value is null for all other types of files.</p> <p>Each Cell object specifies a cell or field that contains the sensitive data.</p>
+        lineRanges:
+          allOf:
+          - $ref: '#/components/schemas/Ranges'
+          - description: '<p>An array of objects, one for each occurrence of sensitive data in an email message or a non-binary text file such as an HTML, TXT, or XML file. Each Range object specifies a line or inclusive range of lines that contains the sensitive data, and the position of the data on the specified line or lines.</p> <p>This value is often null for file types that are supported by Cell, Page, or Record objects. Exceptions are the location of sensitive data in: unstructured sections of an otherwise structured file, such as a comment in a file; a malformed file that Amazon Macie analyzes as plain text; and, a CSV or TSV file that has any column names that contain sensitive data.</p>'
+        offsetRanges:
+          allOf:
+          - $ref: '#/components/schemas/Ranges'
+          - description: ' <p>Reserved for future use.</p>'
+        pages:
+          allOf:
+          - $ref: '#/components/schemas/Pages'
+          - description: <p>An array of objects, one for each occurrence of sensitive data in an Adobe Portable Document Format file. This value is null for all other types of files.</p> <p>Each Page object specifies a page that contains the sensitive data.</p>
+        records:
+          allOf:
+          - $ref: '#/components/schemas/Records'
+          - description: <p>An array of objects, one for each occurrence of sensitive data in an Apache Avro object container, Apache Parquet file, JSON file, or JSON Lines file. This value is null for all other types of files.</p> <p>For an Avro object container or Parquet file, each Record object specifies a record index and the path to a field in a record that contains the sensitive data. For a JSON or JSON Lines file, each Record object specifies the path to a field or array that contains the sensitive data. For a JSON Lines file, it also specifies the index of the line that contains the data.</p>
+      description: Specifies the location of 1-15 occurrences of sensitive data that was detected by a managed data identifier or a custom data identifier and produced a sensitive data finding.
+    FindingType:
+      type: string
+      enum:
+      - SensitiveData:S3Object/Multiple
+      - SensitiveData:S3Object/Financial
+      - SensitiveData:S3Object/Personal
+      - SensitiveData:S3Object/Credentials
+      - SensitiveData:S3Object/CustomIdentifier
+      - Policy:IAMUser/S3BucketPublic
+      - Policy:IAMUser/S3BucketSharedExternally
+      - Policy:IAMUser/S3BucketReplicatedExternally
+      - Policy:IAMUser/S3BucketEncryptionDisabled
+      - Policy:IAMUser/S3BlockPublicAccessDisabled
+      - Policy:IAMUser/S3BucketSharedWithCloudFront
+      description: 'The type of finding. For details about each type, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-types.html">Types of Amazon Macie findings</a> in the <i>Amazon Macie User Guide</i>. Possible values are:'
+    KeyValuePairList:
+      type: array
+      description: Provides information about the tags that are associated with an S3 bucket or object. Each tag consists of a required tag key and an associated tag value.
+      items:
+        $ref: '#/components/schemas/KeyValuePair'
+    __boolean:
+      type: boolean
+    Cell:
+      type: object
+      properties:
+        cellReference:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The location of the cell, as an absolute cell reference, that contains the sensitive data, for example Sheet2!C5 for cell C5 on Sheet2 in a Microsoft Excel workbook. This value is null for CSV and TSV files.
+        column:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: 'The column number of the column that contains the sensitive data. For a Microsoft Excel workbook, this value correlates to the alphabetical character(s) for a column identifier, for example: 1 for column A, 2 for column B, and so on.'
+        columnName:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the column that contains the sensitive data, if available.
+        row:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The row number of the row that contains the sensitive data.
+      description: Specifies the location of an occurrence of sensitive data in a Microsoft Excel workbook, CSV file, or TSV file.
+    IpGeoLocation:
+      type: object
+      properties:
+        lat:
+          allOf:
+          - $ref: '#/components/schemas/__double'
+          - description: The latitude coordinate of the location, rounded to four decimal places.
+        lon:
+          allOf:
+          - $ref: '#/components/schemas/__double'
+          - description: The longitude coordinate of the location, rounded to four decimal places.
+      description: Provides geographic coordinates that indicate where a specified IP address originated from.
+    FindingCategory:
+      type: string
+      enum:
+      - CLASSIFICATION
+      - POLICY
+      description: 'The category of the finding. Possible values are:'
+    ClassificationResultStatus:
+      type: object
+      properties:
+        code:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: ' <p>The status of the finding. Possible values are:</p> <ul><li><p>COMPLETE - Amazon Macie successfully completed its analysis of the S3 object that the finding applies to.</p></li> <li><p>PARTIAL - Macie analyzed only a subset of the data in the S3 object that the finding applies to. For example, the object is an archive file that contains files in an unsupported format.</p></li> <li><p>SKIPPED - Macie wasn''t able to analyze the S3 object that the finding applies to. For example, the object is a file that uses an unsupported format.</p></li></ul>'
+        reason:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: <p>A brief description of the status of the finding. This value is null if the status (code) of the finding is COMPLETE.</p> <p>Amazon Macie uses this value to notify you of any errors, warnings, or considerations that might impact your analysis of the finding and the affected S3 object. Possible values are:</p> <ul><li><p>ARCHIVE_CONTAINS_UNPROCESSED_FILES - The object is an archive file and Macie extracted and analyzed only some or none of the files in the archive. To determine which files Macie analyzed, if any, refer to the corresponding sensitive data discovery result for the finding (ClassificationDetails.detailedResultsLocation).</p></li> <li><p>ARCHIVE_EXCEEDS_SIZE_LIMIT - The object is an archive file whose total storage size exceeds the size quota for this type of archive.</p></li> <li><p>ARCHIVE_NESTING_LEVEL_OVER_LIMIT - The object is an archive file whose nested depth exceeds the quota for the maximum number of nested levels that Macie analyzes for this type of archive.</p></li> <li><p>ARCHIVE_TOTAL_BYTES_EXTRACTED_OVER_LIMIT - The object is an archive file that exceeds the quota for the maximum amount of data that Macie extracts and analyzes for this type of archive.</p></li> <li><p>ARCHIVE_TOTAL_DOCUMENTS_PROCESSED_OVER_LIMIT - The object is an archive file that contains more than the maximum number of files that Macie extracts and analyzes for this type of archive.</p></li> <li><p>FILE_EXCEEDS_SIZE_LIMIT - The storage size of the object exceeds the size quota for this type of file.</p></li> <li><p>INVALID_ENCRYPTION - The object is encrypted using server-side encryption but Macie isn't allowed to use the key. Macie can't decrypt and analyze the object.</p></li> <li><p>INVALID_KMS_KEY - The object is encrypted with an KMS key that was disabled or is being deleted. Macie can't decrypt and analyze the object.</p></li> <li><p>INVALID_OBJECT_STATE - The object doesn't use a supported Amazon S3 storage class.</p></li> <li><p>JSON_NESTING_LEVEL_OVER_LIMIT - The object contains JSON data and the nested depth of the data exceeds the quota for the number of nested levels that Macie analyzes for this type of file.</p></li> <li><p>MALFORMED_FILE - The object is a malformed or corrupted file. An error occurred when Macie attempted to detect the file's type or extract data from the file.</p></li> <li><p>MALFORMED_OR_FILE_SIZE_EXCEEDS_LIMIT - The object is a Microsoft Office file that is malformed or exceeds the size quota for this type of file. If the file is malformed, an error occurred when Macie attempted to extract data from the file.</p></li> <li><p>NO_SUCH_BUCKET_AVAILABLE - The object was in a bucket that was deleted shortly before or when Macie attempted to analyze the object.</p></li> <li><p>OBJECT_VERSION_MISMATCH - The object was changed while Macie was analyzing it.</p></li> <li><p>OOXML_UNCOMPRESSED_RATIO_EXCEEDS_LIMIT - The object is an Office Open XML file whose compression ratio exceeds the compression quota for this type of file.</p></li> <li><p>OOXML_UNCOMPRESSED_SIZE_EXCEEDS_LIMIT - The object is an Office Open XML file that exceeds the size quota for this type of file.</p></li> <li><p>PERMISSION_DENIED - Macie isn't allowed to access the object. The object's permissions settings prevent Macie from analyzing the object.</p></li> <li><p>SOURCE_OBJECT_NO_LONGER_AVAILABLE - The object was deleted shortly before or when Macie attempted to analyze it.</p></li> <li><p>TIME_CUT_OFF_REACHED - Macie started analyzing the object but additional analysis would exceed the time quota for analyzing an object.</p></li> <li><p>UNABLE_TO_PARSE_FILE - The object is a file that contains structured data and an error occurred when Macie attempted to parse the data.</p></li> <li><p>UNSUPPORTED_FILE_TYPE_EXCEPTION - The object is a file that uses an unsupported file or storage format.</p></li></ul> <p>For information about quotas, supported storage classes, and supported file and storage formats, see <a href="https://docs.aws.amazon.com/macie/latest/user/macie-quotas.html">Quotas</a> and <a href="https://docs.aws.amazon.com/macie/latest/user/discovery-supported-storage.html">Supported storage classes and formats</a> in the <i>Amazon Macie User Guide</i>.</p>
+      description: Provides information about the status of a sensitive data finding.
+    __stringMin1Max128:
+      type: string
+      minLength: 1
+      maxLength: 128
+    SensitiveDataOccurrences:
+      type: object
+      description: Specifies a type of sensitive data reported by a finding and provides occurrences of the specified type of sensitive data.
+      additionalProperties:
+        $ref: '#/components/schemas/__listOfDetectedDataDetails'
+    ApiCallDetails:
+      type: object
+      properties:
+        api:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the operation that was invoked most recently and produced the finding.
+        apiServiceName:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: 'The URL of the Amazon Web Service that provides the operation, for example: s3.amazonaws.com.'
+        firstSeen:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The first date and time, in UTC and extended ISO 8601 format, when any operation was invoked and produced the finding.
+        lastSeen:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The most recent date and time, in UTC and extended ISO 8601 format, when the specified operation (api) was invoked and produced the finding.
+      description: Provides information about an API operation that an entity invoked for an affected resource.
+    GetSensitiveDataOccurrencesAvailabilityResponse:
+      type: object
+      properties:
+        code:
+          allOf:
+          - $ref: '#/components/schemas/AvailabilityCode'
+          - description: 'Specifies whether occurrences of sensitive data can be retrieved for the finding. Possible values are: AVAILABLE, the sensitive data can be retrieved; and, UNAVAILABLE, the sensitive data can''t be retrieved. If this value is UNAVAILABLE, the reasons array indicates why the data can''t be retrieved.'
+        reasons:
+          allOf:
+          - $ref: '#/components/schemas/__listOfUnavailabilityReasonCode'
+          - description: <p>Specifies why occurrences of sensitive data can't be retrieved for the finding. Possible values are:</p> <ul><li><p>INVALID_CLASSIFICATION_RESULT - Amazon Macie can't verify the location of the sensitive data to retrieve. There isn't a corresponding sensitive data discovery result for the finding. Or the sensitive data discovery result specified by the ClassificationDetails.detailedResultsLocation field of the finding isn't available, is malformed or corrupted, or uses an unsupported storage format.</p></li> <li><p>OBJECT_EXCEEDS_SIZE_QUOTA - The storage size of the affected S3 object exceeds the size quota for retrieving occurrences of sensitive data.</p></li> <li><p>OBJECT_UNAVAILABLE - The affected S3 object isn't available. The object might have been renamed, moved, or deleted. Or the object was changed after Macie created the finding.</p></li> <li><p>UNSUPPORTED_FINDING_TYPE - The specified finding isn't a sensitive data finding.</p></li> <li><p>UNSUPPORTED_OBJECT_TYPE - The affected S3 object uses a file or storage format that Macie doesn't support for retrieving occurrences of sensitive data.</p></li></ul> <p>This value is null if sensitive data can be retrieved for the finding.</p>
+    FindingAction:
+      type: object
+      properties:
+        actionType:
+          allOf:
+          - $ref: '#/components/schemas/FindingActionType'
+          - description: The type of action that occurred for the affected resource. This value is typically AWS_API_CALL, which indicates that an entity invoked an API operation for the resource.
+        apiCallDetails:
+          allOf:
+          - $ref: '#/components/schemas/ApiCallDetails'
+          - description: The invocation details of the API operation that an entity invoked for the affected resource, if the value for the actionType property is AWS_API_CALL.
+      description: Provides information about an action that occurred for a resource and produced a policy finding.
+    UnavailabilityReasonCode:
+      type: string
+      enum:
+      - OBJECT_EXCEEDS_SIZE_QUOTA
+      - UNSUPPORTED_OBJECT_TYPE
+      - UNSUPPORTED_FINDING_TYPE
+      - INVALID_CLASSIFICATION_RESULT
+      - OBJECT_UNAVAILABLE
+      description: 'Specifies why occurrences of sensitive data can''t be retrieved for a finding. Possible values are:'
+    S3Object:
+      type: object
+      properties:
+        bucketArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the bucket that contains the object.
+        eTag:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The entity tag (ETag) that identifies the affected version of the object. If the object was overwritten or changed after Amazon Macie produced the finding, this value might be different from the current ETag for the object.
+        extension:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The file name extension of the object. If the object doesn't have a file name extension, this value is "".
+        key:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The full key (name) that's assigned to the object.
+        lastModified:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when the object was last modified.
+        path:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The path to the object, including the full key (name).
+        publicAccess:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the object is publicly accessible due to the combination of permissions settings that apply to the object.
+        serverSideEncryption:
+          allOf:
+          - $ref: '#/components/schemas/ServerSideEncryption'
+          - description: The type of server-side encryption that was used to encrypt the object.
+        size:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total storage size, in bytes, of the object.
+        storageClass:
+          allOf:
+          - $ref: '#/components/schemas/StorageClass'
+          - description: The storage class of the object.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/KeyValuePairList'
+          - description: The tags that are associated with the object.
+        versionId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The identifier for the affected version of the object.
+      description: Provides information about the S3 object that a finding applies to.
+    CriterionAdditionalProperties:
+      type: object
+      properties:
+        eq:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: The value for the property matches (equals) the specified value. If you specify multiple values, Macie uses OR logic to join the values.
+        eqExactMatch:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: '<p>The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.</p> <p>You can use this operator with the following properties: customDataIdentifiers.detections.arn, customDataIdentifiers.detections.name, resourcesAffected.s3Bucket.tags.key, resourcesAffected.s3Bucket.tags.value, resourcesAffected.s3Object.tags.key, resourcesAffected.s3Object.tags.value, sensitiveData.category, and sensitiveData.detections.type.</p>'
+        gt:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The value for the property is greater than the specified value.
+        gte:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The value for the property is greater than or equal to the specified value.
+        lt:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The value for the property is less than the specified value.
+        lte:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The value for the property is less than or equal to the specified value.
+        neq:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Macie uses OR logic to join the values.
+      description: Specifies the operator to use in a property-based condition that filters the results of a query for findings. For detailed information and examples of each operator, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-filter-basics.html">Fundamentals of filtering findings</a> in the <i>Amazon Macie User Guide</i>.
+    BlockPublicAccess:
+      type: object
+      properties:
+        blockPublicAcls:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether Amazon S3 blocks public access control lists (ACLs) for the bucket and objects in the bucket.
+        blockPublicPolicy:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether Amazon S3 blocks public bucket policies for the bucket.
+        ignorePublicAcls:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether Amazon S3 ignores public ACLs for the bucket and objects in the bucket.
+        restrictPublicBuckets:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether Amazon S3 restricts public bucket policies for the bucket.
+      description: Provides information about the block public access settings for an S3 bucket. These settings can apply to a bucket at the account or bucket level. For detailed information about each setting, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html">Blocking public access to your Amazon S3 storage</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/macie2/
+x-hasEquivalentPaths: true

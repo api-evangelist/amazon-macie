@@ -1,0 +1,495 @@
+openapi: 3.0.0
+info:
+  version: 2020-01-01
+  x-release: v4
+  title: Amazon Macie 2 Admin#adminAccountId Resource Profiles API
+  description: Amazon Macie
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: macie2
+  x-aws-signingName: macie2
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/macie2-2020-01-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://macie2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Macie 2 multi-region endpoint
+- url: https://macie2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Macie 2 multi-region endpoint
+- url: http://macie2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Macie 2 endpoint for China (Beijing) and China (Ningxia)
+- url: https://macie2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Macie 2 endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Resource Profiles
+paths:
+  /resource-profiles/artifacts#resourceArn:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListResourceProfileArtifacts
+      description: Retrieves information about objects that were selected from an S3 bucket for automated sensitive data discovery.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListResourceProfileArtifactsResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '484':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: nextToken
+        in: query
+        required: false
+        description: The nextToken string that specifies which page of results to return in a paginated response.
+        schema:
+          type: string
+      - name: resourceArn
+        in: query
+        required: true
+        description: The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
+        schema:
+          type: string
+      summary: Amazon Macie List Resource Profile Artifacts
+      tags:
+      - Resource Profiles
+  /resource-profiles/detections#resourceArn:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListResourceProfileDetections
+      description: Retrieves information about the types and amount of sensitive data that Amazon Macie found in an S3 bucket.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListResourceProfileDetectionsResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+      parameters:
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of items to include in each page of a paginated response.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 25
+      - name: nextToken
+        in: query
+        required: false
+        description: The nextToken string that specifies which page of results to return in a paginated response.
+        schema:
+          type: string
+      - name: resourceArn
+        in: query
+        required: true
+        description: The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
+        schema:
+          type: string
+      summary: Amazon Macie List Resource Profile Detections
+      tags:
+      - Resource Profiles
+    patch:
+      operationId: UpdateResourceProfileDetections
+      description: Updates the sensitivity scoring settings for an S3 bucket.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateResourceProfileDetectionsResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+      parameters:
+      - name: resourceArn
+        in: query
+        required: true
+        description: The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                suppressDataIdentifiers:
+                  description: An array of objects, one for each custom data identifier or managed data identifier that detected the type of sensitive data to start excluding or including in the bucket's score. To start including all sensitive data types in the score, don't specify any values for this array.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/SuppressDataIdentifier'
+      summary: Amazon Macie Update Resource Profile Detections
+      tags:
+      - Resource Profiles
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    InternalServerException: {}
+    ListResourceProfileArtifactsResponse:
+      type: object
+      properties:
+        artifacts:
+          allOf:
+          - $ref: '#/components/schemas/__listOfResourceProfileArtifact'
+          - description: '<p>An array of objects, one for each of 1-100 S3 objects that Amazon Macie selected for analysis.</p> <p>If Macie has analyzed more than 100 objects in the bucket, Macie populates the array based on the value for the ResourceProfileArtifact.sensitive field for an object: true (sensitive), followed by false (not sensitive). Macie then populates any remaining items in the array with information about objects where the value for the ResourceProfileArtifact.classificationResultStatus field is SKIPPED.</p>'
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    ThrottlingException: {}
+    __listOfDetection:
+      type: array
+      items:
+        $ref: '#/components/schemas/Detection'
+    ResourceProfileArtifact:
+      type: object
+      required:
+      - classificationResultStatus
+      - arn
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the object.
+        classificationResultStatus:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: <p>The status of the analysis. Possible values are:</p> <ul><li><p>COMPLETE - Amazon Macie successfully completed its analysis of the object.</p></li> <li><p>PARTIAL - Macie analyzed only a subset of data in the object. For example, the object is an archive file that contains files in an unsupported format.</p></li> <li><p>SKIPPED - Macie wasn't able to analyze the object. For example, the object is a malformed file.</p></li></ul>
+        sensitive:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether Amazon Macie found sensitive data in the object.
+      description: Provides information about an S3 object that Amazon Macie selected for analysis while performing automated sensitive data discovery for an S3 bucket, and the status and results of the analysis. This information is available only if automated sensitive data discovery is currently enabled for your account.
+    __string:
+      type: string
+    ServiceQuotaExceededException: {}
+    __long:
+      type: integer
+    __boolean:
+      type: boolean
+    UpdateResourceProfileDetectionsResponse:
+      type: object
+      properties: {}
+    ResourceNotFoundException: {}
+    AccessDeniedException: {}
+    __listOfResourceProfileArtifact:
+      type: array
+      items:
+        $ref: '#/components/schemas/ResourceProfileArtifact'
+    SuppressDataIdentifier:
+      type: object
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the custom data identifier or managed data identifier that detected the type of sensitive data to exclude or include in the score.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/DataIdentifierType'
+          - description: 'The type of data identifier that detected the sensitive data. Possible values are: CUSTOM, for a custom data identifier; and, MANAGED, for a managed data identifier.'
+      description: Specifies a custom data identifier or managed data identifier that detected a type of sensitive data to start excluding or including in an S3 bucket's sensitivity score.
+    ListResourceProfileDetectionsResponse:
+      type: object
+      properties:
+        detections:
+          allOf:
+          - $ref: '#/components/schemas/__listOfDetection'
+          - description: An array of objects, one for each type of sensitive data that Amazon Macie found in the bucket. Each object reports the number of occurrences of the specified type and provides information about the custom data identifier or managed data identifier that detected the data.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    DataIdentifierType:
+      type: string
+      enum:
+      - CUSTOM
+      - MANAGED
+      description: 'The type of data identifier that detected a specific type of sensitive data in an S3 bucket. Possible values are:'
+    Detection:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: If the sensitive data was detected by a custom data identifier, the Amazon Resource Name (ARN) of the custom data identifier that detected the data. Otherwise, this value is null.
+        count:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of occurrences of the sensitive data.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the custom data identifier or managed data identifier that detected the sensitive data. For additional details about a specified managed data identifier, see <a href="https://docs.aws.amazon.com/macie/latest/user/managed-data-identifiers.html">Using managed data identifiers</a> in the <i>Amazon Macie User Guide</i>.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the custom data identifier or managed data identifier that detected the sensitive data. For a managed data identifier, this value is the same as the unique identifier (id).
+        suppressed:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether occurrences of this type of sensitive data are excluded (true) or included (false) in the bucket's sensitivity score.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/DataIdentifierType'
+          - description: 'The type of data identifier that detected the sensitive data. Possible values are: CUSTOM, for a custom data identifier; and, MANAGED, for a managed data identifier.'
+      description: Provides information about a type of sensitive data that Amazon Macie found in an S3 bucket while performing automated sensitive data discovery for the bucket. The information also specifies the custom data identifier or managed data identifier that detected the data. This information is available only if automated sensitive data discovery is currently enabled for your account.
+    ValidationException: {}
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/macie2/
+x-hasEquivalentPaths: true

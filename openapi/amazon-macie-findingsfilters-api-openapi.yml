@@ -1,0 +1,750 @@
+openapi: 3.0.0
+info:
+  version: 2020-01-01
+  x-release: v4
+  title: Amazon Macie 2 Admin#adminAccountId Findingsfilters API
+  description: Amazon Macie
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: macie2
+  x-aws-signingName: macie2
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/macie2-2020-01-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://macie2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Macie 2 multi-region endpoint
+- url: https://macie2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Macie 2 multi-region endpoint
+- url: http://macie2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Macie 2 endpoint for China (Beijing) and China (Ningxia)
+- url: https://macie2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Macie 2 endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Findingsfilters
+paths:
+  /findingsfilters:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateFindingsFilter
+      description: Creates and defines the criteria and other settings for a findings filter.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateFindingsFilterResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              - findingCriteria
+              - name
+              properties:
+                action:
+                  description: 'The action to perform on findings that match the filter criteria. To suppress (automatically archive) findings that match the criteria, set this value to ARCHIVE. Valid values are:'
+                  type: string
+                  enum:
+                  - ARCHIVE
+                  - NOOP
+                clientToken:
+                  description: A unique, case-sensitive token that you provide to ensure the idempotency of the request.
+                  type: string
+                description:
+                  description: <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users of your account might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+                  type: string
+                findingCriteria:
+                  description: Specifies, as a map, one or more property-based conditions that filter the results of a query for findings.
+                  type: object
+                  properties:
+                    criterion:
+                      allOf:
+                      - $ref: '#/components/schemas/Criterion'
+                      - description: A condition that specifies the property, operator, and one or more values to use to filter the results.
+                name:
+                  description: <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+                  type: string
+                position:
+                  description: The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+                  type: integer
+                tags:
+                  description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
+                  type: object
+                  additionalProperties:
+                    $ref: '#/components/schemas/__string'
+      summary: Amazon Macie Create Findings Filter
+      tags:
+      - Findingsfilters
+    get:
+      operationId: ListFindingsFilters
+      description: Retrieves a subset of information about all the findings filters for an account.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFindingsFiltersResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters:
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of items to include in each page of a paginated response.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 25
+      - name: nextToken
+        in: query
+        required: false
+        description: The nextToken string that specifies which page of results to return in a paginated response.
+        schema:
+          type: string
+      summary: Amazon Macie List Findings Filters
+      tags:
+      - Findingsfilters
+  /findingsfilters/{id}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: DeleteFindingsFilter
+      description: Deletes a findings filter.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteFindingsFilterResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The unique identifier for the Amazon Macie resource that the request applies to.
+        schema:
+          type: string
+      summary: Amazon Macie Delete Findings Filter
+      tags:
+      - Findingsfilters
+    get:
+      operationId: GetFindingsFilter
+      description: Retrieves the criteria and other settings for a findings filter.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFindingsFilterResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The unique identifier for the Amazon Macie resource that the request applies to.
+        schema:
+          type: string
+      summary: Amazon Macie Get Findings Filter
+      tags:
+      - Findingsfilters
+    patch:
+      operationId: UpdateFindingsFilter
+      description: Updates the criteria and other settings for a findings filter.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateFindingsFilterResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The unique identifier for the Amazon Macie resource that the request applies to.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  description: 'The action to perform on findings that match the filter criteria. To suppress (automatically archive) findings that match the criteria, set this value to ARCHIVE. Valid values are:'
+                  type: string
+                  enum:
+                  - ARCHIVE
+                  - NOOP
+                clientToken:
+                  description: A unique, case-sensitive token that you provide to ensure the idempotency of the request.
+                  type: string
+                description:
+                  description: <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users of your account might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+                  type: string
+                findingCriteria:
+                  description: Specifies, as a map, one or more property-based conditions that filter the results of a query for findings.
+                  type: object
+                  properties:
+                    criterion:
+                      allOf:
+                      - $ref: '#/components/schemas/Criterion'
+                      - description: A condition that specifies the property, operator, and one or more values to use to filter the results.
+                name:
+                  description: <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+                  type: string
+                position:
+                  description: The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+                  type: integer
+      summary: Amazon Macie Update Findings Filter
+      tags:
+      - Findingsfilters
+components:
+  schemas:
+    FindingsFilterListItem:
+      type: object
+      properties:
+        action:
+          allOf:
+          - $ref: '#/components/schemas/FindingsFilterAction'
+          - description: 'The action that''s performed on findings that match the filter criteria. Possible values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don''t perform any action on the findings.'
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the filter.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the filter.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The custom name of the filter.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: A map of key-value pairs that specifies which tags (keys and values) are associated with the filter.
+      description: Provides information about a findings filter.
+    ListFindingsFiltersResponse:
+      type: object
+      properties:
+        findingsFilterListItems:
+          allOf:
+          - $ref: '#/components/schemas/__listOfFindingsFilterListItem'
+          - description: An array of objects, one for each filter that's associated with the account.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    InternalServerException: {}
+    __integer:
+      type: integer
+    FindingCriteria:
+      type: object
+      properties:
+        criterion:
+          allOf:
+          - $ref: '#/components/schemas/Criterion'
+          - description: A condition that specifies the property, operator, and one or more values to use to filter the results.
+      description: Specifies, as a map, one or more property-based conditions that filter the results of a query for findings.
+    Criterion:
+      type: object
+      description: Specifies a condition that defines a property, operator, and one or more values to filter the results of a query for findings. The number of values depends on the property and operator specified by the condition. For information about defining filter conditions, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-filter-basics.html">Fundamentals of filtering findings</a> in the <i>Amazon Macie User Guide</i>.
+      additionalProperties:
+        $ref: '#/components/schemas/CriterionAdditionalProperties'
+    ThrottlingException: {}
+    GetFindingsFilterResponse:
+      type: object
+      properties:
+        action:
+          allOf:
+          - $ref: '#/components/schemas/FindingsFilterAction'
+          - description: 'The action that''s performed on findings that match the filter criteria (findingCriteria). Possible values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don''t perform any action on the findings.'
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the filter.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The custom description of the filter.
+        findingCriteria:
+          allOf:
+          - $ref: '#/components/schemas/FindingCriteria'
+          - description: The criteria that's used to filter findings.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the filter.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The custom name of the filter.
+        position:
+          allOf:
+          - $ref: '#/components/schemas/__integer'
+          - description: The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: A map of key-value pairs that specifies which tags (keys and values) are associated with the filter.
+    ConflictException: {}
+    __string:
+      type: string
+    __listOf__string:
+      type: array
+      items:
+        $ref: '#/components/schemas/__string'
+    DeleteFindingsFilterResponse:
+      type: object
+      properties: {}
+    __listOfFindingsFilterListItem:
+      type: array
+      items:
+        $ref: '#/components/schemas/FindingsFilterListItem'
+    ServiceQuotaExceededException: {}
+    __long:
+      type: integer
+    ResourceNotFoundException: {}
+    AccessDeniedException: {}
+    UpdateFindingsFilterResponse:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the filter that was updated.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the filter that was updated.
+    FindingsFilterAction:
+      type: string
+      enum:
+      - ARCHIVE
+      - NOOP
+      description: 'The action to perform on findings that match the filter criteria. To suppress (automatically archive) findings that match the criteria, set this value to ARCHIVE. Valid values are:'
+    CreateFindingsFilterResponse:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the filter that was created.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the filter that was created.
+    ValidationException: {}
+    TagMap:
+      type: object
+      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
+      additionalProperties:
+        $ref: '#/components/schemas/__string'
+    CriterionAdditionalProperties:
+      type: object
+      properties:
+        eq:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: The value for the property matches (equals) the specified value. If you specify multiple values, Macie uses OR logic to join the values.
+        eqExactMatch:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: '<p>The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.</p> <p>You can use this operator with the following properties: customDataIdentifiers.detections.arn, customDataIdentifiers.detections.name, resourcesAffected.s3Bucket.tags.key, resourcesAffected.s3Bucket.tags.value, resourcesAffected.s3Object.tags.key, resourcesAffected.s3Object.tags.value, sensitiveData.category, and sensitiveData.detections.type.</p>'
+        gt:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The value for the property is greater than the specified value.
+        gte:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The value for the property is greater than or equal to the specified value.
+        lt:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The value for the property is less than the specified value.
+        lte:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The value for the property is less than or equal to the specified value.
+        neq:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Macie uses OR logic to join the values.
+      description: Specifies the operator to use in a property-based condition that filters the results of a query for findings. For detailed information and examples of each operator, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-filter-basics.html">Fundamentals of filtering findings</a> in the <i>Amazon Macie User Guide</i>.
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/macie2/
+x-hasEquivalentPaths: true

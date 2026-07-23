@@ -1,0 +1,468 @@
+openapi: 3.0.0
+info:
+  version: 2020-01-01
+  x-release: v4
+  title: Amazon Macie 2 Admin#adminAccountId Classification Scopes API
+  description: Amazon Macie
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: macie2
+  x-aws-signingName: macie2
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/macie2-2020-01-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://macie2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Macie 2 multi-region endpoint
+- url: https://macie2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Macie 2 multi-region endpoint
+- url: http://macie2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Macie 2 endpoint for China (Beijing) and China (Ningxia)
+- url: https://macie2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Macie 2 endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Classification Scopes
+paths:
+  /classification-scopes/{id}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: GetClassificationScope
+      description: Retrieves the classification scope settings for an account.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClassificationScopeResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '484':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The unique identifier for the Amazon Macie resource that the request applies to.
+        schema:
+          type: string
+      summary: Amazon Macie Get Classification Scope
+      tags:
+      - Classification Scopes
+    patch:
+      operationId: UpdateClassificationScope
+      description: Updates the classification scope settings for an account.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateClassificationScopeResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '484':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The unique identifier for the Amazon Macie resource that the request applies to.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                s3:
+                  description: Specifies changes to the list of S3 buckets that are excluded from automated sensitive data discovery for an Amazon Macie account.
+                  type: object
+                  properties:
+                    excludes:
+                      allOf:
+                      - $ref: '#/components/schemas/S3ClassificationScopeExclusionUpdate'
+                      - description: The names of the S3 buckets to add or remove from the list.
+      summary: Amazon Macie Update Classification Scope
+      tags:
+      - Classification Scopes
+  /classification-scopes:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListClassificationScopes
+      description: Retrieves a subset of information about the classification scope for an account.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClassificationScopesResponse'
+        '480':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: name
+        in: query
+        required: false
+        description: The name of the classification scope to retrieve the unique identifier for.
+        schema:
+          type: string
+      - name: nextToken
+        in: query
+        required: false
+        description: The nextToken string that specifies which page of results to return in a paginated response.
+        schema:
+          type: string
+      summary: Amazon Macie List Classification Scopes
+      tags:
+      - Classification Scopes
+components:
+  schemas:
+    __listOfClassificationScopeSummary:
+      type: array
+      items:
+        $ref: '#/components/schemas/ClassificationScopeSummary'
+    S3ClassificationScope:
+      type: object
+      required:
+      - excludes
+      properties:
+        excludes:
+          allOf:
+          - $ref: '#/components/schemas/S3ClassificationScopeExclusion'
+          - description: The S3 buckets that are excluded.
+      description: Specifies the S3 buckets that are excluded from automated sensitive data discovery for an Amazon Macie account.
+    ClassificationScopeName:
+      type: string
+      pattern: ^[0-9a-zA-Z_\\-]*$
+      description: The name of the classification scope.
+    InternalServerException: {}
+    ListClassificationScopesResponse:
+      type: object
+      properties:
+        classificationScopes:
+          allOf:
+          - $ref: '#/components/schemas/__listOfClassificationScopeSummary'
+          - description: An array that specifies the unique identifier and name of the classification scope for the account.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    ThrottlingException: {}
+    S3BucketName:
+      type: string
+      pattern: ^[A-Za-z0-9.\-_]{3,255}$
+      description: The name of an S3 bucket.
+    ClassificationScopeSummary:
+      type: object
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ClassificationScopeId'
+          - description: The unique identifier for the classification scope.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ClassificationScopeName'
+          - description: 'The name of the classification scope: automated-sensitive-data-discovery.'
+      description: Provides information about the classification scope for an Amazon Macie account. Macie uses the scope's settings when it performs automated sensitive data discovery for the account.
+    S3ClassificationScopeExclusionUpdate:
+      type: object
+      required:
+      - bucketNames
+      - operation
+      properties:
+        bucketNames:
+          allOf:
+          - $ref: '#/components/schemas/__listOfS3BucketName'
+          - description: 'Depending on the value specified for the update operation (ClassificationScopeUpdateOperation), an array of strings that: lists the names of buckets to add or remove from the list, or specifies a new set of bucket names that overwrites all existing names in the list. Each string must be the full name of an S3 bucket. Values are case sensitive.'
+        operation:
+          allOf:
+          - $ref: '#/components/schemas/ClassificationScopeUpdateOperation'
+          - description: <p>Specifies how to apply the changes to the exclusion list. Valid values are:</p> <ul><li><p>ADD - Append the specified bucket names to the current list.</p></li> <li><p>REMOVE - Remove the specified bucket names from the current list.</p></li> <li><p>REPLACE - Overwrite the current list with the specified list of bucket names. If you specify this value, Amazon Macie removes all existing names from the list and adds all the specified names to the list.</p></li></ul>
+      description: Specifies S3 buckets to add or remove from the exclusion list defined by the classification scope for an Amazon Macie account.
+    __listOfS3BucketName:
+      type: array
+      items:
+        $ref: '#/components/schemas/S3BucketName'
+    ClassificationScopeUpdateOperation:
+      type: string
+      enum:
+      - ADD
+      - REPLACE
+      - REMOVE
+      description: 'Specifies how to apply changes to the S3 bucket exclusion list defined by the classification scope for an Amazon Macie account. Valid values are:'
+    ClassificationScopeId:
+      type: string
+      pattern: ^[0-9a-z]*$
+      description: The unique identifier the classification scope.
+    UpdateClassificationScopeResponse:
+      type: object
+      properties: {}
+    ResourceNotFoundException: {}
+    S3ClassificationScopeExclusion:
+      type: object
+      required:
+      - bucketNames
+      properties:
+        bucketNames:
+          allOf:
+          - $ref: '#/components/schemas/__listOfS3BucketName'
+          - description: An array of strings, one for each S3 bucket that is excluded. Each string is the full name of an excluded bucket.
+      description: Specifies the names of the S3 buckets that are excluded from automated sensitive data discovery.
+    AccessDeniedException: {}
+    GetClassificationScopeResponse:
+      type: object
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ClassificationScopeId'
+          - description: The unique identifier for the classification scope.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ClassificationScopeName'
+          - description: 'The name of the classification scope: automated-sensitive-data-discovery.'
+        s3:
+          allOf:
+          - $ref: '#/components/schemas/S3ClassificationScope'
+          - description: The S3 buckets that are excluded from automated sensitive data discovery.
+    NextToken:
+      type: string
+      pattern: ^.*$
+      description: Specifies which page of results to return in a paginated response.
+    ValidationException: {}
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/macie2/
+x-hasEquivalentPaths: true
