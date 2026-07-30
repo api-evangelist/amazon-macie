@@ -6,7 +6,20 @@ description: >-
   the discovery of sensitive data, such as personally identifiable information (PII) and financial data, to provide you
   with a better understanding of the data that your organization stores in Amazon S3.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-macie.png
 tags:
   - AWS
   - Data Security
@@ -20,39 +33,595 @@ created: '2024-01-15'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: amazon-macie:amazon-macie-api
-    name: Amazon Macie API
-    description: >-
-      The Amazon Macie API provides programmatic access to create and manage the resources, data, and activities for
-      discovering, classifying, and protecting sensitive data stored in Amazon S3 buckets. Covers 54 paths and 79
-      operations for findings management, classification jobs, bucket security, custom identifiers, multi-account
-      administration, and allow lists.
-    humanURL: https://aws.amazon.com/macie/
-    baseURL: https://macie2.amazonaws.com
-    tags:
-      - Data Security
-      - Sensitive Data
-      - Privacy
-      - Compliance
-      - S3
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
-      - type: OpenAPI
-        url: openapi/amazon-macie-openapi-original.yaml
-      - type: GettingStarted
-        url: https://aws.amazon.com/macie/getting-started/
-      - type: Pricing
-        url: https://aws.amazon.com/macie/pricing/
-      - type: FAQ
-        url: https://aws.amazon.com/macie/faq/
-      - type: JSONSchema
-        url: json-schema/amazon-macie-finding-schema.json
-      - type: JSONStructure
-        url: json-structure/amazon-macie-finding-structure.json
-      - type: JSONLD
-        url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-admin-adminaccountid-api
+  name: Amazon Macie Admin#adminAccountId API
+  description: >-
+    The Admin#adminAccountId API from Amazon Macie — 1 operation(s) for admin#adminaccountid.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Admin#adminAccountId
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-admin-adminaccountid-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-admin-api
+  name: Amazon Macie Admin API
+  description: The Admin API from Amazon Macie — 2 operation(s) for admin.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Admin
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-admin-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-administrator-api
+  name: Amazon Macie Administrator API
+  description: The Administrator API from Amazon Macie — 2 operation(s) for administrator.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Administrator
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-administrator-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-allow-lists-api
+  name: Amazon Macie Allow Lists API
+  description: The Allow Lists API from Amazon Macie — 2 operation(s) for allow lists.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Allow Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-allow-lists-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-automated-discovery-api
+  name: Amazon Macie Automated Discovery API
+  description: The Automated Discovery API from Amazon Macie — 1 operation(s) for automated discovery.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Automated Discovery
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-automated-discovery-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-classification-export-configuration-api
+  name: Amazon Macie Classification Export Configuration API
+  description: >-
+    The Classification Export Configuration API from Amazon Macie — 1 operation(s) for classification
+    export configuration.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Classification Export Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-classification-export-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-classification-scopes-api
+  name: Amazon Macie Classification Scopes API
+  description: >-
+    The Classification Scopes API from Amazon Macie — 2 operation(s) for classification scopes.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Classification Scopes
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-classification-scopes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-custom-data-identifiers-api
+  name: Amazon Macie Custom Data Identifiers API
+  description: >-
+    The Custom Data Identifiers API from Amazon Macie — 5 operation(s) for custom data identifiers.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Custom Data Identifiers
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-custom-data-identifiers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-datasources-api
+  name: Amazon Macie Datasources API
+  description: The Datasources API from Amazon Macie — 3 operation(s) for datasources.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Datasources
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-datasources-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-findings-api
+  name: Amazon Macie Findings API
+  description: The Findings API from Amazon Macie — 6 operation(s) for findings.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Findings
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-findings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-findings-publication-configuration-api
+  name: Amazon Macie Findings Publication Configuration API
+  description: >-
+    The Findings Publication Configuration API from Amazon Macie — 1 operation(s) for findings publication
+    configuration.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Findings Publication Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-findings-publication-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-findingsfilters-api
+  name: Amazon Macie Findingsfilters API
+  description: The Findingsfilters API from Amazon Macie — 2 operation(s) for findingsfilters.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Findingsfilters
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-findingsfilters-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-invitations-api
+  name: Amazon Macie Invitations API
+  description: The Invitations API from Amazon Macie — 5 operation(s) for invitations.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Invitations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-invitations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-jobs-api
+  name: Amazon Macie Jobs API
+  description: The Jobs API from Amazon Macie — 3 operation(s) for jobs.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-macie-api
+  name: Amazon Macie Macie API
+  description: The Macie API from Amazon Macie — 2 operation(s) for macie.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Macie
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-macie-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-managed-data-identifiers-api
+  name: Amazon Macie Managed Data Identifiers API
+  description: >-
+    The Managed Data Identifiers API from Amazon Macie — 1 operation(s) for managed data identifiers.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Managed Data Identifiers
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-managed-data-identifiers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-master-api
+  name: Amazon Macie Master API
+  description: The Master API from Amazon Macie — 2 operation(s) for master.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Master
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-master-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-members-api
+  name: Amazon Macie Members API
+  description: The Members API from Amazon Macie — 3 operation(s) for members.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Members
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-members-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-resource-profiles-api
+  name: Amazon Macie Resource Profiles API
+  description: The Resource Profiles API from Amazon Macie — 2 operation(s) for resource profiles.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Resource Profiles
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-resource-profiles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-resource-profiles-resourcearn-api
+  name: Amazon Macie Resource Profiles#resourceArn API
+  description: >-
+    The Resource Profiles#resourceArn API from Amazon Macie — 1 operation(s) for resource profiles#resourcearn.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Resource Profiles#resourceArn
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-resource-profiles-resourcearn-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-reveal-configuration-api
+  name: Amazon Macie Reveal Configuration API
+  description: >-
+    The Reveal Configuration API from Amazon Macie — 1 operation(s) for reveal configuration.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Reveal Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-reveal-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-tags-api
+  name: Amazon Macie Tags API
+  description: The Tags API from Amazon Macie — 2 operation(s) for tags.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-templates-api
+  name: Amazon Macie Templates API
+  description: The Templates API from Amazon Macie — 2 operation(s) for templates.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-templates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-usage-api
+  name: Amazon Macie Usage API
+  description: The Usage API from Amazon Macie — 2 operation(s) for usage.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Usage
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-usage-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amazon-macie/overview
   - type: AgenticAccess
     url: agentic-access/amazon-macie-agentic-access.yml
   - type: TrustCenter
