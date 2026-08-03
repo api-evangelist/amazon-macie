@@ -1,0 +1,3100 @@
+{
+  "info": {
+    "_postman_id": "414eac87-7b43-405b-a40f-ede7e7b7d8d7",
+    "name": "Amazon Macie 2 Admin#adminAccountId Jobs API",
+    "description": "Amazon Macie\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:37:01.000Z",
+    "updatedAt": "2026-07-28T10:37:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-414eac87-7b43-405b-a40f-ede7e7b7d8d7"
+  },
+  "item": [
+    {
+      "name": "jobs",
+      "item": [
+        {
+          "name": "{jobId}",
+          "item": [
+            {
+              "name": "Amazon Macie Describe Classification Job",
+              "id": "ecdae0ef-6665-4cd1-a2fd-bf68ef788a39",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/jobs/:jobId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e65b988f-a465-41af-a632-9f51a38d89f1",
+                      "key": "jobId",
+                      "value": "<string>",
+                      "description": "(Required) The unique identifier for the classification job."
+                    }
+                  ]
+                },
+                "description": "Retrieves the status and settings for a classification job."
+              },
+              "response": [
+                {
+                  "id": "a55c7eb1-370a-4271-b4ae-aab9c5725fc4",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"allowListIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"clientToken\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"customDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"initialRun\": \"<boolean>\",\n  \"jobArn\": \"<string>\",\n  \"jobId\": \"<string>\",\n  \"jobStatus\": \"COMPLETE\",\n  \"jobType\": \"ONE_TIME\",\n  \"lastRunErrorStatus\": {\n    \"code\": \"NONE\"\n  },\n  \"lastRunTime\": \"<dateTime>\",\n  \"managedDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"managedDataIdentifierSelector\": \"NONE\",\n  \"name\": \"<string>\",\n  \"s3JobDefinition\": {\n    \"bucketCriteria\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"GT\",\n              \"key\": \"S3_BUCKET_NAME\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"EQ\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"GT\",\n              \"key\": \"S3_BUCKET_NAME\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"NE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"EQ\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"CONTAINS\",\n              \"key\": \"S3_BUCKET_EFFECTIVE_PERMISSION\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"LT\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      }\n    },\n    \"bucketDefinitions\": [\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"scoping\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"GTE\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"GT\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"key\": \"OBJECT_KEY\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"CONTAINS\",\n              \"key\": \"OBJECT_LAST_MODIFIED_DATE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"GTE\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"samplingPercentage\": \"<integer>\",\n  \"scheduleFrequency\": {\n    \"dailySchedule\": {},\n    \"monthlySchedule\": {\n      \"dayOfMonth\": \"<integer>\"\n    },\n    \"weeklySchedule\": {\n      \"dayOfWeek\": \"FRIDAY\"\n    }\n  },\n  \"statistics\": {\n    \"approximateNumberOfObjectsToProcess\": \"<double>\",\n    \"numberOfRuns\": \"<double>\"\n  },\n  \"tags\": {\n    \"do_d6\": \"<string>\",\n    \"Lorem_86\": \"<string>\"\n  },\n  \"userPausedDetails\": {\n    \"jobExpiresAt\": \"<dateTime>\",\n    \"jobImminentExpirationHealthEventArn\": \"<string>\",\n    \"jobPausedAt\": \"<dateTime>\"\n  }\n}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-a55c7eb1-370a-4271-b4ae-aab9c5725fc4"
+                },
+                {
+                  "id": "d4664f2e-a743-4563-bb89-255347cfaa91",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-d4664f2e-a743-4563-bb89-255347cfaa91"
+                },
+                {
+                  "id": "a96de3b3-3a39-4cbc-8e2c-ae34cfb290ca",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-a96de3b3-3a39-4cbc-8e2c-ae34cfb290ca"
+                },
+                {
+                  "id": "75253745-1412-46d6-b3ba-e2d177554655",
+                  "name": "ServiceQuotaExceededException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-75253745-1412-46d6-b3ba-e2d177554655"
+                },
+                {
+                  "id": "ff35f4d6-b5e2-496f-a2e8-ccd5ad901316",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-ff35f4d6-b5e2-496f-a2e8-ccd5ad901316"
+                },
+                {
+                  "id": "4c42ae0d-a945-4fa1-b5c0-882f5521719d",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-4c42ae0d-a945-4fa1-b5c0-882f5521719d"
+                },
+                {
+                  "id": "373fd536-dc27-47e4-a43c-7279fba65761",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-373fd536-dc27-47e4-a43c-7279fba65761"
+                },
+                {
+                  "id": "e542406a-b4bc-4371-8c3e-742847672a7a",
+                  "name": "ConflictException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-e542406a-b4bc-4371-8c3e-742847672a7a"
+                }
+              ],
+              "createdAt": "2026-07-28T10:37:01.000Z",
+              "updatedAt": "2026-07-28T10:37:01.000Z",
+              "uid": "35240-ecdae0ef-6665-4cd1-a2fd-bf68ef788a39"
+            },
+            {
+              "name": "Amazon Macie Update Classification Job",
+              "id": "8b17ae44-1aeb-4deb-aaf7-2ee2ec5ca718",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jobStatus\": \"USER_PAUSED\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jobs/:jobId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f289bb6f-0eab-4039-a01c-d3130be2ec5f",
+                      "key": "jobId",
+                      "value": "<string>",
+                      "description": "(Required) The unique identifier for the classification job."
+                    }
+                  ]
+                },
+                "description": "Changes the status of a classification job."
+              },
+              "response": [
+                {
+                  "id": "e5b1846c-28a0-4628-b520-e8b673133e4f",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"jobStatus\": \"USER_PAUSED\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-e5b1846c-28a0-4628-b520-e8b673133e4f"
+                },
+                {
+                  "id": "a949d438-e8d9-4d14-9357-480a26d71dfd",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"jobStatus\": \"USER_PAUSED\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-a949d438-e8d9-4d14-9357-480a26d71dfd"
+                },
+                {
+                  "id": "5009039a-a0f1-49da-a48e-04f24e75626d",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"jobStatus\": \"USER_PAUSED\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-5009039a-a0f1-49da-a48e-04f24e75626d"
+                },
+                {
+                  "id": "c2bc36cf-e2a1-434c-b24b-ee0d5bc0ee56",
+                  "name": "ServiceQuotaExceededException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"jobStatus\": \"USER_PAUSED\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-c2bc36cf-e2a1-434c-b24b-ee0d5bc0ee56"
+                },
+                {
+                  "id": "7a0b3d3a-a9ef-4362-91ca-d2df38f626db",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"jobStatus\": \"USER_PAUSED\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-7a0b3d3a-a9ef-4362-91ca-d2df38f626db"
+                },
+                {
+                  "id": "37ba2f6f-1e6a-4b9f-9888-1f80920b4f9f",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"jobStatus\": \"USER_PAUSED\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-37ba2f6f-1e6a-4b9f-9888-1f80920b4f9f"
+                },
+                {
+                  "id": "78a05449-baea-4469-a740-4eef1c84ba90",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"jobStatus\": \"USER_PAUSED\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-78a05449-baea-4469-a740-4eef1c84ba90"
+                },
+                {
+                  "id": "820a01ec-25c8-452e-8f66-21ca006a1bfd",
+                  "name": "ConflictException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"jobStatus\": \"USER_PAUSED\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-820a01ec-25c8-452e-8f66-21ca006a1bfd"
+                }
+              ],
+              "createdAt": "2026-07-28T10:37:01.000Z",
+              "updatedAt": "2026-07-28T10:37:01.000Z",
+              "uid": "35240-8b17ae44-1aeb-4deb-aaf7-2ee2ec5ca718"
+            }
+          ],
+          "id": "a0d31d7f-48ac-4bae-878e-d7570fbae055",
+          "createdAt": "2026-07-28T10:37:01.000Z",
+          "updatedAt": "2026-07-28T10:37:01.000Z",
+          "uid": "35240-a0d31d7f-48ac-4bae-878e-d7570fbae055"
+        },
+        {
+          "name": "list",
+          "item": [
+            {
+              "name": "Amazon Macie List Classification Jobs",
+              "id": "9addfa12-319a-4717-abae-2f83af59e2e3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filterCriteria\": {\n    \"excludes\": [\n      {\n        \"comparator\": \"LTE\",\n        \"key\": \"jobStatus\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"NE\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"includes\": [\n      {\n        \"comparator\": \"STARTS_WITH\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"CONTAINS\",\n        \"key\": \"name\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"jobStatus\",\n    \"orderBy\": \"DESC\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jobs/list?maxResults=<string>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs",
+                    "list"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "maxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Retrieves a subset of information about one or more classification jobs."
+              },
+              "response": [
+                {
+                  "id": "a690f8f6-bb63-4b33-9931-9348505aae1e",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"filterCriteria\": {\n    \"excludes\": [\n      {\n        \"comparator\": \"LTE\",\n        \"key\": \"jobStatus\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"NE\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"includes\": [\n      {\n        \"comparator\": \"STARTS_WITH\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"CONTAINS\",\n        \"key\": \"name\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"jobStatus\",\n    \"orderBy\": \"DESC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/list?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        "list"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"items\": [\n    {\n      \"bucketCriteria\": {\n        \"excludes\": {\n          \"and\": [\n            {\n              \"simpleCriterion\": {\n                \"comparator\": \"EQ\",\n                \"key\": \"S3_BUCKET_NAME\",\n                \"values\": [\n                  \"<string>\",\n                  \"<string>\"\n                ]\n              },\n              \"tagCriterion\": {\n                \"comparator\": \"GTE\",\n                \"tagValues\": [\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  },\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  }\n                ]\n              }\n            },\n            {\n              \"simpleCriterion\": {\n                \"comparator\": \"LT\",\n                \"key\": \"ACCOUNT_ID\",\n                \"values\": [\n                  \"<string>\",\n                  \"<string>\"\n                ]\n              },\n              \"tagCriterion\": {\n                \"comparator\": \"EQ\",\n                \"tagValues\": [\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  },\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  }\n                ]\n              }\n            }\n          ]\n        },\n        \"includes\": {\n          \"and\": [\n            {\n              \"simpleCriterion\": {\n                \"comparator\": \"CONTAINS\",\n                \"key\": \"S3_BUCKET_EFFECTIVE_PERMISSION\",\n                \"values\": [\n                  \"<string>\",\n                  \"<string>\"\n                ]\n              },\n              \"tagCriterion\": {\n                \"comparator\": \"LT\",\n                \"tagValues\": [\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  },\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  }\n                ]\n              }\n            },\n            {\n              \"simpleCriterion\": {\n                \"comparator\": \"EQ\",\n                \"key\": \"ACCOUNT_ID\",\n                \"values\": [\n                  \"<string>\",\n                  \"<string>\"\n                ]\n              },\n              \"tagCriterion\": {\n                \"comparator\": \"LTE\",\n                \"tagValues\": [\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  },\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  }\n                ]\n              }\n            }\n          ]\n        }\n      },\n      \"bucketDefinitions\": [\n        {\n          \"accountId\": \"<string>\",\n          \"buckets\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"accountId\": \"<string>\",\n          \"buckets\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"createdAt\": \"<dateTime>\",\n      \"jobId\": \"<string>\",\n      \"jobStatus\": \"CANCELLED\",\n      \"jobType\": \"SCHEDULED\",\n      \"lastRunErrorStatus\": {\n        \"code\": \"NONE\"\n      },\n      \"name\": \"<string>\",\n      \"userPausedDetails\": {\n        \"jobExpiresAt\": \"<dateTime>\",\n        \"jobImminentExpirationHealthEventArn\": \"<string>\",\n        \"jobPausedAt\": \"<dateTime>\"\n      }\n    },\n    {\n      \"bucketCriteria\": {\n        \"excludes\": {\n          \"and\": [\n            {\n              \"simpleCriterion\": {\n                \"comparator\": \"STARTS_WITH\",\n                \"key\": \"S3_BUCKET_NAME\",\n                \"values\": [\n                  \"<string>\",\n                  \"<string>\"\n                ]\n              },\n              \"tagCriterion\": {\n                \"comparator\": \"CONTAINS\",\n                \"tagValues\": [\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  },\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  }\n                ]\n              }\n            },\n            {\n              \"simpleCriterion\": {\n                \"comparator\": \"CONTAINS\",\n                \"key\": \"S3_BUCKET_NAME\",\n                \"values\": [\n                  \"<string>\",\n                  \"<string>\"\n                ]\n              },\n              \"tagCriterion\": {\n                \"comparator\": \"GTE\",\n                \"tagValues\": [\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  },\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  }\n                ]\n              }\n            }\n          ]\n        },\n        \"includes\": {\n          \"and\": [\n            {\n              \"simpleCriterion\": {\n                \"comparator\": \"NE\",\n                \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n                \"values\": [\n                  \"<string>\",\n                  \"<string>\"\n                ]\n              },\n              \"tagCriterion\": {\n                \"comparator\": \"EQ\",\n                \"tagValues\": [\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  },\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  }\n                ]\n              }\n            },\n            {\n              \"simpleCriterion\": {\n                \"comparator\": \"CONTAINS\",\n                \"key\": \"S3_BUCKET_NAME\",\n                \"values\": [\n                  \"<string>\",\n                  \"<string>\"\n                ]\n              },\n              \"tagCriterion\": {\n                \"comparator\": \"GTE\",\n                \"tagValues\": [\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  },\n                  {\n                    \"key\": \"<string>\",\n                    \"value\": \"<string>\"\n                  }\n                ]\n              }\n            }\n          ]\n        }\n      },\n      \"bucketDefinitions\": [\n        {\n          \"accountId\": \"<string>\",\n          \"buckets\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"accountId\": \"<string>\",\n          \"buckets\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"createdAt\": \"<dateTime>\",\n      \"jobId\": \"<string>\",\n      \"jobStatus\": \"USER_PAUSED\",\n      \"jobType\": \"ONE_TIME\",\n      \"lastRunErrorStatus\": {\n        \"code\": \"ERROR\"\n      },\n      \"name\": \"<string>\",\n      \"userPausedDetails\": {\n        \"jobExpiresAt\": \"<dateTime>\",\n        \"jobImminentExpirationHealthEventArn\": \"<string>\",\n        \"jobPausedAt\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-a690f8f6-bb63-4b33-9931-9348505aae1e"
+                },
+                {
+                  "id": "df4fe2b0-1032-4560-a458-cccf451fbf28",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"filterCriteria\": {\n    \"excludes\": [\n      {\n        \"comparator\": \"LTE\",\n        \"key\": \"jobStatus\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"NE\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"includes\": [\n      {\n        \"comparator\": \"STARTS_WITH\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"CONTAINS\",\n        \"key\": \"name\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"jobStatus\",\n    \"orderBy\": \"DESC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/list?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        "list"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-df4fe2b0-1032-4560-a458-cccf451fbf28"
+                },
+                {
+                  "id": "09f168ae-74f5-4b77-850d-ef80e5500583",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"filterCriteria\": {\n    \"excludes\": [\n      {\n        \"comparator\": \"LTE\",\n        \"key\": \"jobStatus\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"NE\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"includes\": [\n      {\n        \"comparator\": \"STARTS_WITH\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"CONTAINS\",\n        \"key\": \"name\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"jobStatus\",\n    \"orderBy\": \"DESC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/list?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        "list"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-09f168ae-74f5-4b77-850d-ef80e5500583"
+                },
+                {
+                  "id": "7d06d4b9-effc-4cf6-920e-42d565646615",
+                  "name": "ServiceQuotaExceededException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"filterCriteria\": {\n    \"excludes\": [\n      {\n        \"comparator\": \"LTE\",\n        \"key\": \"jobStatus\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"NE\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"includes\": [\n      {\n        \"comparator\": \"STARTS_WITH\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"CONTAINS\",\n        \"key\": \"name\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"jobStatus\",\n    \"orderBy\": \"DESC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/list?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        "list"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-7d06d4b9-effc-4cf6-920e-42d565646615"
+                },
+                {
+                  "id": "7e65a479-9d40-4801-87e0-1a19461fd4fd",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"filterCriteria\": {\n    \"excludes\": [\n      {\n        \"comparator\": \"LTE\",\n        \"key\": \"jobStatus\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"NE\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"includes\": [\n      {\n        \"comparator\": \"STARTS_WITH\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"CONTAINS\",\n        \"key\": \"name\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"jobStatus\",\n    \"orderBy\": \"DESC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/list?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        "list"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-7e65a479-9d40-4801-87e0-1a19461fd4fd"
+                },
+                {
+                  "id": "e5e15d95-4083-46c4-bbe4-8f0fc2decab3",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"filterCriteria\": {\n    \"excludes\": [\n      {\n        \"comparator\": \"LTE\",\n        \"key\": \"jobStatus\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"NE\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"includes\": [\n      {\n        \"comparator\": \"STARTS_WITH\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"CONTAINS\",\n        \"key\": \"name\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"jobStatus\",\n    \"orderBy\": \"DESC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/list?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        "list"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-e5e15d95-4083-46c4-bbe4-8f0fc2decab3"
+                },
+                {
+                  "id": "280dc53c-4859-454e-80f5-0ae3f80b6d33",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"filterCriteria\": {\n    \"excludes\": [\n      {\n        \"comparator\": \"LTE\",\n        \"key\": \"jobStatus\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"NE\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"includes\": [\n      {\n        \"comparator\": \"STARTS_WITH\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"CONTAINS\",\n        \"key\": \"name\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"jobStatus\",\n    \"orderBy\": \"DESC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/list?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        "list"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-280dc53c-4859-454e-80f5-0ae3f80b6d33"
+                },
+                {
+                  "id": "b72703d6-8cf7-44d1-b4a2-4932e5904cd3",
+                  "name": "ConflictException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"filterCriteria\": {\n    \"excludes\": [\n      {\n        \"comparator\": \"LTE\",\n        \"key\": \"jobStatus\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"NE\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"includes\": [\n      {\n        \"comparator\": \"STARTS_WITH\",\n        \"key\": \"createdAt\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"comparator\": \"CONTAINS\",\n        \"key\": \"name\",\n        \"values\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"jobStatus\",\n    \"orderBy\": \"DESC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/list?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        "list"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:01.000Z",
+                  "updatedAt": "2026-07-28T10:37:01.000Z",
+                  "uid": "35240-b72703d6-8cf7-44d1-b4a2-4932e5904cd3"
+                }
+              ],
+              "createdAt": "2026-07-28T10:37:01.000Z",
+              "updatedAt": "2026-07-28T10:37:01.000Z",
+              "uid": "35240-9addfa12-319a-4717-abae-2f83af59e2e3"
+            }
+          ],
+          "id": "0b98f61d-e979-456a-80c1-0bd0e86f658f",
+          "createdAt": "2026-07-28T10:37:01.000Z",
+          "updatedAt": "2026-07-28T10:37:01.000Z",
+          "uid": "35240-0b98f61d-e979-456a-80c1-0bd0e86f658f"
+        },
+        {
+          "name": "Amazon Macie Create Classification Job",
+          "id": "7a3d7fc9-6a17-404a-99de-5650a5b09e4f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientToken\": \"<string>\",\n  \"jobType\": \"ONE_TIME\",\n  \"name\": \"<string>\",\n  \"s3JobDefinition\": {\n    \"bucketCriteria\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"LT\",\n              \"key\": \"S3_BUCKET_NAME\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"EQ\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"CONTAINS\",\n              \"key\": \"S3_BUCKET_EFFECTIVE_PERMISSION\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"GT\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      }\n    },\n    \"bucketDefinitions\": [\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"scoping\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"GTE\",\n              \"key\": \"OBJECT_LAST_MODIFIED_DATE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_KEY\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"GT\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"allowListIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"customDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"initialRun\": \"<boolean>\",\n  \"managedDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"managedDataIdentifierSelector\": \"EXCLUDE\",\n  \"samplingPercentage\": \"<integer>\",\n  \"scheduleFrequency\": {\n    \"dailySchedule\": {},\n    \"monthlySchedule\": {\n      \"dayOfMonth\": \"<integer>\"\n    },\n    \"weeklySchedule\": {\n      \"dayOfWeek\": \"WEDNESDAY\"\n    }\n  },\n  \"tags\": {\n    \"labore_8_\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs"
+              ]
+            },
+            "description": "Creates and defines the settings for a classification job."
+          },
+          "response": [
+            {
+              "id": "04e8a762-2bec-4f5c-8f1c-58dad548fe53",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"jobType\": \"ONE_TIME\",\n  \"name\": \"<string>\",\n  \"s3JobDefinition\": {\n    \"bucketCriteria\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"LT\",\n              \"key\": \"S3_BUCKET_NAME\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"EQ\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"CONTAINS\",\n              \"key\": \"S3_BUCKET_EFFECTIVE_PERMISSION\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"GT\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      }\n    },\n    \"bucketDefinitions\": [\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"scoping\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"GTE\",\n              \"key\": \"OBJECT_LAST_MODIFIED_DATE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_KEY\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"GT\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"allowListIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"customDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"initialRun\": \"<boolean>\",\n  \"managedDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"managedDataIdentifierSelector\": \"EXCLUDE\",\n  \"samplingPercentage\": \"<integer>\",\n  \"scheduleFrequency\": {\n    \"dailySchedule\": {},\n    \"monthlySchedule\": {\n      \"dayOfMonth\": \"<integer>\"\n    },\n    \"weeklySchedule\": {\n      \"dayOfWeek\": \"WEDNESDAY\"\n    }\n  },\n  \"tags\": {\n    \"labore_8_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"jobArn\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T10:37:01.000Z",
+              "updatedAt": "2026-07-28T10:37:01.000Z",
+              "uid": "35240-04e8a762-2bec-4f5c-8f1c-58dad548fe53"
+            },
+            {
+              "id": "be0f66c9-7f1f-4a4f-bfbd-65762a992e39",
+              "name": "ValidationException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"jobType\": \"ONE_TIME\",\n  \"name\": \"<string>\",\n  \"s3JobDefinition\": {\n    \"bucketCriteria\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"LT\",\n              \"key\": \"S3_BUCKET_NAME\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"EQ\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"CONTAINS\",\n              \"key\": \"S3_BUCKET_EFFECTIVE_PERMISSION\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"GT\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      }\n    },\n    \"bucketDefinitions\": [\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"scoping\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"GTE\",\n              \"key\": \"OBJECT_LAST_MODIFIED_DATE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_KEY\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"GT\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"allowListIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"customDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"initialRun\": \"<boolean>\",\n  \"managedDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"managedDataIdentifierSelector\": \"EXCLUDE\",\n  \"samplingPercentage\": \"<integer>\",\n  \"scheduleFrequency\": {\n    \"dailySchedule\": {},\n    \"monthlySchedule\": {\n      \"dayOfMonth\": \"<integer>\"\n    },\n    \"weeklySchedule\": {\n      \"dayOfWeek\": \"WEDNESDAY\"\n    }\n  },\n  \"tags\": {\n    \"labore_8_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:37:01.000Z",
+              "updatedAt": "2026-07-28T10:37:01.000Z",
+              "uid": "35240-be0f66c9-7f1f-4a4f-bfbd-65762a992e39"
+            },
+            {
+              "id": "69b2ea7b-010c-469e-9bad-e008704a96ae",
+              "name": "InternalServerException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"jobType\": \"ONE_TIME\",\n  \"name\": \"<string>\",\n  \"s3JobDefinition\": {\n    \"bucketCriteria\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"LT\",\n              \"key\": \"S3_BUCKET_NAME\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"EQ\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"CONTAINS\",\n              \"key\": \"S3_BUCKET_EFFECTIVE_PERMISSION\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"GT\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      }\n    },\n    \"bucketDefinitions\": [\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"scoping\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"GTE\",\n              \"key\": \"OBJECT_LAST_MODIFIED_DATE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_KEY\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"GT\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"allowListIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"customDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"initialRun\": \"<boolean>\",\n  \"managedDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"managedDataIdentifierSelector\": \"EXCLUDE\",\n  \"samplingPercentage\": \"<integer>\",\n  \"scheduleFrequency\": {\n    \"dailySchedule\": {},\n    \"monthlySchedule\": {\n      \"dayOfMonth\": \"<integer>\"\n    },\n    \"weeklySchedule\": {\n      \"dayOfWeek\": \"WEDNESDAY\"\n    }\n  },\n  \"tags\": {\n    \"labore_8_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:37:01.000Z",
+              "updatedAt": "2026-07-28T10:37:01.000Z",
+              "uid": "35240-69b2ea7b-010c-469e-9bad-e008704a96ae"
+            },
+            {
+              "id": "d18220bb-4087-4d19-8282-c1751b8e2b9f",
+              "name": "ServiceQuotaExceededException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"jobType\": \"ONE_TIME\",\n  \"name\": \"<string>\",\n  \"s3JobDefinition\": {\n    \"bucketCriteria\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"LT\",\n              \"key\": \"S3_BUCKET_NAME\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"EQ\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"CONTAINS\",\n              \"key\": \"S3_BUCKET_EFFECTIVE_PERMISSION\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"GT\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      }\n    },\n    \"bucketDefinitions\": [\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"scoping\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"GTE\",\n              \"key\": \"OBJECT_LAST_MODIFIED_DATE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_KEY\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"GT\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"allowListIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"customDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"initialRun\": \"<boolean>\",\n  \"managedDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"managedDataIdentifierSelector\": \"EXCLUDE\",\n  \"samplingPercentage\": \"<integer>\",\n  \"scheduleFrequency\": {\n    \"dailySchedule\": {},\n    \"monthlySchedule\": {\n      \"dayOfMonth\": \"<integer>\"\n    },\n    \"weeklySchedule\": {\n      \"dayOfWeek\": \"WEDNESDAY\"\n    }\n  },\n  \"tags\": {\n    \"labore_8_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:37:01.000Z",
+              "updatedAt": "2026-07-28T10:37:01.000Z",
+              "uid": "35240-d18220bb-4087-4d19-8282-c1751b8e2b9f"
+            },
+            {
+              "id": "65721057-5e25-4ced-a582-e3b8d9414c17",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"jobType\": \"ONE_TIME\",\n  \"name\": \"<string>\",\n  \"s3JobDefinition\": {\n    \"bucketCriteria\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"LT\",\n              \"key\": \"S3_BUCKET_NAME\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"EQ\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"CONTAINS\",\n              \"key\": \"S3_BUCKET_EFFECTIVE_PERMISSION\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"GT\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      }\n    },\n    \"bucketDefinitions\": [\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"scoping\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"GTE\",\n              \"key\": \"OBJECT_LAST_MODIFIED_DATE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_KEY\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"GT\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"allowListIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"customDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"initialRun\": \"<boolean>\",\n  \"managedDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"managedDataIdentifierSelector\": \"EXCLUDE\",\n  \"samplingPercentage\": \"<integer>\",\n  \"scheduleFrequency\": {\n    \"dailySchedule\": {},\n    \"monthlySchedule\": {\n      \"dayOfMonth\": \"<integer>\"\n    },\n    \"weeklySchedule\": {\n      \"dayOfWeek\": \"WEDNESDAY\"\n    }\n  },\n  \"tags\": {\n    \"labore_8_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:37:01.000Z",
+              "updatedAt": "2026-07-28T10:37:01.000Z",
+              "uid": "35240-65721057-5e25-4ced-a582-e3b8d9414c17"
+            },
+            {
+              "id": "8a79c09f-4c82-4460-97b0-226a147742f6",
+              "name": "ResourceNotFoundException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"jobType\": \"ONE_TIME\",\n  \"name\": \"<string>\",\n  \"s3JobDefinition\": {\n    \"bucketCriteria\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"LT\",\n              \"key\": \"S3_BUCKET_NAME\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"EQ\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"CONTAINS\",\n              \"key\": \"S3_BUCKET_EFFECTIVE_PERMISSION\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"GT\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      }\n    },\n    \"bucketDefinitions\": [\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"scoping\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"GTE\",\n              \"key\": \"OBJECT_LAST_MODIFIED_DATE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_KEY\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"GT\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"allowListIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"customDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"initialRun\": \"<boolean>\",\n  \"managedDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"managedDataIdentifierSelector\": \"EXCLUDE\",\n  \"samplingPercentage\": \"<integer>\",\n  \"scheduleFrequency\": {\n    \"dailySchedule\": {},\n    \"monthlySchedule\": {\n      \"dayOfMonth\": \"<integer>\"\n    },\n    \"weeklySchedule\": {\n      \"dayOfWeek\": \"WEDNESDAY\"\n    }\n  },\n  \"tags\": {\n    \"labore_8_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:37:01.000Z",
+              "updatedAt": "2026-07-28T10:37:01.000Z",
+              "uid": "35240-8a79c09f-4c82-4460-97b0-226a147742f6"
+            },
+            {
+              "id": "cfc8962a-f7a4-46f6-bf66-98befa057c25",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"jobType\": \"ONE_TIME\",\n  \"name\": \"<string>\",\n  \"s3JobDefinition\": {\n    \"bucketCriteria\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"LT\",\n              \"key\": \"S3_BUCKET_NAME\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"EQ\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"CONTAINS\",\n              \"key\": \"S3_BUCKET_EFFECTIVE_PERMISSION\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"GT\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      }\n    },\n    \"bucketDefinitions\": [\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"scoping\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"GTE\",\n              \"key\": \"OBJECT_LAST_MODIFIED_DATE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_KEY\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"GT\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"allowListIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"customDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"initialRun\": \"<boolean>\",\n  \"managedDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"managedDataIdentifierSelector\": \"EXCLUDE\",\n  \"samplingPercentage\": \"<integer>\",\n  \"scheduleFrequency\": {\n    \"dailySchedule\": {},\n    \"monthlySchedule\": {\n      \"dayOfMonth\": \"<integer>\"\n    },\n    \"weeklySchedule\": {\n      \"dayOfWeek\": \"WEDNESDAY\"\n    }\n  },\n  \"tags\": {\n    \"labore_8_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:37:01.000Z",
+              "updatedAt": "2026-07-28T10:37:01.000Z",
+              "uid": "35240-cfc8962a-f7a4-46f6-bf66-98befa057c25"
+            },
+            {
+              "id": "ac91b6ee-c32f-4275-81c9-7d4a80076caf",
+              "name": "ConflictException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"jobType\": \"ONE_TIME\",\n  \"name\": \"<string>\",\n  \"s3JobDefinition\": {\n    \"bucketCriteria\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"LT\",\n              \"key\": \"S3_BUCKET_NAME\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"EQ\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"CONTAINS\",\n              \"key\": \"S3_BUCKET_EFFECTIVE_PERMISSION\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          {\n            \"simpleCriterion\": {\n              \"comparator\": \"GT\",\n              \"key\": \"ACCOUNT_ID\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagCriterion\": {\n              \"comparator\": \"GTE\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          }\n        ]\n      }\n    },\n    \"bucketDefinitions\": [\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"accountId\": \"<string>\",\n        \"buckets\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"scoping\": {\n      \"excludes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"STARTS_WITH\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_SIZE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"EQ\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      },\n      \"includes\": {\n        \"and\": [\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"GTE\",\n              \"key\": \"OBJECT_LAST_MODIFIED_DATE\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          },\n          {\n            \"simpleScopeTerm\": {\n              \"comparator\": \"LTE\",\n              \"key\": \"OBJECT_KEY\",\n              \"values\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"tagScopeTerm\": {\n              \"comparator\": \"GT\",\n              \"key\": \"<string>\",\n              \"tagValues\": [\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"target\": \"S3_OBJECT\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"allowListIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"customDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"initialRun\": \"<boolean>\",\n  \"managedDataIdentifierIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"managedDataIdentifierSelector\": \"EXCLUDE\",\n  \"samplingPercentage\": \"<integer>\",\n  \"scheduleFrequency\": {\n    \"dailySchedule\": {},\n    \"monthlySchedule\": {\n      \"dayOfMonth\": \"<integer>\"\n    },\n    \"weeklySchedule\": {\n      \"dayOfWeek\": \"WEDNESDAY\"\n    }\n  },\n  \"tags\": {\n    \"labore_8_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:37:01.000Z",
+              "updatedAt": "2026-07-28T10:37:01.000Z",
+              "uid": "35240-ac91b6ee-c32f-4275-81c9-7d4a80076caf"
+            }
+          ],
+          "createdAt": "2026-07-28T10:37:01.000Z",
+          "updatedAt": "2026-07-28T10:37:01.000Z",
+          "uid": "35240-7a3d7fc9-6a17-404a-99de-5650a5b09e4f"
+        }
+      ],
+      "id": "8f8bdfcd-6a09-43ba-9e41-149d97d45e09",
+      "createdAt": "2026-07-28T10:37:01.000Z",
+      "updatedAt": "2026-07-28T10:37:01.000Z",
+      "uid": "35240-8f8bdfcd-6a09-43ba-9e41-149d97d45e09"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://macie2.{{region}}.amazonaws.com"
+    }
+  ]
+}

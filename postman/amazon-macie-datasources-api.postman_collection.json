@@ -1,0 +1,2525 @@
+{
+  "info": {
+    "_postman_id": "45562906-54fc-44d6-8a96-fbe0f5194494",
+    "name": "Amazon Macie 2 Admin#adminAccountId Datasources API",
+    "description": "Amazon Macie\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:36:41.000Z",
+    "updatedAt": "2026-07-28T10:36:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-45562906-54fc-44d6-8a96-fbe0f5194494"
+  },
+  "item": [
+    {
+      "name": "datasources",
+      "item": [
+        {
+          "name": "s3",
+          "item": [
+            {
+              "name": "statistics",
+              "item": [
+                {
+                  "name": "Amazon Macie Get Bucket Statistics",
+                  "id": "ee14c48f-cf77-4612-a4ac-f6156fe20998",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"accountId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/s3/statistics",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "s3",
+                        "statistics"
+                      ]
+                    },
+                    "description": "Retrieves (queries) aggregated statistical data about all the S3 buckets that Amazon Macie monitors and analyzes for an account."
+                  },
+                  "response": [
+                    {
+                      "id": "f2f629f3-91a1-4e1c-a2a4-c73e596a4a3b",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"accountId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/datasources/s3/statistics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasources",
+                            "s3",
+                            "statistics"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"bucketCount\": \"<integer>\",\n  \"bucketCountByEffectivePermission\": {\n    \"publiclyAccessible\": \"<integer>\",\n    \"publiclyReadable\": \"<integer>\",\n    \"publiclyWritable\": \"<integer>\",\n    \"unknown\": \"<integer>\"\n  },\n  \"bucketCountByEncryptionType\": {\n    \"kmsManaged\": \"<integer>\",\n    \"s3Managed\": \"<integer>\",\n    \"unencrypted\": \"<integer>\",\n    \"unknown\": \"<integer>\"\n  },\n  \"bucketCountByObjectEncryptionRequirement\": {\n    \"allowsUnencryptedObjectUploads\": \"<integer>\",\n    \"deniesUnencryptedObjectUploads\": \"<integer>\",\n    \"unknown\": \"<integer>\"\n  },\n  \"bucketCountBySharedAccessType\": {\n    \"external\": \"<integer>\",\n    \"internal\": \"<integer>\",\n    \"notShared\": \"<integer>\",\n    \"unknown\": \"<integer>\"\n  },\n  \"bucketStatisticsBySensitivity\": {\n    \"classificationError\": {\n      \"classifiableSizeInBytes\": \"<integer>\",\n      \"publiclyAccessibleCount\": \"<integer>\",\n      \"totalCount\": \"<integer>\",\n      \"totalSizeInBytes\": \"<integer>\"\n    },\n    \"notClassified\": {\n      \"classifiableSizeInBytes\": \"<integer>\",\n      \"publiclyAccessibleCount\": \"<integer>\",\n      \"totalCount\": \"<integer>\",\n      \"totalSizeInBytes\": \"<integer>\"\n    },\n    \"notSensitive\": {\n      \"classifiableSizeInBytes\": \"<integer>\",\n      \"publiclyAccessibleCount\": \"<integer>\",\n      \"totalCount\": \"<integer>\",\n      \"totalSizeInBytes\": \"<integer>\"\n    },\n    \"sensitive\": {\n      \"classifiableSizeInBytes\": \"<integer>\",\n      \"publiclyAccessibleCount\": \"<integer>\",\n      \"totalCount\": \"<integer>\",\n      \"totalSizeInBytes\": \"<integer>\"\n    }\n  },\n  \"classifiableObjectCount\": \"<integer>\",\n  \"classifiableSizeInBytes\": \"<integer>\",\n  \"lastUpdated\": \"<dateTime>\",\n  \"objectCount\": \"<integer>\",\n  \"sizeInBytes\": \"<integer>\",\n  \"sizeInBytesCompressed\": \"<integer>\",\n  \"unclassifiableObjectCount\": {\n    \"fileType\": \"<integer>\",\n    \"storageClass\": \"<integer>\",\n    \"total\": \"<integer>\"\n  },\n  \"unclassifiableObjectSizeInBytes\": {\n    \"fileType\": \"<integer>\",\n    \"storageClass\": \"<integer>\",\n    \"total\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T10:36:41.000Z",
+                      "updatedAt": "2026-07-28T10:36:41.000Z",
+                      "uid": "35240-f2f629f3-91a1-4e1c-a2a4-c73e596a4a3b"
+                    },
+                    {
+                      "id": "5f064aa0-8a12-4f6e-a9be-0e5107ce9c9f",
+                      "name": "ValidationException",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"accountId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/datasources/s3/statistics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasources",
+                            "s3",
+                            "statistics"
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:36:41.000Z",
+                      "updatedAt": "2026-07-28T10:36:41.000Z",
+                      "uid": "35240-5f064aa0-8a12-4f6e-a9be-0e5107ce9c9f"
+                    },
+                    {
+                      "id": "fe941334-d56a-410a-8945-9736bab3d84a",
+                      "name": "InternalServerException",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"accountId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/datasources/s3/statistics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasources",
+                            "s3",
+                            "statistics"
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:36:41.000Z",
+                      "updatedAt": "2026-07-28T10:36:41.000Z",
+                      "uid": "35240-fe941334-d56a-410a-8945-9736bab3d84a"
+                    },
+                    {
+                      "id": "eff77c46-6739-4da3-839c-bee54ebcf8f6",
+                      "name": "ServiceQuotaExceededException",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"accountId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/datasources/s3/statistics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasources",
+                            "s3",
+                            "statistics"
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:36:41.000Z",
+                      "updatedAt": "2026-07-28T10:36:41.000Z",
+                      "uid": "35240-eff77c46-6739-4da3-839c-bee54ebcf8f6"
+                    },
+                    {
+                      "id": "9d24f73e-dc57-420e-86c1-8c506b8de4d6",
+                      "name": "AccessDeniedException",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"accountId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/datasources/s3/statistics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasources",
+                            "s3",
+                            "statistics"
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:36:41.000Z",
+                      "updatedAt": "2026-07-28T10:36:41.000Z",
+                      "uid": "35240-9d24f73e-dc57-420e-86c1-8c506b8de4d6"
+                    },
+                    {
+                      "id": "80fc621f-5a8d-4d7b-91ee-ae868d69b7d0",
+                      "name": "ResourceNotFoundException",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"accountId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/datasources/s3/statistics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasources",
+                            "s3",
+                            "statistics"
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:36:41.000Z",
+                      "updatedAt": "2026-07-28T10:36:41.000Z",
+                      "uid": "35240-80fc621f-5a8d-4d7b-91ee-ae868d69b7d0"
+                    },
+                    {
+                      "id": "a394ef62-1d4f-4464-93eb-0b3ee3ea9099",
+                      "name": "ThrottlingException",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"accountId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/datasources/s3/statistics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasources",
+                            "s3",
+                            "statistics"
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:36:41.000Z",
+                      "updatedAt": "2026-07-28T10:36:41.000Z",
+                      "uid": "35240-a394ef62-1d4f-4464-93eb-0b3ee3ea9099"
+                    },
+                    {
+                      "id": "204a41d7-b4d0-45f0-88a7-d2825f14e372",
+                      "name": "ConflictException",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"accountId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/datasources/s3/statistics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasources",
+                            "s3",
+                            "statistics"
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:36:41.000Z",
+                      "updatedAt": "2026-07-28T10:36:41.000Z",
+                      "uid": "35240-204a41d7-b4d0-45f0-88a7-d2825f14e372"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-ee14c48f-cf77-4612-a4ac-f6156fe20998"
+                }
+              ],
+              "id": "685baf92-325d-454a-809c-2d95647d0a3f",
+              "createdAt": "2026-07-28T10:36:41.000Z",
+              "updatedAt": "2026-07-28T10:36:41.000Z",
+              "uid": "35240-685baf92-325d-454a-809c-2d95647d0a3f"
+            },
+            {
+              "name": "Amazon Macie Describe Buckets",
+              "id": "23e7713e-41f6-45b2-8141-60f6b0decee1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"criteria\": {\n    \"est2e\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    },\n    \"ipsum_b0f\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"<string>\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/datasources/s3?maxResults=<string>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "datasources",
+                    "s3"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "maxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Retrieves (queries) statistical data and other information about one or more S3 buckets that Amazon Macie monitors and analyzes for an account."
+              },
+              "response": [
+                {
+                  "id": "831927f2-113c-43fd-a934-bf318519fbc4",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"criteria\": {\n    \"est2e\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    },\n    \"ipsum_b0f\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"<string>\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/s3?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "s3"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"buckets\": [\n    {\n      \"accountId\": \"<string>\",\n      \"allowsUnencryptedObjectUploads\": \"FALSE\",\n      \"bucketArn\": \"<string>\",\n      \"bucketCreatedAt\": \"<dateTime>\",\n      \"bucketName\": \"<string>\",\n      \"classifiableObjectCount\": \"<integer>\",\n      \"classifiableSizeInBytes\": \"<integer>\",\n      \"errorCode\": \"ACCESS_DENIED\",\n      \"errorMessage\": \"<string>\",\n      \"jobDetails\": {\n        \"isDefinedInJob\": \"TRUE\",\n        \"isMonitoredByJob\": \"TRUE\",\n        \"lastJobId\": \"<string>\",\n        \"lastJobRunTime\": \"<dateTime>\"\n      },\n      \"lastAutomatedDiscoveryTime\": \"<dateTime>\",\n      \"lastUpdated\": \"<dateTime>\",\n      \"objectCount\": \"<integer>\",\n      \"objectCountByEncryptionType\": {\n        \"customerManaged\": \"<integer>\",\n        \"kmsManaged\": \"<integer>\",\n        \"s3Managed\": \"<integer>\",\n        \"unencrypted\": \"<integer>\",\n        \"unknown\": \"<integer>\"\n      },\n      \"publicAccess\": {\n        \"effectivePermission\": \"UNKNOWN\",\n        \"permissionConfiguration\": {\n          \"accountLevelPermissions\": {\n            \"blockPublicAccess\": {\n              \"blockPublicAcls\": \"<boolean>\",\n              \"blockPublicPolicy\": \"<boolean>\",\n              \"ignorePublicAcls\": \"<boolean>\",\n              \"restrictPublicBuckets\": \"<boolean>\"\n            }\n          },\n          \"bucketLevelPermissions\": {\n            \"accessControlList\": {\n              \"allowsPublicReadAccess\": \"<boolean>\",\n              \"allowsPublicWriteAccess\": \"<boolean>\"\n            },\n            \"blockPublicAccess\": {\n              \"blockPublicAcls\": \"<boolean>\",\n              \"blockPublicPolicy\": \"<boolean>\",\n              \"ignorePublicAcls\": \"<boolean>\",\n              \"restrictPublicBuckets\": \"<boolean>\"\n            },\n            \"bucketPolicy\": {\n              \"allowsPublicReadAccess\": \"<boolean>\",\n              \"allowsPublicWriteAccess\": \"<boolean>\"\n            }\n          }\n        }\n      },\n      \"region\": \"<string>\",\n      \"replicationDetails\": {\n        \"replicated\": \"<boolean>\",\n        \"replicatedExternally\": \"<boolean>\",\n        \"replicationAccounts\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"sensitivityScore\": \"<integer>\",\n      \"serverSideEncryption\": {\n        \"kmsMasterKeyId\": \"<string>\",\n        \"type\": \"aws:kms\"\n      },\n      \"sharedAccess\": \"UNKNOWN\",\n      \"sizeInBytes\": \"<integer>\",\n      \"sizeInBytesCompressed\": \"<integer>\",\n      \"tags\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"unclassifiableObjectCount\": {\n        \"fileType\": \"<integer>\",\n        \"storageClass\": \"<integer>\",\n        \"total\": \"<integer>\"\n      },\n      \"unclassifiableObjectSizeInBytes\": {\n        \"fileType\": \"<integer>\",\n        \"storageClass\": \"<integer>\",\n        \"total\": \"<integer>\"\n      },\n      \"versioning\": \"<boolean>\"\n    },\n    {\n      \"accountId\": \"<string>\",\n      \"allowsUnencryptedObjectUploads\": \"UNKNOWN\",\n      \"bucketArn\": \"<string>\",\n      \"bucketCreatedAt\": \"<dateTime>\",\n      \"bucketName\": \"<string>\",\n      \"classifiableObjectCount\": \"<integer>\",\n      \"classifiableSizeInBytes\": \"<integer>\",\n      \"errorCode\": \"ACCESS_DENIED\",\n      \"errorMessage\": \"<string>\",\n      \"jobDetails\": {\n        \"isDefinedInJob\": \"FALSE\",\n        \"isMonitoredByJob\": \"UNKNOWN\",\n        \"lastJobId\": \"<string>\",\n        \"lastJobRunTime\": \"<dateTime>\"\n      },\n      \"lastAutomatedDiscoveryTime\": \"<dateTime>\",\n      \"lastUpdated\": \"<dateTime>\",\n      \"objectCount\": \"<integer>\",\n      \"objectCountByEncryptionType\": {\n        \"customerManaged\": \"<integer>\",\n        \"kmsManaged\": \"<integer>\",\n        \"s3Managed\": \"<integer>\",\n        \"unencrypted\": \"<integer>\",\n        \"unknown\": \"<integer>\"\n      },\n      \"publicAccess\": {\n        \"effectivePermission\": \"PUBLIC\",\n        \"permissionConfiguration\": {\n          \"accountLevelPermissions\": {\n            \"blockPublicAccess\": {\n              \"blockPublicAcls\": \"<boolean>\",\n              \"blockPublicPolicy\": \"<boolean>\",\n              \"ignorePublicAcls\": \"<boolean>\",\n              \"restrictPublicBuckets\": \"<boolean>\"\n            }\n          },\n          \"bucketLevelPermissions\": {\n            \"accessControlList\": {\n              \"allowsPublicReadAccess\": \"<boolean>\",\n              \"allowsPublicWriteAccess\": \"<boolean>\"\n            },\n            \"blockPublicAccess\": {\n              \"blockPublicAcls\": \"<boolean>\",\n              \"blockPublicPolicy\": \"<boolean>\",\n              \"ignorePublicAcls\": \"<boolean>\",\n              \"restrictPublicBuckets\": \"<boolean>\"\n            },\n            \"bucketPolicy\": {\n              \"allowsPublicReadAccess\": \"<boolean>\",\n              \"allowsPublicWriteAccess\": \"<boolean>\"\n            }\n          }\n        }\n      },\n      \"region\": \"<string>\",\n      \"replicationDetails\": {\n        \"replicated\": \"<boolean>\",\n        \"replicatedExternally\": \"<boolean>\",\n        \"replicationAccounts\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"sensitivityScore\": \"<integer>\",\n      \"serverSideEncryption\": {\n        \"kmsMasterKeyId\": \"<string>\",\n        \"type\": \"NONE\"\n      },\n      \"sharedAccess\": \"EXTERNAL\",\n      \"sizeInBytes\": \"<integer>\",\n      \"sizeInBytesCompressed\": \"<integer>\",\n      \"tags\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"unclassifiableObjectCount\": {\n        \"fileType\": \"<integer>\",\n        \"storageClass\": \"<integer>\",\n        \"total\": \"<integer>\"\n      },\n      \"unclassifiableObjectSizeInBytes\": {\n        \"fileType\": \"<integer>\",\n        \"storageClass\": \"<integer>\",\n        \"total\": \"<integer>\"\n      },\n      \"versioning\": \"<boolean>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-831927f2-113c-43fd-a934-bf318519fbc4"
+                },
+                {
+                  "id": "c9e3d844-f7d2-4954-b59d-64731ed96822",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"criteria\": {\n    \"est2e\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    },\n    \"ipsum_b0f\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"<string>\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/s3?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "s3"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-c9e3d844-f7d2-4954-b59d-64731ed96822"
+                },
+                {
+                  "id": "43045e92-0753-45da-9bbd-a0fded13b785",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"criteria\": {\n    \"est2e\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    },\n    \"ipsum_b0f\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"<string>\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/s3?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "s3"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-43045e92-0753-45da-9bbd-a0fded13b785"
+                },
+                {
+                  "id": "2bc35e55-a4e5-4831-aa57-58edbcaece4c",
+                  "name": "ServiceQuotaExceededException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"criteria\": {\n    \"est2e\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    },\n    \"ipsum_b0f\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"<string>\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/s3?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "s3"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-2bc35e55-a4e5-4831-aa57-58edbcaece4c"
+                },
+                {
+                  "id": "f2082573-6aca-42ae-905f-47853b7245e4",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"criteria\": {\n    \"est2e\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    },\n    \"ipsum_b0f\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"<string>\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/s3?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "s3"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-f2082573-6aca-42ae-905f-47853b7245e4"
+                },
+                {
+                  "id": "43a30d3a-614e-403c-8d37-d54f8a5bb1c9",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"criteria\": {\n    \"est2e\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    },\n    \"ipsum_b0f\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"<string>\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/s3?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "s3"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-43a30d3a-614e-403c-8d37-d54f8a5bb1c9"
+                },
+                {
+                  "id": "f4787de7-5d53-469d-9e20-05391340b343",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"criteria\": {\n    \"est2e\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    },\n    \"ipsum_b0f\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"<string>\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/s3?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "s3"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-f4787de7-5d53-469d-9e20-05391340b343"
+                },
+                {
+                  "id": "dfa6095c-ed7d-40a4-8eef-2882da3cb9e2",
+                  "name": "ConflictException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"criteria\": {\n    \"est2e\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    },\n    \"ipsum_b0f\": {\n      \"eq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"gt\": \"<integer>\",\n      \"gte\": \"<integer>\",\n      \"lt\": \"<integer>\",\n      \"lte\": \"<integer>\",\n      \"neq\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"<string>\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/s3?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "s3"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-dfa6095c-ed7d-40a4-8eef-2882da3cb9e2"
+                }
+              ],
+              "createdAt": "2026-07-28T10:36:41.000Z",
+              "updatedAt": "2026-07-28T10:36:41.000Z",
+              "uid": "35240-23e7713e-41f6-45b2-8141-60f6b0decee1"
+            }
+          ],
+          "id": "a3b0f4b6-50fc-4a92-a817-ee5387ce6934",
+          "createdAt": "2026-07-28T10:36:41.000Z",
+          "updatedAt": "2026-07-28T10:36:41.000Z",
+          "uid": "35240-a3b0f4b6-50fc-4a92-a817-ee5387ce6934"
+        },
+        {
+          "name": "search-resources",
+          "item": [
+            {
+              "name": "Amazon Macie Search Resources",
+              "id": "5e73ccb3-a2f0-40c3-a3cd-2c19b6f139be",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bucketCriteria\": {\n    \"excludes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"ACCOUNT_ID\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"EQ\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    },\n    \"includes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_NAME\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"RESOURCE_NAME\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/datasources/search-resources?maxResults=<string>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "datasources",
+                    "search-resources"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "maxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Retrieves (queries) statistical data and other information about Amazon Web Services resources that Amazon Macie monitors and analyzes."
+              },
+              "response": [
+                {
+                  "id": "5ed123b5-460d-4ce1-9ad2-965c97d33127",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"bucketCriteria\": {\n    \"excludes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"ACCOUNT_ID\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"EQ\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    },\n    \"includes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_NAME\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"RESOURCE_NAME\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/search-resources?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "search-resources"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"matchingResources\": [\n    {\n      \"matchingBucket\": {\n        \"accountId\": \"<string>\",\n        \"bucketName\": \"<string>\",\n        \"classifiableObjectCount\": \"<integer>\",\n        \"classifiableSizeInBytes\": \"<integer>\",\n        \"errorCode\": \"ACCESS_DENIED\",\n        \"errorMessage\": \"<string>\",\n        \"jobDetails\": {\n          \"isDefinedInJob\": \"UNKNOWN\",\n          \"isMonitoredByJob\": \"FALSE\",\n          \"lastJobId\": \"<string>\",\n          \"lastJobRunTime\": \"<dateTime>\"\n        },\n        \"lastAutomatedDiscoveryTime\": \"<dateTime>\",\n        \"objectCount\": \"<integer>\",\n        \"objectCountByEncryptionType\": {\n          \"customerManaged\": \"<integer>\",\n          \"kmsManaged\": \"<integer>\",\n          \"s3Managed\": \"<integer>\",\n          \"unencrypted\": \"<integer>\",\n          \"unknown\": \"<integer>\"\n        },\n        \"sensitivityScore\": \"<integer>\",\n        \"sizeInBytes\": \"<integer>\",\n        \"sizeInBytesCompressed\": \"<integer>\",\n        \"unclassifiableObjectCount\": {\n          \"fileType\": \"<integer>\",\n          \"storageClass\": \"<integer>\",\n          \"total\": \"<integer>\"\n        },\n        \"unclassifiableObjectSizeInBytes\": {\n          \"fileType\": \"<integer>\",\n          \"storageClass\": \"<integer>\",\n          \"total\": \"<integer>\"\n        }\n      }\n    },\n    {\n      \"matchingBucket\": {\n        \"accountId\": \"<string>\",\n        \"bucketName\": \"<string>\",\n        \"classifiableObjectCount\": \"<integer>\",\n        \"classifiableSizeInBytes\": \"<integer>\",\n        \"errorCode\": \"ACCESS_DENIED\",\n        \"errorMessage\": \"<string>\",\n        \"jobDetails\": {\n          \"isDefinedInJob\": \"UNKNOWN\",\n          \"isMonitoredByJob\": \"TRUE\",\n          \"lastJobId\": \"<string>\",\n          \"lastJobRunTime\": \"<dateTime>\"\n        },\n        \"lastAutomatedDiscoveryTime\": \"<dateTime>\",\n        \"objectCount\": \"<integer>\",\n        \"objectCountByEncryptionType\": {\n          \"customerManaged\": \"<integer>\",\n          \"kmsManaged\": \"<integer>\",\n          \"s3Managed\": \"<integer>\",\n          \"unencrypted\": \"<integer>\",\n          \"unknown\": \"<integer>\"\n        },\n        \"sensitivityScore\": \"<integer>\",\n        \"sizeInBytes\": \"<integer>\",\n        \"sizeInBytesCompressed\": \"<integer>\",\n        \"unclassifiableObjectCount\": {\n          \"fileType\": \"<integer>\",\n          \"storageClass\": \"<integer>\",\n          \"total\": \"<integer>\"\n        },\n        \"unclassifiableObjectSizeInBytes\": {\n          \"fileType\": \"<integer>\",\n          \"storageClass\": \"<integer>\",\n          \"total\": \"<integer>\"\n        }\n      }\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-5ed123b5-460d-4ce1-9ad2-965c97d33127"
+                },
+                {
+                  "id": "3a9c255e-5bc3-47f0-90de-1b5ee991527d",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"bucketCriteria\": {\n    \"excludes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"ACCOUNT_ID\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"EQ\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    },\n    \"includes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_NAME\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"RESOURCE_NAME\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/search-resources?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "search-resources"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-3a9c255e-5bc3-47f0-90de-1b5ee991527d"
+                },
+                {
+                  "id": "97fdc22b-f475-40b6-a255-4583e2b2a071",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"bucketCriteria\": {\n    \"excludes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"ACCOUNT_ID\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"EQ\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    },\n    \"includes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_NAME\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"RESOURCE_NAME\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/search-resources?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "search-resources"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-97fdc22b-f475-40b6-a255-4583e2b2a071"
+                },
+                {
+                  "id": "94e8ef76-669a-4aaf-8513-5b3145902854",
+                  "name": "ServiceQuotaExceededException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"bucketCriteria\": {\n    \"excludes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"ACCOUNT_ID\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"EQ\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    },\n    \"includes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_NAME\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"RESOURCE_NAME\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/search-resources?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "search-resources"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-94e8ef76-669a-4aaf-8513-5b3145902854"
+                },
+                {
+                  "id": "7ef35f40-c37b-469c-8ee1-346191c6832f",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"bucketCriteria\": {\n    \"excludes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"ACCOUNT_ID\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"EQ\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    },\n    \"includes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_NAME\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"RESOURCE_NAME\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/search-resources?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "search-resources"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-7ef35f40-c37b-469c-8ee1-346191c6832f"
+                },
+                {
+                  "id": "31f1d712-7426-4a09-bade-72a91f61774c",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"bucketCriteria\": {\n    \"excludes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"ACCOUNT_ID\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"EQ\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    },\n    \"includes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_NAME\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"RESOURCE_NAME\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/search-resources?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "search-resources"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-31f1d712-7426-4a09-bade-72a91f61774c"
+                },
+                {
+                  "id": "d85860b0-8e8c-4749-aa5a-695f9f368189",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"bucketCriteria\": {\n    \"excludes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"ACCOUNT_ID\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"EQ\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    },\n    \"includes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_NAME\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"RESOURCE_NAME\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/search-resources?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "search-resources"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-d85860b0-8e8c-4749-aa5a-695f9f368189"
+                },
+                {
+                  "id": "31af39bc-9b2e-4dd3-bf11-b80d667a7e5e",
+                  "name": "ConflictException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"bucketCriteria\": {\n    \"excludes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"ACCOUNT_ID\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"EQ\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"EQ\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    },\n    \"includes\": {\n      \"and\": [\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_SHARED_ACCESS\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        },\n        {\n          \"simpleCriterion\": {\n            \"comparator\": \"NE\",\n            \"key\": \"S3_BUCKET_NAME\",\n            \"values\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tagCriterion\": {\n            \"comparator\": \"NE\",\n            \"tagValues\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        }\n      ]\n    }\n  },\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\",\n  \"sortCriteria\": {\n    \"attributeName\": \"RESOURCE_NAME\",\n    \"orderBy\": \"ASC\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/datasources/search-resources?maxResults=<string>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasources",
+                        "search-resources"
+                      ],
+                      "query": [
+                        {
+                          "description": "Pagination limit",
+                          "key": "maxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:41.000Z",
+                  "updatedAt": "2026-07-28T10:36:41.000Z",
+                  "uid": "35240-31af39bc-9b2e-4dd3-bf11-b80d667a7e5e"
+                }
+              ],
+              "createdAt": "2026-07-28T10:36:41.000Z",
+              "updatedAt": "2026-07-28T10:36:41.000Z",
+              "uid": "35240-5e73ccb3-a2f0-40c3-a3cd-2c19b6f139be"
+            }
+          ],
+          "id": "443934c5-10bd-46f3-9e1b-e72b14b85146",
+          "createdAt": "2026-07-28T10:36:41.000Z",
+          "updatedAt": "2026-07-28T10:36:41.000Z",
+          "uid": "35240-443934c5-10bd-46f3-9e1b-e72b14b85146"
+        }
+      ],
+      "id": "e7a36dc8-e6f0-49dc-ad6b-da4c24e94a4f",
+      "createdAt": "2026-07-28T10:36:41.000Z",
+      "updatedAt": "2026-07-28T10:36:41.000Z",
+      "uid": "35240-e7a36dc8-e6f0-49dc-ad6b-da4c24e94a4f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://macie2.{{region}}.amazonaws.com"
+    }
+  ]
+}

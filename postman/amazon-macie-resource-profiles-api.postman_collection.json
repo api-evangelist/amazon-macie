@@ -1,0 +1,2048 @@
+{
+  "info": {
+    "_postman_id": "0fc7a691-ae1c-45ce-a650-739e98bcd281",
+    "name": "Amazon Macie 2 Admin#adminAccountId Resource Profiles API",
+    "description": "Amazon Macie\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:37:18.000Z",
+    "updatedAt": "2026-07-28T10:37:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0fc7a691-ae1c-45ce-a650-739e98bcd281"
+  },
+  "item": [
+    {
+      "name": "resource-profiles",
+      "item": [
+        {
+          "name": "artifacts#resourceArn",
+          "item": [
+            {
+              "name": "Amazon Macie List Resource Profile Artifacts",
+              "id": "c98ce53f-2b70-4344-944b-0540e86f902c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/resource-profiles/artifacts?nextToken=<string>&resourceArn=<string>#resourceArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "resource-profiles",
+                    "artifacts"
+                  ],
+                  "query": [
+                    {
+                      "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                      "key": "resourceArn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "hash": "resourceArn"
+                },
+                "description": "Retrieves information about objects that were selected from an S3 bucket for automated sensitive data discovery."
+              },
+              "response": [
+                {
+                  "id": "c32b806b-4eae-4a4d-914e-922ef92454e2",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/artifacts?nextToken=<string>&resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "artifacts"
+                      ],
+                      "query": [
+                        {
+                          "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"artifacts\": [\n    {\n      \"classificationResultStatus\": \"<string>\",\n      \"arn\": \"<string>\",\n      \"sensitive\": \"<boolean>\"\n    },\n    {\n      \"classificationResultStatus\": \"<string>\",\n      \"arn\": \"<string>\",\n      \"sensitive\": \"<boolean>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-c32b806b-4eae-4a4d-914e-922ef92454e2"
+                },
+                {
+                  "id": "adbf21c4-b45f-4d21-a2c1-be13aebed84b",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/artifacts?nextToken=<string>&resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "artifacts"
+                      ],
+                      "query": [
+                        {
+                          "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-adbf21c4-b45f-4d21-a2c1-be13aebed84b"
+                },
+                {
+                  "id": "8f74a456-f0b8-4d94-94bf-4e4868a1e2da",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/artifacts?nextToken=<string>&resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "artifacts"
+                      ],
+                      "query": [
+                        {
+                          "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-8f74a456-f0b8-4d94-94bf-4e4868a1e2da"
+                },
+                {
+                  "id": "194a6d15-075b-484a-8452-ae1d4c9e2e60",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/artifacts?nextToken=<string>&resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "artifacts"
+                      ],
+                      "query": [
+                        {
+                          "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-194a6d15-075b-484a-8452-ae1d4c9e2e60"
+                },
+                {
+                  "id": "c301b8df-d4eb-4e4c-adf7-e333fbf38e98",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/artifacts?nextToken=<string>&resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "artifacts"
+                      ],
+                      "query": [
+                        {
+                          "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-c301b8df-d4eb-4e4c-adf7-e333fbf38e98"
+                },
+                {
+                  "id": "f69aab13-c27a-45e4-8c09-a1e9673d7087",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/artifacts?nextToken=<string>&resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "artifacts"
+                      ],
+                      "query": [
+                        {
+                          "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-f69aab13-c27a-45e4-8c09-a1e9673d7087"
+                }
+              ],
+              "createdAt": "2026-07-28T10:37:19.000Z",
+              "updatedAt": "2026-07-28T10:37:19.000Z",
+              "uid": "35240-c98ce53f-2b70-4344-944b-0540e86f902c"
+            }
+          ],
+          "id": "6faf0a5e-5a9f-408a-916e-05982446c937",
+          "createdAt": "2026-07-28T10:37:19.000Z",
+          "updatedAt": "2026-07-28T10:37:19.000Z",
+          "uid": "35240-6faf0a5e-5a9f-408a-916e-05982446c937"
+        },
+        {
+          "name": "detections#resourceArn",
+          "item": [
+            {
+              "name": "Amazon Macie List Resource Profile Detections",
+              "id": "d9d98e61-1db2-4d17-b768-34d64ab06209",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/resource-profiles/detections?maxResults=<integer>&nextToken=<string>&resourceArn=<string>#resourceArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "resource-profiles",
+                    "detections"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of items to include in each page of a paginated response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                      "key": "resourceArn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "hash": "resourceArn"
+                },
+                "description": "Retrieves information about the types and amount of sensitive data that Amazon Macie found in an S3 bucket."
+              },
+              "response": [
+                {
+                  "id": "a165327a-03a6-498e-8a95-43fb7e6740b0",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/detections?maxResults=<integer>&nextToken=<string>&resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "detections"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of items to include in each page of a paginated response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"detections\": [\n    {\n      \"arn\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"suppressed\": \"<boolean>\",\n      \"type\": \"MANAGED\"\n    },\n    {\n      \"arn\": \"<string>\",\n      \"count\": \"<integer>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"suppressed\": \"<boolean>\",\n      \"type\": \"MANAGED\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-a165327a-03a6-498e-8a95-43fb7e6740b0"
+                },
+                {
+                  "id": "cf30b61d-ee6b-408d-ad36-aa0de3b7b80c",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/detections?maxResults=<integer>&nextToken=<string>&resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "detections"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of items to include in each page of a paginated response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-cf30b61d-ee6b-408d-ad36-aa0de3b7b80c"
+                },
+                {
+                  "id": "ba57d88a-4dff-4317-bad7-fc836884927f",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/detections?maxResults=<integer>&nextToken=<string>&resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "detections"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of items to include in each page of a paginated response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-ba57d88a-4dff-4317-bad7-fc836884927f"
+                },
+                {
+                  "id": "64922113-d956-40e6-b161-c866daaff49a",
+                  "name": "ServiceQuotaExceededException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/detections?maxResults=<integer>&nextToken=<string>&resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "detections"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of items to include in each page of a paginated response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-64922113-d956-40e6-b161-c866daaff49a"
+                },
+                {
+                  "id": "2be7bb60-cad4-4406-9e1c-23c7649d55fd",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/detections?maxResults=<integer>&nextToken=<string>&resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "detections"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of items to include in each page of a paginated response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-2be7bb60-cad4-4406-9e1c-23c7649d55fd"
+                },
+                {
+                  "id": "4a02742b-ae4a-4fc6-bda0-3230a32327d6",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/detections?maxResults=<integer>&nextToken=<string>&resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "detections"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of items to include in each page of a paginated response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-4a02742b-ae4a-4fc6-bda0-3230a32327d6"
+                },
+                {
+                  "id": "e95a97d3-fc7b-4996-a34f-c771a9f19227",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/detections?maxResults=<integer>&nextToken=<string>&resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "detections"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of items to include in each page of a paginated response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-e95a97d3-fc7b-4996-a34f-c771a9f19227"
+                }
+              ],
+              "createdAt": "2026-07-28T10:37:19.000Z",
+              "updatedAt": "2026-07-28T10:37:19.000Z",
+              "uid": "35240-d9d98e61-1db2-4d17-b768-34d64ab06209"
+            },
+            {
+              "name": "Amazon Macie Update Resource Profile Detections",
+              "id": "3f0dd1a5-ba1d-4a3a-957f-ea25a1e5c799",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"suppressDataIdentifiers\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"CUSTOM\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"MANAGED\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/resource-profiles/detections?resourceArn=<string>#resourceArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "resource-profiles",
+                    "detections"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                      "key": "resourceArn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "hash": "resourceArn"
+                },
+                "description": "Updates the sensitivity scoring settings for an S3 bucket."
+              },
+              "response": [
+                {
+                  "id": "a779a0b9-19a7-4c92-9707-2c2dc2fdd7e3",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"suppressDataIdentifiers\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"CUSTOM\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"MANAGED\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/detections?resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "detections"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-a779a0b9-19a7-4c92-9707-2c2dc2fdd7e3"
+                },
+                {
+                  "id": "164e4ccf-4c43-4b1b-a216-60da622fb58a",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"suppressDataIdentifiers\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"CUSTOM\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"MANAGED\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/detections?resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "detections"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-164e4ccf-4c43-4b1b-a216-60da622fb58a"
+                },
+                {
+                  "id": "26c5ad32-ef99-49cd-acd4-f3ffbcf5fa7d",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"suppressDataIdentifiers\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"CUSTOM\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"MANAGED\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/detections?resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "detections"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-26c5ad32-ef99-49cd-acd4-f3ffbcf5fa7d"
+                },
+                {
+                  "id": "862eb595-7497-4d29-b14b-f3622c828d6a",
+                  "name": "ServiceQuotaExceededException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"suppressDataIdentifiers\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"CUSTOM\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"MANAGED\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/detections?resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "detections"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-862eb595-7497-4d29-b14b-f3622c828d6a"
+                },
+                {
+                  "id": "80aaa3df-a227-4ce0-8d31-cae18e14510c",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"suppressDataIdentifiers\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"CUSTOM\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"MANAGED\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/detections?resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "detections"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-80aaa3df-a227-4ce0-8d31-cae18e14510c"
+                },
+                {
+                  "id": "12fd87ae-2f46-4f80-ad59-8e70ab3fc4ca",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"suppressDataIdentifiers\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"CUSTOM\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"MANAGED\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/detections?resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "detections"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-12fd87ae-2f46-4f80-ad59-8e70ab3fc4ca"
+                },
+                {
+                  "id": "1256afe2-7333-4138-b9b2-580537a42b03",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"suppressDataIdentifiers\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"CUSTOM\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"MANAGED\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/resource-profiles/detections?resourceArn=<string>#resourceArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource-profiles",
+                        "detections"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.",
+                          "key": "resourceArn",
+                          "value": "<string>"
+                        }
+                      ],
+                      "hash": "resourceArn"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:37:19.000Z",
+                  "updatedAt": "2026-07-28T10:37:19.000Z",
+                  "uid": "35240-1256afe2-7333-4138-b9b2-580537a42b03"
+                }
+              ],
+              "createdAt": "2026-07-28T10:37:19.000Z",
+              "updatedAt": "2026-07-28T10:37:19.000Z",
+              "uid": "35240-3f0dd1a5-ba1d-4a3a-957f-ea25a1e5c799"
+            }
+          ],
+          "id": "72f32c44-4b5b-4b29-9798-1e2d17dfa3a8",
+          "createdAt": "2026-07-28T10:37:19.000Z",
+          "updatedAt": "2026-07-28T10:37:19.000Z",
+          "uid": "35240-72f32c44-4b5b-4b29-9798-1e2d17dfa3a8"
+        }
+      ],
+      "id": "83130310-9210-4b30-ab4b-c28cac750941",
+      "createdAt": "2026-07-28T10:37:19.000Z",
+      "updatedAt": "2026-07-28T10:37:19.000Z",
+      "uid": "35240-83130310-9210-4b30-ab4b-c28cac750941"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://macie2.{{region}}.amazonaws.com"
+    }
+  ]
+}

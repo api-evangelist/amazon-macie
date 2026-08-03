@@ -1,0 +1,2955 @@
+{
+  "info": {
+    "_postman_id": "329548c9-50a4-42c5-b1fc-daa669bf6503",
+    "name": "Amazon Macie 2 Admin#adminAccountId Allow Lists API",
+    "description": "Amazon Macie\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:36:34.000Z",
+    "updatedAt": "2026-07-28T10:36:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-329548c9-50a4-42c5-b1fc-daa669bf6503"
+  },
+  "item": [
+    {
+      "name": "allow-lists",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Amazon Macie Delete Allow List",
+              "id": "f2b180e6-466c-47af-b13e-4478f33cda65",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists/:id?ignoreJobChecks=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "<p>Specifies whether to force deletion of the allow list, even if active classification jobs are configured to use the list.</p> <p>When you try to delete an allow list, Amazon Macie checks for classification jobs that use the list and have a status other than COMPLETE or CANCELLED. By default, Macie rejects your request if any jobs meet these criteria. To skip these checks and delete the list, set this value to true. To delete the list only if no active jobs are configured to use it, set this value to false.</p>",
+                      "key": "ignoreJobChecks",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "c72191ec-e59f-435c-a587-bd00c424035a",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The unique identifier for the Amazon Macie resource that the request applies to."
+                    }
+                  ]
+                },
+                "description": "Deletes an allow list."
+              },
+              "response": [
+                {
+                  "id": "6a4ed140-ed34-444b-8629-e1311bef44c7",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id?ignoreJobChecks=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "<p>Specifies whether to force deletion of the allow list, even if active classification jobs are configured to use the list.</p> <p>When you try to delete an allow list, Amazon Macie checks for classification jobs that use the list and have a status other than COMPLETE or CANCELLED. By default, Macie rejects your request if any jobs meet these criteria. To skip these checks and delete the list, set this value to true. To delete the list only if no active jobs are configured to use it, set this value to false.</p>",
+                          "key": "ignoreJobChecks",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-6a4ed140-ed34-444b-8629-e1311bef44c7"
+                },
+                {
+                  "id": "f7b822f1-85c9-4ecc-b987-31d68c7aa8b9",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id?ignoreJobChecks=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "<p>Specifies whether to force deletion of the allow list, even if active classification jobs are configured to use the list.</p> <p>When you try to delete an allow list, Amazon Macie checks for classification jobs that use the list and have a status other than COMPLETE or CANCELLED. By default, Macie rejects your request if any jobs meet these criteria. To skip these checks and delete the list, set this value to true. To delete the list only if no active jobs are configured to use it, set this value to false.</p>",
+                          "key": "ignoreJobChecks",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-f7b822f1-85c9-4ecc-b987-31d68c7aa8b9"
+                },
+                {
+                  "id": "31d2332d-bee6-4d91-8bd5-12d42b8ad083",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id?ignoreJobChecks=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "<p>Specifies whether to force deletion of the allow list, even if active classification jobs are configured to use the list.</p> <p>When you try to delete an allow list, Amazon Macie checks for classification jobs that use the list and have a status other than COMPLETE or CANCELLED. By default, Macie rejects your request if any jobs meet these criteria. To skip these checks and delete the list, set this value to true. To delete the list only if no active jobs are configured to use it, set this value to false.</p>",
+                          "key": "ignoreJobChecks",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-31d2332d-bee6-4d91-8bd5-12d42b8ad083"
+                },
+                {
+                  "id": "b9a87874-2623-4791-a269-44f667e58f03",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id?ignoreJobChecks=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "<p>Specifies whether to force deletion of the allow list, even if active classification jobs are configured to use the list.</p> <p>When you try to delete an allow list, Amazon Macie checks for classification jobs that use the list and have a status other than COMPLETE or CANCELLED. By default, Macie rejects your request if any jobs meet these criteria. To skip these checks and delete the list, set this value to true. To delete the list only if no active jobs are configured to use it, set this value to false.</p>",
+                          "key": "ignoreJobChecks",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-b9a87874-2623-4791-a269-44f667e58f03"
+                },
+                {
+                  "id": "0a5b00f1-4694-43d6-9a4a-2fdaec39663d",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id?ignoreJobChecks=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "<p>Specifies whether to force deletion of the allow list, even if active classification jobs are configured to use the list.</p> <p>When you try to delete an allow list, Amazon Macie checks for classification jobs that use the list and have a status other than COMPLETE or CANCELLED. By default, Macie rejects your request if any jobs meet these criteria. To skip these checks and delete the list, set this value to true. To delete the list only if no active jobs are configured to use it, set this value to false.</p>",
+                          "key": "ignoreJobChecks",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-0a5b00f1-4694-43d6-9a4a-2fdaec39663d"
+                },
+                {
+                  "id": "3d806a66-8aec-48be-a5c2-e35decb77023",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id?ignoreJobChecks=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "<p>Specifies whether to force deletion of the allow list, even if active classification jobs are configured to use the list.</p> <p>When you try to delete an allow list, Amazon Macie checks for classification jobs that use the list and have a status other than COMPLETE or CANCELLED. By default, Macie rejects your request if any jobs meet these criteria. To skip these checks and delete the list, set this value to true. To delete the list only if no active jobs are configured to use it, set this value to false.</p>",
+                          "key": "ignoreJobChecks",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-3d806a66-8aec-48be-a5c2-e35decb77023"
+                }
+              ],
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-f2b180e6-466c-47af-b13e-4478f33cda65"
+            },
+            {
+              "name": "Amazon Macie Get Allow List",
+              "id": "c0004ff0-f6ab-4994-aa16-e79bbeb49f20",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5de28218-0c03-458a-b62d-2c94052fcaf0",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The unique identifier for the Amazon Macie resource that the request applies to."
+                    }
+                  ]
+                },
+                "description": "Retrieves the settings and status of an allow list."
+              },
+              "response": [
+                {
+                  "id": "efd44728-cb40-49a1-8376-828acea964db",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"arn\": \"arn:aws-cn:macie2:jykymsubg:807175117884:allow-list/zvpp4mpwdcw1wrsemflf1m\",\n  \"createdAt\": \"<dateTime>\",\n  \"criteria\": {\n    \"regex\": \".\\\\^Y^8dB:5\",\n    \"s3WordsList\": {\n      \"bucketName\": \"c-qI8XK5hr3S2KXlsBbmyUuts4OVab314sFvOkUtVxQJI96.jbc.dB1bNr6irdnTxoYeikEtZPOX8HsyAxgKYEo7Y.Y_G3XYnwO-tPOBS..B8djz7AMu7WO-Imlmp2x7zR3VOMbf8sG4X283YYgDP4JZB_dNp440a2VMIVmObFESme0UIkBEgePbn0o-\",\n      \"objectKey\": \"\\u000b<?22L\u2005^H(\"\n    }\n  },\n  \"description\": \"%tgrWM\u200a>Z<\",\n  \"id\": \"7tduheq81eyj7vt3z8seeg\",\n  \"name\": \"wb\\\\%6E\\\\E+(\",\n  \"status\": {\n    \"code\": \"S3_THROTTLED\",\n    \"description\": \"L\"\n  },\n  \"tags\": {\n    \"officia3\": \"<string>\",\n    \"voluptate_\": \"<string>\"\n  },\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-efd44728-cb40-49a1-8376-828acea964db"
+                },
+                {
+                  "id": "c3e5ddb1-421d-438e-a4b1-678ef5b9dd5e",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-c3e5ddb1-421d-438e-a4b1-678ef5b9dd5e"
+                },
+                {
+                  "id": "feb30b2b-a3bc-4895-844b-0b909a1b968f",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-feb30b2b-a3bc-4895-844b-0b909a1b968f"
+                },
+                {
+                  "id": "63c19cdc-360f-44d4-b58c-f504054a92b9",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-63c19cdc-360f-44d4-b58c-f504054a92b9"
+                },
+                {
+                  "id": "db318fed-3b84-4ca7-a736-f8cd24357b19",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-db318fed-3b84-4ca7-a736-f8cd24357b19"
+                },
+                {
+                  "id": "ca20fff5-8ebc-49f6-bed7-266a9de57efa",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-ca20fff5-8ebc-49f6-bed7-266a9de57efa"
+                }
+              ],
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-c0004ff0-f6ab-4994-aa16-e79bbeb49f20"
+            },
+            {
+              "name": "Amazon Macie Update Allow List",
+              "id": "4893ca93-57b5-47e1-9849-e79e88ea820d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"criteria\": {\n    \"regex\": \",=Vg:u\u20086\",\n    \"s3WordsList\": {\n      \"bucketName\": \"Wwmd-4FmxEyeJxE8.FMHKRLYDYL_PMhRbsKbFufp4TRUZmcxuFZ.qrqR02a6ydGE7CvOlRkm3yKha1OpF9xcNhcHTp5dkKxZXbzG6b2h6MeDhlg.LSOAJZtAdm7Id6iE63uwuPwFqvJ.LuxnSywW_69SO3AcIg7E7y_CY8uGgJzD-evQGm\",\n      \"objectKey\": \"/(qN}\"\n    }\n  },\n  \"name\": \"D-6JF)}9D\",\n  \"description\": \"Zajo\u20096\u3000B_\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a809b4ec-c8e6-451e-9385-36af2f8b67a1",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The unique identifier for the Amazon Macie resource that the request applies to."
+                    }
+                  ]
+                },
+                "description": "Updates the settings for an allow list."
+              },
+              "response": [
+                {
+                  "id": "2140e44d-c4d7-40ce-88e1-bd2ec084a85f",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"criteria\": {\n    \"regex\": \",=Vg:u\u20086\",\n    \"s3WordsList\": {\n      \"bucketName\": \"Wwmd-4FmxEyeJxE8.FMHKRLYDYL_PMhRbsKbFufp4TRUZmcxuFZ.qrqR02a6ydGE7CvOlRkm3yKha1OpF9xcNhcHTp5dkKxZXbzG6b2h6MeDhlg.LSOAJZtAdm7Id6iE63uwuPwFqvJ.LuxnSywW_69SO3AcIg7E7y_CY8uGgJzD-evQGm\",\n      \"objectKey\": \"/(qN}\"\n    }\n  },\n  \"name\": \"D-6JF)}9D\",\n  \"description\": \"Zajo\u20096\u3000B_\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"arn\": \"arn:aws-us-gov:macie2:hbl3djo3tpb9xjymr:813013868298:allow-list/546xtak0pe7wapq6z2nymz\",\n  \"id\": \"t6q134tvrcb78sydk13c0b\"\n}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-2140e44d-c4d7-40ce-88e1-bd2ec084a85f"
+                },
+                {
+                  "id": "bc0af773-3571-49d8-b495-791a03835603",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"criteria\": {\n    \"regex\": \",=Vg:u\u20086\",\n    \"s3WordsList\": {\n      \"bucketName\": \"Wwmd-4FmxEyeJxE8.FMHKRLYDYL_PMhRbsKbFufp4TRUZmcxuFZ.qrqR02a6ydGE7CvOlRkm3yKha1OpF9xcNhcHTp5dkKxZXbzG6b2h6MeDhlg.LSOAJZtAdm7Id6iE63uwuPwFqvJ.LuxnSywW_69SO3AcIg7E7y_CY8uGgJzD-evQGm\",\n      \"objectKey\": \"/(qN}\"\n    }\n  },\n  \"name\": \"D-6JF)}9D\",\n  \"description\": \"Zajo\u20096\u3000B_\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-bc0af773-3571-49d8-b495-791a03835603"
+                },
+                {
+                  "id": "064a5fc1-0439-40dd-99ab-2383f329bce6",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"criteria\": {\n    \"regex\": \",=Vg:u\u20086\",\n    \"s3WordsList\": {\n      \"bucketName\": \"Wwmd-4FmxEyeJxE8.FMHKRLYDYL_PMhRbsKbFufp4TRUZmcxuFZ.qrqR02a6ydGE7CvOlRkm3yKha1OpF9xcNhcHTp5dkKxZXbzG6b2h6MeDhlg.LSOAJZtAdm7Id6iE63uwuPwFqvJ.LuxnSywW_69SO3AcIg7E7y_CY8uGgJzD-evQGm\",\n      \"objectKey\": \"/(qN}\"\n    }\n  },\n  \"name\": \"D-6JF)}9D\",\n  \"description\": \"Zajo\u20096\u3000B_\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-064a5fc1-0439-40dd-99ab-2383f329bce6"
+                },
+                {
+                  "id": "12ebb0d7-65b0-4f60-9b48-06934efeda33",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"criteria\": {\n    \"regex\": \",=Vg:u\u20086\",\n    \"s3WordsList\": {\n      \"bucketName\": \"Wwmd-4FmxEyeJxE8.FMHKRLYDYL_PMhRbsKbFufp4TRUZmcxuFZ.qrqR02a6ydGE7CvOlRkm3yKha1OpF9xcNhcHTp5dkKxZXbzG6b2h6MeDhlg.LSOAJZtAdm7Id6iE63uwuPwFqvJ.LuxnSywW_69SO3AcIg7E7y_CY8uGgJzD-evQGm\",\n      \"objectKey\": \"/(qN}\"\n    }\n  },\n  \"name\": \"D-6JF)}9D\",\n  \"description\": \"Zajo\u20096\u3000B_\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-12ebb0d7-65b0-4f60-9b48-06934efeda33"
+                },
+                {
+                  "id": "2833176b-1bb6-4c11-8898-2ad4110a6596",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"criteria\": {\n    \"regex\": \",=Vg:u\u20086\",\n    \"s3WordsList\": {\n      \"bucketName\": \"Wwmd-4FmxEyeJxE8.FMHKRLYDYL_PMhRbsKbFufp4TRUZmcxuFZ.qrqR02a6ydGE7CvOlRkm3yKha1OpF9xcNhcHTp5dkKxZXbzG6b2h6MeDhlg.LSOAJZtAdm7Id6iE63uwuPwFqvJ.LuxnSywW_69SO3AcIg7E7y_CY8uGgJzD-evQGm\",\n      \"objectKey\": \"/(qN}\"\n    }\n  },\n  \"name\": \"D-6JF)}9D\",\n  \"description\": \"Zajo\u20096\u3000B_\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-2833176b-1bb6-4c11-8898-2ad4110a6596"
+                },
+                {
+                  "id": "c00d6474-2510-4de0-9fa4-e6a9edb0c200",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"criteria\": {\n    \"regex\": \",=Vg:u\u20086\",\n    \"s3WordsList\": {\n      \"bucketName\": \"Wwmd-4FmxEyeJxE8.FMHKRLYDYL_PMhRbsKbFufp4TRUZmcxuFZ.qrqR02a6ydGE7CvOlRkm3yKha1OpF9xcNhcHTp5dkKxZXbzG6b2h6MeDhlg.LSOAJZtAdm7Id6iE63uwuPwFqvJ.LuxnSywW_69SO3AcIg7E7y_CY8uGgJzD-evQGm\",\n      \"objectKey\": \"/(qN}\"\n    }\n  },\n  \"name\": \"D-6JF)}9D\",\n  \"description\": \"Zajo\u20096\u3000B_\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/allow-lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "allow-lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:36:35.000Z",
+                  "updatedAt": "2026-07-28T10:36:35.000Z",
+                  "uid": "35240-c00d6474-2510-4de0-9fa4-e6a9edb0c200"
+                }
+              ],
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-4893ca93-57b5-47e1-9849-e79e88ea820d"
+            }
+          ],
+          "id": "fb01cd1b-a418-4ada-aa4f-046aaced76cd",
+          "createdAt": "2026-07-28T10:36:35.000Z",
+          "updatedAt": "2026-07-28T10:36:35.000Z",
+          "uid": "35240-fb01cd1b-a418-4ada-aa4f-046aaced76cd"
+        },
+        {
+          "name": "Amazon Macie Create Allow List",
+          "id": "e5608c65-21ed-4c3c-b4db-92541212b3a9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientToken\": \"<string>\",\n  \"criteria\": {\n    \"regex\": \"zf\u2004\",\n    \"s3WordsList\": {\n      \"bucketName\": \"2Lw.LmECO_ud3_41VqVsRLzp5UJM9KH2b3dbpNjXjUvYkd08NnKTmdeR2IzmMFXz2KBSozxf0GxxlmbenJCQcIAmX6iR0c82M0grJQVUeh06H-rCyhnCQSfMW0APe0NWYNoCZd\",\n      \"objectKey\": \"\u2009Sw\\r\u2003\"\n    }\n  },\n  \"name\": \"NsuWF;&\",\n  \"description\": \"H*+G}\u2005\u00a0\u2009Y,\",\n  \"tags\": {\n    \"ex_3_\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/allow-lists",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "allow-lists"
+              ]
+            },
+            "description": "Creates and defines the settings for an allow list."
+          },
+          "response": [
+            {
+              "id": "1749592b-5a28-4b63-9f2f-346d3043dd18",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"criteria\": {\n    \"regex\": \"zf\u2004\",\n    \"s3WordsList\": {\n      \"bucketName\": \"2Lw.LmECO_ud3_41VqVsRLzp5UJM9KH2b3dbpNjXjUvYkd08NnKTmdeR2IzmMFXz2KBSozxf0GxxlmbenJCQcIAmX6iR0c82M0grJQVUeh06H-rCyhnCQSfMW0APe0NWYNoCZd\",\n      \"objectKey\": \"\u2009Sw\\r\u2003\"\n    }\n  },\n  \"name\": \"NsuWF;&\",\n  \"description\": \"H*+G}\u2005\u00a0\u2009Y,\",\n  \"tags\": {\n    \"ex_3_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"arn\": \"arn:aws-us-gov:macie2:hbl3djo3tpb9xjymr:813013868298:allow-list/546xtak0pe7wapq6z2nymz\",\n  \"id\": \"t6q134tvrcb78sydk13c0b\"\n}",
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-1749592b-5a28-4b63-9f2f-346d3043dd18"
+            },
+            {
+              "id": "4d089b44-06e0-4470-9f59-68d42bb344af",
+              "name": "ValidationException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"criteria\": {\n    \"regex\": \"zf\u2004\",\n    \"s3WordsList\": {\n      \"bucketName\": \"2Lw.LmECO_ud3_41VqVsRLzp5UJM9KH2b3dbpNjXjUvYkd08NnKTmdeR2IzmMFXz2KBSozxf0GxxlmbenJCQcIAmX6iR0c82M0grJQVUeh06H-rCyhnCQSfMW0APe0NWYNoCZd\",\n      \"objectKey\": \"\u2009Sw\\r\u2003\"\n    }\n  },\n  \"name\": \"NsuWF;&\",\n  \"description\": \"H*+G}\u2005\u00a0\u2009Y,\",\n  \"tags\": {\n    \"ex_3_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-4d089b44-06e0-4470-9f59-68d42bb344af"
+            },
+            {
+              "id": "5325bc9d-3517-422d-b0c9-e6b629e19c06",
+              "name": "InternalServerException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"criteria\": {\n    \"regex\": \"zf\u2004\",\n    \"s3WordsList\": {\n      \"bucketName\": \"2Lw.LmECO_ud3_41VqVsRLzp5UJM9KH2b3dbpNjXjUvYkd08NnKTmdeR2IzmMFXz2KBSozxf0GxxlmbenJCQcIAmX6iR0c82M0grJQVUeh06H-rCyhnCQSfMW0APe0NWYNoCZd\",\n      \"objectKey\": \"\u2009Sw\\r\u2003\"\n    }\n  },\n  \"name\": \"NsuWF;&\",\n  \"description\": \"H*+G}\u2005\u00a0\u2009Y,\",\n  \"tags\": {\n    \"ex_3_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-5325bc9d-3517-422d-b0c9-e6b629e19c06"
+            },
+            {
+              "id": "defd308a-e5f8-4998-8ae5-9aa790fed583",
+              "name": "ServiceQuotaExceededException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"criteria\": {\n    \"regex\": \"zf\u2004\",\n    \"s3WordsList\": {\n      \"bucketName\": \"2Lw.LmECO_ud3_41VqVsRLzp5UJM9KH2b3dbpNjXjUvYkd08NnKTmdeR2IzmMFXz2KBSozxf0GxxlmbenJCQcIAmX6iR0c82M0grJQVUeh06H-rCyhnCQSfMW0APe0NWYNoCZd\",\n      \"objectKey\": \"\u2009Sw\\r\u2003\"\n    }\n  },\n  \"name\": \"NsuWF;&\",\n  \"description\": \"H*+G}\u2005\u00a0\u2009Y,\",\n  \"tags\": {\n    \"ex_3_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-defd308a-e5f8-4998-8ae5-9aa790fed583"
+            },
+            {
+              "id": "fc12db0c-7d51-4a32-9b16-be601bfbee1d",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"criteria\": {\n    \"regex\": \"zf\u2004\",\n    \"s3WordsList\": {\n      \"bucketName\": \"2Lw.LmECO_ud3_41VqVsRLzp5UJM9KH2b3dbpNjXjUvYkd08NnKTmdeR2IzmMFXz2KBSozxf0GxxlmbenJCQcIAmX6iR0c82M0grJQVUeh06H-rCyhnCQSfMW0APe0NWYNoCZd\",\n      \"objectKey\": \"\u2009Sw\\r\u2003\"\n    }\n  },\n  \"name\": \"NsuWF;&\",\n  \"description\": \"H*+G}\u2005\u00a0\u2009Y,\",\n  \"tags\": {\n    \"ex_3_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-fc12db0c-7d51-4a32-9b16-be601bfbee1d"
+            },
+            {
+              "id": "8f3eee19-4292-4aaa-a8d9-99a22f152d6a",
+              "name": "ResourceNotFoundException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"criteria\": {\n    \"regex\": \"zf\u2004\",\n    \"s3WordsList\": {\n      \"bucketName\": \"2Lw.LmECO_ud3_41VqVsRLzp5UJM9KH2b3dbpNjXjUvYkd08NnKTmdeR2IzmMFXz2KBSozxf0GxxlmbenJCQcIAmX6iR0c82M0grJQVUeh06H-rCyhnCQSfMW0APe0NWYNoCZd\",\n      \"objectKey\": \"\u2009Sw\\r\u2003\"\n    }\n  },\n  \"name\": \"NsuWF;&\",\n  \"description\": \"H*+G}\u2005\u00a0\u2009Y,\",\n  \"tags\": {\n    \"ex_3_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-8f3eee19-4292-4aaa-a8d9-99a22f152d6a"
+            },
+            {
+              "id": "bb00de20-4a42-4d32-a051-6227539bd058",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"criteria\": {\n    \"regex\": \"zf\u2004\",\n    \"s3WordsList\": {\n      \"bucketName\": \"2Lw.LmECO_ud3_41VqVsRLzp5UJM9KH2b3dbpNjXjUvYkd08NnKTmdeR2IzmMFXz2KBSozxf0GxxlmbenJCQcIAmX6iR0c82M0grJQVUeh06H-rCyhnCQSfMW0APe0NWYNoCZd\",\n      \"objectKey\": \"\u2009Sw\\r\u2003\"\n    }\n  },\n  \"name\": \"NsuWF;&\",\n  \"description\": \"H*+G}\u2005\u00a0\u2009Y,\",\n  \"tags\": {\n    \"ex_3_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-bb00de20-4a42-4d32-a051-6227539bd058"
+            },
+            {
+              "id": "78219ea3-988d-4180-b0f2-2cdc746cc68d",
+              "name": "ConflictException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientToken\": \"<string>\",\n  \"criteria\": {\n    \"regex\": \"zf\u2004\",\n    \"s3WordsList\": {\n      \"bucketName\": \"2Lw.LmECO_ud3_41VqVsRLzp5UJM9KH2b3dbpNjXjUvYkd08NnKTmdeR2IzmMFXz2KBSozxf0GxxlmbenJCQcIAmX6iR0c82M0grJQVUeh06H-rCyhnCQSfMW0APe0NWYNoCZd\",\n      \"objectKey\": \"\u2009Sw\\r\u2003\"\n    }\n  },\n  \"name\": \"NsuWF;&\",\n  \"description\": \"H*+G}\u2005\u00a0\u2009Y,\",\n  \"tags\": {\n    \"ex_3_\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-78219ea3-988d-4180-b0f2-2cdc746cc68d"
+            }
+          ],
+          "createdAt": "2026-07-28T10:36:35.000Z",
+          "updatedAt": "2026-07-28T10:36:35.000Z",
+          "uid": "35240-e5608c65-21ed-4c3c-b4db-92541212b3a9"
+        },
+        {
+          "name": "Amazon Macie List Allow Lists",
+          "id": "dc319d6a-1c42-4069-b013-96e83e164b38",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/allow-lists?maxResults=<integer>&nextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "allow-lists"
+              ],
+              "query": [
+                {
+                  "description": "The maximum number of items to include in each page of a paginated response.",
+                  "key": "maxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                  "key": "nextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieves a subset of information about all the allow lists for an account."
+          },
+          "response": [
+            {
+              "id": "d9464587-5d66-4c2d-8668-614e40a51661",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists?maxResults=<integer>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of items to include in each page of a paginated response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"allowLists\": [\n    {\n      \"arn\": \"arn:aws-cn:macie2:tcivrcz5f9ylh2zigr-:581983723185:allow-list/zaqalotzauz3tpc0y1152z\",\n      \"createdAt\": \"<dateTime>\",\n      \"description\": \"caQ1+\u20030\u2002\u2006\\r\",\n      \"id\": \"mwwoxxojjv7xo06g7cw0cu\",\n      \"name\": \"O|3\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"arn\": \"arn:aws:macie2:ctjjnofx3mrvj8ahc1:247124052330:allow-list/1fn2gnrwmkd0jqlrt4gcrz\",\n      \"createdAt\": \"<dateTime>\",\n      \"description\": \"\\rXOcC\u180e\",\n      \"id\": \"f3xzf6f00essb2bqlsa6zi\",\n      \"name\": \"%\\\"pZaK=\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-d9464587-5d66-4c2d-8668-614e40a51661"
+            },
+            {
+              "id": "052fc94a-9609-4aa1-b914-5325f0ad461a",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists?maxResults=<integer>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of items to include in each page of a paginated response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-052fc94a-9609-4aa1-b914-5325f0ad461a"
+            },
+            {
+              "id": "2e742d74-b868-489b-9d13-00a6e0047496",
+              "name": "ValidationException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists?maxResults=<integer>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of items to include in each page of a paginated response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-2e742d74-b868-489b-9d13-00a6e0047496"
+            },
+            {
+              "id": "b6dc93ba-4f8b-4a4a-9cc1-b75ea7620068",
+              "name": "InternalServerException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists?maxResults=<integer>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of items to include in each page of a paginated response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-b6dc93ba-4f8b-4a4a-9cc1-b75ea7620068"
+            },
+            {
+              "id": "65ffefc0-0e67-4e4e-ae4f-577ada133965",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/allow-lists?maxResults=<integer>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "allow-lists"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of items to include in each page of a paginated response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The nextToken string that specifies which page of results to return in a paginated response.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:35.000Z",
+              "updatedAt": "2026-07-28T10:36:35.000Z",
+              "uid": "35240-65ffefc0-0e67-4e4e-ae4f-577ada133965"
+            }
+          ],
+          "createdAt": "2026-07-28T10:36:35.000Z",
+          "updatedAt": "2026-07-28T10:36:35.000Z",
+          "uid": "35240-dc319d6a-1c42-4069-b013-96e83e164b38"
+        }
+      ],
+      "id": "6bcb64d7-11a3-4efc-be06-7a286cc66fa3",
+      "createdAt": "2026-07-28T10:36:35.000Z",
+      "updatedAt": "2026-07-28T10:36:35.000Z",
+      "uid": "35240-6bcb64d7-11a3-4efc-be06-7a286cc66fa3"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://macie2.{{region}}.amazonaws.com"
+    }
+  ]
+}
