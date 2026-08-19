@@ -1,0 +1,195 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Macie 2 Admin#adminAccountId Resource Profiles API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Resource Profiles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Macie List Resource Profile Artifacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://macie2.{region}.amazonaws.com/resource-profiles/artifacts#resourceArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "The nextToken string that specifies which page of results to return in a paginated response."
+              },
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "query",
+                "description": "The Amazon Resource Name (ARN) of the S3 bucket that the request applies to."
+              }
+            ]
+          },
+          "docs": "Retrieves information about objects that were selected from an S3 bucket for automated sensitive data discovery."
+        },
+        {
+          "info": {
+            "name": "Amazon Macie List Resource Profile Detections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://macie2.{region}.amazonaws.com/resource-profiles/detections#resourceArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of items to include in each page of a paginated response."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "The nextToken string that specifies which page of results to return in a paginated response."
+              },
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "query",
+                "description": "The Amazon Resource Name (ARN) of the S3 bucket that the request applies to."
+              }
+            ]
+          },
+          "docs": "Retrieves information about the types and amount of sensitive data that Amazon Macie found in an S3 bucket."
+        },
+        {
+          "info": {
+            "name": "Amazon Macie Update Resource Profile Detections",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://macie2.{region}.amazonaws.com/resource-profiles/detections#resourceArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "query",
+                "description": "The Amazon Resource Name (ARN) of the S3 bucket that the request applies to."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the sensitivity scoring settings for an S3 bucket."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

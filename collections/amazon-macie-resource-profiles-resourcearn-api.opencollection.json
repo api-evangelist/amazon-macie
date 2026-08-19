@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Macie 2 Admin#adminAccountId Resource Profiles#resourceArn API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Resource Profiles#resourceArn",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Macie Get Resource Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://macie2.{region}.amazonaws.com/resource-profiles#resourceArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "query",
+                "description": "The Amazon Resource Name (ARN) of the S3 bucket that the request applies to."
+              }
+            ]
+          },
+          "docs": "Retrieves (queries) sensitive data discovery statistics and the sensitivity score for an S3 bucket."
+        },
+        {
+          "info": {
+            "name": "Amazon Macie Update Resource Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://macie2.{region}.amazonaws.com/resource-profiles#resourceArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "query",
+                "description": "The Amazon Resource Name (ARN) of the S3 bucket that the request applies to."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the sensitivity score for an S3 bucket."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
