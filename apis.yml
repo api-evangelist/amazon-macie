@@ -26,6 +26,14 @@ tags:
   - Sensitive Data
   - Privacy
   - Compliance
+  - Machine-Learning
+  - S3
+tags_raw:
+  - AWS
+  - Data Security
+  - Sensitive Data
+  - Privacy
+  - Compliance
   - Machine Learning
   - S3
 url: https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/apis.yml
@@ -112,6 +120,8 @@ apis:
   humanURL: https://aws.amazon.com/macie/
   baseURL: https://macie2.amazonaws.com
   tags:
+  - Allowlists
+  tags_raw:
   - Allow Lists
   properties:
   - type: OpenAPI
@@ -236,6 +246,8 @@ apis:
   humanURL: https://aws.amazon.com/macie/
   baseURL: https://macie2.amazonaws.com
   tags:
+  - Data Sources
+  tags_raw:
   - Datasources
   properties:
   - type: OpenAPI
@@ -358,6 +370,8 @@ apis:
   humanURL: https://aws.amazon.com/macie/
   baseURL: https://macie2.amazonaws.com
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
