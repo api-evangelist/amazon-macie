@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2020-01-01
   x-release: v4
-  title: Amazon Macie 2 Admin#adminAccountId Master API
+  title: Amazon Macie 2 Master API
   description: Amazon Macie
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/macie2-2020-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -245,50 +246,21 @@ paths:
       tags:
       - Master
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
+    ConflictException: {}
+    GetMasterAccountResponse:
+      type: object
+      properties:
+        master:
+          allOf:
+          - $ref: '#/components/schemas/Invitation'
+          - description: (Deprecated) The Amazon Web Services account ID for the administrator account. If the accounts are associated by a Macie membership invitation, this object also provides details about the invitation that was sent to establish the relationship between the accounts.
+    ResourceNotFoundException: {}
+    ValidationException: {}
+    __timestampIso8601:
+      type: string
+      format: date-time
+    AccessDeniedException: {}
     RelationshipStatus:
       type: string
       enum:
@@ -304,14 +276,7 @@ components:
       - AccountSuspended
       description: 'The current status of the relationship between an account and an associated Amazon Macie administrator account. Possible values are:'
     InternalServerException: {}
-    GetMasterAccountResponse:
-      type: object
-      properties:
-        master:
-          allOf:
-          - $ref: '#/components/schemas/Invitation'
-          - description: (Deprecated) The Amazon Web Services account ID for the administrator account. If the accounts are associated by a Macie membership invitation, this object also provides details about the invitation that was sent to establish the relationship between the accounts.
-    ThrottlingException: {}
+    ServiceQuotaExceededException: {}
     DisassociateFromMasterAccountResponse:
       type: object
       properties: {}
@@ -335,16 +300,52 @@ components:
           - $ref: '#/components/schemas/RelationshipStatus'
           - description: The status of the relationship between the account that sent the invitation and the account that received the invitation.
       description: Provides information about an Amazon Macie membership invitation.
-    ConflictException: {}
     __string:
       type: string
-    ServiceQuotaExceededException: {}
-    __timestampIso8601:
-      type: string
-      format: date-time
-    ResourceNotFoundException: {}
-    AccessDeniedException: {}
-    ValidationException: {}
+    ThrottlingException: {}
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2020-01-01
   x-release: v4
-  title: 'Amazon Macie 2 #adminAccountId Admin API'
+  title: Amazon Macie 2 Admin API
   description: Amazon Macie
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/macie2-2020-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -399,48 +400,16 @@ paths:
       - Admin
 components:
   schemas:
-    UpdateOrganizationConfigurationResponse:
-      type: object
-      properties: {}
+    ConflictException: {}
+    ResourceNotFoundException: {}
     EnableOrganizationAdminAccountResponse:
       type: object
       properties: {}
-    InternalServerException: {}
-    ThrottlingException: {}
-    DescribeOrganizationConfigurationResponse:
-      type: object
-      properties:
-        autoEnable:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - description: Specifies whether Amazon Macie is enabled automatically for accounts that are added to the organization.
-        maxAccountLimitReached:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - description: Specifies whether the maximum number of Amazon Macie member accounts are part of the organization.
-    ConflictException: {}
-    ListOrganizationAdminAccountsResponse:
-      type: object
-      properties:
-        adminAccounts:
-          allOf:
-          - $ref: '#/components/schemas/__listOfAdminAccount'
-          - description: An array of objects, one for each delegated Amazon Macie administrator account for the organization. Only one of these accounts can have a status of ENABLED.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    __string:
-      type: string
-    ServiceQuotaExceededException: {}
-    __boolean:
-      type: boolean
-    AdminStatus:
-      type: string
-      enum:
-      - ENABLED
-      - DISABLING_IN_PROGRESS
-      description: 'The current status of an account as the delegated Amazon Macie administrator account for an organization in Organizations. Possible values are:'
+    ValidationException: {}
+    __listOfAdminAccount:
+      type: array
+      items:
+        $ref: '#/components/schemas/AdminAccount'
     AdminAccount:
       type: object
       properties:
@@ -453,32 +422,46 @@ components:
           - $ref: '#/components/schemas/AdminStatus'
           - description: The current status of the account as the delegated Amazon Macie administrator account for the organization.
       description: Provides information about the delegated Amazon Macie administrator account for an organization in Organizations.
-    ResourceNotFoundException: {}
+    __boolean:
+      type: boolean
+    ListOrganizationAdminAccountsResponse:
+      type: object
+      properties:
+        adminAccounts:
+          allOf:
+          - $ref: '#/components/schemas/__listOfAdminAccount'
+          - description: An array of objects, one for each delegated Amazon Macie administrator account for the organization. Only one of these accounts can have a status of ENABLED.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    DescribeOrganizationConfigurationResponse:
+      type: object
+      properties:
+        autoEnable:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether Amazon Macie is enabled automatically for accounts that are added to the organization.
+        maxAccountLimitReached:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the maximum number of Amazon Macie member accounts are part of the organization.
     AccessDeniedException: {}
-    __listOfAdminAccount:
-      type: array
-      items:
-        $ref: '#/components/schemas/AdminAccount'
-    ValidationException: {}
+    InternalServerException: {}
+    ServiceQuotaExceededException: {}
+    AdminStatus:
+      type: string
+      enum:
+      - ENABLED
+      - DISABLING_IN_PROGRESS
+      description: 'The current status of an account as the delegated Amazon Macie administrator account for an organization in Organizations. Possible values are:'
+    UpdateOrganizationConfigurationResponse:
+      type: object
+      properties: {}
+    __string:
+      type: string
+    ThrottlingException: {}
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -491,14 +474,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

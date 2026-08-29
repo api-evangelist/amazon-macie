@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2020-01-01
   x-release: v4
-  title: Amazon Macie 2 Admin#adminAccountId Allow Lists API
+  title: Amazon Macie 2 Allow Lists API
   description: Amazon Macie
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/macie2-2020-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -474,63 +475,10 @@ paths:
       tags:
       - Allow Lists
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    InternalServerException: {}
-    __stringMin22Max22PatternAZ0922:
-      type: string
-      pattern: ^[a-z0-9]{22}$
-      minLength: 22
-      maxLength: 22
-    ThrottlingException: {}
-    __stringMin1Max1024PatternSS:
-      type: string
-      pattern: ^[\s\S]+$
-      minLength: 1
-      maxLength: 1024
     ConflictException: {}
+    ResourceNotFoundException: {}
+    ValidationException: {}
     ListAllowListsResponse:
       type: object
       properties:
@@ -542,6 +490,14 @@ components:
           allOf:
           - $ref: '#/components/schemas/__string'
           - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    __timestampIso8601:
+      type: string
+      format: date-time
+    __stringMin1Max128Pattern:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 128
     CreateAllowListResponse:
       type: object
       properties:
@@ -553,18 +509,12 @@ components:
           allOf:
           - $ref: '#/components/schemas/__stringMin22Max22PatternAZ0922'
           - description: The unique identifier for the allow list.
-    __stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922:
-      type: string
-      pattern: ^arn:(aws|aws-cn|aws-us-gov):macie2:[a-z1-9-]{9,20}:\d{12}:allow-list\/[a-z0-9]{22}$
-      minLength: 71
-      maxLength: 89
-    __stringMin1Max128Pattern:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 128
-    __string:
-      type: string
+    AccessDeniedException: {}
+    TagMap:
+      type: object
+      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
+      additionalProperties:
+        $ref: '#/components/schemas/__string'
     S3WordsList:
       type: object
       required:
@@ -580,42 +530,6 @@ components:
           - $ref: '#/components/schemas/__stringMin1Max1024PatternSS'
           - description: The full name (key) of the object.
       description: Provides information about an S3 object that lists specific text to ignore.
-    __stringMin1Max512PatternSS:
-      type: string
-      pattern: ^[\s\S]+$
-      minLength: 1
-      maxLength: 512
-    __listOfAllowListSummary:
-      type: array
-      items:
-        $ref: '#/components/schemas/AllowListSummary'
-    AllowListStatusCode:
-      type: string
-      enum:
-      - OK
-      - S3_OBJECT_NOT_FOUND
-      - S3_USER_ACCESS_DENIED
-      - S3_OBJECT_ACCESS_DENIED
-      - S3_THROTTLED
-      - S3_OBJECT_OVERSIZE
-      - S3_OBJECT_EMPTY
-      - UNKNOWN_ERROR
-      description: 'Indicates the current status of an allow list. Depending on the type of criteria that the list specifies, possible values are:'
-    ServiceQuotaExceededException: {}
-    DeleteAllowListResponse:
-      type: object
-      properties: {}
-    UpdateAllowListResponse:
-      type: object
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922'
-          - description: The Amazon Resource Name (ARN) of the allow list.
-        id:
-          allOf:
-          - $ref: '#/components/schemas/__stringMin22Max22PatternAZ0922'
-          - description: The unique identifier for the allow list.
     AllowListStatus:
       type: object
       required:
@@ -658,24 +572,27 @@ components:
           - $ref: '#/components/schemas/__timestampIso8601'
           - description: The date and time, in UTC and extended ISO 8601 format, when the allow list's settings were most recently changed in Amazon Macie.
       description: Provides a subset of information about an allow list.
-    AllowListCriteria:
+    __stringMin1Max1024PatternSS:
+      type: string
+      pattern: ^[\s\S]+$
+      minLength: 1
+      maxLength: 1024
+    InternalServerException: {}
+    UpdateAllowListResponse:
       type: object
       properties:
-        regex:
+        arn:
           allOf:
-          - $ref: '#/components/schemas/__stringMin1Max512PatternSS'
-          - description: The regular expression (<i>regex</i>) that defines the text pattern to ignore. The expression can contain as many as 512 characters.
-        s3WordsList:
+          - $ref: '#/components/schemas/__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922'
+          - description: The Amazon Resource Name (ARN) of the allow list.
+        id:
           allOf:
-          - $ref: '#/components/schemas/S3WordsList'
-          - description: The location and name of the S3 object that lists specific text to ignore.
-      description: Specifies the criteria for an allow list. The criteria must specify a regular expression (regex) or an S3 object (s3WordsList). It can't specify both.
-    __timestampIso8601:
-      type: string
-      format: date-time
-    ResourceNotFoundException: {}
-    AccessDeniedException: {}
-    ValidationException: {}
+          - $ref: '#/components/schemas/__stringMin22Max22PatternAZ0922'
+          - description: The unique identifier for the allow list.
+    __listOfAllowListSummary:
+      type: array
+      items:
+        $ref: '#/components/schemas/AllowListSummary'
     GetAllowListResponse:
       type: object
       properties:
@@ -715,16 +632,100 @@ components:
           allOf:
           - $ref: '#/components/schemas/__timestampIso8601'
           - description: The date and time, in UTC and extended ISO 8601 format, when the allow list's settings were most recently changed in Amazon Macie.
-    TagMap:
+    ServiceQuotaExceededException: {}
+    __stringMin1Max512PatternSS:
+      type: string
+      pattern: ^[\s\S]+$
+      minLength: 1
+      maxLength: 512
+    __stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922:
+      type: string
+      pattern: ^arn:(aws|aws-cn|aws-us-gov):macie2:[a-z1-9-]{9,20}:\d{12}:allow-list\/[a-z0-9]{22}$
+      minLength: 71
+      maxLength: 89
+    DeleteAllowListResponse:
       type: object
-      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
-      additionalProperties:
-        $ref: '#/components/schemas/__string'
+      properties: {}
+    AllowListCriteria:
+      type: object
+      properties:
+        regex:
+          allOf:
+          - $ref: '#/components/schemas/__stringMin1Max512PatternSS'
+          - description: The regular expression (<i>regex</i>) that defines the text pattern to ignore. The expression can contain as many as 512 characters.
+        s3WordsList:
+          allOf:
+          - $ref: '#/components/schemas/S3WordsList'
+          - description: The location and name of the S3 object that lists specific text to ignore.
+      description: Specifies the criteria for an allow list. The criteria must specify a regular expression (regex) or an S3 object (s3WordsList). It can't specify both.
     __stringMin3Max255PatternAZaZ093255:
       type: string
       pattern: ^[A-Za-z0-9.\-_]{3,255}$
       minLength: 3
       maxLength: 255
+    AllowListStatusCode:
+      type: string
+      enum:
+      - OK
+      - S3_OBJECT_NOT_FOUND
+      - S3_USER_ACCESS_DENIED
+      - S3_OBJECT_ACCESS_DENIED
+      - S3_THROTTLED
+      - S3_OBJECT_OVERSIZE
+      - S3_OBJECT_EMPTY
+      - UNKNOWN_ERROR
+      description: 'Indicates the current status of an allow list. Depending on the type of criteria that the list specifies, possible values are:'
+    __stringMin22Max22PatternAZ0922:
+      type: string
+      pattern: ^[a-z0-9]{22}$
+      minLength: 22
+      maxLength: 22
+    __string:
+      type: string
+    ThrottlingException: {}
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

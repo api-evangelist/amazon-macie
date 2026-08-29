@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2020-01-01
   x-release: v4
-  title: Amazon Macie 2 Admin#adminAccountId Templates API
+  title: Amazon Macie 2 Templates API
   description: Amazon Macie
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/macie2-2020-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -325,65 +326,60 @@ paths:
       tags:
       - Templates
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
+    ResourceNotFoundException: {}
+    SensitivityInspectionTemplatesEntry:
+      type: object
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the sensitivity inspection template.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: 'The name of the sensitivity inspection template: automated-sensitive-data-discovery.'
+      description: Provides information about the sensitivity inspection template for an Amazon Macie account. Macie uses the template's settings when it performs automated sensitive data discovery for the account.
+    ValidationException: {}
+    AccessDeniedException: {}
+    ListSensitivityInspectionTemplatesResponse:
+      type: object
+      properties:
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+        sensitivityInspectionTemplates:
+          allOf:
+          - $ref: '#/components/schemas/__listOfSensitivityInspectionTemplatesEntry'
+          - description: An array that specifies the unique identifier and name of the sensitivity inspection template for the account.
     InternalServerException: {}
-    ThrottlingException: {}
-    SensitivityInspectionTemplateId:
-      type: string
-      description: The unique identifier for the sensitivity inspection template.
-    __string:
-      type: string
-    __listOf__string:
-      type: array
-      items:
-        $ref: '#/components/schemas/__string'
     __listOfSensitivityInspectionTemplatesEntry:
       type: array
       items:
         $ref: '#/components/schemas/SensitivityInspectionTemplatesEntry'
+    UpdateSensitivityInspectionTemplateResponse:
+      type: object
+      properties: {}
+    SensitivityInspectionTemplateId:
+      type: string
+      description: The unique identifier for the sensitivity inspection template.
+    SensitivityInspectionTemplateIncludes:
+      type: object
+      properties:
+        allowListIds:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: An array of unique identifiers, one for each allow list to include.
+        customDataIdentifierIds:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: An array of unique identifiers, one for each custom data identifier to include.
+        managedDataIdentifierIds:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: <p>An array of unique identifiers, one for each managed data identifier to include.</p> <p>Amazon Macie uses these managed data identifiers in addition to managed data identifiers that are subsequently released and recommended for automated sensitive data discovery. To retrieve a list of valid values for the managed data identifiers that are currently available, use the ListManagedDataIdentifiers operation.</p> <para/>
+      description: Specifies the allow lists, custom data identifiers, and managed data identifiers to include (use) when performing automated sensitive data discovery for an Amazon Macie account. The configuration must specify at least one custom data identifier or managed data identifier. For information about the managed data identifiers that Amazon Macie currently provides, see <a href="https://docs.aws.amazon.com/macie/latest/user/managed-data-identifiers.html">Using managed data identifiers</a> in the <i>Amazon Macie User Guide</i>.
     ServiceQuotaExceededException: {}
     GetSensitivityInspectionTemplateResponse:
       type: object
@@ -408,6 +404,10 @@ components:
           allOf:
           - $ref: '#/components/schemas/SensitivityInspectionTemplateId'
           - description: The unique identifier for the template.
+    __listOf__string:
+      type: array
+      items:
+        $ref: '#/components/schemas/__string'
     SensitivityInspectionTemplateExcludes:
       type: object
       properties:
@@ -416,51 +416,52 @@ components:
           - $ref: '#/components/schemas/__listOf__string'
           - description: An array of unique identifiers, one for each managed data identifier to exclude. To retrieve a list of valid values, use the ListManagedDataIdentifiers operation.
       description: Specifies managed data identifiers to exclude (not use) when performing automated sensitive data discovery for an Amazon Macie account. For information about the managed data identifiers that Amazon Macie currently provides, see <a href="https://docs.aws.amazon.com/macie/latest/user/managed-data-identifiers.html">Using managed data identifiers</a> in the <i>Amazon Macie User Guide</i>.
-    ResourceNotFoundException: {}
-    AccessDeniedException: {}
-    SensitivityInspectionTemplatesEntry:
-      type: object
-      properties:
-        id:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The unique identifier for the sensitivity inspection template.
-        name:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: 'The name of the sensitivity inspection template: automated-sensitive-data-discovery.'
-      description: Provides information about the sensitivity inspection template for an Amazon Macie account. Macie uses the template's settings when it performs automated sensitive data discovery for the account.
-    UpdateSensitivityInspectionTemplateResponse:
-      type: object
-      properties: {}
-    ListSensitivityInspectionTemplatesResponse:
-      type: object
-      properties:
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-        sensitivityInspectionTemplates:
-          allOf:
-          - $ref: '#/components/schemas/__listOfSensitivityInspectionTemplatesEntry'
-          - description: An array that specifies the unique identifier and name of the sensitivity inspection template for the account.
-    ValidationException: {}
-    SensitivityInspectionTemplateIncludes:
-      type: object
-      properties:
-        allowListIds:
-          allOf:
-          - $ref: '#/components/schemas/__listOf__string'
-          - description: An array of unique identifiers, one for each allow list to include.
-        customDataIdentifierIds:
-          allOf:
-          - $ref: '#/components/schemas/__listOf__string'
-          - description: An array of unique identifiers, one for each custom data identifier to include.
-        managedDataIdentifierIds:
-          allOf:
-          - $ref: '#/components/schemas/__listOf__string'
-          - description: <p>An array of unique identifiers, one for each managed data identifier to include.</p> <p>Amazon Macie uses these managed data identifiers in addition to managed data identifiers that are subsequently released and recommended for automated sensitive data discovery. To retrieve a list of valid values for the managed data identifiers that are currently available, use the ListManagedDataIdentifiers operation.</p> <para/>
-      description: Specifies the allow lists, custom data identifiers, and managed data identifiers to include (use) when performing automated sensitive data discovery for an Amazon Macie account. The configuration must specify at least one custom data identifier or managed data identifier. For information about the managed data identifiers that Amazon Macie currently provides, see <a href="https://docs.aws.amazon.com/macie/latest/user/managed-data-identifiers.html">Using managed data identifiers</a> in the <i>Amazon Macie User Guide</i>.
+    __string:
+      type: string
+    ThrottlingException: {}
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

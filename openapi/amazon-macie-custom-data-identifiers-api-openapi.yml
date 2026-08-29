@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2020-01-01
   x-release: v4
-  title: Amazon Macie 2 Admin#adminAccountId Custom Data Identifiers API
+  title: Amazon Macie 2 Custom Data Identifiers API
   description: Amazon Macie
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/macie2-2020-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -619,190 +620,11 @@ paths:
       tags:
       - Custom Data Identifiers
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    __listOfBatchGetCustomDataIdentifierSummary:
-      type: array
-      items:
-        $ref: '#/components/schemas/BatchGetCustomDataIdentifierSummary'
-    InternalServerException: {}
+    ConflictException: {}
+    ResourceNotFoundException: {}
     __integer:
       type: integer
-    ThrottlingException: {}
-    DataIdentifierSeverity:
-      type: string
-      enum:
-      - LOW
-      - MEDIUM
-      - HIGH
-      description: 'The severity of a finding, ranging from LOW, for least severe, to HIGH, for most severe. Valid values are:'
-    CustomDataIdentifierSummary:
-      type: object
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The Amazon Resource Name (ARN) of the custom data identifier.
-        createdAt:
-          allOf:
-          - $ref: '#/components/schemas/__timestampIso8601'
-          - description: The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The custom description of the custom data identifier.
-        id:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The unique identifier for the custom data identifier.
-        name:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The custom name of the custom data identifier.
-      description: Provides information about a custom data identifier.
-    SeverityLevel:
-      type: object
-      required:
-      - occurrencesThreshold
-      - severity
-      properties:
-        occurrencesThreshold:
-          allOf:
-          - $ref: '#/components/schemas/__long'
-          - description: The minimum number of occurrences of text that must match the custom data identifier's detection criteria in order to produce a finding with the specified severity (severity).
-        severity:
-          allOf:
-          - $ref: '#/components/schemas/DataIdentifierSeverity'
-          - description: 'The severity to assign to a finding: if the number of occurrences is greater than or equal to the specified threshold (occurrencesThreshold); and, if applicable, the number of occurrences is less than the threshold for the next consecutive severity level for the custom data identifier, moving from LOW to HIGH.'
-      description: Specifies a severity level for findings that a custom data identifier produces. A severity level determines which severity is assigned to the findings, based on the number of occurrences of text that matches the custom data identifier's detection criteria.
-    ConflictException: {}
-    SeverityLevelList:
-      type: array
-      description: '<p>The severity to assign to findings that the custom data identifier produces, based on the number of occurrences of text that matches the custom data identifier''s detection criteria. You can specify as many as three SeverityLevel objects in this array, one for each severity: LOW, MEDIUM, or HIGH. If you specify more than one, the occurrences thresholds must be in ascending order by severity, moving from LOW to HIGH. For example, 1 for LOW, 50 for MEDIUM, and 100 for HIGH. If an S3 object contains fewer occurrences than the lowest specified threshold, Amazon Macie doesn''t create a finding.</p> <p>If you don''t specify any values for this array, Macie creates findings for S3 objects that contain at least one occurrence of text that matches the detection criteria, and Macie automatically assigns the MEDIUM severity to those findings.</p>'
-      items:
-        $ref: '#/components/schemas/SeverityLevel'
-    __string:
-      type: string
-    __listOf__string:
-      type: array
-      items:
-        $ref: '#/components/schemas/__string'
-    BatchGetCustomDataIdentifierSummary:
-      type: object
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The Amazon Resource Name (ARN) of the custom data identifier.
-        createdAt:
-          allOf:
-          - $ref: '#/components/schemas/__timestampIso8601'
-          - description: The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.
-        deleted:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - description: Specifies whether the custom data identifier was deleted. If you delete a custom data identifier, Amazon Macie doesn't delete it permanently. Instead, it soft deletes the identifier.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The custom description of the custom data identifier.
-        id:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The unique identifier for the custom data identifier.
-        name:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The custom name of the custom data identifier.
-      description: Provides information about a custom data identifier.
-    __long:
-      type: integer
-    ServiceQuotaExceededException: {}
-    __boolean:
-      type: boolean
-    DeleteCustomDataIdentifierResponse:
-      type: object
-      properties: {}
-    __timestampIso8601:
-      type: string
-      format: date-time
-    __listOfCustomDataIdentifierSummary:
-      type: array
-      items:
-        $ref: '#/components/schemas/CustomDataIdentifierSummary'
-    BatchGetCustomDataIdentifiersResponse:
-      type: object
-      properties:
-        customDataIdentifiers:
-          allOf:
-          - $ref: '#/components/schemas/__listOfBatchGetCustomDataIdentifierSummary'
-          - description: An array of objects, one for each custom data identifier that matches the criteria specified in the request.
-        notFoundIdentifierIds:
-          allOf:
-          - $ref: '#/components/schemas/__listOf__string'
-          - description: An array of custom data identifier IDs, one for each custom data identifier that was specified in the request but doesn't correlate to an existing custom data identifier.
-    ListCustomDataIdentifiersResponse:
-      type: object
-      properties:
-        items:
-          allOf:
-          - $ref: '#/components/schemas/__listOfCustomDataIdentifierSummary'
-          - description: An array of objects, one for each custom data identifier.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    ResourceNotFoundException: {}
-    AccessDeniedException: {}
-    TestCustomDataIdentifierResponse:
-      type: object
-      properties:
-        matchCount:
-          allOf:
-          - $ref: '#/components/schemas/__integer'
-          - description: The number of occurrences of sample text that matched the criteria specified by the custom data identifier.
     ValidationException: {}
     GetCustomDataIdentifierResponse:
       type: object
@@ -855,6 +677,15 @@ components:
           allOf:
           - $ref: '#/components/schemas/TagMap'
           - description: A map of key-value pairs that identifies the tags (keys and values) that are associated with the custom data identifier.
+    __timestampIso8601:
+      type: string
+      format: date-time
+    __boolean:
+      type: boolean
+    __listOfBatchGetCustomDataIdentifierSummary:
+      type: array
+      items:
+        $ref: '#/components/schemas/BatchGetCustomDataIdentifierSummary'
     CreateCustomDataIdentifierResponse:
       type: object
       properties:
@@ -862,11 +693,181 @@ components:
           allOf:
           - $ref: '#/components/schemas/__string'
           - description: The unique identifier for the custom data identifier that was created.
+    DeleteCustomDataIdentifierResponse:
+      type: object
+      properties: {}
+    DataIdentifierSeverity:
+      type: string
+      enum:
+      - LOW
+      - MEDIUM
+      - HIGH
+      description: 'The severity of a finding, ranging from LOW, for least severe, to HIGH, for most severe. Valid values are:'
+    AccessDeniedException: {}
+    TestCustomDataIdentifierResponse:
+      type: object
+      properties:
+        matchCount:
+          allOf:
+          - $ref: '#/components/schemas/__integer'
+          - description: The number of occurrences of sample text that matched the criteria specified by the custom data identifier.
     TagMap:
       type: object
       description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
       additionalProperties:
         $ref: '#/components/schemas/__string'
+    BatchGetCustomDataIdentifiersResponse:
+      type: object
+      properties:
+        customDataIdentifiers:
+          allOf:
+          - $ref: '#/components/schemas/__listOfBatchGetCustomDataIdentifierSummary'
+          - description: An array of objects, one for each custom data identifier that matches the criteria specified in the request.
+        notFoundIdentifierIds:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: An array of custom data identifier IDs, one for each custom data identifier that was specified in the request but doesn't correlate to an existing custom data identifier.
+    InternalServerException: {}
+    ListCustomDataIdentifiersResponse:
+      type: object
+      properties:
+        items:
+          allOf:
+          - $ref: '#/components/schemas/__listOfCustomDataIdentifierSummary'
+          - description: An array of objects, one for each custom data identifier.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    SeverityLevelList:
+      type: array
+      description: '<p>The severity to assign to findings that the custom data identifier produces, based on the number of occurrences of text that matches the custom data identifier''s detection criteria. You can specify as many as three SeverityLevel objects in this array, one for each severity: LOW, MEDIUM, or HIGH. If you specify more than one, the occurrences thresholds must be in ascending order by severity, moving from LOW to HIGH. For example, 1 for LOW, 50 for MEDIUM, and 100 for HIGH. If an S3 object contains fewer occurrences than the lowest specified threshold, Amazon Macie doesn''t create a finding.</p> <p>If you don''t specify any values for this array, Macie creates findings for S3 objects that contain at least one occurrence of text that matches the detection criteria, and Macie automatically assigns the MEDIUM severity to those findings.</p>'
+      items:
+        $ref: '#/components/schemas/SeverityLevel'
+    __listOfCustomDataIdentifierSummary:
+      type: array
+      items:
+        $ref: '#/components/schemas/CustomDataIdentifierSummary'
+    __long:
+      type: integer
+    CustomDataIdentifierSummary:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the custom data identifier.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The custom description of the custom data identifier.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the custom data identifier.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The custom name of the custom data identifier.
+      description: Provides information about a custom data identifier.
+    ServiceQuotaExceededException: {}
+    BatchGetCustomDataIdentifierSummary:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the custom data identifier.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.
+        deleted:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the custom data identifier was deleted. If you delete a custom data identifier, Amazon Macie doesn't delete it permanently. Instead, it soft deletes the identifier.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The custom description of the custom data identifier.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the custom data identifier.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The custom name of the custom data identifier.
+      description: Provides information about a custom data identifier.
+    __listOf__string:
+      type: array
+      items:
+        $ref: '#/components/schemas/__string'
+    SeverityLevel:
+      type: object
+      required:
+      - occurrencesThreshold
+      - severity
+      properties:
+        occurrencesThreshold:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The minimum number of occurrences of text that must match the custom data identifier's detection criteria in order to produce a finding with the specified severity (severity).
+        severity:
+          allOf:
+          - $ref: '#/components/schemas/DataIdentifierSeverity'
+          - description: 'The severity to assign to a finding: if the number of occurrences is greater than or equal to the specified threshold (occurrencesThreshold); and, if applicable, the number of occurrences is less than the threshold for the next consecutive severity level for the custom data identifier, moving from LOW to HIGH.'
+      description: Specifies a severity level for findings that a custom data identifier produces. A severity level determines which severity is assigned to the findings, based on the number of occurrences of text that matches the custom data identifier's detection criteria.
+    __string:
+      type: string
+    ThrottlingException: {}
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

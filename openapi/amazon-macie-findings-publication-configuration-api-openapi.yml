@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2020-01-01
   x-release: v4
-  title: Amazon Macie 2 Admin#adminAccountId Findings Publication Configuration API
+  title: Amazon Macie 2 Findings Publication Configuration API
   description: Amazon Macie
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/macie2-2020-01-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -259,24 +260,10 @@ paths:
       - Findings Publication Configuration
 components:
   schemas:
-    __boolean:
-      type: boolean
     ConflictException: {}
-    PutFindingsPublicationConfigurationResponse:
-      type: object
-      properties: {}
-    InternalServerException: {}
-    ValidationException: {}
-    ThrottlingException: {}
-    ResourceNotFoundException: {}
-    GetFindingsPublicationConfigurationResponse:
-      type: object
-      properties:
-        securityHubConfiguration:
-          allOf:
-          - $ref: '#/components/schemas/SecurityHubConfiguration'
-          - description: The configuration settings that determine which findings are published to Security Hub.
     AccessDeniedException: {}
+    ResourceNotFoundException: {}
+    ValidationException: {}
     SecurityHubConfiguration:
       type: object
       required:
@@ -292,16 +279,30 @@ components:
           - $ref: '#/components/schemas/__boolean'
           - description: Specifies whether to publish policy findings to Security Hub. If you set this value to true, Amazon Macie automatically publishes all new and updated policy findings that weren't suppressed by a findings filter. The default value is true.
       description: Specifies configuration settings that determine which findings are published to Security Hub automatically. For information about how Macie publishes findings to Security Hub, see <a href="https://docs.aws.amazon.com/macie/latest/user/securityhub-integration.html">Amazon Macie integration with Security Hub</a> in the <i>Amazon Macie User Guide</i>.
+    GetFindingsPublicationConfigurationResponse:
+      type: object
+      properties:
+        securityHubConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/SecurityHubConfiguration'
+          - description: The configuration settings that determine which findings are published to Security Hub.
+    __boolean:
+      type: boolean
+    InternalServerException: {}
+    PutFindingsPublicationConfigurationResponse:
+      type: object
+      properties: {}
     ServiceQuotaExceededException: {}
+    ThrottlingException: {}
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -318,12 +319,6 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -332,6 +327,12 @@ components:
       required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
