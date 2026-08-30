@@ -132,7 +132,7 @@ apis:
   humanURL: https://aws.amazon.com/macie/
   baseURL: https://macie2.amazonaws.com
   tags:
-  - Allowlists
+  - Allow Lists
   tags_raw:
   - Allow Lists
   properties:
