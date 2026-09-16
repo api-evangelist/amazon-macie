@@ -639,6 +639,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-macie-context.jsonld
 common:
+- type: Website
+  url: https://amazon.com
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-macie/overview
 - type: AgenticAccess
