@@ -56,7 +56,8 @@ specificationVersion: '0.23'
 apis:
 - aid: amazon-macie:amazon-macie-admin-adminaccountid-api
   name: Amazon Macie Admin#adminAccountId API
-  description: The Admin#adminAccountId API from Amazon Macie — 1 operation(s) for admin#adminaccountid.
+  description: >-
+    The Admin#adminAccountId API from Amazon Macie — 1 operation(s) for admin#adminaccountid.
   humanURL: https://aws.amazon.com/macie/
   baseURL: https://macie2.amazonaws.com
   tags:
@@ -178,7 +179,8 @@ apis:
     url: json-ld/amazon-macie-context.jsonld
 - aid: amazon-macie:amazon-macie-classification-export-configuration-api
   name: Amazon Macie Classification Export Configuration API
-  description: The Classification Export Configuration API from Amazon Macie — 1 operation(s) for classification
+  description: >-
+    The Classification Export Configuration API from Amazon Macie — 1 operation(s) for classification
     export configuration.
   humanURL: https://aws.amazon.com/macie/
   baseURL: https://macie2.amazonaws.com
@@ -203,7 +205,8 @@ apis:
     url: json-ld/amazon-macie-context.jsonld
 - aid: amazon-macie:amazon-macie-classification-scopes-api
   name: Amazon Macie Classification Scopes API
-  description: The Classification Scopes API from Amazon Macie — 2 operation(s) for classification scopes.
+  description: >-
+    The Classification Scopes API from Amazon Macie — 2 operation(s) for classification scopes.
   humanURL: https://aws.amazon.com/macie/
   baseURL: https://macie2.amazonaws.com
   tags:
@@ -227,7 +230,8 @@ apis:
     url: json-ld/amazon-macie-context.jsonld
 - aid: amazon-macie:amazon-macie-custom-data-identifiers-api
   name: Amazon Macie Custom Data Identifiers API
-  description: The Custom Data Identifiers API from Amazon Macie — 5 operation(s) for custom data identifiers.
+  description: >-
+    The Custom Data Identifiers API from Amazon Macie — 5 operation(s) for custom data identifiers.
   humanURL: https://aws.amazon.com/macie/
   baseURL: https://macie2.amazonaws.com
   tags:
@@ -235,32 +239,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-macie-custom-data-identifiers-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/macie/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/macie/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/macie/faq/
-  - type: JSONSchema
-    url: json-schema/amazon-macie-finding-schema.json
-  - type: JSONStructure
-    url: json-structure/amazon-macie-finding-structure.json
-  - type: JSONLD
-    url: json-ld/amazon-macie-context.jsonld
-- aid: amazon-macie:amazon-macie-datasources-api
-  name: Amazon Macie Datasources API
-  description: The Datasources API from Amazon Macie — 3 operation(s) for datasources.
-  humanURL: https://aws.amazon.com/macie/
-  baseURL: https://macie2.amazonaws.com
-  tags:
-  - Data Sources
-  tags_raw:
-  - Datasources
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-macie-datasources-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
   - type: GettingStarted
@@ -301,8 +279,9 @@ apis:
     url: json-ld/amazon-macie-context.jsonld
 - aid: amazon-macie:amazon-macie-findings-publication-configuration-api
   name: Amazon Macie Findings Publication Configuration API
-  description: The Findings Publication Configuration API from Amazon Macie — 1 operation(s) for findings
-    publication configuration.
+  description: >-
+    The Findings Publication Configuration API from Amazon Macie — 1 operation(s) for findings publication
+    configuration.
   humanURL: https://aws.amazon.com/macie/
   baseURL: https://macie2.amazonaws.com
   tags:
@@ -424,7 +403,8 @@ apis:
     url: json-ld/amazon-macie-context.jsonld
 - aid: amazon-macie:amazon-macie-managed-data-identifiers-api
   name: Amazon Macie Managed Data Identifiers API
-  description: The Managed Data Identifiers API from Amazon Macie — 1 operation(s) for managed data identifiers.
+  description: >-
+    The Managed Data Identifiers API from Amazon Macie — 1 operation(s) for managed data identifiers.
   humanURL: https://aws.amazon.com/macie/
   baseURL: https://macie2.amazonaws.com
   tags:
@@ -520,7 +500,8 @@ apis:
     url: json-ld/amazon-macie-context.jsonld
 - aid: amazon-macie:amazon-macie-resource-profiles-resourcearn-api
   name: Amazon Macie Resource Profiles#resourceArn API
-  description: The Resource Profiles#resourceArn API from Amazon Macie — 1 operation(s) for resource profiles#resourcearn.
+  description: >-
+    The Resource Profiles#resourceArn API from Amazon Macie — 1 operation(s) for resource profiles#resourcearn.
   humanURL: https://aws.amazon.com/macie/
   baseURL: https://macie2.amazonaws.com
   tags:
@@ -544,7 +525,8 @@ apis:
     url: json-ld/amazon-macie-context.jsonld
 - aid: amazon-macie:amazon-macie-reveal-configuration-api
   name: Amazon Macie Reveal Configuration API
-  description: The Reveal Configuration API from Amazon Macie — 1 operation(s) for reveal configuration.
+  description: >-
+    The Reveal Configuration API from Amazon Macie — 1 operation(s) for reveal configuration.
   humanURL: https://aws.amazon.com/macie/
   baseURL: https://macie2.amazonaws.com
   tags:
@@ -624,6 +606,30 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-macie-usage-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/macie/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/macie/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/macie/faq/
+  - type: JSONSchema
+    url: json-schema/amazon-macie-finding-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-macie-finding-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-macie-context.jsonld
+- aid: amazon-macie:amazon-macie-data-sources-api
+  name: Amazon Macie Data Sources API
+  description: The Data Sources API from Amazon Macie — 3 operation(s) for data sources.
+  humanURL: https://aws.amazon.com/macie/
+  baseURL: https://macie2.amazonaws.com
+  tags:
+  - Data Sources
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-macie-data-sources-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
   - type: GettingStarted
