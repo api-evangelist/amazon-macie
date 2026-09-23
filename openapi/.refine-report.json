@@ -30,7 +30,9 @@
     "amazon-macie-templates-api-openapi.yml",
     "amazon-macie-usage-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -139,7 +141,9 @@
     "amazon-macie-openapi-original.yaml: declared missing tag: Tags",
     "amazon-macie-openapi-original.yaml: declared missing tag: Templates",
     "amazon-macie-openapi-original.yaml: declared missing tag: Usage",
-    "openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0"
+    "openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: amazon-macie-data-sources-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 24 total)"
   ],
   "skipped": [
     "amazon-macie-admin-adminaccountid-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -150,7 +154,7 @@
     "amazon-macie-classification-export-configuration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-macie-classification-scopes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-macie-custom-data-identifiers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-macie-datasources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-macie-data-sources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-macie-findings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-macie-findings-publication-configuration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-macie-findingsfilters-api-openapi.yml: previously refined output, superseded by openapi/_original/",

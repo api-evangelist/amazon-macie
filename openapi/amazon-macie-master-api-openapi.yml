@@ -126,7 +126,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: DisassociateFromMasterAccount
-      description: (Deprecated) Disassociates a member account from its Amazon Macie administrator account. This operation has been replaced by the <link linkend="DisassociateFromAdministratorAccount">DisassociateFromAdministratorAccount</link> operation.
+      description: (Deprecated) Disassociates a member account from its Amazon Macie administrator account. This operation has been replaced by the DisassociateFromAdministratorAccount operation.
       responses:
         '200':
           description: Success
@@ -191,7 +191,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     get:
       operationId: GetMasterAccount
-      description: (Deprecated) Retrieves information about the Amazon Macie administrator account for an account. This operation has been replaced by the <link linkend="GetAdministratorAccount">GetAdministratorAccount</link> operation.
+      description: (Deprecated) Retrieves information about the Amazon Macie administrator account for an account. This operation has been replaced by the GetAdministratorAccount operation.
       responses:
         '200':
           description: Success
@@ -247,39 +247,12 @@ paths:
       - Master
 components:
   schemas:
-    ConflictException: {}
-    GetMasterAccountResponse:
-      type: object
-      properties:
-        master:
-          allOf:
-          - $ref: '#/components/schemas/Invitation'
-          - description: (Deprecated) The Amazon Web Services account ID for the administrator account. If the accounts are associated by a Macie membership invitation, this object also provides details about the invitation that was sent to establish the relationship between the accounts.
-    ResourceNotFoundException: {}
-    ValidationException: {}
-    __timestampIso8601:
-      type: string
-      format: date-time
-    AccessDeniedException: {}
-    RelationshipStatus:
-      type: string
-      enum:
-      - Enabled
-      - Paused
-      - Invited
-      - Created
-      - Removed
-      - Resigned
-      - EmailVerificationInProgress
-      - EmailVerificationFailed
-      - RegionDisabled
-      - AccountSuspended
-      description: 'The current status of the relationship between an account and an associated Amazon Macie administrator account. Possible values are:'
-    InternalServerException: {}
-    ServiceQuotaExceededException: {}
     DisassociateFromMasterAccountResponse:
       type: object
       properties: {}
+    ThrottlingException: {}
+    ServiceQuotaExceededException: {}
+    ConflictException: {}
     Invitation:
       type: object
       properties:
@@ -300,12 +273,39 @@ components:
           - $ref: '#/components/schemas/RelationshipStatus'
           - description: The status of the relationship between the account that sent the invitation and the account that received the invitation.
       description: Provides information about an Amazon Macie membership invitation.
+    __timestampIso8601:
+      type: string
+      format: date-time
+    ValidationException: {}
+    GetMasterAccountResponse:
+      type: object
+      properties:
+        master:
+          allOf:
+          - $ref: '#/components/schemas/Invitation'
+          - description: (Deprecated) The Amazon Web Services account ID for the administrator account. If the accounts are associated by a Macie membership invitation, this object also provides details about the invitation that was sent to establish the relationship between the accounts.
+    RelationshipStatus:
+      type: string
+      enum:
+      - Enabled
+      - Paused
+      - Invited
+      - Created
+      - Removed
+      - Resigned
+      - EmailVerificationInProgress
+      - EmailVerificationFailed
+      - RegionDisabled
+      - AccountSuspended
+      description: 'The current status of the relationship between an account and an associated Amazon Macie administrator account. Possible values are:'
+    ResourceNotFoundException: {}
+    InternalServerException: {}
     __string:
       type: string
-    ThrottlingException: {}
+    AccessDeniedException: {}
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -316,26 +316,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string

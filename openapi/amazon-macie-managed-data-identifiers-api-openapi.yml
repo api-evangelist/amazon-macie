@@ -156,6 +156,12 @@ paths:
       - Managed Data Identifiers
 components:
   parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
@@ -168,14 +174,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -186,8 +186,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -199,14 +199,6 @@ components:
         type: string
       required: false
   schemas:
-    SensitiveDataItemCategory:
-      type: string
-      enum:
-      - FINANCIAL_INFORMATION
-      - PERSONAL_INFORMATION
-      - CREDENTIALS
-      - CUSTOM_IDENTIFIER
-      description: 'For a finding, the category of sensitive data that was detected and produced the finding. For a managed data identifier, the category of sensitive data that the managed data identifier detects. Possible values are:'
     ListManagedDataIdentifiersResponse:
       type: object
       properties:
@@ -234,6 +226,14 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/ManagedDataIdentifierSummary'
+    SensitiveDataItemCategory:
+      type: string
+      enum:
+      - FINANCIAL_INFORMATION
+      - PERSONAL_INFORMATION
+      - CREDENTIALS
+      - CUSTOM_IDENTIFIER
+      description: 'For a finding, the category of sensitive data that was detected and produced the finding. For a managed data identifier, the category of sensitive data that the managed data identifier detects. Possible values are:'
     __string:
       type: string
   securitySchemes:

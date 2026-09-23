@@ -300,16 +300,44 @@ paths:
       - Classification Scopes
 components:
   schemas:
-    __listOfClassificationScopeSummary:
-      type: array
-      items:
-        $ref: '#/components/schemas/ClassificationScopeSummary'
+    S3ClassificationScopeExclusion:
+      type: object
+      required:
+      - bucketNames
+      properties:
+        bucketNames:
+          allOf:
+          - $ref: '#/components/schemas/__listOfS3BucketName'
+          - description: An array of strings, one for each S3 bucket that is excluded. Each string is the full name of an excluded bucket.
+      description: Specifies the names of the S3 buckets that are excluded from automated sensitive data discovery.
+    ThrottlingException: {}
+    GetClassificationScopeResponse:
+      type: object
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ClassificationScopeId'
+          - description: The unique identifier for the classification scope.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ClassificationScopeName'
+          - description: 'The name of the classification scope: automated-sensitive-data-discovery.'
+        s3:
+          allOf:
+          - $ref: '#/components/schemas/S3ClassificationScope'
+          - description: The S3 buckets that are excluded from automated sensitive data discovery.
+    ValidationException: {}
     ClassificationScopeName:
       type: string
       pattern: ^[0-9a-zA-Z_\\-]*$
       description: The name of the classification scope.
-    ResourceNotFoundException: {}
-    ValidationException: {}
+    UpdateClassificationScopeResponse:
+      type: object
+      properties: {}
+    __listOfClassificationScopeSummary:
+      type: array
+      items:
+        $ref: '#/components/schemas/ClassificationScopeSummary'
     ClassificationScopeUpdateOperation:
       type: string
       enum:
@@ -329,63 +357,12 @@ components:
           - $ref: '#/components/schemas/ClassificationScopeName'
           - description: 'The name of the classification scope: automated-sensitive-data-discovery.'
       description: Provides information about the classification scope for an Amazon Macie account. Macie uses the scope's settings when it performs automated sensitive data discovery for the account.
-    S3ClassificationScopeExclusion:
-      type: object
-      required:
-      - bucketNames
-      properties:
-        bucketNames:
-          allOf:
-          - $ref: '#/components/schemas/__listOfS3BucketName'
-          - description: An array of strings, one for each S3 bucket that is excluded. Each string is the full name of an excluded bucket.
-      description: Specifies the names of the S3 buckets that are excluded from automated sensitive data discovery.
-    AccessDeniedException: {}
-    NextToken:
-      type: string
-      pattern: ^.*$
-      description: Specifies which page of results to return in a paginated response.
-    UpdateClassificationScopeResponse:
-      type: object
-      properties: {}
-    GetClassificationScopeResponse:
-      type: object
-      properties:
-        id:
-          allOf:
-          - $ref: '#/components/schemas/ClassificationScopeId'
-          - description: The unique identifier for the classification scope.
-        name:
-          allOf:
-          - $ref: '#/components/schemas/ClassificationScopeName'
-          - description: 'The name of the classification scope: automated-sensitive-data-discovery.'
-        s3:
-          allOf:
-          - $ref: '#/components/schemas/S3ClassificationScope'
-          - description: The S3 buckets that are excluded from automated sensitive data discovery.
-    __listOfS3BucketName:
-      type: array
-      items:
-        $ref: '#/components/schemas/S3BucketName'
-    ListClassificationScopesResponse:
-      type: object
-      properties:
-        classificationScopes:
-          allOf:
-          - $ref: '#/components/schemas/__listOfClassificationScopeSummary'
-          - description: An array that specifies the unique identifier and name of the classification scope for the account.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    S3BucketName:
-      type: string
-      pattern: ^[A-Za-z0-9.\-_]{3,255}$
-      description: The name of an S3 bucket.
-    InternalServerException: {}
+    ResourceNotFoundException: {}
     ClassificationScopeId:
       type: string
       pattern: ^[0-9a-z]*$
       description: The unique identifier the classification scope.
+    InternalServerException: {}
     S3ClassificationScopeExclusionUpdate:
       type: object
       required:
@@ -401,6 +378,19 @@ components:
           - $ref: '#/components/schemas/ClassificationScopeUpdateOperation'
           - description: <p>Specifies how to apply the changes to the exclusion list. Valid values are:</p> <ul><li><p>ADD - Append the specified bucket names to the current list.</p></li> <li><p>REMOVE - Remove the specified bucket names from the current list.</p></li> <li><p>REPLACE - Overwrite the current list with the specified list of bucket names. If you specify this value, Amazon Macie removes all existing names from the list and adds all the specified names to the list.</p></li></ul>
       description: Specifies S3 buckets to add or remove from the exclusion list defined by the classification scope for an Amazon Macie account.
+    S3BucketName:
+      type: string
+      pattern: ^[A-Za-z0-9.\-_]{3,255}$
+      description: The name of an S3 bucket.
+    __listOfS3BucketName:
+      type: array
+      items:
+        $ref: '#/components/schemas/S3BucketName'
+    AccessDeniedException: {}
+    NextToken:
+      type: string
+      pattern: ^.*$
+      description: Specifies which page of results to return in a paginated response.
     S3ClassificationScope:
       type: object
       required:
@@ -411,10 +401,20 @@ components:
           - $ref: '#/components/schemas/S3ClassificationScopeExclusion'
           - description: The S3 buckets that are excluded.
       description: Specifies the S3 buckets that are excluded from automated sensitive data discovery for an Amazon Macie account.
-    ThrottlingException: {}
+    ListClassificationScopesResponse:
+      type: object
+      properties:
+        classificationScopes:
+          allOf:
+          - $ref: '#/components/schemas/__listOfClassificationScopeSummary'
+          - description: An array that specifies the unique identifier and name of the classification scope for the account.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -425,26 +425,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string

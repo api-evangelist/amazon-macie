@@ -217,12 +217,11 @@ paths:
       - Automated Discovery
 components:
   schemas:
-    Timestamp:
+    ClassificationScopeId:
       type: string
-      description: Specifies a date and time in UTC and extended ISO 8601 format.
-      format: date-time
+      pattern: ^[0-9a-z]*$
+      description: The unique identifier the classification scope.
     AccessDeniedException: {}
-    ValidationException: {}
     GetAutomatedDiscoveryConfigurationResponse:
       type: object
       properties:
@@ -250,27 +249,28 @@ components:
           allOf:
           - $ref: '#/components/schemas/AutomatedDiscoveryStatus'
           - description: 'The current status of the automated sensitive data discovery configuration for the account. Possible values are: ENABLED, use the specified settings to perform automated sensitive data discovery activities for the account; and, DISABLED, don''t perform automated sensitive data discovery activities for the account.'
-    UpdateAutomatedDiscoveryConfigurationResponse:
-      type: object
-      properties: {}
-    ClassificationScopeId:
-      type: string
-      pattern: ^[0-9a-z]*$
-      description: The unique identifier the classification scope.
+    InternalServerException: {}
+    ValidationException: {}
+    ThrottlingException: {}
     AutomatedDiscoveryStatus:
       type: string
       enum:
       - ENABLED
       - DISABLED
       description: 'The status of the automated sensitive data discovery configuration for an Amazon Macie account. Valid values are:'
-    InternalServerException: {}
+    Timestamp:
+      type: string
+      description: Specifies a date and time in UTC and extended ISO 8601 format.
+      format: date-time
+    UpdateAutomatedDiscoveryConfigurationResponse:
+      type: object
+      properties: {}
     SensitivityInspectionTemplateId:
       type: string
       description: The unique identifier for the sensitivity inspection template.
-    ThrottlingException: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -281,8 +281,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -293,14 +299,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

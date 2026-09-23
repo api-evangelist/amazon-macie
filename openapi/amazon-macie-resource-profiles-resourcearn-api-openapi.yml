@@ -247,21 +247,51 @@ paths:
       tags:
       - Resource Profiles#resourceArn
 components:
+  parameters:
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    ResourceNotFoundException: {}
-    __integer:
-      type: integer
-    ValidationException: {}
-    __timestampIso8601:
-      type: string
-      format: date-time
-    __boolean:
-      type: boolean
-    UpdateResourceProfileResponse:
-      type: object
-      properties: {}
-    AccessDeniedException: {}
-    InternalServerException: {}
+    ThrottlingException: {}
     ResourceStatistics:
       type: object
       properties:
@@ -302,6 +332,21 @@ components:
           - $ref: '#/components/schemas/__long'
           - description: The total number of objects that Amazon Macie hasn't analyzed in the bucket because Macie isn't allowed to access the objects.
       description: Provides statistical data for sensitive data discovery metrics that apply to an S3 bucket that Amazon Macie monitors and analyzes for your account. The statistics capture the results of automated sensitive data discovery activities that Macie has performed for the bucket. The data is available only if automated sensitive data discovery is currently enabled for your account.
+    ServiceQuotaExceededException: {}
+    __timestampIso8601:
+      type: string
+      format: date-time
+    __boolean:
+      type: boolean
+    ValidationException: {}
+    __long:
+      type: integer
+    ResourceNotFoundException: {}
+    InternalServerException: {}
+    UpdateResourceProfileResponse:
+      type: object
+      properties: {}
+    AccessDeniedException: {}
     GetResourceProfileResponse:
       type: object
       properties:
@@ -321,53 +366,8 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResourceStatistics'
           - description: The sensitive data discovery statistics for the bucket. The statistics capture the results of automated sensitive data discovery activities that Amazon Macie has performed for the bucket.
-    __long:
+    __integer:
       type: integer
-    ServiceQuotaExceededException: {}
-    ThrottlingException: {}
-  parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   securitySchemes:
     hmac:
       type: apiKey

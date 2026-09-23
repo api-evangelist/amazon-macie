@@ -488,7 +488,21 @@ paths:
       - Members
 components:
   schemas:
-    ConflictException: {}
+    DisassociateMemberResponse:
+      type: object
+      properties: {}
+    ListMembersResponse:
+      type: object
+      properties:
+        members:
+          allOf:
+          - $ref: '#/components/schemas/__listOfMember'
+          - description: An array of objects, one for each account that's associated with the administrator account and matches the criteria specified in the request.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    ThrottlingException: {}
     Member:
       type: object
       properties:
@@ -529,17 +543,43 @@ components:
           - $ref: '#/components/schemas/__timestampIso8601'
           - description: The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the relationship between the account and the administrator account.
       description: Provides information about an account that's associated with an Amazon Macie administrator account.
-    ResourceNotFoundException: {}
-    ValidationException: {}
-    DeleteMemberResponse:
-      type: object
-      properties: {}
+    ServiceQuotaExceededException: {}
+    ConflictException: {}
+    __listOfMember:
+      type: array
+      items:
+        $ref: '#/components/schemas/Member'
     __timestampIso8601:
       type: string
       format: date-time
-    DisassociateMemberResponse:
+    TagMap:
+      type: object
+      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
+      additionalProperties:
+        $ref: '#/components/schemas/__string'
+    ValidationException: {}
+    RelationshipStatus:
+      type: string
+      enum:
+      - Enabled
+      - Paused
+      - Invited
+      - Created
+      - Removed
+      - Resigned
+      - EmailVerificationInProgress
+      - EmailVerificationFailed
+      - RegionDisabled
+      - AccountSuspended
+      description: 'The current status of the relationship between an account and an associated Amazon Macie administrator account. Possible values are:'
+    DeleteMemberResponse:
       type: object
       properties: {}
+    ResourceNotFoundException: {}
+    InternalServerException: {}
+    __string:
+      type: string
+    AccessDeniedException: {}
     GetMemberResponse:
       type: object
       properties:
@@ -579,26 +619,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/__timestampIso8601'
           - description: The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the relationship between the account and the administrator account.
-    AccessDeniedException: {}
-    TagMap:
-      type: object
-      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
-      additionalProperties:
-        $ref: '#/components/schemas/__string'
-    RelationshipStatus:
-      type: string
-      enum:
-      - Enabled
-      - Paused
-      - Invited
-      - Created
-      - Removed
-      - Resigned
-      - EmailVerificationInProgress
-      - EmailVerificationFailed
-      - RegionDisabled
-      - AccountSuspended
-      description: 'The current status of the relationship between an account and an associated Amazon Macie administrator account. Possible values are:'
     CreateMemberResponse:
       type: object
       properties:
@@ -606,29 +626,9 @@ components:
           allOf:
           - $ref: '#/components/schemas/__string'
           - description: The Amazon Resource Name (ARN) of the account that was associated with the administrator account.
-    InternalServerException: {}
-    __listOfMember:
-      type: array
-      items:
-        $ref: '#/components/schemas/Member'
-    ListMembersResponse:
-      type: object
-      properties:
-        members:
-          allOf:
-          - $ref: '#/components/schemas/__listOfMember'
-          - description: An array of objects, one for each account that's associated with the administrator account and matches the criteria specified in the request.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    ServiceQuotaExceededException: {}
-    __string:
-      type: string
-    ThrottlingException: {}
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -639,26 +639,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string

@@ -476,45 +476,25 @@ paths:
       - Allow Lists
 components:
   schemas:
-    ConflictException: {}
-    ResourceNotFoundException: {}
-    ValidationException: {}
-    ListAllowListsResponse:
-      type: object
-      properties:
-        allowLists:
-          allOf:
-          - $ref: '#/components/schemas/__listOfAllowListSummary'
-          - description: An array of objects, one for each allow list.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    __timestampIso8601:
+    __stringMin3Max255PatternAZaZ093255:
       type: string
-      format: date-time
-    __stringMin1Max128Pattern:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 128
-    CreateAllowListResponse:
+      pattern: ^[A-Za-z0-9.\-_]{3,255}$
+      minLength: 3
+      maxLength: 255
+    AllowListStatus:
       type: object
+      required:
+      - code
       properties:
-        arn:
+        code:
           allOf:
-          - $ref: '#/components/schemas/__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922'
-          - description: The Amazon Resource Name (ARN) of the allow list.
-        id:
+          - $ref: '#/components/schemas/AllowListStatusCode'
+          - description: <p>The current status of the allow list. If the list's criteria specify a regular expression (regex), this value is typically OK. Amazon Macie can compile the expression.</p> <p>If the list's criteria specify an S3 object, possible values are:</p> <ul><li><p>OK - Macie can retrieve and parse the contents of the object.</p></li> <li><p>S3_OBJECT_ACCESS_DENIED - Macie isn't allowed to access the object or the object is encrypted with a customer managed KMS key that Macie isn't allowed to use. Check the bucket policy and other permissions settings for the bucket and the object. If the object is encrypted, also ensure that it's encrypted with a key that Macie is allowed to use.</p></li> <li><p>S3_OBJECT_EMPTY - Macie can retrieve the object but the object doesn't contain any content. Ensure that the object contains the correct entries. Also ensure that the list's criteria specify the correct bucket and object names.</p></li> <li><p>S3_OBJECT_NOT_FOUND - The object doesn't exist in Amazon S3. Ensure that the list's criteria specify the correct bucket and object names.</p></li> <li><p>S3_OBJECT_OVERSIZE - Macie can retrieve the object. However, the object contains too many entries or its storage size exceeds the quota for an allow list. Try breaking the list into multiple files and ensure that each file doesn't exceed any quotas. Then configure list settings in Macie for each file.</p></li> <li><p>S3_THROTTLED - Amazon S3 throttled the request to retrieve the object. Wait a few minutes and then try again.</p></li> <li><p>S3_USER_ACCESS_DENIED - Amazon S3 denied the request to retrieve the object. If the specified object exists, you're not allowed to access it or it's encrypted with an KMS key that you're not allowed to use. Work with your Amazon Web Services administrator to ensure that the list's criteria specify the correct bucket and object names, and you have read access to the bucket and the object. If the object is encrypted, also ensure that it's encrypted with a key that you're allowed to use.</p></li> <li><p>UNKNOWN_ERROR - A transient or internal error occurred when Macie attempted to retrieve or parse the object. Wait a few minutes and then try again. A list can also have this status if it's encrypted with a key that Amazon S3 and Macie can't access or use.</p></li></ul>
+        description:
           allOf:
-          - $ref: '#/components/schemas/__stringMin22Max22PatternAZ0922'
-          - description: The unique identifier for the allow list.
-    AccessDeniedException: {}
-    TagMap:
-      type: object
-      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
-      additionalProperties:
-        $ref: '#/components/schemas/__string'
+          - $ref: '#/components/schemas/__stringMin1Max1024PatternSS'
+          - description: A brief description of the status of the allow list. Amazon Macie uses this value to provide additional information about an error that occurred when Macie tried to access and use the list's criteria.
+      description: Provides information about the current status of an allow list, which indicates whether Amazon Macie can access and use the list's criteria.
     S3WordsList:
       type: object
       required:
@@ -530,20 +510,7 @@ components:
           - $ref: '#/components/schemas/__stringMin1Max1024PatternSS'
           - description: The full name (key) of the object.
       description: Provides information about an S3 object that lists specific text to ignore.
-    AllowListStatus:
-      type: object
-      required:
-      - code
-      properties:
-        code:
-          allOf:
-          - $ref: '#/components/schemas/AllowListStatusCode'
-          - description: <p>The current status of the allow list. If the list's criteria specify a regular expression (regex), this value is typically OK. Amazon Macie can compile the expression.</p> <p>If the list's criteria specify an S3 object, possible values are:</p> <ul><li><p>OK - Macie can retrieve and parse the contents of the object.</p></li> <li><p>S3_OBJECT_ACCESS_DENIED - Macie isn't allowed to access the object or the object is encrypted with a customer managed KMS key that Macie isn't allowed to use. Check the bucket policy and other permissions settings for the bucket and the object. If the object is encrypted, also ensure that it's encrypted with a key that Macie is allowed to use.</p></li> <li><p>S3_OBJECT_EMPTY - Macie can retrieve the object but the object doesn't contain any content. Ensure that the object contains the correct entries. Also ensure that the list's criteria specify the correct bucket and object names.</p></li> <li><p>S3_OBJECT_NOT_FOUND - The object doesn't exist in Amazon S3. Ensure that the list's criteria specify the correct bucket and object names.</p></li> <li><p>S3_OBJECT_OVERSIZE - Macie can retrieve the object. However, the object contains too many entries or its storage size exceeds the quota for an allow list. Try breaking the list into multiple files and ensure that each file doesn't exceed any quotas. Then configure list settings in Macie for each file.</p></li> <li><p>S3_THROTTLED - Amazon S3 throttled the request to retrieve the object. Wait a few minutes and then try again.</p></li> <li><p>S3_USER_ACCESS_DENIED - Amazon S3 denied the request to retrieve the object. If the specified object exists, you're not allowed to access it or it's encrypted with an KMS key that you're not allowed to use. Work with your Amazon Web Services administrator to ensure that the list's criteria specify the correct bucket and object names, and you have read access to the bucket and the object. If the object is encrypted, also ensure that it's encrypted with a key that you're allowed to use.</p></li> <li><p>UNKNOWN_ERROR - A transient or internal error occurred when Macie attempted to retrieve or parse the object. Wait a few minutes and then try again. A list can also have this status if it's encrypted with a key that Amazon S3 and Macie can't access or use.</p></li></ul>
-        description:
-          allOf:
-          - $ref: '#/components/schemas/__stringMin1Max1024PatternSS'
-          - description: A brief description of the status of the allow list. Amazon Macie uses this value to provide additional information about an error that occurred when Macie tried to access and use the list's criteria.
-      description: Provides information about the current status of an allow list, which indicates whether Amazon Macie can access and use the list's criteria.
+    ThrottlingException: {}
     AllowListSummary:
       type: object
       properties:
@@ -572,27 +539,32 @@ components:
           - $ref: '#/components/schemas/__timestampIso8601'
           - description: The date and time, in UTC and extended ISO 8601 format, when the allow list's settings were most recently changed in Amazon Macie.
       description: Provides a subset of information about an allow list.
+    ServiceQuotaExceededException: {}
+    ConflictException: {}
+    __stringMin22Max22PatternAZ0922:
+      type: string
+      pattern: ^[a-z0-9]{22}$
+      minLength: 22
+      maxLength: 22
+    __timestampIso8601:
+      type: string
+      format: date-time
+    TagMap:
+      type: object
+      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
+      additionalProperties:
+        $ref: '#/components/schemas/__string'
+    __stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922:
+      type: string
+      pattern: ^arn:(aws|aws-cn|aws-us-gov):macie2:[a-z1-9-]{9,20}:\d{12}:allow-list\/[a-z0-9]{22}$
+      minLength: 71
+      maxLength: 89
+    ValidationException: {}
     __stringMin1Max1024PatternSS:
       type: string
       pattern: ^[\s\S]+$
       minLength: 1
       maxLength: 1024
-    InternalServerException: {}
-    UpdateAllowListResponse:
-      type: object
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922'
-          - description: The Amazon Resource Name (ARN) of the allow list.
-        id:
-          allOf:
-          - $ref: '#/components/schemas/__stringMin22Max22PatternAZ0922'
-          - description: The unique identifier for the allow list.
-    __listOfAllowListSummary:
-      type: array
-      items:
-        $ref: '#/components/schemas/AllowListSummary'
     GetAllowListResponse:
       type: object
       properties:
@@ -632,20 +604,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/__timestampIso8601'
           - description: The date and time, in UTC and extended ISO 8601 format, when the allow list's settings were most recently changed in Amazon Macie.
-    ServiceQuotaExceededException: {}
-    __stringMin1Max512PatternSS:
-      type: string
-      pattern: ^[\s\S]+$
-      minLength: 1
-      maxLength: 512
-    __stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922:
-      type: string
-      pattern: ^arn:(aws|aws-cn|aws-us-gov):macie2:[a-z1-9-]{9,20}:\d{12}:allow-list\/[a-z0-9]{22}$
-      minLength: 71
-      maxLength: 89
-    DeleteAllowListResponse:
-      type: object
-      properties: {}
     AllowListCriteria:
       type: object
       properties:
@@ -658,11 +616,61 @@ components:
           - $ref: '#/components/schemas/S3WordsList'
           - description: The location and name of the S3 object that lists specific text to ignore.
       description: Specifies the criteria for an allow list. The criteria must specify a regular expression (regex) or an S3 object (s3WordsList). It can't specify both.
-    __stringMin3Max255PatternAZaZ093255:
+    ListAllowListsResponse:
+      type: object
+      properties:
+        allowLists:
+          allOf:
+          - $ref: '#/components/schemas/__listOfAllowListSummary'
+          - description: An array of objects, one for each allow list.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    ResourceNotFoundException: {}
+    DeleteAllowListResponse:
+      type: object
+      properties: {}
+    __stringMin1Max128Pattern:
       type: string
-      pattern: ^[A-Za-z0-9.\-_]{3,255}$
-      minLength: 3
-      maxLength: 255
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 128
+    UpdateAllowListResponse:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922'
+          - description: The Amazon Resource Name (ARN) of the allow list.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__stringMin22Max22PatternAZ0922'
+          - description: The unique identifier for the allow list.
+    InternalServerException: {}
+    CreateAllowListResponse:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922'
+          - description: The Amazon Resource Name (ARN) of the allow list.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__stringMin22Max22PatternAZ0922'
+          - description: The unique identifier for the allow list.
+    __string:
+      type: string
+    AccessDeniedException: {}
+    __listOfAllowListSummary:
+      type: array
+      items:
+        $ref: '#/components/schemas/AllowListSummary'
+    __stringMin1Max512PatternSS:
+      type: string
+      pattern: ^[\s\S]+$
+      minLength: 1
+      maxLength: 512
     AllowListStatusCode:
       type: string
       enum:
@@ -675,17 +683,9 @@ components:
       - S3_OBJECT_EMPTY
       - UNKNOWN_ERROR
       description: 'Indicates the current status of an allow list. Depending on the type of criteria that the list specifies, possible values are:'
-    __stringMin22Max22PatternAZ0922:
-      type: string
-      pattern: ^[a-z0-9]{22}$
-      minLength: 22
-      maxLength: 22
-    __string:
-      type: string
-    ThrottlingException: {}
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -696,26 +696,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string

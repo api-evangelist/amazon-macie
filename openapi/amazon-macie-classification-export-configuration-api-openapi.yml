@@ -254,27 +254,54 @@ paths:
       tags:
       - Classification Export Configuration
 components:
+  parameters:
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
+    ThrottlingException: {}
+    ServiceQuotaExceededException: {}
     ConflictException: {}
-    ResourceNotFoundException: {}
     ValidationException: {}
-    GetClassificationExportConfigurationResponse:
-      type: object
-      properties:
-        configuration:
-          allOf:
-          - $ref: '#/components/schemas/ClassificationExportConfiguration'
-          - description: The location where data classification results are stored, and the encryption settings that are used when storing results in that location.
-    AccessDeniedException: {}
-    InternalServerException: {}
-    ClassificationExportConfiguration:
-      type: object
-      properties:
-        s3Destination:
-          allOf:
-          - $ref: '#/components/schemas/S3Destination'
-          - description: The S3 bucket to store data classification results in, and the encryption settings to use when storing results in that bucket.
-      description: Specifies where to store data classification results, and the encryption settings to use when storing results in that location. The location must be an S3 bucket.
     S3Destination:
       type: object
       required:
@@ -294,7 +321,18 @@ components:
           - $ref: '#/components/schemas/__string'
           - description: The Amazon Resource Name (ARN) of the customer managed KMS key to use for encryption of the results. This must be the ARN of an existing, symmetric encryption KMS key that's in the same Amazon Web Services Region as the bucket.
       description: Specifies an S3 bucket to store data classification results in, and the encryption settings to use when storing results in that bucket.
-    ServiceQuotaExceededException: {}
+    ResourceNotFoundException: {}
+    InternalServerException: {}
+    __string:
+      type: string
+    AccessDeniedException: {}
+    GetClassificationExportConfigurationResponse:
+      type: object
+      properties:
+        configuration:
+          allOf:
+          - $ref: '#/components/schemas/ClassificationExportConfiguration'
+          - description: The location where data classification results are stored, and the encryption settings that are used when storing results in that location.
     PutClassificationExportConfigurationResponse:
       type: object
       properties:
@@ -302,52 +340,14 @@ components:
           allOf:
           - $ref: '#/components/schemas/ClassificationExportConfiguration'
           - description: The location where the data classification results are stored, and the encryption settings that are used when storing results in that location.
-    __string:
-      type: string
-    ThrottlingException: {}
-  parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
+    ClassificationExportConfiguration:
+      type: object
+      properties:
+        s3Destination:
+          allOf:
+          - $ref: '#/components/schemas/S3Destination'
+          - description: The S3 bucket to store data classification results in, and the encryption settings to use when storing results in that bucket.
+      description: Specifies where to store data classification results, and the encryption settings to use when storing results in that location. The location must be an S3 bucket.
   securitySchemes:
     hmac:
       type: apiKey
