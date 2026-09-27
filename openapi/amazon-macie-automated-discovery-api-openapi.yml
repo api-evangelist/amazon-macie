@@ -217,11 +217,14 @@ paths:
       - Automated Discovery
 components:
   schemas:
+    SensitivityInspectionTemplateId:
+      type: string
+      description: The unique identifier for the sensitivity inspection template.
     ClassificationScopeId:
       type: string
       pattern: ^[0-9a-z]*$
       description: The unique identifier the classification scope.
-    AccessDeniedException: {}
+    InternalServerException: {}
     GetAutomatedDiscoveryConfigurationResponse:
       type: object
       properties:
@@ -249,28 +252,37 @@ components:
           allOf:
           - $ref: '#/components/schemas/AutomatedDiscoveryStatus'
           - description: 'The current status of the automated sensitive data discovery configuration for the account. Possible values are: ENABLED, use the specified settings to perform automated sensitive data discovery activities for the account; and, DISABLED, don''t perform automated sensitive data discovery activities for the account.'
-    InternalServerException: {}
-    ValidationException: {}
+    Timestamp:
+      type: string
+      description: Specifies a date and time in UTC and extended ISO 8601 format.
+      format: date-time
     ThrottlingException: {}
+    UpdateAutomatedDiscoveryConfigurationResponse:
+      type: object
+      properties: {}
+    AccessDeniedException: {}
+    ValidationException: {}
     AutomatedDiscoveryStatus:
       type: string
       enum:
       - ENABLED
       - DISABLED
       description: 'The status of the automated sensitive data discovery configuration for an Amazon Macie account. Valid values are:'
-    Timestamp:
-      type: string
-      description: Specifies a date and time in UTC and extended ISO 8601 format.
-      format: date-time
-    UpdateAutomatedDiscoveryConfigurationResponse:
-      type: object
-      properties: {}
-    SensitivityInspectionTemplateId:
-      type: string
-      description: The unique identifier for the sensitivity inspection template.
   parameters:
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -287,26 +299,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

@@ -522,6 +522,14 @@ paths:
       - Findingsfilters
 components:
   schemas:
+    ConflictException: {}
+    TagMap:
+      type: object
+      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
+      additionalProperties:
+        $ref: '#/components/schemas/__string'
+    InternalServerException: {}
+    ResourceNotFoundException: {}
     CreateFindingsFilterResponse:
       type: object
       properties:
@@ -533,15 +541,65 @@ components:
           allOf:
           - $ref: '#/components/schemas/__string'
           - description: The unique identifier for the filter that was created.
-    ThrottlingException: {}
+    AccessDeniedException: {}
+    ValidationException: {}
+    __integer:
+      type: integer
     FindingsFilterAction:
       type: string
       enum:
       - ARCHIVE
       - NOOP
       description: 'The action to perform on findings that match the filter criteria. To suppress (automatically archive) findings that match the criteria, set this value to ARCHIVE. Valid values are:'
+    FindingCriteria:
+      type: object
+      properties:
+        criterion:
+          allOf:
+          - $ref: '#/components/schemas/Criterion'
+          - description: A condition that specifies the property, operator, and one or more values to use to filter the results.
+      description: Specifies, as a map, one or more property-based conditions that filter the results of a query for findings.
+    __string:
+      type: string
     ServiceQuotaExceededException: {}
-    ConflictException: {}
+    UpdateFindingsFilterResponse:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the filter that was updated.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the filter that was updated.
+    Criterion:
+      type: object
+      description: Specifies a condition that defines a property, operator, and one or more values to filter the results of a query for findings. The number of values depends on the property and operator specified by the condition. For information about defining filter conditions, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-filter-basics.html">Fundamentals of filtering findings</a> in the <i>Amazon Macie User Guide</i>.
+      additionalProperties:
+        $ref: '#/components/schemas/CriterionAdditionalProperties'
+    __listOf__string:
+      type: array
+      items:
+        $ref: '#/components/schemas/__string'
+    __listOfFindingsFilterListItem:
+      type: array
+      items:
+        $ref: '#/components/schemas/FindingsFilterListItem'
+    ListFindingsFiltersResponse:
+      type: object
+      properties:
+        findingsFilterListItems:
+          allOf:
+          - $ref: '#/components/schemas/__listOfFindingsFilterListItem'
+          - description: An array of objects, one for each filter that's associated with the account.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    DeleteFindingsFilterResponse:
+      type: object
+      properties: {}
     FindingsFilterListItem:
       type: object
       properties:
@@ -566,34 +624,8 @@ components:
           - $ref: '#/components/schemas/TagMap'
           - description: A map of key-value pairs that specifies which tags (keys and values) are associated with the filter.
       description: Provides information about a findings filter.
-    TagMap:
-      type: object
-      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
-      additionalProperties:
-        $ref: '#/components/schemas/__string'
-    ValidationException: {}
     __long:
       type: integer
-    ResourceNotFoundException: {}
-    UpdateFindingsFilterResponse:
-      type: object
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The Amazon Resource Name (ARN) of the filter that was updated.
-        id:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The unique identifier for the filter that was updated.
-    InternalServerException: {}
-    __listOf__string:
-      type: array
-      items:
-        $ref: '#/components/schemas/__string'
-    DeleteFindingsFilterResponse:
-      type: object
-      properties: {}
     CriterionAdditionalProperties:
       type: object
       properties:
@@ -626,37 +658,7 @@ components:
           - $ref: '#/components/schemas/__listOf__string'
           - description: The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Macie uses OR logic to join the values.
       description: Specifies the operator to use in a property-based condition that filters the results of a query for findings. For detailed information and examples of each operator, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-filter-basics.html">Fundamentals of filtering findings</a> in the <i>Amazon Macie User Guide</i>.
-    FindingCriteria:
-      type: object
-      properties:
-        criterion:
-          allOf:
-          - $ref: '#/components/schemas/Criterion'
-          - description: A condition that specifies the property, operator, and one or more values to use to filter the results.
-      description: Specifies, as a map, one or more property-based conditions that filter the results of a query for findings.
-    Criterion:
-      type: object
-      description: Specifies a condition that defines a property, operator, and one or more values to filter the results of a query for findings. The number of values depends on the property and operator specified by the condition. For information about defining filter conditions, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-filter-basics.html">Fundamentals of filtering findings</a> in the <i>Amazon Macie User Guide</i>.
-      additionalProperties:
-        $ref: '#/components/schemas/CriterionAdditionalProperties'
-    __string:
-      type: string
-    ListFindingsFiltersResponse:
-      type: object
-      properties:
-        findingsFilterListItems:
-          allOf:
-          - $ref: '#/components/schemas/__listOfFindingsFilterListItem'
-          - description: An array of objects, one for each filter that's associated with the account.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    __listOfFindingsFilterListItem:
-      type: array
-      items:
-        $ref: '#/components/schemas/FindingsFilterListItem'
-    AccessDeniedException: {}
+    ThrottlingException: {}
     GetFindingsFilterResponse:
       type: object
       properties:
@@ -692,23 +694,15 @@ components:
           allOf:
           - $ref: '#/components/schemas/TagMap'
           - description: A map of key-value pairs that specifies which tags (keys and values) are associated with the filter.
-    __integer:
-      type: integer
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -725,8 +719,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

@@ -478,63 +478,33 @@ paths:
       tags:
       - Macie
 components:
-  parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ThrottlingException: {}
-    ServiceQuotaExceededException: {}
-    ConflictException: {}
-    EnableMacieResponse:
-      type: object
-      properties: {}
     __timestampIso8601:
       type: string
       format: date-time
+    ConflictException: {}
+    InternalServerException: {}
+    ResourceNotFoundException: {}
+    EnableMacieResponse:
+      type: object
+      properties: {}
+    AccessDeniedException: {}
+    ValidationException: {}
+    DisableMacieResponse:
+      type: object
+      properties: {}
     UpdateMacieSessionResponse:
       type: object
       properties: {}
-    ValidationException: {}
+    __string:
+      type: string
+    ServiceQuotaExceededException: {}
+    MacieStatus:
+      type: string
+      enum:
+      - PAUSED
+      - ENABLED
+      description: 'The status of an Amazon Macie account. Valid values are:'
     FindingPublishingFrequency:
       type: string
       enum:
@@ -542,17 +512,9 @@ components:
       - ONE_HOUR
       - SIX_HOURS
       description: 'The frequency with which Amazon Macie publishes updates to policy findings for an account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events). For more information, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-monitor.html">Monitoring and processing findings</a> in the <i>Amazon Macie User Guide</i>. Valid values are:'
-    ResourceNotFoundException: {}
-    InternalServerException: {}
-    __string:
-      type: string
-    AccessDeniedException: {}
-    MacieStatus:
-      type: string
-      enum:
-      - PAUSED
-      - ENABLED
-      description: 'The status of an Amazon Macie account. Valid values are:'
+    UpdateMemberSessionResponse:
+      type: object
+      properties: {}
     GetMacieSessionResponse:
       type: object
       properties:
@@ -576,12 +538,50 @@ components:
           allOf:
           - $ref: '#/components/schemas/__timestampIso8601'
           - description: The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the Amazon Macie account.
-    DisableMacieResponse:
-      type: object
-      properties: {}
-    UpdateMemberSessionResponse:
-      type: object
-      properties: {}
+    ThrottlingException: {}
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

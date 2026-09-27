@@ -248,6 +248,77 @@ paths:
       summary: Amazon Macie Update Organization Configuration
       tags:
       - Admin
+  /admin#adminAccountId:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: DisableOrganizationAdminAccount
+      description: Disables an account as the delegated Amazon Macie administrator account for an organization in Organizations.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DisableOrganizationAdminAccountResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+      parameters:
+      - name: adminAccountId
+        in: query
+        required: true
+        description: The Amazon Web Services account ID of the delegated Amazon Macie administrator account.
+        schema:
+          type: string
+      summary: Amazon Macie Disable Organization Admin Account
+      tags:
+      - Admin
   /admin:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
@@ -399,55 +470,13 @@ paths:
       tags:
       - Admin
 components:
-  parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ThrottlingException: {}
-    ServiceQuotaExceededException: {}
     ConflictException: {}
-    __boolean:
-      type: boolean
+    InternalServerException: {}
+    DisableOrganizationAdminAccountResponse:
+      type: object
+      properties: {}
+    ResourceNotFoundException: {}
     ListOrganizationAdminAccountsResponse:
       type: object
       properties:
@@ -459,16 +488,40 @@ components:
           allOf:
           - $ref: '#/components/schemas/__string'
           - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    AccessDeniedException: {}
     ValidationException: {}
-    EnableOrganizationAdminAccountResponse:
+    DescribeOrganizationConfigurationResponse:
       type: object
-      properties: {}
-    ResourceNotFoundException: {}
-    InternalServerException: {}
+      properties:
+        autoEnable:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether Amazon Macie is enabled automatically for accounts that are added to the organization.
+        maxAccountLimitReached:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the maximum number of Amazon Macie member accounts are part of the organization.
     __listOfAdminAccount:
       type: array
       items:
         $ref: '#/components/schemas/AdminAccount'
+    __string:
+      type: string
+    ServiceQuotaExceededException: {}
+    __boolean:
+      type: boolean
+    UpdateOrganizationConfigurationResponse:
+      type: object
+      properties: {}
+    EnableOrganizationAdminAccountResponse:
+      type: object
+      properties: {}
+    AdminStatus:
+      type: string
+      enum:
+      - ENABLED
+      - DISABLING_IN_PROGRESS
+      description: 'The current status of an account as the delegated Amazon Macie administrator account for an organization in Organizations. Possible values are:'
     AdminAccount:
       type: object
       properties:
@@ -481,29 +534,50 @@ components:
           - $ref: '#/components/schemas/AdminStatus'
           - description: The current status of the account as the delegated Amazon Macie administrator account for the organization.
       description: Provides information about the delegated Amazon Macie administrator account for an organization in Organizations.
-    AdminStatus:
-      type: string
-      enum:
-      - ENABLED
-      - DISABLING_IN_PROGRESS
-      description: 'The current status of an account as the delegated Amazon Macie administrator account for an organization in Organizations. Possible values are:'
-    DescribeOrganizationConfigurationResponse:
-      type: object
-      properties:
-        autoEnable:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - description: Specifies whether Amazon Macie is enabled automatically for accounts that are added to the organization.
-        maxAccountLimitReached:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - description: Specifies whether the maximum number of Amazon Macie member accounts are part of the organization.
-    __string:
-      type: string
-    AccessDeniedException: {}
-    UpdateOrganizationConfigurationResponse:
-      type: object
-      properties: {}
+    ThrottlingException: {}
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

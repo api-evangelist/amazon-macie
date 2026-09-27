@@ -6,7 +6,6 @@
   ],
   "outputs": [
     "amazon-macie-admin-api-openapi.yml",
-    "amazon-macie-admin-adminaccountid-api-openapi.yml",
     "amazon-macie-administrator-api-openapi.yml",
     "amazon-macie-allow-lists-api-openapi.yml",
     "amazon-macie-automated-discovery-api-openapi.yml",
@@ -24,14 +23,13 @@
     "amazon-macie-master-api-openapi.yml",
     "amazon-macie-members-api-openapi.yml",
     "amazon-macie-resource-profiles-api-openapi.yml",
-    "amazon-macie-resource-profiles-resourcearn-api-openapi.yml",
     "amazon-macie-reveal-configuration-api-openapi.yml",
     "amazon-macie-tags-api-openapi.yml",
     "amazon-macie-templates-api-openapi.yml",
     "amazon-macie-usage-api-openapi.yml"
   ],
   "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
+    "deleted 3 superseded output(s) from the previous generation"
   ],
   "errors": [],
   "warnings": [],
@@ -72,7 +70,7 @@
     "amazon-macie-openapi-original.yaml: tagged paths POST /macie -> Macie",
     "amazon-macie-openapi-original.yaml: tagged paths GET /macie -> Macie",
     "amazon-macie-openapi-original.yaml: tagged paths PATCH /macie -> Macie",
-    "amazon-macie-openapi-original.yaml: tagged paths DELETE /admin#adminAccountId -> Admin#adminAccountId",
+    "amazon-macie-openapi-original.yaml: tagged paths DELETE /admin#adminAccountId -> Admin",
     "amazon-macie-openapi-original.yaml: tagged paths POST /administrator/disassociate -> Administrator",
     "amazon-macie-openapi-original.yaml: tagged paths POST /master/disassociate -> Master",
     "amazon-macie-openapi-original.yaml: tagged paths POST /members/disassociate/{id} -> Members",
@@ -92,8 +90,8 @@
     "amazon-macie-openapi-original.yaml: tagged paths PUT /findings-publication-configuration -> Findings Publication Configuration",
     "amazon-macie-openapi-original.yaml: tagged paths GET /invitations/count -> Invitations",
     "amazon-macie-openapi-original.yaml: tagged paths GET /master -> Master",
-    "amazon-macie-openapi-original.yaml: tagged paths GET /resource-profiles#resourceArn -> Resource Profiles#resourceArn",
-    "amazon-macie-openapi-original.yaml: tagged paths PATCH /resource-profiles#resourceArn -> Resource Profiles#resourceArn",
+    "amazon-macie-openapi-original.yaml: tagged paths GET /resource-profiles#resourceArn -> Resource Profiles",
+    "amazon-macie-openapi-original.yaml: tagged paths PATCH /resource-profiles#resourceArn -> Resource Profiles",
     "amazon-macie-openapi-original.yaml: tagged paths GET /reveal-configuration -> Reveal Configuration",
     "amazon-macie-openapi-original.yaml: tagged paths PUT /reveal-configuration -> Reveal Configuration",
     "amazon-macie-openapi-original.yaml: tagged paths GET /findings/{findingId}/reveal -> Findings",
@@ -118,7 +116,6 @@
     "amazon-macie-openapi-original.yaml: tagged paths DELETE /tags/{resourceArn}#tagKeys -> Tags",
     "amazon-macie-openapi-original.yaml: tagged paths PATCH /macie/members/{id} -> Macie",
     "amazon-macie-openapi-original.yaml: declared missing tag: Admin",
-    "amazon-macie-openapi-original.yaml: declared missing tag: Admin#adminAccountId",
     "amazon-macie-openapi-original.yaml: declared missing tag: Administrator",
     "amazon-macie-openapi-original.yaml: declared missing tag: Allow Lists",
     "amazon-macie-openapi-original.yaml: declared missing tag: Automated Discovery",
@@ -136,14 +133,13 @@
     "amazon-macie-openapi-original.yaml: declared missing tag: Master",
     "amazon-macie-openapi-original.yaml: declared missing tag: Members",
     "amazon-macie-openapi-original.yaml: declared missing tag: Resource Profiles",
-    "amazon-macie-openapi-original.yaml: declared missing tag: Resource Profiles#resourceArn",
     "amazon-macie-openapi-original.yaml: declared missing tag: Reveal Configuration",
     "amazon-macie-openapi-original.yaml: declared missing tag: Tags",
     "amazon-macie-openapi-original.yaml: declared missing tag: Templates",
     "amazon-macie-openapi-original.yaml: declared missing tag: Usage",
     "openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "superseded outputs removed: amazon-macie-data-sources-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 24 total)"
+    "superseded outputs removed: amazon-macie-admin-adminaccountid-api-openapi.yml, amazon-macie-data-sources-api-openapi.yml, amazon-macie-resource-profiles-resourcearn-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 22 total)"
   ],
   "skipped": [
     "amazon-macie-admin-adminaccountid-api-openapi.yml: previously refined output, superseded by openapi/_original/",

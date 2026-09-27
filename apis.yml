@@ -39,7 +39,7 @@ tags:
 - Sensitive Data
 - Privacy
 - Compliance
-- Machine-Learning
+- Machine Learning
 - S3
 tags_raw:
 - AWS
@@ -49,36 +49,12 @@ tags_raw:
 - Compliance
 - Machine Learning
 - S3
+- Machine-Learning
 url: https://raw.githubusercontent.com/api-evangelist/amazon-macie/refs/heads/main/apis.yml
 created: '2024-01-15'
 modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
-- aid: amazon-macie:amazon-macie-admin-adminaccountid-api
-  name: Amazon Macie Admin#adminAccountId API
-  description: >-
-    The Admin#adminAccountId API from Amazon Macie — 1 operation(s) for admin#adminaccountid.
-  humanURL: https://aws.amazon.com/macie/
-  baseURL: https://macie2.amazonaws.com
-  tags:
-  - Admin#adminAccountId
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-macie-admin-adminaccountid-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/macie/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/macie/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/macie/faq/
-  - type: JSONSchema
-    url: json-schema/amazon-macie-finding-schema.json
-  - type: JSONStructure
-    url: json-structure/amazon-macie-finding-structure.json
-  - type: JSONLD
-    url: json-ld/amazon-macie-context.jsonld
 - aid: amazon-macie:amazon-macie-admin-api
   name: Amazon Macie Admin API
   description: The Admin API from Amazon Macie — 2 operation(s) for admin.
@@ -498,31 +474,6 @@ apis:
     url: json-structure/amazon-macie-finding-structure.json
   - type: JSONLD
     url: json-ld/amazon-macie-context.jsonld
-- aid: amazon-macie:amazon-macie-resource-profiles-resourcearn-api
-  name: Amazon Macie Resource Profiles#resourceArn API
-  description: >-
-    The Resource Profiles#resourceArn API from Amazon Macie — 1 operation(s) for resource profiles#resourcearn.
-  humanURL: https://aws.amazon.com/macie/
-  baseURL: https://macie2.amazonaws.com
-  tags:
-  - Resource Profiles#resourceArn
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-macie-resource-profiles-resourcearn-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/macie/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/macie/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/macie/faq/
-  - type: JSONSchema
-    url: json-schema/amazon-macie-finding-schema.json
-  - type: JSONStructure
-    url: json-structure/amazon-macie-finding-structure.json
-  - type: JSONLD
-    url: json-ld/amazon-macie-context.jsonld
 - aid: amazon-macie:amazon-macie-reveal-configuration-api
   name: Amazon Macie Reveal Configuration API
   description: >-
@@ -646,7 +597,7 @@ apis:
     url: json-ld/amazon-macie-context.jsonld
 common:
 - type: Website
-  url: https://amazon.com
+  url: https://aws.amazon.com/macie/
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-macie/overview
 - type: AgenticAccess
@@ -746,5 +697,5 @@ integrations:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
-x-parent: aws
+x-parent: amazon-web-services
 x-relationship: product

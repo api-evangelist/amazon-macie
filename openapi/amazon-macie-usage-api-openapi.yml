@@ -301,23 +301,36 @@ paths:
       - Usage
 components:
   schemas:
-    TimeRange:
+    __timestampIso8601:
+      type: string
+      format: date-time
+    ConflictException: {}
+    InternalServerException: {}
+    UsageStatisticsFilter:
+      type: object
+      properties:
+        comparator:
+          allOf:
+          - $ref: '#/components/schemas/UsageStatisticsFilterComparator'
+          - description: The operator to use in the condition. If the value for the key property is accountId, this value must be CONTAINS. If the value for the key property is any other supported field, this value can be EQ, GT, GTE, LT, LTE, or NE.
+        key:
+          allOf:
+          - $ref: '#/components/schemas/UsageStatisticsFilterKey'
+          - description: The field to use in the condition.
+        values:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - description: <p>An array that lists values to use in the condition, based on the value for the field specified by the key property. If the value for the key property is accountId, this array can specify multiple values. Otherwise, this array can specify only one value.</p> <p>Valid values for each supported field are:</p> <ul><li><p>accountId - The unique identifier for an Amazon Web Services account.</p></li> <li><p>freeTrialStartDate - The date and time, in UTC and extended ISO 8601 format, when the Amazon Macie free trial started for an account.</p></li> <li><p>serviceLimit - A Boolean (true or false) value that indicates whether an account has reached its monthly quota.</p></li> <li><p>total - A string that represents the current estimated cost for an account.</p></li></ul>
+      description: Specifies a condition for filtering the results of a query for quota and usage data for one or more Amazon Macie accounts.
+    ResourceNotFoundException: {}
+    UsageStatisticsSortKey:
       type: string
       enum:
-      - MONTH_TO_DATE
-      - PAST_30_DAYS
-      description: 'An inclusive time period that Amazon Macie usage data applies to. Possible values are:'
-    UsageStatisticsFilterComparator:
-      type: string
-      enum:
-      - GT
-      - GTE
-      - LT
-      - LTE
-      - EQ
-      - NE
-      - CONTAINS
-      description: 'The operator to use in a condition that filters the results of a query for Amazon Macie account quotas and usage data. Valid values are:'
+      - accountId
+      - total
+      - serviceLimitValue
+      - freeTrialStartDate
+      description: 'The field to use to sort the results of a query for Amazon Macie account quotas and usage data. Valid values are:'
     UsageType:
       type: string
       enum:
@@ -326,49 +339,8 @@ components:
       - AUTOMATED_SENSITIVE_DATA_DISCOVERY
       - AUTOMATED_OBJECT_MONITORING
       description: 'The name of an Amazon Macie usage metric for an account. Possible values are:'
-    ThrottlingException: {}
-    GetUsageTotalsResponse:
-      type: object
-      properties:
-        timeRange:
-          allOf:
-          - $ref: '#/components/schemas/TimeRange'
-          - description: 'The inclusive time period that the usage data applies to. Possible values are: MONTH_TO_DATE, for the current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days.'
-        usageTotals:
-          allOf:
-          - $ref: '#/components/schemas/__listOfUsageTotal'
-          - description: An array of objects that contains the results of the query. Each object contains the data for a specific usage metric.
-    UsageByAccount:
-      type: object
-      properties:
-        currency:
-          allOf:
-          - $ref: '#/components/schemas/Currency'
-          - description: The type of currency that the value for the metric (estimatedCost) is reported in.
-        estimatedCost:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The estimated value for the metric.
-        serviceLimit:
-          allOf:
-          - $ref: '#/components/schemas/ServiceLimit'
-          - description: The current value for the quota that corresponds to the metric specified by the type field.
-        type:
-          allOf:
-          - $ref: '#/components/schemas/UsageType'
-          - description: 'The name of the metric. Possible values are: AUTOMATED_OBJECT_MONITORING, to monitor S3 objects for automated sensitive data discovery; AUTOMATED_SENSITIVE_DATA_DISCOVERY, to analyze S3 objects for automated sensitive data discovery; DATA_INVENTORY_EVALUATION, to monitor S3 buckets; and, SENSITIVE_DATA_DISCOVERY, to run classification jobs.'
-      description: Provides data for a specific usage metric and the corresponding quota for an Amazon Macie account.
-    OrderBy:
-      type: string
-      enum:
-      - ASC
-      - DESC
-    ServiceQuotaExceededException: {}
-    __listOfUsageByAccount:
-      type: array
-      items:
-        $ref: '#/components/schemas/UsageByAccount'
-    ConflictException: {}
+    AccessDeniedException: {}
+    ValidationException: {}
     GetUsageStatisticsResponse:
       type: object
       properties:
@@ -384,6 +356,51 @@ components:
           allOf:
           - $ref: '#/components/schemas/TimeRange'
           - description: 'The inclusive time period that the usage data applies to. Possible values are: MONTH_TO_DATE, for the current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days.'
+    __listOfUsageTotal:
+      type: array
+      items:
+        $ref: '#/components/schemas/UsageTotal'
+    __string:
+      type: string
+    ServiceQuotaExceededException: {}
+    UsageRecord:
+      type: object
+      properties:
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the Amazon Web Services account that the data applies to.
+        automatedDiscoveryFreeTrialStartDate:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when the free trial of automated sensitive data discovery started for the account. If the account is a member account in an organization, this value is the same as the value for the organization's Amazon Macie administrator account.
+        freeTrialStartDate:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when the Amazon Macie free trial started for the account.
+        usage:
+          allOf:
+          - $ref: '#/components/schemas/__listOfUsageByAccount'
+          - description: An array of objects that contains usage data and quotas for the account. Each object contains the data for a specific usage metric and the corresponding quota.
+      description: Provides quota and aggregated usage data for an Amazon Macie account.
+    __boolean:
+      type: boolean
+    OrderBy:
+      type: string
+      enum:
+      - ASC
+      - DESC
+    GetUsageTotalsResponse:
+      type: object
+      properties:
+        timeRange:
+          allOf:
+          - $ref: '#/components/schemas/TimeRange'
+          - description: 'The inclusive time period that the usage data applies to. Possible values are: MONTH_TO_DATE, for the current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days.'
+        usageTotals:
+          allOf:
+          - $ref: '#/components/schemas/__listOfUsageTotal'
+          - description: An array of objects that contains the results of the query. Each object contains the data for a specific usage metric.
     UsageTotal:
       type: object
       properties:
@@ -416,75 +433,66 @@ components:
           - $ref: '#/components/schemas/__long'
           - description: The value for the metric specified by the UsageByAccount.type field in the response.
       description: Specifies a current quota for an Amazon Macie account.
-    __timestampIso8601:
-      type: string
-      format: date-time
-    ValidationException: {}
-    __boolean:
-      type: boolean
-    __long:
-      type: integer
-    ResourceNotFoundException: {}
-    InternalServerException: {}
-    __listOf__string:
-      type: array
-      items:
-        $ref: '#/components/schemas/__string'
-    UsageRecord:
+    UsageByAccount:
       type: object
       properties:
-        accountId:
+        currency:
+          allOf:
+          - $ref: '#/components/schemas/Currency'
+          - description: The type of currency that the value for the metric (estimatedCost) is reported in.
+        estimatedCost:
           allOf:
           - $ref: '#/components/schemas/__string'
-          - description: The unique identifier for the Amazon Web Services account that the data applies to.
-        automatedDiscoveryFreeTrialStartDate:
+          - description: The estimated value for the metric.
+        serviceLimit:
           allOf:
-          - $ref: '#/components/schemas/__timestampIso8601'
-          - description: The date and time, in UTC and extended ISO 8601 format, when the free trial of automated sensitive data discovery started for the account. If the account is a member account in an organization, this value is the same as the value for the organization's Amazon Macie administrator account.
-        freeTrialStartDate:
+          - $ref: '#/components/schemas/ServiceLimit'
+          - description: The current value for the quota that corresponds to the metric specified by the type field.
+        type:
           allOf:
-          - $ref: '#/components/schemas/__timestampIso8601'
-          - description: The date and time, in UTC and extended ISO 8601 format, when the Amazon Macie free trial started for the account.
-        usage:
-          allOf:
-          - $ref: '#/components/schemas/__listOfUsageByAccount'
-          - description: An array of objects that contains usage data and quotas for the account. Each object contains the data for a specific usage metric and the corresponding quota.
-      description: Provides quota and aggregated usage data for an Amazon Macie account.
-    UsageStatisticsSortKey:
-      type: string
-      enum:
-      - accountId
-      - total
-      - serviceLimitValue
-      - freeTrialStartDate
-      description: 'The field to use to sort the results of a query for Amazon Macie account quotas and usage data. Valid values are:'
+          - $ref: '#/components/schemas/UsageType'
+          - description: 'The name of the metric. Possible values are: AUTOMATED_OBJECT_MONITORING, to monitor S3 objects for automated sensitive data discovery; AUTOMATED_SENSITIVE_DATA_DISCOVERY, to analyze S3 objects for automated sensitive data discovery; DATA_INVENTORY_EVALUATION, to monitor S3 buckets; and, SENSITIVE_DATA_DISCOVERY, to run classification jobs.'
+      description: Provides data for a specific usage metric and the corresponding quota for an Amazon Macie account.
     __listOfUsageRecord:
       type: array
       items:
         $ref: '#/components/schemas/UsageRecord'
-    UsageStatisticsFilter:
-      type: object
-      properties:
-        comparator:
-          allOf:
-          - $ref: '#/components/schemas/UsageStatisticsFilterComparator'
-          - description: The operator to use in the condition. If the value for the key property is accountId, this value must be CONTAINS. If the value for the key property is any other supported field, this value can be EQ, GT, GTE, LT, LTE, or NE.
-        key:
-          allOf:
-          - $ref: '#/components/schemas/UsageStatisticsFilterKey'
-          - description: The field to use in the condition.
-        values:
-          allOf:
-          - $ref: '#/components/schemas/__listOf__string'
-          - description: <p>An array that lists values to use in the condition, based on the value for the field specified by the key property. If the value for the key property is accountId, this array can specify multiple values. Otherwise, this array can specify only one value.</p> <p>Valid values for each supported field are:</p> <ul><li><p>accountId - The unique identifier for an Amazon Web Services account.</p></li> <li><p>freeTrialStartDate - The date and time, in UTC and extended ISO 8601 format, when the Amazon Macie free trial started for an account.</p></li> <li><p>serviceLimit - A Boolean (true or false) value that indicates whether an account has reached its monthly quota.</p></li> <li><p>total - A string that represents the current estimated cost for an account.</p></li></ul>
-      description: Specifies a condition for filtering the results of a query for quota and usage data for one or more Amazon Macie accounts.
-    __string:
+    __listOf__string:
+      type: array
+      items:
+        $ref: '#/components/schemas/__string'
+    __listOfUsageByAccount:
+      type: array
+      items:
+        $ref: '#/components/schemas/UsageByAccount'
+    TimeRange:
       type: string
+      enum:
+      - MONTH_TO_DATE
+      - PAST_30_DAYS
+      description: 'An inclusive time period that Amazon Macie usage data applies to. Possible values are:'
     Unit:
       type: string
       enum:
       - TERABYTES
-    AccessDeniedException: {}
+    Currency:
+      type: string
+      enum:
+      - USD
+      description: 'The type of currency that the data for an Amazon Macie usage metric is reported in. Possible values are:'
+    UsageStatisticsFilterComparator:
+      type: string
+      enum:
+      - GT
+      - GTE
+      - LT
+      - LTE
+      - EQ
+      - NE
+      - CONTAINS
+      description: 'The operator to use in a condition that filters the results of a query for Amazon Macie account quotas and usage data. Valid values are:'
+    __long:
+      type: integer
     UsageStatisticsFilterKey:
       type: string
       enum:
@@ -493,30 +501,16 @@ components:
       - freeTrialStartDate
       - total
       description: 'The field to use in a condition that filters the results of a query for Amazon Macie account quotas and usage data. Valid values are:'
-    Currency:
-      type: string
-      enum:
-      - USD
-      description: 'The type of currency that the data for an Amazon Macie usage metric is reported in. Possible values are:'
-    __listOfUsageTotal:
-      type: array
-      items:
-        $ref: '#/components/schemas/UsageTotal'
+    ThrottlingException: {}
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -533,8 +527,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
