@@ -29,7 +29,7 @@
     "amazon-macie-usage-api-openapi.yml"
   ],
   "archived": [
-    "deleted 3 superseded output(s) from the previous generation"
+    "deleted 1 superseded output(s) from the previous generation"
   ],
   "errors": [],
   "warnings": [],
@@ -138,11 +138,10 @@
     "amazon-macie-openapi-original.yaml: declared missing tag: Templates",
     "amazon-macie-openapi-original.yaml: declared missing tag: Usage",
     "openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "superseded outputs removed: amazon-macie-admin-adminaccountid-api-openapi.yml, amazon-macie-data-sources-api-openapi.yml, amazon-macie-resource-profiles-resourcearn-api-openapi.yml",
+    "superseded outputs removed: amazon-macie-data-sources-api-openapi.yml",
     "apis.yml register: written (+1 apis, 22 total)"
   ],
   "skipped": [
-    "amazon-macie-admin-adminaccountid-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-macie-admin-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-macie-administrator-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-macie-allow-lists-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -161,7 +160,6 @@
     "amazon-macie-master-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-macie-members-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-macie-resource-profiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-macie-resource-profiles-resourcearn-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-macie-reveal-configuration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-macie-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-macie-templates-api-openapi.yml: previously refined output, superseded by openapi/_original/",

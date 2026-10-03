@@ -162,14 +162,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -180,8 +174,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -192,8 +192,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -211,16 +211,12 @@ components:
           - $ref: '#/components/schemas/__string'
           - description: 'The unique identifier for the managed data identifier. This is a string that describes the type of sensitive data that the managed data identifier detects. For example: OPENSSH_PRIVATE_KEY for OpenSSH private keys, CREDIT_CARD_NUMBER for credit card numbers, or USA_PASSPORT_NUMBER for US passport numbers.'
       description: Provides information about a managed data identifier. For additional information, see <a href="https://docs.aws.amazon.com/macie/latest/user/managed-data-identifiers.html">Using managed data identifiers</a> in the <i>Amazon Macie User Guide</i>.
+    __listOfManagedDataIdentifierSummary:
+      type: array
+      items:
+        $ref: '#/components/schemas/ManagedDataIdentifierSummary'
     __string:
       type: string
-    SensitiveDataItemCategory:
-      type: string
-      enum:
-      - FINANCIAL_INFORMATION
-      - PERSONAL_INFORMATION
-      - CREDENTIALS
-      - CUSTOM_IDENTIFIER
-      description: 'For a finding, the category of sensitive data that was detected and produced the finding. For a managed data identifier, the category of sensitive data that the managed data identifier detects. Possible values are:'
     ListManagedDataIdentifiersResponse:
       type: object
       properties:
@@ -232,10 +228,14 @@ components:
           allOf:
           - $ref: '#/components/schemas/__string'
           - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    __listOfManagedDataIdentifierSummary:
-      type: array
-      items:
-        $ref: '#/components/schemas/ManagedDataIdentifierSummary'
+    SensitiveDataItemCategory:
+      type: string
+      enum:
+      - FINANCIAL_INFORMATION
+      - PERSONAL_INFORMATION
+      - CREDENTIALS
+      - CUSTOM_IDENTIFIER
+      description: 'For a finding, the category of sensitive data that was detected and produced the finding. For a managed data identifier, the category of sensitive data that the managed data identifier detects. Possible values are:'
   securitySchemes:
     hmac:
       type: apiKey

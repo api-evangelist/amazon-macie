@@ -246,36 +246,61 @@ paths:
       tags:
       - Administrator
 components:
+  parameters:
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
     __timestampIso8601:
       type: string
       format: date-time
-    ConflictException: {}
-    InternalServerException: {}
-    ResourceNotFoundException: {}
-    AccessDeniedException: {}
     ValidationException: {}
-    __string:
-      type: string
-    ServiceQuotaExceededException: {}
-    RelationshipStatus:
-      type: string
-      enum:
-      - Enabled
-      - Paused
-      - Invited
-      - Created
-      - Removed
-      - Resigned
-      - EmailVerificationInProgress
-      - EmailVerificationFailed
-      - RegionDisabled
-      - AccountSuspended
-      description: 'The current status of the relationship between an account and an associated Amazon Macie administrator account. Possible values are:'
     DisassociateFromAdministratorAccountResponse:
       type: object
       properties: {}
-    ThrottlingException: {}
+    AccessDeniedException: {}
+    InternalServerException: {}
+    __string:
+      type: string
     Invitation:
       type: object
       properties:
@@ -296,6 +321,22 @@ components:
           - $ref: '#/components/schemas/RelationshipStatus'
           - description: The status of the relationship between the account that sent the invitation and the account that received the invitation.
       description: Provides information about an Amazon Macie membership invitation.
+    RelationshipStatus:
+      type: string
+      enum:
+      - Enabled
+      - Paused
+      - Invited
+      - Created
+      - Removed
+      - Resigned
+      - EmailVerificationInProgress
+      - EmailVerificationFailed
+      - RegionDisabled
+      - AccountSuspended
+      description: 'The current status of the relationship between an account and an associated Amazon Macie administrator account. Possible values are:'
+    ResourceNotFoundException: {}
+    ThrottlingException: {}
     GetAdministratorAccountResponse:
       type: object
       properties:
@@ -303,49 +344,8 @@ components:
           allOf:
           - $ref: '#/components/schemas/Invitation'
           - description: The Amazon Web Services account ID for the administrator account. If the accounts are associated by an Amazon Macie membership invitation, this object also provides details about the invitation that was sent to establish the relationship between the accounts.
-  parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
+    ServiceQuotaExceededException: {}
+    ConflictException: {}
   securitySchemes:
     hmac:
       type: apiKey
