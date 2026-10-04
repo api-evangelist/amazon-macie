@@ -578,52 +578,35 @@ paths:
       - Invitations
 components:
   schemas:
-    ConflictException: {}
-    CreateInvitationsResponse:
+    DeclineInvitationsResponse:
       type: object
       properties:
         unprocessedAccounts:
           allOf:
           - $ref: '#/components/schemas/__listOfUnprocessedAccount'
-          - description: An array of objects, one for each account whose invitation hasn't been processed. Each object identifies the account and explains why the invitation hasn't been processed for the account.
-    __timestampIso8601:
-      type: string
-      format: date-time
-    ValidationException: {}
-    UnprocessedAccount:
-      type: object
-      properties:
-        accountId:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The Amazon Web Services account ID for the account that the request applies to.
-        errorCode:
-          allOf:
-          - $ref: '#/components/schemas/ErrorCode'
-          - description: The source of the issue or delay in processing the request.
-        errorMessage:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The reason why the request hasn't been processed.
-      description: ' <p>Provides information about an account-related request that hasn''t been processed.</p>'
-    DeleteInvitationsResponse:
-      type: object
-      properties:
-        unprocessedAccounts:
-          allOf:
-          - $ref: '#/components/schemas/__listOfUnprocessedAccount'
-          - description: An array of objects, one for each account whose invitation hasn't been deleted. Each object identifies the account and explains why the request hasn't been processed for that account.
+          - description: An array of objects, one for each account whose invitation hasn't been declined. Each object identifies the account and explains why the request hasn't been processed for that account.
     __listOfUnprocessedAccount:
       type: array
       items:
         $ref: '#/components/schemas/UnprocessedAccount'
+    InternalServerException: {}
     AcceptInvitationResponse:
       type: object
       properties: {}
-    AccessDeniedException: {}
-    InternalServerException: {}
+    ResourceNotFoundException: {}
     __string:
       type: string
+    ListInvitationsResponse:
+      type: object
+      properties:
+        invitations:
+          allOf:
+          - $ref: '#/components/schemas/__listOfInvitation'
+          - description: An array of objects, one for each invitation that was received by the account.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
     Invitation:
       type: object
       properties:
@@ -644,6 +627,47 @@ components:
           - $ref: '#/components/schemas/RelationshipStatus'
           - description: The status of the relationship between the account that sent the invitation and the account that received the invitation.
       description: Provides information about an Amazon Macie membership invitation.
+    __long:
+      type: integer
+    ValidationException: {}
+    GetInvitationsCountResponse:
+      type: object
+      properties:
+        invitationsCount:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of invitations that were received by the account, not including the currently accepted invitation.
+    ErrorCode:
+      type: string
+      enum:
+      - ClientError
+      - InternalError
+      description: 'The source of an issue or delay. Possible values are:'
+    ThrottlingException: {}
+    __timestampIso8601:
+      type: string
+      format: date-time
+    __listOfInvitation:
+      type: array
+      items:
+        $ref: '#/components/schemas/Invitation'
+    AccessDeniedException: {}
+    UnprocessedAccount:
+      type: object
+      properties:
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Web Services account ID for the account that the request applies to.
+        errorCode:
+          allOf:
+          - $ref: '#/components/schemas/ErrorCode'
+          - description: The source of the issue or delay in processing the request.
+        errorMessage:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The reason why the request hasn't been processed.
+      description: ' <p>Provides information about an account-related request that hasn''t been processed.</p>'
     RelationshipStatus:
       type: string
       enum:
@@ -658,55 +682,25 @@ components:
       - RegionDisabled
       - AccountSuspended
       description: 'The current status of the relationship between an account and an associated Amazon Macie administrator account. Possible values are:'
-    __listOfInvitation:
-      type: array
-      items:
-        $ref: '#/components/schemas/Invitation'
-    GetInvitationsCountResponse:
-      type: object
-      properties:
-        invitationsCount:
-          allOf:
-          - $ref: '#/components/schemas/__long'
-          - description: The total number of invitations that were received by the account, not including the currently accepted invitation.
-    ResourceNotFoundException: {}
-    ThrottlingException: {}
-    __long:
-      type: integer
-    DeclineInvitationsResponse:
+    DeleteInvitationsResponse:
       type: object
       properties:
         unprocessedAccounts:
           allOf:
           - $ref: '#/components/schemas/__listOfUnprocessedAccount'
-          - description: An array of objects, one for each account whose invitation hasn't been declined. Each object identifies the account and explains why the request hasn't been processed for that account.
-    ErrorCode:
-      type: string
-      enum:
-      - ClientError
-      - InternalError
-      description: 'The source of an issue or delay. Possible values are:'
-    ListInvitationsResponse:
+          - description: An array of objects, one for each account whose invitation hasn't been deleted. Each object identifies the account and explains why the request hasn't been processed for that account.
+    ConflictException: {}
+    CreateInvitationsResponse:
       type: object
       properties:
-        invitations:
+        unprocessedAccounts:
           allOf:
-          - $ref: '#/components/schemas/__listOfInvitation'
-          - description: An array of objects, one for each invitation that was received by the account.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+          - $ref: '#/components/schemas/__listOfUnprocessedAccount'
+          - description: An array of objects, one for each account whose invitation hasn't been processed. Each object identifies the account and explains why the invitation hasn't been processed for the account.
     ServiceQuotaExceededException: {}
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -717,14 +711,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -735,8 +729,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

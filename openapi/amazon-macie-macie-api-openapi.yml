@@ -479,10 +479,41 @@ paths:
       - Macie
 components:
   schemas:
-    ConflictException: {}
+    MacieStatus:
+      type: string
+      enum:
+      - PAUSED
+      - ENABLED
+      description: 'The status of an Amazon Macie account. Valid values are:'
+    InternalServerException: {}
     EnableMacieResponse:
       type: object
       properties: {}
+    ResourceNotFoundException: {}
+    UpdateMemberSessionResponse:
+      type: object
+      properties: {}
+    DisableMacieResponse:
+      type: object
+      properties: {}
+    __string:
+      type: string
+    ValidationException: {}
+    ThrottlingException: {}
+    FindingPublishingFrequency:
+      type: string
+      enum:
+      - FIFTEEN_MINUTES
+      - ONE_HOUR
+      - SIX_HOURS
+      description: 'The frequency with which Amazon Macie publishes updates to policy findings for an account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events). For more information, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-monitor.html">Monitoring and processing findings</a> in the <i>Amazon Macie User Guide</i>. Valid values are:'
+    UpdateMacieSessionResponse:
+      type: object
+      properties: {}
+    __timestampIso8601:
+      type: string
+      format: date-time
+    AccessDeniedException: {}
     GetMacieSessionResponse:
       type: object
       properties:
@@ -506,48 +537,11 @@ components:
           allOf:
           - $ref: '#/components/schemas/__timestampIso8601'
           - description: The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the Amazon Macie account.
-    __timestampIso8601:
-      type: string
-      format: date-time
-    ValidationException: {}
-    AccessDeniedException: {}
-    MacieStatus:
-      type: string
-      enum:
-      - PAUSED
-      - ENABLED
-      description: 'The status of an Amazon Macie account. Valid values are:'
-    InternalServerException: {}
-    FindingPublishingFrequency:
-      type: string
-      enum:
-      - FIFTEEN_MINUTES
-      - ONE_HOUR
-      - SIX_HOURS
-      description: 'The frequency with which Amazon Macie publishes updates to policy findings for an account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events). For more information, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-monitor.html">Monitoring and processing findings</a> in the <i>Amazon Macie User Guide</i>. Valid values are:'
-    __string:
-      type: string
-    UpdateMemberSessionResponse:
-      type: object
-      properties: {}
-    ResourceNotFoundException: {}
-    ThrottlingException: {}
-    DisableMacieResponse:
-      type: object
-      properties: {}
-    UpdateMacieSessionResponse:
-      type: object
-      properties: {}
+    ConflictException: {}
     ServiceQuotaExceededException: {}
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -558,14 +552,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -576,8 +570,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

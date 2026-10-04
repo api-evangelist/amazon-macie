@@ -259,60 +259,8 @@ paths:
       tags:
       - Findings Publication Configuration
 components:
-  parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ConflictException: {}
     AccessDeniedException: {}
-    InternalServerException: {}
-    PutFindingsPublicationConfigurationResponse:
-      type: object
-      properties: {}
-    ThrottlingException: {}
-    ResourceNotFoundException: {}
-    __boolean:
-      type: boolean
     SecurityHubConfiguration:
       type: object
       required:
@@ -329,6 +277,16 @@ components:
           - description: Specifies whether to publish policy findings to Security Hub. If you set this value to true, Amazon Macie automatically publishes all new and updated policy findings that weren't suppressed by a findings filter. The default value is true.
       description: Specifies configuration settings that determine which findings are published to Security Hub automatically. For information about how Macie publishes findings to Security Hub, see <a href="https://docs.aws.amazon.com/macie/latest/user/securityhub-integration.html">Amazon Macie integration with Security Hub</a> in the <i>Amazon Macie User Guide</i>.
     ValidationException: {}
+    PutFindingsPublicationConfigurationResponse:
+      type: object
+      properties: {}
+    ConflictException: {}
+    ThrottlingException: {}
+    InternalServerException: {}
+    __boolean:
+      type: boolean
+    ServiceQuotaExceededException: {}
+    ResourceNotFoundException: {}
     GetFindingsPublicationConfigurationResponse:
       type: object
       properties:
@@ -336,7 +294,49 @@ components:
           allOf:
           - $ref: '#/components/schemas/SecurityHubConfiguration'
           - description: The configuration settings that determine which findings are published to Security Hub.
-    ServiceQuotaExceededException: {}
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey
