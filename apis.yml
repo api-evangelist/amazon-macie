@@ -596,6 +596,9 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-macie-context.jsonld
 common:
+- type: CapabilityMap
+  url: capabilities/amazon-macie-capability-edges.yml
+  name: Amazon Macie Business Capability Map
 - type: Website
   url: https://aws.amazon.com/macie/
 - type: PostmanWorkspace

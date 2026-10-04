@@ -1,0 +1,25 @@
+slug: amazon-macie
+provider: Amazon Macie
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Custom Data Identifiers
+  spec_file: amazon-macie-custom-data-identifiers-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.7
+  evidence: CreateCustomDataIdentifier, TestCustomDataIdentifier; schemas DataIdentifierSeverity, SeverityLevelList
+  reason: Authoring and testing of detection criteria for sensitive data with severity levels — security
+    control rule management, mapped to Cybersecurity Management at L1 only as no L2 covers data-security
+    scanning.
