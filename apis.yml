@@ -596,6 +596,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-macie-context.jsonld
 common:
+- type: Plans
+  url: plans/amazon-macie-plans-pricing.yml
 - type: CapabilityMap
   url: capabilities/amazon-macie-capability-edges.yml
   name: Amazon Macie Business Capability Map
