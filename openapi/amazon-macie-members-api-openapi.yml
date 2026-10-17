@@ -488,73 +488,18 @@ paths:
       - Members
 components:
   schemas:
-    ListMembersResponse:
+    ThrottlingException: {}
+    TagMap:
       type: object
-      properties:
-        members:
-          allOf:
-          - $ref: '#/components/schemas/__listOfMember'
-          - description: An array of objects, one for each account that's associated with the administrator account and matches the criteria specified in the request.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    InternalServerException: {}
-    ResourceNotFoundException: {}
-    GetMemberResponse:
-      type: object
-      properties:
-        accountId:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The Amazon Web Services account ID for the account.
-        administratorAccountId:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The Amazon Web Services account ID for the administrator account.
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The Amazon Resource Name (ARN) of the account.
-        email:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The email address for the account. This value is null if the account is associated with the administrator account through Organizations.
-        invitedAt:
-          allOf:
-          - $ref: '#/components/schemas/__timestampIso8601'
-          - description: The date and time, in UTC and extended ISO 8601 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie membership invitation hasn't been sent to the account.
-        masterAccountId:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: (Deprecated) The Amazon Web Services account ID for the administrator account. This property has been replaced by the administratorAccountId property and is retained only for backward compatibility.
-        relationshipStatus:
-          allOf:
-          - $ref: '#/components/schemas/RelationshipStatus'
-          - description: The current status of the relationship between the account and the administrator account.
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: A map of key-value pairs that specifies which tags (keys and values) are associated with the account in Amazon Macie.
-        updatedAt:
-          allOf:
-          - $ref: '#/components/schemas/__timestampIso8601'
-          - description: The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the relationship between the account and the administrator account.
+      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
+      additionalProperties:
+        $ref: '#/components/schemas/__string'
     __string:
       type: string
-    ValidationException: {}
-    __listOfMember:
-      type: array
-      items:
-        $ref: '#/components/schemas/Member'
-    ThrottlingException: {}
-    DisassociateMemberResponse:
-      type: object
-      properties: {}
     __timestampIso8601:
       type: string
       format: date-time
-    AccessDeniedException: {}
+    ConflictException: {}
     Member:
       type: object
       properties:
@@ -595,6 +540,71 @@ components:
           - $ref: '#/components/schemas/__timestampIso8601'
           - description: The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the relationship between the account and the administrator account.
       description: Provides information about an account that's associated with an Amazon Macie administrator account.
+    __listOfMember:
+      type: array
+      items:
+        $ref: '#/components/schemas/Member'
+    ResourceNotFoundException: {}
+    DeleteMemberResponse:
+      type: object
+      properties: {}
+    ListMembersResponse:
+      type: object
+      properties:
+        members:
+          allOf:
+          - $ref: '#/components/schemas/__listOfMember'
+          - description: An array of objects, one for each account that's associated with the administrator account and matches the criteria specified in the request.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    InternalServerException: {}
+    ValidationException: {}
+    GetMemberResponse:
+      type: object
+      properties:
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Web Services account ID for the account.
+        administratorAccountId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Web Services account ID for the administrator account.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the account.
+        email:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The email address for the account. This value is null if the account is associated with the administrator account through Organizations.
+        invitedAt:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie membership invitation hasn't been sent to the account.
+        masterAccountId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: (Deprecated) The Amazon Web Services account ID for the administrator account. This property has been replaced by the administratorAccountId property and is retained only for backward compatibility.
+        relationshipStatus:
+          allOf:
+          - $ref: '#/components/schemas/RelationshipStatus'
+          - description: The current status of the relationship between the account and the administrator account.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: A map of key-value pairs that specifies which tags (keys and values) are associated with the account in Amazon Macie.
+        updatedAt:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the relationship between the account and the administrator account.
+    DisassociateMemberResponse:
+      type: object
+      properties: {}
+    AccessDeniedException: {}
+    ServiceQuotaExceededException: {}
     RelationshipStatus:
       type: string
       enum:
@@ -609,10 +619,6 @@ components:
       - RegionDisabled
       - AccountSuspended
       description: 'The current status of the relationship between an account and an associated Amazon Macie administrator account. Possible values are:'
-    ConflictException: {}
-    DeleteMemberResponse:
-      type: object
-      properties: {}
     CreateMemberResponse:
       type: object
       properties:
@@ -620,12 +626,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/__string'
           - description: The Amazon Resource Name (ARN) of the account that was associated with the administrator account.
-    ServiceQuotaExceededException: {}
-    TagMap:
-      type: object
-      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
-      additionalProperties:
-        $ref: '#/components/schemas/__string'
   parameters:
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
@@ -639,14 +639,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -657,14 +657,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string

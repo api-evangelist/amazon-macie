@@ -247,6 +247,7 @@ paths:
       - Administrator
 components:
   schemas:
+    ThrottlingException: {}
     GetAdministratorAccountResponse:
       type: object
       properties:
@@ -254,10 +255,16 @@ components:
           allOf:
           - $ref: '#/components/schemas/Invitation'
           - description: The Amazon Web Services account ID for the administrator account. If the accounts are associated by an Amazon Macie membership invitation, this object also provides details about the invitation that was sent to establish the relationship between the accounts.
-    InternalServerException: {}
-    ResourceNotFoundException: {}
+    __timestampIso8601:
+      type: string
+      format: date-time
     __string:
       type: string
+    ConflictException: {}
+    DisassociateFromAdministratorAccountResponse:
+      type: object
+      properties: {}
+    ResourceNotFoundException: {}
     Invitation:
       type: object
       properties:
@@ -278,15 +285,10 @@ components:
           - $ref: '#/components/schemas/RelationshipStatus'
           - description: The status of the relationship between the account that sent the invitation and the account that received the invitation.
       description: Provides information about an Amazon Macie membership invitation.
+    InternalServerException: {}
     ValidationException: {}
-    ThrottlingException: {}
-    __timestampIso8601:
-      type: string
-      format: date-time
-    DisassociateFromAdministratorAccountResponse:
-      type: object
-      properties: {}
     AccessDeniedException: {}
+    ServiceQuotaExceededException: {}
     RelationshipStatus:
       type: string
       enum:
@@ -301,35 +303,15 @@ components:
       - RegionDisabled
       - AccountSuspended
       description: 'The current status of the relationship between an account and an associated Amazon Macie administrator account. Possible values are:'
-    ConflictException: {}
-    ServiceQuotaExceededException: {}
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -342,6 +324,24 @@ components:
       required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string

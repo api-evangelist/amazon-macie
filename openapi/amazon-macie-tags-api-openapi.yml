@@ -216,9 +216,30 @@ paths:
       tags:
       - Tags
 components:
+  schemas:
+    __string:
+      type: string
+    TagResourceResponse:
+      type: object
+      properties: {}
+    ListTagsForResourceResponse:
+      type: object
+      properties:
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: A map of key-value pairs that specifies which tags (keys and values) are associated with the resource.
+    TagMap:
+      type: object
+      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
+      additionalProperties:
+        $ref: '#/components/schemas/__string'
+    UntagResourceResponse:
+      type: object
+      properties: {}
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -229,8 +250,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -247,39 +268,18 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-  schemas:
-    TagResourceResponse:
-      type: object
-      properties: {}
-    ListTagsForResourceResponse:
-      type: object
-      properties:
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: A map of key-value pairs that specifies which tags (keys and values) are associated with the resource.
-    __string:
-      type: string
-    TagMap:
-      type: object
-      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
-      additionalProperties:
-        $ref: '#/components/schemas/__string'
-    UntagResourceResponse:
-      type: object
-      properties: {}
   securitySchemes:
     hmac:
       type: apiKey

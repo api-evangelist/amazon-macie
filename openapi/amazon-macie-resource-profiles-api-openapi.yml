@@ -460,92 +460,20 @@ paths:
       - Resource Profiles
 components:
   schemas:
-    ListResourceProfileArtifactsResponse:
-      type: object
-      properties:
-        artifacts:
-          allOf:
-          - $ref: '#/components/schemas/__listOfResourceProfileArtifact'
-          - description: '<p>An array of objects, one for each of 1-100 S3 objects that Amazon Macie selected for analysis.</p> <p>If Macie has analyzed more than 100 objects in the bucket, Macie populates the array based on the value for the ResourceProfileArtifact.sensitive field for an object: true (sensitive), followed by false (not sensitive). Macie then populates any remaining items in the array with information about objects where the value for the ResourceProfileArtifact.classificationResultStatus field is SKIPPED.</p>'
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    UpdateResourceProfileResponse:
-      type: object
-      properties: {}
-    InternalServerException: {}
+    ThrottlingException: {}
     __listOfResourceProfileArtifact:
       type: array
       items:
         $ref: '#/components/schemas/ResourceProfileArtifact'
-    ResourceNotFoundException: {}
-    ListResourceProfileDetectionsResponse:
-      type: object
-      properties:
-        detections:
-          allOf:
-          - $ref: '#/components/schemas/__listOfDetection'
-          - description: An array of objects, one for each type of sensitive data that Amazon Macie found in the bucket. Each object reports the number of occurrences of the specified type and provides information about the custom data identifier or managed data identifier that detected the data.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    __listOfDetection:
-      type: array
-      items:
-        $ref: '#/components/schemas/Detection'
-    ResourceProfileArtifact:
-      type: object
-      required:
-      - classificationResultStatus
-      - arn
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The Amazon Resource Name (ARN) of the object.
-        classificationResultStatus:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: <p>The status of the analysis. Possible values are:</p> <ul><li><p>COMPLETE - Amazon Macie successfully completed its analysis of the object.</p></li> <li><p>PARTIAL - Macie analyzed only a subset of data in the object. For example, the object is an archive file that contains files in an unsupported format.</p></li> <li><p>SKIPPED - Macie wasn't able to analyze the object. For example, the object is a malformed file.</p></li></ul>
-        sensitive:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - description: Specifies whether Amazon Macie found sensitive data in the object.
-      description: Provides information about an S3 object that Amazon Macie selected for analysis while performing automated sensitive data discovery for an S3 bucket, and the status and results of the analysis. This information is available only if automated sensitive data discovery is currently enabled for your account.
-    __string:
-      type: string
     __boolean:
       type: boolean
-    Detection:
-      type: object
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: If the sensitive data was detected by a custom data identifier, the Amazon Resource Name (ARN) of the custom data identifier that detected the data. Otherwise, this value is null.
-        count:
-          allOf:
-          - $ref: '#/components/schemas/__long'
-          - description: The total number of occurrences of the sensitive data.
-        id:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The unique identifier for the custom data identifier or managed data identifier that detected the sensitive data. For additional details about a specified managed data identifier, see <a href="https://docs.aws.amazon.com/macie/latest/user/managed-data-identifiers.html">Using managed data identifiers</a> in the <i>Amazon Macie User Guide</i>.
-        name:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The name of the custom data identifier or managed data identifier that detected the sensitive data. For a managed data identifier, this value is the same as the unique identifier (id).
-        suppressed:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - description: Specifies whether occurrences of this type of sensitive data are excluded (true) or included (false) in the bucket's sensitivity score.
-        type:
-          allOf:
-          - $ref: '#/components/schemas/DataIdentifierType'
-          - description: 'The type of data identifier that detected the sensitive data. Possible values are: CUSTOM, for a custom data identifier; and, MANAGED, for a managed data identifier.'
-      description: Provides information about a type of sensitive data that Amazon Macie found in an S3 bucket while performing automated sensitive data discovery for the bucket. The information also specifies the custom data identifier or managed data identifier that detected the data. This information is available only if automated sensitive data discovery is currently enabled for your account.
+    __timestampIso8601:
+      type: string
+      format: date-time
+    __string:
+      type: string
+    __integer:
+      type: integer
     SuppressDataIdentifier:
       type: object
       properties:
@@ -558,45 +486,41 @@ components:
           - $ref: '#/components/schemas/DataIdentifierType'
           - description: 'The type of data identifier that detected the sensitive data. Possible values are: CUSTOM, for a custom data identifier; and, MANAGED, for a managed data identifier.'
       description: Specifies a custom data identifier or managed data identifier that detected a type of sensitive data to start excluding or including in an S3 bucket's sensitivity score.
-    UpdateResourceProfileDetectionsResponse:
-      type: object
-      properties: {}
-    __long:
-      type: integer
-    GetResourceProfileResponse:
+    ListResourceProfileDetectionsResponse:
       type: object
       properties:
-        profileUpdatedAt:
+        detections:
           allOf:
-          - $ref: '#/components/schemas/__timestampIso8601'
-          - description: The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently recalculated sensitive data discovery statistics and details for the bucket. If the bucket's sensitivity score is calculated automatically, this includes the score.
-        sensitivityScore:
+          - $ref: '#/components/schemas/__listOfDetection'
+          - description: An array of objects, one for each type of sensitive data that Amazon Macie found in the bucket. Each object reports the number of occurrences of the specified type and provides information about the custom data identifier or managed data identifier that detected the data.
+        nextToken:
           allOf:
-          - $ref: '#/components/schemas/__integer'
-          - description: The current sensitivity score for the bucket, ranging from -1 (classification error) to 100 (sensitive). By default, this score is calculated automatically based on the amount of data that Amazon Macie has analyzed in the bucket and the amount of sensitive data that Macie has found in the bucket.
-        sensitivityScoreOverridden:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    __long:
+      type: integer
+    ResourceNotFoundException: {}
+    __listOfDetection:
+      type: array
+      items:
+        $ref: '#/components/schemas/Detection'
+    ListResourceProfileArtifactsResponse:
+      type: object
+      properties:
+        artifacts:
           allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - description: Specifies whether the bucket's current sensitivity score was set manually. If this value is true, the score was manually changed to 100. If this value is false, the score was calculated automatically by Amazon Macie.
-        statistics:
+          - $ref: '#/components/schemas/__listOfResourceProfileArtifact'
+          - description: '<p>An array of objects, one for each of 1-100 S3 objects that Amazon Macie selected for analysis.</p> <p>If Macie has analyzed more than 100 objects in the bucket, Macie populates the array based on the value for the ResourceProfileArtifact.sensitive field for an object: true (sensitive), followed by false (not sensitive). Macie then populates any remaining items in the array with information about objects where the value for the ResourceProfileArtifact.classificationResultStatus field is SKIPPED.</p>'
+        nextToken:
           allOf:
-          - $ref: '#/components/schemas/ResourceStatistics'
-          - description: The sensitive data discovery statistics for the bucket. The statistics capture the results of automated sensitive data discovery activities that Amazon Macie has performed for the bucket.
-    ValidationException: {}
-    ThrottlingException: {}
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
     DataIdentifierType:
       type: string
       enum:
       - CUSTOM
       - MANAGED
       description: 'The type of data identifier that detected a specific type of sensitive data in an S3 bucket. Possible values are:'
-    __timestampIso8601:
-      type: string
-      format: date-time
-    AccessDeniedException: {}
-    __integer:
-      type: integer
-    ServiceQuotaExceededException: {}
     ResourceStatistics:
       type: object
       properties:
@@ -637,6 +561,82 @@ components:
           - $ref: '#/components/schemas/__long'
           - description: The total number of objects that Amazon Macie hasn't analyzed in the bucket because Macie isn't allowed to access the objects.
       description: Provides statistical data for sensitive data discovery metrics that apply to an S3 bucket that Amazon Macie monitors and analyzes for your account. The statistics capture the results of automated sensitive data discovery activities that Macie has performed for the bucket. The data is available only if automated sensitive data discovery is currently enabled for your account.
+    UpdateResourceProfileDetectionsResponse:
+      type: object
+      properties: {}
+    GetResourceProfileResponse:
+      type: object
+      properties:
+        profileUpdatedAt:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently recalculated sensitive data discovery statistics and details for the bucket. If the bucket's sensitivity score is calculated automatically, this includes the score.
+        sensitivityScore:
+          allOf:
+          - $ref: '#/components/schemas/__integer'
+          - description: The current sensitivity score for the bucket, ranging from -1 (classification error) to 100 (sensitive). By default, this score is calculated automatically based on the amount of data that Amazon Macie has analyzed in the bucket and the amount of sensitive data that Macie has found in the bucket.
+        sensitivityScoreOverridden:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether the bucket's current sensitivity score was set manually. If this value is true, the score was manually changed to 100. If this value is false, the score was calculated automatically by Amazon Macie.
+        statistics:
+          allOf:
+          - $ref: '#/components/schemas/ResourceStatistics'
+          - description: The sensitive data discovery statistics for the bucket. The statistics capture the results of automated sensitive data discovery activities that Amazon Macie has performed for the bucket.
+    UpdateResourceProfileResponse:
+      type: object
+      properties: {}
+    Detection:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: If the sensitive data was detected by a custom data identifier, the Amazon Resource Name (ARN) of the custom data identifier that detected the data. Otherwise, this value is null.
+        count:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - description: The total number of occurrences of the sensitive data.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The unique identifier for the custom data identifier or managed data identifier that detected the sensitive data. For additional details about a specified managed data identifier, see <a href="https://docs.aws.amazon.com/macie/latest/user/managed-data-identifiers.html">Using managed data identifiers</a> in the <i>Amazon Macie User Guide</i>.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The name of the custom data identifier or managed data identifier that detected the sensitive data. For a managed data identifier, this value is the same as the unique identifier (id).
+        suppressed:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether occurrences of this type of sensitive data are excluded (true) or included (false) in the bucket's sensitivity score.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/DataIdentifierType'
+          - description: 'The type of data identifier that detected the sensitive data. Possible values are: CUSTOM, for a custom data identifier; and, MANAGED, for a managed data identifier.'
+      description: Provides information about a type of sensitive data that Amazon Macie found in an S3 bucket while performing automated sensitive data discovery for the bucket. The information also specifies the custom data identifier or managed data identifier that detected the data. This information is available only if automated sensitive data discovery is currently enabled for your account.
+    InternalServerException: {}
+    ResourceProfileArtifact:
+      type: object
+      required:
+      - classificationResultStatus
+      - arn
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The Amazon Resource Name (ARN) of the object.
+        classificationResultStatus:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: <p>The status of the analysis. Possible values are:</p> <ul><li><p>COMPLETE - Amazon Macie successfully completed its analysis of the object.</p></li> <li><p>PARTIAL - Macie analyzed only a subset of data in the object. For example, the object is an archive file that contains files in an unsupported format.</p></li> <li><p>SKIPPED - Macie wasn't able to analyze the object. For example, the object is a malformed file.</p></li></ul>
+        sensitive:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - description: Specifies whether Amazon Macie found sensitive data in the object.
+      description: Provides information about an S3 object that Amazon Macie selected for analysis while performing automated sensitive data discovery for an S3 bucket, and the status and results of the analysis. This information is available only if automated sensitive data discovery is currently enabled for your account.
+    ValidationException: {}
+    AccessDeniedException: {}
+    ServiceQuotaExceededException: {}
   parameters:
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
@@ -650,14 +650,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -668,14 +668,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string

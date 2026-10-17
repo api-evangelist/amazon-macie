@@ -247,10 +247,17 @@ paths:
       - Master
 components:
   schemas:
-    InternalServerException: {}
-    ResourceNotFoundException: {}
+    ThrottlingException: {}
+    DisassociateFromMasterAccountResponse:
+      type: object
+      properties: {}
+    __timestampIso8601:
+      type: string
+      format: date-time
     __string:
       type: string
+    ConflictException: {}
+    ResourceNotFoundException: {}
     GetMasterAccountResponse:
       type: object
       properties:
@@ -278,15 +285,10 @@ components:
           - $ref: '#/components/schemas/RelationshipStatus'
           - description: The status of the relationship between the account that sent the invitation and the account that received the invitation.
       description: Provides information about an Amazon Macie membership invitation.
+    InternalServerException: {}
     ValidationException: {}
-    ThrottlingException: {}
-    __timestampIso8601:
-      type: string
-      format: date-time
     AccessDeniedException: {}
-    DisassociateFromMasterAccountResponse:
-      type: object
-      properties: {}
+    ServiceQuotaExceededException: {}
     RelationshipStatus:
       type: string
       enum:
@@ -301,8 +303,6 @@ components:
       - RegionDisabled
       - AccountSuspended
       description: 'The current status of the relationship between an account and an associated Amazon Macie administrator account. Possible values are:'
-    ConflictException: {}
-    ServiceQuotaExceededException: {}
   parameters:
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
@@ -316,14 +316,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -334,14 +334,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string

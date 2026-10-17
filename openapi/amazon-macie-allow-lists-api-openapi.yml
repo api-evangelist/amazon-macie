@@ -476,32 +476,17 @@ paths:
       - Allow Lists
 components:
   schemas:
-    __stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922:
+    ThrottlingException: {}
+    __stringMin3Max255PatternAZaZ093255:
       type: string
-      pattern: ^arn:(aws|aws-cn|aws-us-gov):macie2:[a-z1-9-]{9,20}:\d{12}:allow-list\/[a-z0-9]{22}$
-      minLength: 71
-      maxLength: 89
-    ListAllowListsResponse:
+      pattern: ^[A-Za-z0-9.\-_]{3,255}$
+      minLength: 3
+      maxLength: 255
+    TagMap:
       type: object
-      properties:
-        allowLists:
-          allOf:
-          - $ref: '#/components/schemas/__listOfAllowListSummary'
-          - description: An array of objects, one for each allow list.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    InternalServerException: {}
-    __stringMin22Max22PatternAZ0922:
-      type: string
-      pattern: ^[a-z0-9]{22}$
-      minLength: 22
-      maxLength: 22
-    ResourceNotFoundException: {}
-    DeleteAllowListResponse:
-      type: object
-      properties: {}
+      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
+      additionalProperties:
+        $ref: '#/components/schemas/__string'
     AllowListStatus:
       type: object
       required:
@@ -516,25 +501,67 @@ components:
           - $ref: '#/components/schemas/__stringMin1Max1024PatternSS'
           - description: A brief description of the status of the allow list. Amazon Macie uses this value to provide additional information about an error that occurred when Macie tried to access and use the list's criteria.
       description: Provides information about the current status of an allow list, which indicates whether Amazon Macie can access and use the list's criteria.
-    __string:
-      type: string
-    __stringMin3Max255PatternAZaZ093255:
-      type: string
-      pattern: ^[A-Za-z0-9.\-_]{3,255}$
-      minLength: 3
-      maxLength: 255
-    AllowListCriteria:
+    CreateAllowListResponse:
       type: object
       properties:
-        regex:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922'
+          - description: The Amazon Resource Name (ARN) of the allow list.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__stringMin22Max22PatternAZ0922'
+          - description: The unique identifier for the allow list.
+    __stringMin22Max22PatternAZ0922:
+      type: string
+      pattern: ^[a-z0-9]{22}$
+      minLength: 22
+      maxLength: 22
+    __string:
+      type: string
+    __timestampIso8601:
+      type: string
+      format: date-time
+    ListAllowListsResponse:
+      type: object
+      properties:
+        allowLists:
+          allOf:
+          - $ref: '#/components/schemas/__listOfAllowListSummary'
+          - description: An array of objects, one for each allow list.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - description: The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    AllowListSummary:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922'
+          - description: The Amazon Resource Name (ARN) of the allow list.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when the allow list was created in Amazon Macie.
+        description:
           allOf:
           - $ref: '#/components/schemas/__stringMin1Max512PatternSS'
-          - description: The regular expression (<i>regex</i>) that defines the text pattern to ignore. The expression can contain as many as 512 characters.
-        s3WordsList:
+          - description: The custom description of the allow list.
+        id:
           allOf:
-          - $ref: '#/components/schemas/S3WordsList'
-          - description: The location and name of the S3 object that lists specific text to ignore.
-      description: Specifies the criteria for an allow list. The criteria must specify a regular expression (regex) or an S3 object (s3WordsList). It can't specify both.
+          - $ref: '#/components/schemas/__stringMin22Max22PatternAZ0922'
+          - description: The unique identifier for the allow list.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/__stringMin1Max128Pattern'
+          - description: The custom name of the allow list.
+        updatedAt:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - description: The date and time, in UTC and extended ISO 8601 format, when the allow list's settings were most recently changed in Amazon Macie.
+      description: Provides a subset of information about an allow list.
+    ConflictException: {}
     GetAllowListResponse:
       type: object
       properties:
@@ -574,6 +601,69 @@ components:
           allOf:
           - $ref: '#/components/schemas/__timestampIso8601'
           - description: The date and time, in UTC and extended ISO 8601 format, when the allow list's settings were most recently changed in Amazon Macie.
+    AllowListCriteria:
+      type: object
+      properties:
+        regex:
+          allOf:
+          - $ref: '#/components/schemas/__stringMin1Max512PatternSS'
+          - description: The regular expression (<i>regex</i>) that defines the text pattern to ignore. The expression can contain as many as 512 characters.
+        s3WordsList:
+          allOf:
+          - $ref: '#/components/schemas/S3WordsList'
+          - description: The location and name of the S3 object that lists specific text to ignore.
+      description: Specifies the criteria for an allow list. The criteria must specify a regular expression (regex) or an S3 object (s3WordsList). It can't specify both.
+    ResourceNotFoundException: {}
+    __stringMin1Max1024PatternSS:
+      type: string
+      pattern: ^[\s\S]+$
+      minLength: 1
+      maxLength: 1024
+    AllowListStatusCode:
+      type: string
+      enum:
+      - OK
+      - S3_OBJECT_NOT_FOUND
+      - S3_USER_ACCESS_DENIED
+      - S3_OBJECT_ACCESS_DENIED
+      - S3_THROTTLED
+      - S3_OBJECT_OVERSIZE
+      - S3_OBJECT_EMPTY
+      - UNKNOWN_ERROR
+      description: 'Indicates the current status of an allow list. Depending on the type of criteria that the list specifies, possible values are:'
+    InternalServerException: {}
+    ValidationException: {}
+    AccessDeniedException: {}
+    __stringMin1Max512PatternSS:
+      type: string
+      pattern: ^[\s\S]+$
+      minLength: 1
+      maxLength: 512
+    UpdateAllowListResponse:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922'
+          - description: The Amazon Resource Name (ARN) of the allow list.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/__stringMin22Max22PatternAZ0922'
+          - description: The unique identifier for the allow list.
+    __stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922:
+      type: string
+      pattern: ^arn:(aws|aws-cn|aws-us-gov):macie2:[a-z1-9-]{9,20}:\d{12}:allow-list\/[a-z0-9]{22}$
+      minLength: 71
+      maxLength: 89
+    __stringMin1Max128Pattern:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 128
+    __listOfAllowListSummary:
+      type: array
+      items:
+        $ref: '#/components/schemas/AllowListSummary'
     S3WordsList:
       type: object
       required:
@@ -589,100 +679,10 @@ components:
           - $ref: '#/components/schemas/__stringMin1Max1024PatternSS'
           - description: The full name (key) of the object.
       description: Provides information about an S3 object that lists specific text to ignore.
-    __stringMin1Max512PatternSS:
-      type: string
-      pattern: ^[\s\S]+$
-      minLength: 1
-      maxLength: 512
-    ValidationException: {}
-    __stringMin1Max1024PatternSS:
-      type: string
-      pattern: ^[\s\S]+$
-      minLength: 1
-      maxLength: 1024
-    CreateAllowListResponse:
-      type: object
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922'
-          - description: The Amazon Resource Name (ARN) of the allow list.
-        id:
-          allOf:
-          - $ref: '#/components/schemas/__stringMin22Max22PatternAZ0922'
-          - description: The unique identifier for the allow list.
-    ThrottlingException: {}
-    __stringMin1Max128Pattern:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 128
-    UpdateAllowListResponse:
-      type: object
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922'
-          - description: The Amazon Resource Name (ARN) of the allow list.
-        id:
-          allOf:
-          - $ref: '#/components/schemas/__stringMin22Max22PatternAZ0922'
-          - description: The unique identifier for the allow list.
-    __timestampIso8601:
-      type: string
-      format: date-time
-    AllowListStatusCode:
-      type: string
-      enum:
-      - OK
-      - S3_OBJECT_NOT_FOUND
-      - S3_USER_ACCESS_DENIED
-      - S3_OBJECT_ACCESS_DENIED
-      - S3_THROTTLED
-      - S3_OBJECT_OVERSIZE
-      - S3_OBJECT_EMPTY
-      - UNKNOWN_ERROR
-      description: 'Indicates the current status of an allow list. Depending on the type of criteria that the list specifies, possible values are:'
-    AccessDeniedException: {}
-    ConflictException: {}
-    __listOfAllowListSummary:
-      type: array
-      items:
-        $ref: '#/components/schemas/AllowListSummary'
     ServiceQuotaExceededException: {}
-    AllowListSummary:
+    DeleteAllowListResponse:
       type: object
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922'
-          - description: The Amazon Resource Name (ARN) of the allow list.
-        createdAt:
-          allOf:
-          - $ref: '#/components/schemas/__timestampIso8601'
-          - description: The date and time, in UTC and extended ISO 8601 format, when the allow list was created in Amazon Macie.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/__stringMin1Max512PatternSS'
-          - description: The custom description of the allow list.
-        id:
-          allOf:
-          - $ref: '#/components/schemas/__stringMin22Max22PatternAZ0922'
-          - description: The unique identifier for the allow list.
-        name:
-          allOf:
-          - $ref: '#/components/schemas/__stringMin1Max128Pattern'
-          - description: The custom name of the allow list.
-        updatedAt:
-          allOf:
-          - $ref: '#/components/schemas/__timestampIso8601'
-          - description: The date and time, in UTC and extended ISO 8601 format, when the allow list's settings were most recently changed in Amazon Macie.
-      description: Provides a subset of information about an allow list.
-    TagMap:
-      type: object
-      description: A string-to-string map of key-value pairs that specifies the tags (keys and values) for an Amazon Macie resource.
-      additionalProperties:
-        $ref: '#/components/schemas/__string'
+      properties: {}
   parameters:
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
@@ -696,14 +696,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -714,14 +714,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
