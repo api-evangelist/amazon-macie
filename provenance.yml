@@ -5,12 +5,27 @@ artifacts:
   agentic-access/amazon-macie-agentic-access.yml:
     method: generated
     evidence: declared in the artifact
+  ai-preferences/amazon-macie-ai-preferences.yml:
+    method: harvested
+    evidence: declared in the artifact
   authentication/amazon-macie-authentication.yml:
     method: derived
     evidence: declared in the artifact
   capabilities/amazon-macie-capability-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
+  changelog/amazon-macie-changelog.yml:
+    method: searched
+    evidence: declared in the artifact
+  cli/amazon-macie-cli.yml:
+    method: searched
+    evidence: declared in the artifact
   collections/amazon-macie-admin-adminaccountid-api.opencollection.json:
     method: unknown
     evidence: no authorship recorded
@@ -161,6 +176,21 @@ artifacts:
   collections/openapi.postman_collection.json:
     method: unknown
     evidence: no authorship recorded
+  compliance/amazon-macie-compliance.yml:
+    method: harvested
+    evidence: declared in the artifact
+  conformance/amazon-macie-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  conventions/amazon-macie-conventions.yml:
+    method: derived
+    evidence: declared in the artifact
+  data-model/amazon-macie-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  errors/amazon-macie-problem-types.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/amazon-macie-__boolean-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -1433,6 +1463,9 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/amazon-macie-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -1659,6 +1692,12 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-macie-batch-get-custom-data-identifiers-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-macie-batch-update-automated-discovery-accounts-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-macie-batch-update-automated-discovery-accounts-response-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-macie-block-public-access-schema.json:
@@ -2184,6 +2223,12 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-macie-list-allow-lists-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-macie-list-automated-discovery-accounts-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-macie-list-automated-discovery-accounts-response-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-macie-list-classification-jobs-request-schema.json:
@@ -3983,7 +4028,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -4052,80 +4097,90 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  openapi/_original/amazon-macie-openapi-original.yaml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
-  openapi/_original/openapi.yml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  llms/amazon-macie-llms-provenance.yml:
+    method: unknown
+    evidence: no authorship recorded
+  llms/amazon-macie-llms.txt:
+    method: unknown
+    evidence: no authorship recorded
+  mcp/amazon-macie-mcp.yml:
+    method: derived
+    evidence: declared in the artifact
   openapi/amazon-macie-admin-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-administrator-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-allow-lists-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-automated-discovery-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
   openapi/amazon-macie-classification-export-configuration-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-classification-scopes-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-custom-data-identifiers-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-data-sources-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-findings-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-findings-publication-configuration-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-findingsfilters-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-invitations-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-jobs-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-macie-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-managed-data-identifiers-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/amazon-macie-master-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-members-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-resource-profiles-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
   openapi/amazon-macie-reveal-configuration-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-tags-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-templates-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-macie-usage-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  packages/amazon-macie-packages.yml:
+    method: searched
+    evidence: declared in the artifact
+  patterns/amazon-macie-patterns.yml:
     method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    evidence: declared in the artifact
   plans/amazon-macie-plans-pricing.yml:
     method: searched
     evidence: declared in the artifact
@@ -4204,10 +4259,16 @@ artifacts:
   postman/amazon-macie-usage-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-macie-usage-api
+  privacy/amazon-macie-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/amazon-macie-rate-limits.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   rules/amazon-macie-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/amazon-macie-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-macie-spectral-rules.yml:
@@ -4226,8 +4287,27 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   smithy/macie2-2020-01-01.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/macie2/service/2020-01-01/macie2-2020-01-01.json
+      (sha256 955d6cb7818b, fetched 2026-11-11T21:12:11+00:00)
+  terms/amazon-macie-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
+  vendors/amazon-macie-vendors.yml:
     method: unknown
     evidence: no authorship recorded
   vocabulary/amazon-macie-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/amazon-macie-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
+  well-known/amazon-macie-midway-auth-openid-configuration.json:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-macie-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-macie-well-known.yml:
     method: unknown
     evidence: no authorship recorded
